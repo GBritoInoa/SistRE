@@ -1,0 +1,95 @@
+﻿@model BeEntity.BeNovedadIncautacion
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            <label>Tipo Incautación</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.TipoIncautacionID, ViewBag.Incautaciones as SelectList, "---Seleccione Tipo Incautación ---", htmlAttributes: new { @class = "form-control", id="Cid",name="Cid" })
+                @Html.ValidationMessageFor(model => model.TipoIncautacionID, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Tipo Incautación</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.TipoProductoID, new SelectList(""), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoProductoID, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+@Scripts.Render("~/bundles/jqueryval")
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#Cid").change(function () {
+                var Idproducto = $(this).val();
+                debugger
+                $.ajax({
+                    type: "post",
+                    url: "Areas/Cascading/Products?Cid" + Idproducto,
+                    contentType: "html",
+                    success: function (response) {
+                        debugger
+                        $("#TipoProductoID").empty();
+                        $("#TipoProductoID").append(response);
+
+                    }
+                })
+            })
+        })
+
+        //function myFunction2() {
+        //    $(document).ready(function () {
+        //        $("#TipoIncautacion").change(function () {
+        //            var Idproducto = $(this).val();
+        //            debugger
+        //            $.ajax({
+        //                type: "post",
+        //                url: "/Cascading/Products?Cid=" + Idproducto,
+        //                contentType: "html",
+        //                success: function (response) {
+        //                    debugger
+        //                    $("#ProductoID").empty();
+        //                    $("#ProductoID").append(response);
+
+        //                }
+        //            })
+        //        })
+        //    })
+
+        //}
+
+    </script>
+}

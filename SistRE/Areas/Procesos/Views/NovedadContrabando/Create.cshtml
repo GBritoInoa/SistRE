@@ -1,0 +1,225 @@
+﻿@model BeEntity.BeNovedadContrabando
+
+
+@{
+    ViewBag.Title = "Registro Novedad Contrabando";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fa fa-pen-alt"><strong> Registro de Contrabando </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+        <div style="float:right">
+            <span><strong>Nota:</strong> Todos los campos son (<label class="bg-label">*</label>)  son obligatorios</span>
+        </div>
+        <br />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label>Tipo Contrabando</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("TipoContrabandoID", null, "---Seleccione Tipo Contrabando ---", htmlAttributes: new { @class = "form-control", name = "TipoContrabandoID", id = "ddlContrabando", onchange = "myFunction()" })
+                        @Html.ValidationMessageFor(model => model.TipoContrabandoID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                @*onchange = "myFunction()"*@
+                @*, onchange = "fillProducts(this)"*@
+
+                @*Modal Tipo Medidas*@
+                <div class="modal fade" id="TipoProducto" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="align-content:center">
+                                <h4 id="ModalTitle"></h4>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    &times;
+                                </button>
+                                @*<a href="#" class="close" data-dismiss="modal">&time</a>*@
+                            </div>
+
+                            <div class="modal-body">
+                                <form id="form" method="post">
+                                    <fieldset id="SubmitForm">
+
+
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <label>Contrabando</label><label class="bg-label">*</label>
+                                        <div class="col-md-10">
+                                    @Html.ValidationMessageFor(model => model.ProductoID, "", new { @class = "text-danger" })
+                                    @Html.DropDownList("ProductoID", new List<SelectListItem>(), " -- Seleccionar Tipo --", new { @class = "form-control", id = "ProductoID", value = "ProductoID", name = "ProductoID" })
+
+                                  
+                                    </div>
+                                        </div>
+
+                                    </fieldset>
+
+
+                                    <fieldset id="SubmitForm">
+
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group" id="_visible">
+                                            <label>Tipo Medida/Presentación</label><label class="bg-label">*</label>
+                                            <div class="col-md-10">
+                                                @Html.ValidationMessageFor(model => model.TipoMedidaID, "", new { @class = "text-danger" })
+                                                @Html.DropDownList("TipoMedidaID", new List<SelectListItem>(), " -- Seleccionar Tipo --", new { @class = "form-control", @id = "TipoMedidaID", @Name = "TipoMedidaID" })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @*Fin Modal Tipo Medidas**@
+
+                <div class="form-group">
+                    <label>Cantidad</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = " ", @type = "number" }, placeholder = "Ingresar Cantidad" })<br />
+                        @Html.ValidationMessageFor(model => model.Cantidad, " ", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha Novedad</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FechaNovedad, new { htmlAttributes = new { @class = " ", @type = "date" } })<br />
+                        @Html.ValidationMessageFor(model => model.FechaNovedad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Hora Novedad</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.HoraNovedad, new { htmlAttributes = new { @class = " ", @type = "time" } })<br />
+                        @Html.ValidationMessageFor(model => model.HoraNovedad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Provincia donde ocurrió la Novedad</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("ProvinciaID", null, "---Seleccione Provincia ---", htmlAttributes: new { @class = "form-control" })<br />
+                        @Html.ValidationMessageFor(model => model.ProvinciaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Brigada Responsable</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("BrigadaID", null, "---Seleccione Brigada ---", htmlAttributes: new { @class = "form-control" })<br />
+                        @Html.ValidationMessageFor(model => model.BrigadaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Causa o Razón</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" id="Causa" rows="3" name="Causa" style="resize: none;" placeholder="Razón o Causa Apresamiento"></textarea><br />
+                        @Html.ValidationMessageFor(model => model.Causa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div style="float:unset">
+                    @Html.Partial("OptionsBox/Save")
+                </div>
+                <br />
+                <br />
+                <br />
+
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@*<script>
+        function fillProducts(inpt) {
+            myFunction();
+            useAjax('@Url.Action("NovedadIncautacion","Productos")', '{idTipoIncautacion:"' + inpt.value + '"}', function (data) {
+                fillDropDown('#ProductoID', data, 'ProductoID', 'Nombre');
+            }, 'POST');
+        }
+    </script>*@
+
+
+@Scripts.Render("~/bundles/jqueryval")
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ddlContrabando").change(function () {
+                $.get("/NovedadContrabando/GetProducts", { TipoProductoID: $("#ddlContrabando").val() }, function (data) {
+                    // VACIAMOS EL DropDownList
+
+                    $("#ProductoID").empty();
+                    // AÑADIMOS UN NUEVO label CON EL NOMBRE DEL ELEMENTO SELECCIONADO
+                    $("#ProductoID").append("<option value> -- Seleccionar Tipo " + $("#ddlContrabando option:selected").text() + " --</option>")
+                    // CONSTRUIMOS EL DropDownList A PARTIR DEL RESULTADO Json (data)
+                    $.each(data, function (index, row) {
+                        $("#ProductoID").append("<option value='" + row.TipoProductoID + "'>" + row.Nombre + "</option>")
+                        $("#TipoMedidaID").empty();
+                    });
+                });
+            });
+
+            $("#ProductoID").change(function () {
+
+                $.get("/NovedadContrabando/GetTipoMedidas", { ProductoID: $("#ProductoID").val() }, function (data) {
+                    // VACIAMOS EL DropDownList
+                    $("#TipoMedidaID").empty();
+                    // AÑADIMOS UN NUEVO label CON EL NOMBRE DEL ELEMENTO SELECCIONADO
+                    $("#TipoMedidaID").append("<option value> -- Seleccionar Sub Tipo " + $("#ProductoID option:selected").text() + " --</option>")
+                    // CONSTRUIMOS EL DropDownList A PARTIR DEL RESULTADO Json (data)
+                    $.each(data, function (index, row) {
+                        $("#TipoMedidaID").append("<option value='" + row.ID + "'>" + row.Nombre + "</option>")
+
+                    });
+                });
+            });
+
+        });
+
+        @* Llama Show Modal *@
+    function myFunction() {
+
+        $("#ModalTitle").html("Tipo Producto ");
+        $("#TipoProducto").modal();
+
+    };
+
+    //$('#TipoMedidaID').change(function (e) {
+    //    alert($(this).val());
+    //});
+
+    //function Alertando() {
+    //    var slt = document.getElementById('DdlLista');
+    //    var valor = slt.options[slt.selectedIndex].value;
+    //    alert(valor);
+    //};
+
+    </script>
+
+
+}

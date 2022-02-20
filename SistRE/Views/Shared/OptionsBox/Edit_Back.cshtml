@@ -1,0 +1,11 @@
+﻿
+@model object
+<div class="options-box">
+    <div class="btn-group btn-group-df float-left" role="group" aria-label="...">
+        @*<a href="@Url.Action("Index")" class="btn btn-default" title="Volver al Listado">Volver <span class="fa fa-arrow-circle-left"></span></a>*@
+        <a title="Volver al listado" href="@Url.Action("Index")" class="btn btn-info">Volver <span class="fa fa-arrow-circle-left"></span></a>
+        <a  href="@Url.Action("Edit", new { id = Model })" class="btn btn-secondary" title="Editar">Editar<span class="fa fa-edit"></span></a>
+      
+
+    </div>
+</div>

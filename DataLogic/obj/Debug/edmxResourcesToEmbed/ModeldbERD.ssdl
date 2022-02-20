@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbPersonalERDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Batallones">
+    <Key>
+      <PropertyRef Name="BatallonID" />
+    </Key>
+    <Property Name="BatallonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UnidadID" Type="int" Nullable="false" />
+    <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Companias">
+    <Key>
+      <PropertyRef Name="CompaniaID" />
+    </Key>
+    <Property Name="CompaniaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BatallonID" Type="int" Nullable="false" />
+    <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nomina" Type="int" Nullable="false" />
+    <Property Name="TenienteGeneral" Type="int" Nullable="false" />
+    <Property Name="MayorGeneral" Type="int" Nullable="false" />
+    <Property Name="General" Type="int" Nullable="false" />
+    <Property Name="Coronel" Type="int" Nullable="false" />
+    <Property Name="TenienteCoronel" Type="int" Nullable="false" />
+    <Property Name="Mayor" Type="int" Nullable="false" />
+    <Property Name="Capitan" Type="int" Nullable="false" />
+    <Property Name="PrimerTeniente" Type="int" Nullable="false" />
+    <Property Name="SeguntoTeniente" Type="int" Nullable="false" />
+    <Property Name="Cadete4toAño" Type="int" Nullable="false" />
+    <Property Name="Cadete3erAño" Type="int" Nullable="false" />
+    <Property Name="Cadete2doAño" Type="int" Nullable="false" />
+    <Property Name="Cadete1erAño" Type="int" Nullable="false" />
+    <Property Name="AspiranteAcadete" Type="int" Nullable="false" />
+    <Property Name="SargentoMayor" Type="int" Nullable="false" />
+    <Property Name="SargentoAyC" Type="int" Nullable="false" />
+    <Property Name="Sargento" Type="int" Nullable="false" />
+    <Property Name="Cabo" Type="int" Nullable="false" />
+    <Property Name="Raso" Type="int" Nullable="false" />
+    <Property Name="Conscripto" Type="int" Nullable="false" />
+    <Property Name="Asimilado" Type="int" Nullable="false" />
+    <Property Name="Igualado" Type="int" Nullable="false" />
+    <Property Name="Historica" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="MunicipioID" />
+    </Key>
+    <Property Name="MunicipioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="PaisID" />
+    </Key>
+    <Property Name="PaisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="capital" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContinenteID" Type="int" Nullable="false" />
+    <Property Name="codAnterior" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="ProvinciaID" />
+    </Key>
+    <Property Name="ProvinciaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RegionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rangos">
+    <Key>
+      <PropertyRef Name="RangoID" />
+    </Key>
+    <Property Name="RangoID" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nivelRangoID" Type="int" Nullable="false" />
+    <Property Name="Imagen" Type="nvarchar(max)" />
+    <Property Name="codAnterior" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Sueldo" Type="float" Nullable="false" />
+    <Property Name="CategoriaID" Type="int" />
+    <Property Name="nombreARD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abreviatura" Type="nvarchar(max)" />
+    <Property Name="Riesgo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Cargo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Abreviatura2" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Regiones">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sectores">
+    <Key>
+      <PropertyRef Name="SectorID" />
+    </Key>
+    <Property Name="SectorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Unidades">
+    <Key>
+      <PropertyRef Name="UnidadID" />
+    </Key>
+    <Property Name="UnidadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Municipios_dbo_Provincias_ProvinciaID">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="ProvinciaID" />
+      </Principal>
+      <Dependent Role="Municipios">
+        <PropertyRef Name="ProvinciaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Provincias_dbo_Regiones_RegionID">
+    <End Role="Regiones" Type="Self.Regiones" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regiones">
+        <PropertyRef Name="RegionID" />
+      </Principal>
+      <Dependent Role="Provincias">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbPersonalERDModelStoreContainer">
+    <EntitySet Name="Batallones" EntityType="Self.Batallones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Companias" EntityType="Self.Companias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincias" EntityType="Self.Provincias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rangos" EntityType="Self.Rangos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Regiones" EntityType="Self.Regiones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sectores" EntityType="Self.Sectores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unidades" EntityType="Self.Unidades" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Municipios_dbo_Provincias_ProvinciaID" Association="Self.FK_dbo_Municipios_dbo_Provincias_ProvinciaID">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Provincias_dbo_Regiones_RegionID" Association="Self.FK_dbo_Provincias_dbo_Regiones_RegionID">
+      <End Role="Regiones" EntitySet="Regiones" />
+      <End Role="Provincias" EntitySet="Provincias" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

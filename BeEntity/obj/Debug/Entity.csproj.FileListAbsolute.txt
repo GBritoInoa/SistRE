@@ -1,0 +1,35 @@
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BeEntity\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BeEntity\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BeEntity\obj\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BeEntity\obj\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BeEntity\bin\Debug\BeEntity.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BeEntity\bin\Debug\BeEntity.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BeEntity\obj\Debug\BeEntity.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BeEntity\obj\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BeEntity\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BeEntity\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BeEntity\obj\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BeEntity\obj\Debug\BeEntity.pdb
+K:\Backup SistRE\SistRE\BeEntity\bin\Debug\BeEntity.dll
+K:\Backup SistRE\SistRE\BeEntity\bin\Debug\BeEntity.pdb
+K:\Backup SistRE\SistRE\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache
+K:\Backup SistRE\SistRE\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+K:\Backup SistRE\SistRE\BeEntity\obj\Debug\BeEntity.dll
+K:\Backup SistRE\SistRE\BeEntity\obj\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\obj\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\obj\Debug\BeEntity.pdb
+C:\SistRE\BeEntity\bin\Debug\BeEntity.dll
+C:\SistRE\BeEntity\bin\Debug\BeEntity.pdb
+C:\SistRE\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\SistRE\BeEntity\obj\Debug\BeEntity.dll
+C:\SistRE\BeEntity\obj\Debug\BeEntity.pdb
+C:\SistRE\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache

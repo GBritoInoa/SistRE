@@ -1,0 +1,14 @@
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Release\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Release\BusinessControl.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Release\BusinessControl.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Release\BusinessControl.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Release\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Release\BusinessControl.pdb

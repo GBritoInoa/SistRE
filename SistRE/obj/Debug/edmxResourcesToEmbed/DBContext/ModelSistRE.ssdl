@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_G2ERDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Causa_Herida">
+    <Key>
+      <PropertyRef Name="CausaHeridaID" />
+    </Key>
+    <Property Name="CausaHeridaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAutidoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Causa_Muerte">
+    <Key>
+      <PropertyRef Name="CausaMuerteID" />
+    </Key>
+    <Property Name="CausaMuerteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Medioambiente">
+    <Key>
+      <PropertyRef Name="DetalleMedioambienteID" />
+    </Key>
+    <Property Name="DetalleMedioambienteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NovedadID" Type="int" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Novedad_Protesta">
+    <Key>
+      <PropertyRef Name="DetalleNovedadProtestaID" />
+    </Key>
+    <Property Name="DetalleNovedadProtestaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NovedadID" Type="int" Nullable="false" />
+    <Property Name="TipoProtestaID" Type="int" Nullable="false" />
+    <Property Name="ProtestaConvocatoriaID" Type="int" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Novedad_Vehiculo">
+    <Key>
+      <PropertyRef Name="DetalleNovedadVehiculoID" />
+    </Key>
+    <Property Name="DetalleNovedadVehiculoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NovedadID" Type="int" Nullable="false" />
+    <Property Name="TipoVehiculoID" Type="int" Nullable="false" />
+    <Property Name="MarcaVehiculoID" Type="int" Nullable="false" />
+    <Property Name="ModeloVehiculoID" Type="int" Nullable="false" />
+    <Property Name="Anio" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadVehiculoID" Type="int" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entrega">
+    <Key>
+      <PropertyRef Name="EntregaID" />
+    </Key>
+    <Property Name="EntregaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Incautaciones">
+    <Key>
+      <PropertyRef Name="IncautacionID" />
+    </Key>
+    <Property Name="IncautacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marca_Vehiculo">
+    <Key>
+      <PropertyRef Name="MarcaVehiculoID" />
+    </Key>
+    <Property Name="MarcaVehiculoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modelo_Vehiculo">
+    <Key>
+      <PropertyRef Name="ModeloVehiculoID" />
+    </Key>
+    <Property Name="ModeloVehiculoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Novedades">
+    <Key>
+      <PropertyRef Name="NovedadesID" />
+    </Key>
+    <Property Name="NovedadesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NovedadTipoID" Type="int" Nullable="false" />
+    <Property Name="InstitucionID" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaNovedad" Type="datetime" Nullable="false" />
+    <Property Name="LocalidadID" Type="int" Nullable="false" />
+    <Property Name="NacionalidadID" Type="int" Nullable="false" />
+    <Property Name="SexoID" Type="int" Nullable="false" />
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="RangoID" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Protesta_Convocatoria">
+    <Key>
+      <PropertyRef Name="ProtestaConvocatoriaID" />
+    </Key>
+    <Property Name="ProtestaConvocatoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Recuperaciones">
+    <Key>
+      <PropertyRef Name="RecuperacionID" />
+    </Key>
+    <Property Name="RecuperacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Retenciones">
+    <Key>
+      <PropertyRef Name="RetencionID" />
+    </Key>
+    <Property Name="RetencionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="SexoID" />
+    </Key>
+    <Property Name="SexoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estatus" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tipo_Arma">
+    <Key>
+      <PropertyRef Name="TipoArmaID" />
+    </Key>
+    <Property Name="TipoArmaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Droga">
+    <Key>
+      <PropertyRef Name="TipoDrogaID" />
+    </Key>
+    <Property Name="TipoDrogaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_G2ERD.dbo.Tipo_Medicamento' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Tipo_Medicamento">
+    <Key>
+      <PropertyRef Name="TipoMedicamentoID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="idEstatus" />
+    </Key>
+    <Property Name="TipoMedicamentoID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_G2ERD.dbo.Tipo_Medicamentos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Tipo_Medicamentos">
+    <Key>
+      <PropertyRef Name="TipoMedicamentoID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="idEstatus" />
+      <PropertyRef Name="idAuditoria" />
+    </Key>
+    <Property Name="TipoMedicamentoID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Novedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Tipo_Novedad_Vehiculo">
+    <Key>
+      <PropertyRef Name="TipoNovedadVehiculoID" />
+    </Key>
+    <Property Name="TipoNovedadVehiculoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Tipo_Producto">
+    <Key>
+      <PropertyRef Name="TipoProductoID" />
+    </Key>
+    <Property Name="TipoProductoID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Producto_Bebida">
+    <Key>
+      <PropertyRef Name="TipoBebidaID" />
+    </Key>
+    <Property Name="TipoBebidaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Producto_Comestible">
+    <Key>
+      <PropertyRef Name="TipoComestibleID" />
+    </Key>
+    <Property Name="TipoComestibleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Protesta">
+    <Key>
+      <PropertyRef Name="TipoProtestaID" />
+    </Key>
+    <Property Name="TipoProtestaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Tipo_Vehiculo">
+    <Key>
+      <PropertyRef Name="TipoVehiculoID" />
+    </Key>
+    <Property Name="TipoVehiculoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idAuditoria" Type="int" />
+  </EntityType>
+  <EntityContainer Name="db_G2ERDModelStoreContainer">
+    <EntitySet Name="Causa_Herida" EntityType="Self.Causa_Herida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Causa_Muerte" EntityType="Self.Causa_Muerte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Medioambiente" EntityType="Self.Detalle_Medioambiente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Novedad_Protesta" EntityType="Self.Detalle_Novedad_Protesta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Novedad_Vehiculo" EntityType="Self.Detalle_Novedad_Vehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entrega" EntityType="Self.Entrega" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Incautaciones" EntityType="Self.Incautaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marca_Vehiculo" EntityType="Self.Marca_Vehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modelo_Vehiculo" EntityType="Self.Modelo_Vehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Novedades" EntityType="Self.Novedades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Protesta_Convocatoria" EntityType="Self.Protesta_Convocatoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recuperaciones" EntityType="Self.Recuperaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Retenciones" EntityType="Self.Retenciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Arma" EntityType="Self.Tipo_Arma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Droga" EntityType="Self.Tipo_Droga" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Novedad" EntityType="Self.Tipo_Novedad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Novedad_Vehiculo" EntityType="Self.Tipo_Novedad_Vehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Producto_Bebida" EntityType="Self.Tipo_Producto_Bebida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Producto_Comestible" EntityType="Self.Tipo_Producto_Comestible" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Protesta" EntityType="Self.Tipo_Protesta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Medicamento" EntityType="Self.Tipo_Medicamento" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tipo_Medicamento].[TipoMedicamentoID] AS [TipoMedicamentoID], 
+    [Tipo_Medicamento].[Nombre] AS [Nombre], 
+    [Tipo_Medicamento].[idEstatus] AS [idEstatus], 
+    [Tipo_Medicamento].[idAuditoria] AS [idAuditoria]
+    FROM [dbo].[Tipo_Medicamento] AS [Tipo_Medicamento]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tipo_Medicamentos" EntityType="Self.Tipo_Medicamentos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tipo_Medicamentos].[TipoMedicamentoID] AS [TipoMedicamentoID], 
+    [Tipo_Medicamentos].[Nombre] AS [Nombre], 
+    [Tipo_Medicamentos].[idEstatus] AS [idEstatus], 
+    [Tipo_Medicamentos].[idAuditoria] AS [idAuditoria]
+    FROM [dbo].[Tipo_Medicamentos] AS [Tipo_Medicamentos]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

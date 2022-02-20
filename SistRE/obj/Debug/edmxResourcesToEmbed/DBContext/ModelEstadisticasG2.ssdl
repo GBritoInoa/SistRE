@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_G2ERDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Estatus">
+    <Key>
+      <PropertyRef Name="EstatusID" />
+    </Key>
+    <Property Name="EstatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Novedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Tipo_Novedad_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="Tipo_Novedad" Type="Self.Tipo_Novedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Tipo_Novedad">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_G2ERDModelStoreContainer">
+    <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Novedad" EntityType="Self.Tipo_Novedad" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tipo_Novedad_Estatus" Association="Self.FK_Tipo_Novedad_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Tipo_Novedad" EntitySet="Tipo_Novedad" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

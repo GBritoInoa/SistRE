@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EstG2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Estatus">
+    <Key>
+      <PropertyRef Name="EstatusID" />
+    </Key>
+    <Property Name="EstatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fallecidos">
+    <Key>
+      <PropertyRef Name="FallecidoID" />
+    </Key>
+    <Property Name="FallecidoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsaurioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NovedadIncautacion">
+    <Key>
+      <PropertyRef Name="NovedadIncautacionID" />
+    </Key>
+    <Property Name="NovedadIncautacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoIncautacionID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="TipoMedidaID" Type="int" Nullable="false" />
+    <Property Name="Localidad" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaNovedad" Type="date" />
+    <Property Name="HoraNovedad" Type="nvarchar" MaxLength="20" />
+    <Property Name="EstatusID" Type="int" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PerdidaDocumento">
+    <Key>
+      <PropertyRef Name="PerdidaDocumentoID" />
+    </Key>
+    <Property Name="PerdidaDocumentoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TipoArma">
+    <Key>
+      <PropertyRef Name="TipoArmaID" />
+    </Key>
+    <Property Name="TipoArmaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDecomiso">
+    <Key>
+      <PropertyRef Name="TipoDecomisoID" />
+    </Key>
+    <Property Name="TipoDecomisoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TipoDroga">
+    <Key>
+      <PropertyRef Name="TipoDrogaID" />
+    </Key>
+    <Property Name="TipoDrogaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TipoHerido">
+    <Key>
+      <PropertyRef Name="TipoHeridoID" />
+    </Key>
+    <Property Name="TipoHeridoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoIncautacion">
+    <Key>
+      <PropertyRef Name="TipoIncautacionID" />
+    </Key>
+    <Property Name="TipoIncautacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMedida">
+    <Key>
+      <PropertyRef Name="TipoMedidaID" />
+    </Key>
+    <Property Name="TipoMedidaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Medida" Type="nvarchar" MaxLength="50" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMuerte">
+    <Key>
+      <PropertyRef Name="TipoMuerteID" />
+    </Key>
+    <Property Name="TipoMuerteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TipoNovedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CausaHerida_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoHerido" Type="Self.TipoHerido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoHerido">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CausaMuerte_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoMuerte" Type="Self.TipoMuerte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoMuerte">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fallecidos_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="Fallecidos" Type="Self.Fallecidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Fallecidos">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadIncautacion_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="0..1" />
+    <End Role="NovedadIncautacion" Type="Self.NovedadIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadIncautacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo_Novedad_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoNovedad" Type="Self.TipoNovedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoNovedad">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoArma_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoArma" Type="Self.TipoArma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoArma">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoDroga_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="0..1" />
+    <End Role="TipoDroga" Type="Self.TipoDroga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoDroga">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoIncautacion_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoIncautacion" Type="Self.TipoIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoIncautacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EstG2ModelStoreContainer">
+    <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fallecidos" EntityType="Self.Fallecidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadIncautacion" EntityType="Self.NovedadIncautacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PerdidaDocumento" EntityType="Self.PerdidaDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoArma" EntityType="Self.TipoArma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDecomiso" EntityType="Self.TipoDecomiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDroga" EntityType="Self.TipoDroga" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoHerido" EntityType="Self.TipoHerido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoIncautacion" EntityType="Self.TipoIncautacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMedida" EntityType="Self.TipoMedida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMuerte" EntityType="Self.TipoMuerte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoNovedad" EntityType="Self.TipoNovedad" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CausaHerida_Estatus" Association="Self.FK_CausaHerida_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoHerido" EntitySet="TipoHerido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CausaMuerte_Estatus" Association="Self.FK_CausaMuerte_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoMuerte" EntitySet="TipoMuerte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fallecidos_Estatus" Association="Self.FK_Fallecidos_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Fallecidos" EntitySet="Fallecidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadIncautacion_Estatus" Association="Self.FK_NovedadIncautacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadIncautacion" EntitySet="NovedadIncautacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo_Novedad_Estatus" Association="Self.FK_Tipo_Novedad_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoArma_Estatus" Association="Self.FK_TipoArma_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoArma" EntitySet="TipoArma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoDroga_Estatus" Association="Self.FK_TipoDroga_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoDroga" EntitySet="TipoDroga" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoIncautacion_Estatus" Association="Self.FK_TipoIncautacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoIncautacion" EntitySet="TipoIncautacion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

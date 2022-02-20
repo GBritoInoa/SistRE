@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A44C4F81-216A-4732-B99E-4D5C37080236}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessControl</RootNamespace>
+    <AssemblyName>BusinessControl</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BcAuditoría.cs" />
+    <Compile Include="BcAusencias.cs" />
+    <Compile Include="BcComun.cs" />
+    <Compile Include="BcNacionalidad.cs" />
+    <Compile Include="BcNovedadApresamiento.cs" />
+    <Compile Include="BcNovedadAusencia.cs" />
+    <Compile Include="BcNovedadDecomiso.cs" />
+    <Compile Include="BcNovedadPerdidaDocumento.cs" />
+    <Compile Include="BcNovedadRepatriacion.cs" />
+    <Compile Include="BcPais.cs" />
+    <Compile Include="BcProductos.cs" />
+    <Compile Include="BcProtestaConvocatoria.cs" />
+    <Compile Include="BcTipoApresamiento.cs" />
+    <Compile Include="BcTipoCausaMuerte.cs" />
+    <Compile Include="BcTipoContrabando.cs" />
+    <Compile Include="BcTipoDecomiso.cs" />
+    <Compile Include="BcTipoDocumento.cs" />
+    <Compile Include="BcTipoDroga.cs" />
+    <Compile Include="BcTipoEntrega.cs" />
+    <Compile Include="BcTipoHedido.cs" />
+    <Compile Include="BcEstatus.cs" />
+    <Compile Include="BcTipoArma.cs" />
+    <Compile Include="BcTipoHospitalizacion.cs" />
+    <Compile Include="BcTipoIncautacion.cs" />
+    <Compile Include="BcTipoMedicamento.cs" />
+    <Compile Include="BcTipoMedidas.cs" />
+    <Compile Include="BcTipoPresentacionMedicamento.cs" />
+    <Compile Include="BcTipoProtesta.cs" />
+    <Compile Include="BcTipoRecuperacion.cs" />
+    <Compile Include="BcTipoRepatriacion.cs" />
+    <Compile Include="BcTipos.cs" />
+    <Compile Include="BcTipoNovedad.cs" />
+    <Compile Include="BcNovedadIncautacion.cs" />
+    <Compile Include="BcTipoPerdidaDocumento.cs" />
+    <Compile Include="BcTipoVehiculo.cs" />
+    <Compile Include="BcTipoCausaHerida.cs" />
+    <Compile Include="BcTipoFallecimiento.cs" />
+    <Compile Include="BcTipoProducto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeEntity\Entity.csproj">
+      <Project>{B3FDD61E-FF6D-4F11-9120-34160E37B018}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLogic\DataLogic.csproj">
+      <Project>{38f8d9a7-e8a8-4dee-9978-960ff14b2f5d}</Project>
+      <Name>DataLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

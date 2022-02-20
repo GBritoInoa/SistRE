@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3FDD61E-FF6D-4F11-9120-34160E37B018}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BeEntity</RootNamespace>
+    <AssemblyName>BeEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeAuditoria.cs" />
+    <Compile Include="BeAusencias.cs" />
+    <Compile Include="BeBrigada.cs" />
+    <Compile Include="BeCompania.cs" />
+    <Compile Include="BeHistoricoNovedades.cs" />
+    <Compile Include="BeMilitar.cs" />
+    <Compile Include="BeNacionalidad.cs" />
+    <Compile Include="BeNovedadApresamientos.cs" />
+    <Compile Include="BeNovedadAusencia.cs" />
+    <Compile Include="BeNovedadDecomiso.cs" />
+    <Compile Include="BeNovedadContrabando.cs" />
+    <Compile Include="BeNovedadIncautacion.cs" />
+    <Compile Include="BeNovedadPerdidaDocumento.cs" />
+    <Compile Include="BeNovedadRepatriacion.cs" />
+    <Compile Include="BePais.cs" />
+    <Compile Include="BeProductos.cs" />
+    <Compile Include="BeProtestaConvocatoria.cs" />
+    <Compile Include="BeProvincias.cs" />
+    <Compile Include="BeRangos.cs" />
+    <Compile Include="BeSexo.cs" />
+    <Compile Include="BeTipoApresamiento.cs" />
+    <Compile Include="BeTipoCausaHerida.cs" />
+    <Compile Include="BeTipoCausaMuerte.cs" />
+    <Compile Include="BeTipoCombustible.cs" />
+    <Compile Include="BeTipoContrabando.cs" />
+    <Compile Include="BeTipoDecomiso.cs" />
+    <Compile Include="BeTipoDocumento.cs" />
+    <Compile Include="BeTipoDroga.cs" />
+    <Compile Include="BeTipoEntrega.cs" />
+    <Compile Include="BeTipoerido.cs" />
+    <Compile Include="BeEstatus.cs" />
+    <Compile Include="BeTipoArma.cs" />
+    <Compile Include="BeTipoFallecimiento.cs" />
+    <Compile Include="BeTipoHospitalizacion.cs" />
+    <Compile Include="BeTipoIncautacion.cs" />
+    <Compile Include="BeTipoMedicamento.cs" />
+    <Compile Include="BeTipoMedida.cs" />
+    <Compile Include="BeTipoMedidaCombustible.cs" />
+    <Compile Include="BeTipoMedidas.cs" />
+    <Compile Include="BeTipoMoneda.cs" />
+    <Compile Include="BeTipoNovedad.cs" />
+    <Compile Include="BeTipoPresetacionMedicamento.cs" />
+    <Compile Include="BeTipoProducto.cs" />
+    <Compile Include="BeTipoProtesta.cs" />
+    <Compile Include="BeTipoRecuperacion.cs" />
+    <Compile Include="BeTipoRepatriacion.cs" />
+    <Compile Include="BeTipoVehiculo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoPerdidaDocumento.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

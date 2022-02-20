@@ -1,0 +1,109 @@
+﻿@model BeEntity.BeNovedadAusencia
+
+@{
+    ViewBag.Title = "Registro de Ausencias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fa fa-pen-alt"><strong> Registro de Ausencias </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.Partial("OptionsBox/Save_Back")
+            </div>
+            <br />
+            <br />
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AusenciaID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("AusenciaID", null, "---Seleccione Tipo Ausencia---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.AusenciaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SexoID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("SexoID", null, "---Seleccione Sexo---", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SexoID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+   
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("RangoID", null, "---Seleccione Rango---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RangoID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CompaniaID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CompaniaID", null, "---Seleccione Compania---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CompaniaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.FechaNovedad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" id="datapicker">
+                        @Html.EditorFor(model => model.FechaNovedad, new { htmlAttributes = new { @class = "datepicker", @type = "date" } })
+                        @Html.ValidationMessageFor(model => model.FechaNovedad, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+                @*<div class="form-group">
+            @Html.LabelFor(model => model.HoraNovedad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="datepicker">
+                @Html.EditorFor(model => model.HoraNovedad, new { htmlAttributes = new { @class = "datepickerjj", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.HoraNovedad, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                <div class="col-sm-2 input-group" style="float: left; width: 20.9%;">
+                    <input type="text" class="time start form-control" placeholder="Hora Inicio" required style="border-right: 0;" value="@string.Format("{0:HH:mm:ss}", Model.HoraNovedad)" />
+                    <span class="input-group-addon fui-time" style="background: transparent; color: #bdc3c7;"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Causa, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.TextArea("Causa", new { htmlAttributes = new { @class = "form-control", placeholder = "Causa o Razón de la Ausencia" } })*@
+                        <textarea class="form-control" id="Causa" rows="5" , name="Causa" placeholder="Razón o Causa de la Ausencia"></textarea>
+                        @Html.ValidationMessageFor(model => model.Causa, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+   
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+
+    $(function () {
+    $(".datepicker").datepicker();
+
+
+    });
+
+    </script>
+
+}

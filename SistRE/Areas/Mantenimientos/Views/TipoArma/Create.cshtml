@@ -1,0 +1,62 @@
+﻿@model BeEntity.BeTipoArma
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fa fa-check"><strong> Registro Tipo Arma </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <div>
+                @Html.Partial("OptionsBox/Save_Back")
+            </div>
+            <br />
+            <br />
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control",placeholder="Tipo Arma" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", placeholder="Descripción Tipo Arma"} })
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EstatusID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("EstatusID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EstatusID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

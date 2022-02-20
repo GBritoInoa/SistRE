@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7098c86002624158926da4cd4ba886cc" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="DB_SistREModel.Auditoria" Width="1.5" PointX="1.375" PointY="17.25" />
+        <EntityTypeShape EntityType="DB_SistREModel.Ausencias" Width="1.5" PointX="6.625" PointY="23.25" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaFallecimiento" Width="1.5" PointX="3.625" PointY="19.25" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaHerido" Width="1.5" PointX="5" PointY="34.125" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaHospitalizacion" Width="1.5" PointX="1.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaMuerte" Width="1.5" PointX="3.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaRepatriacion" Width="1.5" PointX="1.375" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaSuicidio" Width="1.5" PointX="3.375" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.Entrega" Width="1.5" PointX="5.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.Estatus" Width="1.5" PointX="1.375" PointY="22.25" />
+        <EntityTypeShape EntityType="DB_SistREModel.HistoricoNovedades" Width="1.5" PointX="5.375" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.Institucion" Width="1.5" PointX="7.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.LugarActividad" Width="1.5" PointX="1.375" PointY="6.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.Nacionalidad" Width="1.5" PointX="7.375" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadApresamiento" Width="1.5" PointX="9.625" PointY="22.125" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadAusencia" Width="1.5" PointX="7.375" PointY="6.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadDecomiso" Width="1.5" PointX="3.25" PointY="5.875" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadPerdidaDocumento" Width="1.5" PointX="8.875" PointY="28.125" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadRepatriaciones" Width="1.5" PointX="5.875" PointY="29.625" />
+        <EntityTypeShape EntityType="DB_SistREModel.Pais" Width="1.5" PointX="9.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.ProtestaConvocatoria" Width="1.5" PointX="9.375" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.Sexo" Width="1.5" PointX="9.375" PointY="6.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.sysdiagrams" Width="1.5" PointX="9.375" PointY="9.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoActividad" Width="1.5" PointX="11.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoArma" Width="1.5" PointX="11.375" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoDecomiso" Width="1.5" PointX="11.375" PointY="6.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoDocumento" Width="1.5" PointX="6.625" PointY="34" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoDroga" Width="1.5" PointX="3.625" PointY="22.125" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoMedicamento" Width="1.5" PointX="11.375" PointY="9.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoNovedad" Width="1.5" PointX="3.625" PointY="25" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoProducto" Width="2.25" PointX="2.5" PointY="36.25" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoProtesta" Width="1.5" PointX="13.375" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoRecuperacion" Width="1.5" PointX="3.125" PointY="33.625" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoRetencion" Width="1.5" PointX="7.5" PointY="36.25" />
+        <AssociationConnector Association="DB_SistREModel.FK_Ausencias_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_Fallecidos_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadApresamiento_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadApresamiento_Auditoria1" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoNovedad_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_Ausencias_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_Fallecidos_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_CausaHerido_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadApresamiento_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadPerdidaDocumento_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_Tipo_Novedad_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoDroga_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoProducto_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoRecuperacion_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoRetencion_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoDocumento" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoNovedad" />
+        <AssociationConnector Association="DB_SistREModel.FK_Repatriacion_Tipo_Novedad" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoMoneda" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoCombustible" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoMedidaCombustible" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Productos" Width="1.5" PointX="11.5" PointY="27.375" />
+        <AssociationConnector Association="DB_SistREModel.FK_Productos_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoProducto_Bebida_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_Productos_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoProducto_Bebida_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_Productos_TipoProducto" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoPresentacionMedicamento" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoMedidas" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadIncautacion" Width="1.5" PointX="6.625" PointY="18" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadIncautacion_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadIncautacion_Estatus" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoVehiculo" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoApresamiento" Width="1.5" PointX="9.625" PointY="18.75" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoApresamiento_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoApresamiento_Estatus" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoApresamiento_Estatus1" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaIncautacion" Width="1.5" PointX="13.375" PointY="9.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadContrabando" Width="1.5" PointX="12.625" PointY="20" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadContrabando_Auditoria" />
+        <AssociationConnector Association="DB_SistREModel.FK_NovedadContrabando_Estatus" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoContrabando" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.CausaApresamiento" Width="1.5" PointX="13.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Perfiles" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.TipoIncautacion" Width="1.5" PointX="3.625" PointY="15.375" />
+        <AssociationConnector Association="DB_SistREModel.FK_TipoIncautacion_Auditoria" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

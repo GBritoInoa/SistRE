@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BeEntity.BeTipoProtesta>
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<---->Esta parte se copia </---->*@
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fa fa-list"><strong> Tipo de Protesta </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+        <div>
+            @Html.Partial("OptionsBox/Add")
+        </div>
+        <br />
+        <br />
+
+        <table class="table data-table">
+            <thead style="align-content:center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.EstatusID)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+
+                        <td>
+                            @if (item.EstatusID == 1)
+                            {
+                                <span>Activo</span>
+                            }
+                            else if (item.EstatusID == 2)
+                            {
+                                <span>Inactvo</span>
+                            }
+                            else
+                            {
+                                <span>Eliminado</span>
+
+                            }
+
+                        </td>
+                        <td>
+                            @Html.Partial("OptionsBox/Edit_Details", item.TipoProtestaID)
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+

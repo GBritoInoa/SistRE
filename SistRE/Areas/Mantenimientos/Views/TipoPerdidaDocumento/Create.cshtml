@@ -1,0 +1,65 @@
+﻿@model BeEntity.BeTipoPerdidaDocumento
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fas fa-pen-alt"><strong> Registro Tipo de Documento </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+
+
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.Partial("OptionsBox/Save_Back")
+            </div>
+            <br />
+            <br />
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre Documento" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EstatusID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("EstatusID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EstatusID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+    $(function () {
+        $(".datepicker").datepicker();
+
+
+        });
+
+    </script>
+}

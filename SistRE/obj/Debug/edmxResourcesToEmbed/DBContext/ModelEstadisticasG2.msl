@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_G2ERDModelStoreContainer" CdmEntityContainer="ContextEstadisticasG2">
+    <EntitySetMapping Name="Estatus">
+      <EntityTypeMapping TypeName="db_G2ERDModel.Estatus">
+        <MappingFragment StoreEntitySet="Estatus">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Novedad">
+      <EntityTypeMapping TypeName="db_G2ERDModel.Tipo_Novedad">
+        <MappingFragment StoreEntitySet="Tipo_Novedad">
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

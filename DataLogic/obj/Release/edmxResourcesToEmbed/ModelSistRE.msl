@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_SistREModelStoreContainer" CdmEntityContainer="Context_SistRE">
+    <EntitySetMapping Name="Auditoria">
+      <EntityTypeMapping TypeName="DB_SistREModel.Auditoria">
+        <MappingFragment StoreEntitySet="Auditoria">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CausaHerido">
+      <EntityTypeMapping TypeName="DB_SistREModel.CausaHerido">
+        <MappingFragment StoreEntitySet="CausaHerido">
+          <ScalarProperty Name="CausaHeridoID" ColumnName="CausaHeridoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CausaMuerte">
+      <EntityTypeMapping TypeName="DB_SistREModel.CausaMuerte">
+        <MappingFragment StoreEntitySet="CausaMuerte">
+          <ScalarProperty Name="TipoMuerteID" ColumnName="TipoMuerteID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estatus">
+      <EntityTypeMapping TypeName="DB_SistREModel.Estatus">
+        <MappingFragment StoreEntitySet="Estatus">
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fallecidos">
+      <EntityTypeMapping TypeName="DB_SistREModel.Fallecidos">
+        <MappingFragment StoreEntitySet="Fallecidos">
+          <ScalarProperty Name="FallecidoID" ColumnName="FallecidoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NovedadIncautacion">
+      <EntityTypeMapping TypeName="DB_SistREModel.NovedadIncautacion">
+        <MappingFragment StoreEntitySet="NovedadIncautacion">
+          <ScalarProperty Name="NovedadIncautacionID" ColumnName="NovedadIncautacionID" />
+          <ScalarProperty Name="TipoIncautacionID" ColumnName="TipoIncautacionID" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="TipoMedidaID" ColumnName="TipoMedidaID" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="BatallonID" ColumnName="BatallonID" />
+          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerdidaDocumento">
+      <EntityTypeMapping TypeName="DB_SistREModel.PerdidaDocumento">
+        <MappingFragment StoreEntitySet="PerdidaDocumento">
+          <ScalarProperty Name="PerdidaDocumentoID" ColumnName="PerdidaDocumentoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoArma">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoArma">
+        <MappingFragment StoreEntitySet="TipoArma">
+          <ScalarProperty Name="TipoArmaID" ColumnName="TipoArmaID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDecomiso">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoDecomiso">
+        <MappingFragment StoreEntitySet="TipoDecomiso">
+          <ScalarProperty Name="TipoDecomisoID" ColumnName="TipoDecomisoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDroga">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoDroga">
+        <MappingFragment StoreEntitySet="TipoDroga">
+          <ScalarProperty Name="TipoDrogaID" ColumnName="TipoDrogaID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoIncautacion">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoIncautacion">
+        <MappingFragment StoreEntitySet="TipoIncautacion">
+          <ScalarProperty Name="TipoIncautacionID" ColumnName="TipoIncautacionID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMedicamento">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoMedicamento">
+        <MappingFragment StoreEntitySet="TipoMedicamento">
+          <ScalarProperty Name="TipoMedicamentoID" ColumnName="TipoMedicamentoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMedida">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoMedida">
+        <MappingFragment StoreEntitySet="TipoMedida">
+          <ScalarProperty Name="TipoMedidaID" ColumnName="TipoMedidaID" />
+          <ScalarProperty Name="Medida" ColumnName="Medida" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoNovedad">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoNovedad">
+        <MappingFragment StoreEntitySet="TipoNovedad">
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Vista" ColumnName="Vista" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoProducto">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoProducto">
+        <MappingFragment StoreEntitySet="TipoProducto">
+          <ScalarProperty Name="TipoProductoID" ColumnName="TipoProductoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoRecuperacion">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoRecuperacion">
+        <MappingFragment StoreEntitySet="TipoRecuperacion">
+          <ScalarProperty Name="TipoRecuperacionID" ColumnName="TipoRecuperacionID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoVehiculo">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoVehiculo">
+        <MappingFragment StoreEntitySet="TipoVehiculo">
+          <ScalarProperty Name="TipoVehiculoID" ColumnName="TipoVehiculoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

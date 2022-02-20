@@ -1,0 +1,176 @@
+﻿@model BeEntity.BeNovedadDecomiso
+
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+@*<script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+@*<script src="~/Scripts/jquery-3.6.0.min.js"></script>*@
+@{
+    ViewBag.Title = "Decomisos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fa fa-pen-alt"><strong> Registro de Decomisos </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+        <div style="float:right">
+            <span><strong>Nota:</strong> Todos los campos son (<label class="bg-label">*</label>)  son obligatorios</span>
+        </div>
+        <br />
+
+        @using (Html.BeginForm())
+        {
+
+            @Html.AntiForgeryToken()
+
+            //if (TempData["mensaje"] != null)
+            //{
+            //    Html.RenderPartial("_AlertaSuccess");
+            //}
+
+            <div class="form-horizontal">
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.TipoDecomisoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Tipo Decomiso</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("TipoDecomisoID", null, "---Seleccione Tipo Decomiso ---", htmlAttributes: new { @class = "form-control", id = "numbers", onchange = "myFunction()" })
+                        @Html.ValidationMessageFor(model => model.TipoDecomisoID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*Modal*@
+                <div class="modal fade" id="droga" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="align-content:center">
+                                <h4 id="ModalTitle"></h4>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    &times;
+                                </button>
+                                @*<a href="#" class="close" data-dismiss="modal">&time</a>*@
+
+                            </div>
+
+                            <div class="modal-body">
+                                <form id="form">
+                                    <fieldset id="SubmitForm">
+                                        <div class="form-group">
+                                            <label>Tipo Droga</label><label class="bg-label">*</label>
+                                            <div class="col-md-10">
+                                                @Html.DropDownList("TipoDrogaID", null, "---Seleccione Tipo Droga ---", htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.TipoDrogaID, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                @*Fin Modal*@
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Cantidad</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = " " }, placeholder = "Ingresar Cantidad" })
+                        @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.TipoMedidaID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Tipo Medida</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("TipoMedidaID", null, "---Seleccione Tipo Medida ---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TipoMedidaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.ProvinciaID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Provincia</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("ProvinciaID", null, "---Seleccione Provincia ---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProvinciaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.FechaNovedad, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Fecha Novedad</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FechaNovedad, new { htmlAttributes = new { @class = " ", @type = "date" } })
+                        @Html.ValidationMessageFor(model => model.FechaNovedad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.HoraNovedad, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Hora Novedad</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.HoraNovedad, new { htmlAttributes = new { @class = " ", @type = "time" } })
+                        @Html.ValidationMessageFor(model => model.HoraNovedad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.BrigadaID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Brigada Responsable</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("BrigadaID", null, "---Seleccione Brigada ---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BrigadaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Causa, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label>Razón o Causa</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" id="Causa" rows="3" name="Causa" style="resize: none;" placeholder="Razón o Causa del Decomiso"></textarea>
+                        @Html.ValidationMessageFor(model => model.Causa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div style="float:unset">
+                    @Html.Partial("OptionsBox/Save")
+                </div>
+                <br />
+                <br />
+                <br />
+
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    @*Modal*@
+        function myFunction() {
+            var option_value = document.getElementById("numbers").value;
+                if (option_value == "1") {
+                $("#ModalTitle").html("Tipo Droga");
+                $("#droga").modal(); }
+           }
+    </script>
+
+}

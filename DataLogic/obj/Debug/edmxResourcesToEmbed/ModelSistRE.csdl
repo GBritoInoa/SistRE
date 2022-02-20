@@ -1,0 +1,1156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_SistREModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Context_SistRE" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="usp_CreateTipoNovedad">
+      <Parameter Name="TipoNovedadID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="EstatusID" Mode="In" Type="Int32" />
+      <Parameter Name="AuditoriaID" Mode="In" Type="Int32" />
+      <Parameter Name="UsuarioCreo" Mode="In" Type="String" />
+      <Parameter Name="FechaCreo" Mode="In" Type="DateTime" />
+      <Parameter Name="codigo_estado" Mode="InOut" Type="Int32" />
+      <Parameter Name="mensaje_estado" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_EditTipoNovedad">
+      <Parameter Name="TipoNovedadID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="EstatusID" Mode="In" Type="Int32" />
+      <Parameter Name="AuditoriaID" Mode="In" Type="Int32" />
+      <Parameter Name="UsuarioActualizo" Mode="In" Type="String" />
+      <Parameter Name="FechaActualizo" Mode="In" Type="DateTime" />
+      <Parameter Name="codigo_estado" Mode="InOut" Type="Int32" />
+      <Parameter Name="mensaje_estado" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_maxCodAuditoria" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="usp_decomiso">
+      <Parameter Name="Option" Mode="In" Type="Int32" />
+      <Parameter Name="UsuarioCreo" Mode="In" Type="String" />
+      <Parameter Name="FechaCreo" Mode="In" Type="DateTime" />
+      <Parameter Name="UsuarioActualizo" Mode="In" Type="String" />
+      <Parameter Name="FechaActualizo" Mode="In" Type="DateTime" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="EstatusID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Auditoria" EntityType="DB_SistREModel.Auditoria" />
+    <EntitySet Name="Ausencias" EntityType="DB_SistREModel.Ausencias" />
+    <EntitySet Name="CausaFallecimiento" EntityType="DB_SistREModel.CausaFallecimiento" />
+    <EntitySet Name="CausaHerido" EntityType="DB_SistREModel.CausaHerido" />
+    <EntitySet Name="CausaHospitalizacion" EntityType="DB_SistREModel.CausaHospitalizacion" />
+    <EntitySet Name="CausaMuerte" EntityType="DB_SistREModel.CausaMuerte" />
+    <EntitySet Name="CausaRepatriacion" EntityType="DB_SistREModel.CausaRepatriacion" />
+    <EntitySet Name="CausaSuicidio" EntityType="DB_SistREModel.CausaSuicidio" />
+    <EntitySet Name="Entrega" EntityType="DB_SistREModel.Entrega" />
+    <EntitySet Name="Estatus" EntityType="DB_SistREModel.Estatus" />
+    <EntitySet Name="HistoricoNovedades" EntityType="DB_SistREModel.HistoricoNovedades" />
+    <EntitySet Name="Institucion" EntityType="DB_SistREModel.Institucion" />
+    <EntitySet Name="LugarActividad" EntityType="DB_SistREModel.LugarActividad" />
+    <EntitySet Name="Nacionalidad" EntityType="DB_SistREModel.Nacionalidad" />
+    <EntitySet Name="NovedadApresamiento" EntityType="DB_SistREModel.NovedadApresamiento" />
+    <EntitySet Name="NovedadAusencia" EntityType="DB_SistREModel.NovedadAusencia" />
+    <EntitySet Name="NovedadDecomiso" EntityType="DB_SistREModel.NovedadDecomiso" />
+    <EntitySet Name="NovedadPerdidaDocumento" EntityType="DB_SistREModel.NovedadPerdidaDocumento" />
+    <EntitySet Name="NovedadRepatriaciones" EntityType="DB_SistREModel.NovedadRepatriaciones" />
+    <EntitySet Name="Pais" EntityType="DB_SistREModel.Pais" />
+    <EntitySet Name="ProtestaConvocatoria" EntityType="DB_SistREModel.ProtestaConvocatoria" />
+    <EntitySet Name="Sexo" EntityType="DB_SistREModel.Sexo" />
+    <EntitySet Name="sysdiagrams" EntityType="DB_SistREModel.sysdiagrams" />
+    <EntitySet Name="TipoActividad" EntityType="DB_SistREModel.TipoActividad" />
+    <EntitySet Name="TipoArma" EntityType="DB_SistREModel.TipoArma" />
+    <EntitySet Name="TipoDecomiso" EntityType="DB_SistREModel.TipoDecomiso" />
+    <EntitySet Name="TipoDocumento" EntityType="DB_SistREModel.TipoDocumento" />
+    <EntitySet Name="TipoDroga" EntityType="DB_SistREModel.TipoDroga" />
+    <EntitySet Name="TipoMedicamento" EntityType="DB_SistREModel.TipoMedicamento" />
+    <EntitySet Name="TipoNovedad" EntityType="DB_SistREModel.TipoNovedad" />
+    <EntitySet Name="TipoProducto" EntityType="DB_SistREModel.TipoProducto" />
+    <EntitySet Name="TipoProtesta" EntityType="DB_SistREModel.TipoProtesta" />
+    <EntitySet Name="TipoRecuperacion" EntityType="DB_SistREModel.TipoRecuperacion" />
+    <EntitySet Name="TipoRetencion" EntityType="DB_SistREModel.TipoRetencion" />
+    <AssociationSet Name="FK_Ausencias_Auditoria" Association="DB_SistREModel.FK_Ausencias_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="Ausencias" EntitySet="Ausencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fallecidos_Auditoria" Association="DB_SistREModel.FK_Fallecidos_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="CausaFallecimiento" EntitySet="CausaFallecimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadApresamiento_Auditoria" Association="DB_SistREModel.FK_NovedadApresamiento_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadApresamiento" EntitySet="NovedadApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadApresamiento_Auditoria1" Association="DB_SistREModel.FK_NovedadApresamiento_Auditoria1">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadApresamiento" EntitySet="NovedadApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoNovedad_Auditoria" Association="DB_SistREModel.FK_TipoNovedad_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ausencias_Estatus" Association="DB_SistREModel.FK_Ausencias_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Ausencias" EntitySet="Ausencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fallecidos_Estatus" Association="DB_SistREModel.FK_Fallecidos_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="CausaFallecimiento" EntitySet="CausaFallecimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CausaHerido_Estatus" Association="DB_SistREModel.FK_CausaHerido_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="CausaHerido" EntitySet="CausaHerido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadApresamiento_Estatus" Association="DB_SistREModel.FK_NovedadApresamiento_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadApresamiento" EntitySet="NovedadApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadPerdidaDocumento_Estatus" Association="DB_SistREModel.FK_NovedadPerdidaDocumento_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadPerdidaDocumento" EntitySet="NovedadPerdidaDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo_Novedad_Estatus" Association="DB_SistREModel.FK_Tipo_Novedad_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoDroga_Estatus" Association="DB_SistREModel.FK_TipoDroga_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoDroga" EntitySet="TipoDroga" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoProducto_Estatus" Association="DB_SistREModel.FK_TipoProducto_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoRecuperacion_Estatus" Association="DB_SistREModel.FK_TipoRecuperacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoRecuperacion" EntitySet="TipoRecuperacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoRetencion_Estatus" Association="DB_SistREModel.FK_TipoRetencion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoRetencion" EntitySet="TipoRetencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadPerdidaDocumento_TipoDocumento" Association="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoDocumento">
+      <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+      <End Role="NovedadPerdidaDocumento" EntitySet="NovedadPerdidaDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadPerdidaDocumento_TipoNovedad" Association="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoNovedad">
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+      <End Role="NovedadPerdidaDocumento" EntitySet="NovedadPerdidaDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Repatriacion_Tipo_Novedad" Association="DB_SistREModel.FK_Repatriacion_Tipo_Novedad">
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+      <End Role="NovedadRepatriaciones" EntitySet="NovedadRepatriaciones" />
+    </AssociationSet>
+    <EntitySet Name="TipoMoneda" EntityType="DB_SistREModel.TipoMoneda" />
+    <EntitySet Name="TipoCombustible" EntityType="DB_SistREModel.TipoCombustible" />
+    <EntitySet Name="TipoMedidaCombustible" EntityType="DB_SistREModel.TipoMedidaCombustible" />
+    <EntitySet Name="Productos" EntityType="DB_SistREModel.Productos" />
+    <AssociationSet Name="FK_Productos_Auditoria" Association="DB_SistREModel.FK_Productos_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoProducto_Bebida_Auditoria" Association="DB_SistREModel.FK_TipoProducto_Bebida_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Estatus" Association="DB_SistREModel.FK_Productos_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoProducto_Bebida_Estatus" Association="DB_SistREModel.FK_TipoProducto_Bebida_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_TipoProducto" Association="DB_SistREModel.FK_Productos_TipoProducto">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <EntitySet Name="TipoPresentacionMedicamento" EntityType="DB_SistREModel.TipoPresentacionMedicamento" />
+    <EntitySet Name="TipoMedidas" EntityType="DB_SistREModel.TipoMedidas" />
+    <EntitySet Name="NovedadIncautacion" EntityType="DB_SistREModel.NovedadIncautacion" />
+    <AssociationSet Name="FK_NovedadIncautacion_Auditoria" Association="DB_SistREModel.FK_NovedadIncautacion_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadIncautacion" EntitySet="NovedadIncautacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadIncautacion_Estatus" Association="DB_SistREModel.FK_NovedadIncautacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadIncautacion" EntitySet="NovedadIncautacion" />
+    </AssociationSet>
+    <EntitySet Name="TipoVehiculo" EntityType="DB_SistREModel.TipoVehiculo" />
+    <EntitySet Name="TipoApresamiento" EntityType="DB_SistREModel.TipoApresamiento" />
+    <AssociationSet Name="FK_TipoApresamiento_Auditoria" Association="DB_SistREModel.FK_TipoApresamiento_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="TipoApresamiento" EntitySet="TipoApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoApresamiento_Estatus" Association="DB_SistREModel.FK_TipoApresamiento_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoApresamiento" EntitySet="TipoApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoApresamiento_Estatus1" Association="DB_SistREModel.FK_TipoApresamiento_Estatus1">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoApresamiento" EntitySet="TipoApresamiento" />
+    </AssociationSet>
+    <EntitySet Name="CausaIncautacion" EntityType="DB_SistREModel.CausaIncautacion" />
+    <EntitySet Name="NovedadContrabando" EntityType="DB_SistREModel.NovedadContrabando" />
+    <AssociationSet Name="FK_NovedadContrabando_Auditoria" Association="DB_SistREModel.FK_NovedadContrabando_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadContrabando" EntitySet="NovedadContrabando" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadContrabando_Estatus" Association="DB_SistREModel.FK_NovedadContrabando_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadContrabando" EntitySet="NovedadContrabando" />
+    </AssociationSet>
+    <EntitySet Name="TipoContrabando" EntityType="DB_SistREModel.TipoContrabando" />
+    <EntitySet Name="CausaApresamiento" EntityType="DB_SistREModel.CausaApresamiento" />
+    <EntitySet Name="Perfiles" EntityType="DB_SistREModel.Perfiles" />
+    <EntitySet Name="TipoIncautacion" EntityType="DB_SistREModel.TipoIncautacion" />
+    <AssociationSet Name="FK_TipoIncautacion_Auditoria" Association="DB_SistREModel.FK_TipoIncautacion_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="TipoIncautacion" EntitySet="TipoIncautacion" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Auditoria">
+    <Key>
+      <PropertyRef Name="AuditoriaID" />
+    </Key>
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioCreo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreo" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioActualizo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaActualizo" Type="DateTime" Precision="3" />
+    <Property Name="IpAddress" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="NombrePC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ausencias" Relationship="DB_SistREModel.FK_Ausencias_Auditoria" FromRole="Auditoria" ToRole="Ausencias" />
+    <NavigationProperty Name="CausaFallecimiento" Relationship="DB_SistREModel.FK_Fallecidos_Auditoria" FromRole="Auditoria" ToRole="CausaFallecimiento" />
+    <NavigationProperty Name="NovedadApresamiento" Relationship="DB_SistREModel.FK_NovedadApresamiento_Auditoria" FromRole="Auditoria" ToRole="NovedadApresamiento" />
+    <NavigationProperty Name="NovedadApresamiento1" Relationship="DB_SistREModel.FK_NovedadApresamiento_Auditoria1" FromRole="Auditoria" ToRole="NovedadApresamiento" />
+    <NavigationProperty Name="TipoNovedad" Relationship="DB_SistREModel.FK_TipoNovedad_Auditoria" FromRole="Auditoria" ToRole="TipoNovedad" />
+    <NavigationProperty Name="Productos" Relationship="DB_SistREModel.FK_Productos_Auditoria" FromRole="Auditoria" ToRole="Productos" />
+    <NavigationProperty Name="Productos1" Relationship="DB_SistREModel.FK_TipoProducto_Bebida_Auditoria" FromRole="Auditoria" ToRole="Productos" />
+    <NavigationProperty Name="NovedadIncautacion" Relationship="DB_SistREModel.FK_NovedadIncautacion_Auditoria" FromRole="Auditoria" ToRole="NovedadIncautacion" />
+    <NavigationProperty Name="TipoApresamiento" Relationship="DB_SistREModel.FK_TipoApresamiento_Auditoria" FromRole="Auditoria" ToRole="TipoApresamiento" />
+    <NavigationProperty Name="NovedadContrabando" Relationship="DB_SistREModel.FK_NovedadContrabando_Auditoria" FromRole="Auditoria" ToRole="NovedadContrabando" />
+    <NavigationProperty Name="TipoIncautacion" Relationship="DB_SistREModel.FK_TipoIncautacion_Auditoria" FromRole="Auditoria" ToRole="TipoIncautacion" />
+  </EntityType>
+  <EntityType Name="Ausencias">
+    <Key>
+      <PropertyRef Name="AusenciaID" />
+    </Key>
+    <Property Name="AusenciaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_Ausencias_Auditoria" FromRole="Ausencias" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_Ausencias_Estatus" FromRole="Ausencias" ToRole="Estatus" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaFallecimiento">
+    <Key>
+      <PropertyRef Name="CausaFallecimientoID" />
+    </Key>
+    <Property Name="CausaFallecimientoID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_Fallecidos_Auditoria" FromRole="CausaFallecimiento" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_Fallecidos_Estatus" FromRole="CausaFallecimiento" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="CausaHerido">
+    <Key>
+      <PropertyRef Name="CausaHeridoID" />
+    </Key>
+    <Property Name="CausaHeridoID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_CausaHerido_Estatus" FromRole="CausaHerido" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="CausaHospitalizacion">
+    <Key>
+      <PropertyRef Name="CausaHospitalizacionID" />
+    </Key>
+    <Property Name="CausaHospitalizacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaMuerte">
+    <Key>
+      <PropertyRef Name="CausaMuerteID" />
+    </Key>
+    <Property Name="CausaMuerteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaRepatriacion">
+    <Key>
+      <PropertyRef Name="CausaRepratriacionID" />
+    </Key>
+    <Property Name="CausaRepratriacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaSuicidio">
+    <Key>
+      <PropertyRef Name="CausaSuicidioID" />
+    </Key>
+    <Property Name="CausaSuicidioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entrega">
+    <Key>
+      <PropertyRef Name="EntregaID" />
+    </Key>
+    <Property Name="EntregaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estatus">
+    <Key>
+      <PropertyRef Name="EstatusID" />
+    </Key>
+    <Property Name="EstatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ausencias" Relationship="DB_SistREModel.FK_Ausencias_Estatus" FromRole="Estatus" ToRole="Ausencias" />
+    <NavigationProperty Name="CausaFallecimiento" Relationship="DB_SistREModel.FK_Fallecidos_Estatus" FromRole="Estatus" ToRole="CausaFallecimiento" />
+    <NavigationProperty Name="CausaHerido" Relationship="DB_SistREModel.FK_CausaHerido_Estatus" FromRole="Estatus" ToRole="CausaHerido" />
+    <NavigationProperty Name="NovedadApresamiento" Relationship="DB_SistREModel.FK_NovedadApresamiento_Estatus" FromRole="Estatus" ToRole="NovedadApresamiento" />
+    <NavigationProperty Name="NovedadPerdidaDocumento" Relationship="DB_SistREModel.FK_NovedadPerdidaDocumento_Estatus" FromRole="Estatus" ToRole="NovedadPerdidaDocumento" />
+    <NavigationProperty Name="TipoNovedad" Relationship="DB_SistREModel.FK_Tipo_Novedad_Estatus" FromRole="Estatus" ToRole="TipoNovedad" />
+    <NavigationProperty Name="TipoDroga" Relationship="DB_SistREModel.FK_TipoDroga_Estatus" FromRole="Estatus" ToRole="TipoDroga" />
+    <NavigationProperty Name="TipoProducto" Relationship="DB_SistREModel.FK_TipoProducto_Estatus" FromRole="Estatus" ToRole="TipoProducto" />
+    <NavigationProperty Name="TipoRecuperacion" Relationship="DB_SistREModel.FK_TipoRecuperacion_Estatus" FromRole="Estatus" ToRole="TipoRecuperacion" />
+    <NavigationProperty Name="TipoRetencion" Relationship="DB_SistREModel.FK_TipoRetencion_Estatus" FromRole="Estatus" ToRole="TipoRetencion" />
+    <NavigationProperty Name="Productos" Relationship="DB_SistREModel.FK_Productos_Estatus" FromRole="Estatus" ToRole="Productos" />
+    <NavigationProperty Name="Productos1" Relationship="DB_SistREModel.FK_TipoProducto_Bebida_Estatus" FromRole="Estatus" ToRole="Productos" />
+    <NavigationProperty Name="NovedadIncautacion" Relationship="DB_SistREModel.FK_NovedadIncautacion_Estatus" FromRole="Estatus" ToRole="NovedadIncautacion" />
+    <NavigationProperty Name="TipoApresamiento" Relationship="DB_SistREModel.FK_TipoApresamiento_Estatus" FromRole="Estatus" ToRole="TipoApresamiento" />
+    <NavigationProperty Name="TipoApresamiento1" Relationship="DB_SistREModel.FK_TipoApresamiento_Estatus1" FromRole="Estatus" ToRole="TipoApresamiento" />
+    <NavigationProperty Name="NovedadContrabando" Relationship="DB_SistREModel.FK_NovedadContrabando_Estatus" FromRole="Estatus" ToRole="NovedadContrabando" />
+  </EntityType>
+  <EntityType Name="HistoricoNovedades">
+    <Key>
+      <PropertyRef Name="NovedadesID" />
+    </Key>
+    <Property Name="NovedadesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoID" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institucion">
+    <Key>
+      <PropertyRef Name="InstitucionID" />
+    </Key>
+    <Property Name="InstitucionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Lema" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Anio" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LugarActividad">
+    <Key>
+      <PropertyRef Name="LugarActividadID" />
+    </Key>
+    <Property Name="LugarActividadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nacionalidad">
+    <Key>
+      <PropertyRef Name="NacionalidadID" />
+    </Key>
+    <Property Name="NacionalidadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadApresamiento">
+    <Key>
+      <PropertyRef Name="NovedadAPresamientoID" />
+    </Key>
+    <Property Name="NovedadAPresamientoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="NacionalidadID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="SexoID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TipoApresamientoID" Type="Int32" Nullable="false" />
+    <Property Name="RangoID" Type="Int32" />
+    <Property Name="CompaniaID" Type="Int32" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_NovedadApresamiento_Auditoria" FromRole="NovedadApresamiento" ToRole="Auditoria" />
+    <NavigationProperty Name="Auditoria1" Relationship="DB_SistREModel.FK_NovedadApresamiento_Auditoria1" FromRole="NovedadApresamiento" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_NovedadApresamiento_Estatus" FromRole="NovedadApresamiento" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="NovedadAusencia">
+    <Key>
+      <PropertyRef Name="NovedadAusenciaID" />
+    </Key>
+    <Property Name="NovedadAusenciaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AusenciaID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="RangoID" Type="Int32" Nullable="false" />
+    <Property Name="CompaniaID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadDecomiso">
+    <Key>
+      <PropertyRef Name="NovedadDecomisoID" />
+    </Key>
+    <Property Name="NovedadDecomisoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoDecomisoID" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="TipoMedidaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoID" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadPerdidaDocumento">
+    <Key>
+      <PropertyRef Name="NovedadPerdidaDocumentoID" />
+    </Key>
+    <Property Name="NovedadPerdidaDocumentoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="RangoID" Type="Int32" Nullable="false" />
+    <Property Name="CompaniaID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoDocumentoID" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_NovedadPerdidaDocumento_Estatus" FromRole="NovedadPerdidaDocumento" ToRole="Estatus" />
+    <NavigationProperty Name="TipoDocumento" Relationship="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoDocumento" FromRole="NovedadPerdidaDocumento" ToRole="TipoDocumento" />
+    <NavigationProperty Name="TipoNovedad" Relationship="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoNovedad" FromRole="NovedadPerdidaDocumento" ToRole="TipoNovedad" />
+  </EntityType>
+  <EntityType Name="NovedadRepatriaciones">
+    <Key>
+      <PropertyRef Name="NovedadRepatriacionID" />
+    </Key>
+    <Property Name="NovedadRepatriacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="PaisID" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="SexoID" Type="Int32" Nullable="false" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TipoNovedad" Relationship="DB_SistREModel.FK_Repatriacion_Tipo_Novedad" FromRole="NovedadRepatriaciones" ToRole="TipoNovedad" />
+    <Property Name="CausaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="PaisID" />
+    </Key>
+    <Property Name="PaisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProtestaConvocatoria">
+    <Key>
+      <PropertyRef Name="ProtestaConvocatoriaID" />
+    </Key>
+    <Property Name="ProtestaConvocatoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="SexoID" />
+    </Key>
+    <Property Name="SexoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoActividad">
+    <Key>
+      <PropertyRef Name="TipoActividadID" />
+    </Key>
+    <Property Name="TipoActividadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoArma">
+    <Key>
+      <PropertyRef Name="TipoArmaID" />
+    </Key>
+    <Property Name="TipoArmaID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDecomiso">
+    <Key>
+      <PropertyRef Name="TipoDecomisoID" />
+    </Key>
+    <Property Name="TipoDecomisoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="TipoDocumentoID" />
+    </Key>
+    <Property Name="TipoDocumentoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NovedadPerdidaDocumento" Relationship="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoDocumento" FromRole="TipoDocumento" ToRole="NovedadPerdidaDocumento" />
+  </EntityType>
+  <EntityType Name="TipoDroga">
+    <Key>
+      <PropertyRef Name="TipoDrogaID" />
+    </Key>
+    <Property Name="TipoDrogaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_TipoDroga_Estatus" FromRole="TipoDroga" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="TipoMedicamento">
+    <Key>
+      <PropertyRef Name="TipoMedicamentoID" />
+    </Key>
+    <Property Name="TipoMedicamentoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoNovedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="Vista" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_TipoNovedad_Auditoria" FromRole="TipoNovedad" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_Tipo_Novedad_Estatus" FromRole="TipoNovedad" ToRole="Estatus" />
+    <NavigationProperty Name="NovedadPerdidaDocumento" Relationship="DB_SistREModel.FK_NovedadPerdidaDocumento_TipoNovedad" FromRole="TipoNovedad" ToRole="NovedadPerdidaDocumento" />
+    <NavigationProperty Name="NovedadRepatriaciones" Relationship="DB_SistREModel.FK_Repatriacion_Tipo_Novedad" FromRole="TipoNovedad" ToRole="NovedadRepatriaciones" />
+  </EntityType>
+  <EntityType Name="TipoProducto">
+    <Key>
+      <PropertyRef Name="TipoProductoID" />
+    </Key>
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_TipoProducto_Estatus" FromRole="TipoProducto" ToRole="Estatus" />
+    <NavigationProperty Name="Productos" Relationship="DB_SistREModel.FK_Productos_TipoProducto" FromRole="TipoProducto" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="TipoProtesta">
+    <Key>
+      <PropertyRef Name="TipoProtestaID" />
+    </Key>
+    <Property Name="TipoProtestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TipoRecuperacion">
+    <Key>
+      <PropertyRef Name="TipoRecuperacionID" />
+    </Key>
+    <Property Name="TipoRecuperacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_TipoRecuperacion_Estatus" FromRole="TipoRecuperacion" ToRole="Estatus" />
+    <Property Name="TipoNovedadID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TipoRetencion">
+    <Key>
+      <PropertyRef Name="RetencionID" />
+    </Key>
+    <Property Name="RetencionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_TipoRetencion_Estatus" FromRole="TipoRetencion" ToRole="Estatus" />
+    <Property Name="TipoNovedadID" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Ausencias_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.Ausencias" Role="Ausencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="Ausencias">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fallecidos_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.CausaFallecimiento" Role="CausaFallecimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="CausaFallecimiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadApresamiento_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadApresamiento" Role="NovedadApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadApresamiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadApresamiento_Auditoria1">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadApresamiento" Role="NovedadApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadApresamiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoNovedad_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoNovedad" Role="TipoNovedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="TipoNovedad">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ausencias_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.Ausencias" Role="Ausencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Ausencias">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fallecidos_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.CausaFallecimiento" Role="CausaFallecimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="CausaFallecimiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CausaHerido_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.CausaHerido" Role="CausaHerido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="CausaHerido">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadApresamiento_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadApresamiento" Role="NovedadApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadApresamiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadPerdidaDocumento_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadPerdidaDocumento" Role="NovedadPerdidaDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadPerdidaDocumento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo_Novedad_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoNovedad" Role="TipoNovedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoNovedad">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoDroga_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoDroga" Role="TipoDroga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoDroga">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoProducto_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoProducto" Role="TipoProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoProducto">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoRecuperacion_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoRecuperacion" Role="TipoRecuperacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoRecuperacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoRetencion_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoRetencion" Role="TipoRetencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoRetencion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadPerdidaDocumento_TipoDocumento">
+    <End Type="DB_SistREModel.TipoDocumento" Role="TipoDocumento" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadPerdidaDocumento" Role="NovedadPerdidaDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="TipoDocumentoID" />
+      </Principal>
+      <Dependent Role="NovedadPerdidaDocumento">
+        <PropertyRef Name="TipoDocumentoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadPerdidaDocumento_TipoNovedad">
+    <End Type="DB_SistREModel.TipoNovedad" Role="TipoNovedad" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadPerdidaDocumento" Role="NovedadPerdidaDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoNovedad">
+        <PropertyRef Name="TipoNovedadID" />
+      </Principal>
+      <Dependent Role="NovedadPerdidaDocumento">
+        <PropertyRef Name="TipoNovedadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Repatriacion_Tipo_Novedad">
+    <End Type="DB_SistREModel.TipoNovedad" Role="TipoNovedad" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadRepatriaciones" Role="NovedadRepatriaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoNovedad">
+        <PropertyRef Name="TipoNovedadID" />
+      </Principal>
+      <Dependent Role="NovedadRepatriaciones">
+        <PropertyRef Name="TipoNovedadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TipoMoneda">
+    <Key>
+      <PropertyRef Name="TipoMonedaID" />
+    </Key>
+    <Property Name="TipoMonedaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="Simbolo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TipoCombustible">
+    <Key>
+      <PropertyRef Name="TipoCombustibleID" />
+    </Key>
+    <Property Name="TipoCombustibleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMedidaCombustible">
+    <Key>
+      <PropertyRef Name="TipoMedidaCombustibleID" />
+    </Key>
+    <Property Name="TipoMedidaCombustibleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Medida" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="ProductoID" />
+    </Key>
+    <Property Name="ProductoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_Productos_Auditoria" FromRole="Productos" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_Productos_Estatus" FromRole="Productos" ToRole="Estatus" />
+    <NavigationProperty Name="TipoProducto" Relationship="DB_SistREModel.FK_Productos_TipoProducto" FromRole="Productos" ToRole="TipoProducto" />
+  </EntityType>
+  <Association Name="FK_Productos_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.Productos" Role="Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoProducto_Bebida_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.Productos" Role="Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.Productos" Role="Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoProducto_Bebida_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.Productos" Role="Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_TipoProducto">
+    <End Type="DB_SistREModel.TipoProducto" Role="TipoProducto" Multiplicity="1" />
+    <End Type="DB_SistREModel.Productos" Role="Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TipoProductoID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="TipoProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TipoPresentacionMedicamento">
+    <Key>
+      <PropertyRef Name="TipoPresentacionMedicamentoID" />
+    </Key>
+    <Property Name="TipoPresentacionMedicamentoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMedidas">
+    <Key>
+      <PropertyRef Name="TipoMedidaID" />
+    </Key>
+    <Property Name="TipoMedidaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadIncautacion">
+    <Key>
+      <PropertyRef Name="NovedadIncautacionID" />
+    </Key>
+    <Property Name="NovedadIncautacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoIncautacionID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="TipoMedidaID" Type="Int32" Nullable="false" />
+    <Property Name="ProductoID" Type="Int32" Nullable="false" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_NovedadIncautacion_Auditoria" FromRole="NovedadIncautacion" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_NovedadIncautacion_Estatus" FromRole="NovedadIncautacion" ToRole="Estatus" />
+  </EntityType>
+  <Association Name="FK_NovedadIncautacion_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadIncautacion" Role="NovedadIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadIncautacion">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadIncautacion_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadIncautacion" Role="NovedadIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadIncautacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TipoVehiculo">
+    <Key>
+      <PropertyRef Name="TipoVehiculoID" />
+    </Key>
+    <Property Name="TipoVehiculoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoApresamiento">
+    <Key>
+      <PropertyRef Name="TipoApresamientoID" />
+    </Key>
+    <Property Name="TipoApresamientoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_TipoApresamiento_Auditoria" FromRole="TipoApresamiento" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_TipoApresamiento_Estatus" FromRole="TipoApresamiento" ToRole="Estatus" />
+    <NavigationProperty Name="Estatus1" Relationship="DB_SistREModel.FK_TipoApresamiento_Estatus1" FromRole="TipoApresamiento" ToRole="Estatus" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_TipoApresamiento_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoApresamiento" Role="TipoApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="TipoApresamiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoApresamiento_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoApresamiento" Role="TipoApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoApresamiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoApresamiento_Estatus1">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoApresamiento" Role="TipoApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoApresamiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CausaIncautacion">
+    <Key>
+      <PropertyRef Name="CausaIncautacionID" />
+    </Key>
+    <Property Name="CausaIncautacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AutitoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadContrabando">
+    <Key>
+      <PropertyRef Name="NovedadContrabandoID" />
+    </Key>
+    <Property Name="NovedadContrabandoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoContrabandoID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="TipoMedidaID" Type="Int32" Nullable="false" />
+    <Property Name="ProductoID" Type="Int32" Nullable="false" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_NovedadContrabando_Auditoria" FromRole="NovedadContrabando" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="DB_SistREModel.FK_NovedadContrabando_Estatus" FromRole="NovedadContrabando" ToRole="Estatus" />
+  </EntityType>
+  <Association Name="FK_NovedadContrabando_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadContrabando" Role="NovedadContrabando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadContrabando">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadContrabando_Estatus">
+    <End Type="DB_SistREModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="DB_SistREModel.NovedadContrabando" Role="NovedadContrabando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadContrabando">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TipoContrabando">
+    <Key>
+      <PropertyRef Name="TipoContrabandoID" />
+    </Key>
+    <Property Name="TipoContrabandoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaApresamiento">
+    <Key>
+      <PropertyRef Name="CausaApresamientoID" />
+    </Key>
+    <Property Name="CausaApresamientoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="IdPerfil" />
+    </Key>
+    <Property Name="IdPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Perfil" Type="Int32" Nullable="false" />
+    <Property Name="IdAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoIncautacion">
+    <Key>
+      <PropertyRef Name="TipoIncautacionID" />
+    </Key>
+    <Property Name="TipoIncautacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" />
+    <NavigationProperty Name="Auditoria" Relationship="DB_SistREModel.FK_TipoIncautacion_Auditoria" FromRole="TipoIncautacion" ToRole="Auditoria" />
+  </EntityType>
+  <Association Name="FK_TipoIncautacion_Auditoria">
+    <End Type="DB_SistREModel.Auditoria" Role="Auditoria" Multiplicity="1" />
+    <End Type="DB_SistREModel.TipoIncautacion" Role="TipoIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="TipoIncautacion">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,214 @@
+﻿
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    @Styles.Render("~/Content/css")
+    <title>SistRE-G2</title>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <link type="text/css" href="css/bootstrap.min.css" />
+    <link type="text/css" href="css/bootstrap-timepicker.min.css" />
+    @Scripts.Render("~/Content/css")
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar-success {
+            background-color: darkgreen;
+        }
+
+        .bg-success {
+            background-color: darkgreen;
+        }
+
+        tr.group,
+        tr.group:hover {
+            background-color: #ddd !important;
+        }
+
+        .navbar-success ul li a {
+            color: white;
+        }
+
+        .bg-label {
+           color:red;
+
+        }
+
+        .bg-darkgreen {
+            background-color: darkgreen;
+            color: white;
+        }
+
+        .body-content {
+            min-height: 92%;
+        }
+
+        .main-footer {
+            width: auto;
+            height: 8.5%;
+            margin: 0 auto;
+        }
+
+        .content-wrapper {
+            padding-left: 25px;
+        }
+
+        .layout-fixed .main-sidebar {
+            max-height: 100%;
+            overflow-y: auto;
+        }
+    </style>
+
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    @*<body id="page-top">*@
+
+    @*<div class="container body-content" style="width:auto">*@
+    @Html.Partial("_Navigation")
+    <div class="body-content">
+        <div class="content-wrapper">
+            @RenderBody()
+
+
+        </div>
+
+    </div>
+    @Html.Partial("_Footer")
+    @*</div>*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Main")
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/notify.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+
+    @RenderSection("scripts", required: false)
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+</body>
+</html>
+
+<script>
+
+    $(".data-table").dataTable();
+
+    $('#timepicker1').timepicker();
+
+
+    //$(document).ready(function () {
+    //    $('#crt').click(function () {
+    //        alert('Click en el boton');
+    //    });
+
+    //    $('#crt').click();
+    //});
+
+
+
+    //let halfTitle = "Contraloría General de la República Dominicana - Sistema de ";
+
+    ////Aplicando DataTables a las tablas con la clase data-table
+
+    //$(".data-table").DataTable({
+
+    //    "order": [[0, "asc"]],
+
+    //    dom: 'Bfrtip',
+
+    //    buttons: [
+
+    //        {
+
+    //            extend: 'excelHtml5',
+
+    //            //className: "btn",
+
+    //            text: "Excel <i class='fa fa-file-excel-o' aria-hidden='true'></i>",
+
+    //            title: halfTitle + document.title
+
+    //        },
+
+    //        {
+
+    //            extend: 'pdfHtml5',
+
+    //            //className: "btn",
+
+    //            text: 'PDF <i class="fa fa-file-pdf-o" aria-hidden="true"></i>',
+
+    //            title: halfTitle + document.title
+
+    //        },
+
+    //         {
+
+    //             extend: 'print',
+
+    //             title: halfTitle + document.title,
+
+    //             text: 'Imprimir <i class="fa fa-print" aria-hidden="true"></i>',
+
+    //             autoPrint: true
+
+    //         }
+
+    //    ]
+
+    //});
+
+
+
+</script>
+
+<script>
+
+    $(function () {
+        $(".datepicker").datepicker();
+
+    });
+
+</script>
+
+@if (!String.IsNullOrEmpty((string)TempData["info"]))
+{
+    <script>
+        $.notify("@TempData["info"]", "info");
+    </script>
+}
+@if (!String.IsNullOrEmpty((string)TempData["success"]))
+{
+    <script>
+        $.notify('@TempData["success"]', "success");
+    </script>
+}
+@if (!String.IsNullOrEmpty((string)TempData["warn"]))
+{
+    <script>
+        $.notify('@TempData["warn"]', "warn");
+    </script>
+}
+@if (!String.IsNullOrEmpty((string)TempData["error"]))
+{
+    <script>
+        $.notify('@TempData["error"]', "error");
+    </script>
+}
+
+
+
+
+
+

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_G2ERDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Causa_Herida">
+    <Key>
+      <PropertyRef Name="CausaHeridaID" />
+    </Key>
+    <Property Name="CausaHeridaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAutidoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Causa_Muerte">
+    <Key>
+      <PropertyRef Name="CausaMuerteID" />
+    </Key>
+    <Property Name="CausaMuerteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Medioambiente">
+    <Key>
+      <PropertyRef Name="DetalleMedioambienteID" />
+    </Key>
+    <Property Name="DetalleMedioambienteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NovedadID" Type="Int32" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Novedad_Protesta">
+    <Key>
+      <PropertyRef Name="DetalleNovedadProtestaID" />
+    </Key>
+    <Property Name="DetalleNovedadProtestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NovedadID" Type="Int32" Nullable="false" />
+    <Property Name="TipoProtestaID" Type="Int32" Nullable="false" />
+    <Property Name="ProtestaConvocatoriaID" Type="Int32" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Novedad_Vehiculo">
+    <Key>
+      <PropertyRef Name="DetalleNovedadVehiculoID" />
+    </Key>
+    <Property Name="DetalleNovedadVehiculoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NovedadID" Type="Int32" Nullable="false" />
+    <Property Name="TipoVehiculoID" Type="Int32" Nullable="false" />
+    <Property Name="MarcaVehiculoID" Type="Int32" Nullable="false" />
+    <Property Name="ModeloVehiculoID" Type="Int32" Nullable="false" />
+    <Property Name="Anio" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadVehiculoID" Type="Int32" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entrega">
+    <Key>
+      <PropertyRef Name="EntregaID" />
+    </Key>
+    <Property Name="EntregaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Incautaciones">
+    <Key>
+      <PropertyRef Name="IncautacionID" />
+    </Key>
+    <Property Name="IncautacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marca_Vehiculo">
+    <Key>
+      <PropertyRef Name="MarcaVehiculoID" />
+    </Key>
+    <Property Name="MarcaVehiculoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modelo_Vehiculo">
+    <Key>
+      <PropertyRef Name="ModeloVehiculoID" />
+    </Key>
+    <Property Name="ModeloVehiculoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Novedades">
+    <Key>
+      <PropertyRef Name="NovedadesID" />
+    </Key>
+    <Property Name="NovedadesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NovedadTipoID" Type="Int32" Nullable="false" />
+    <Property Name="InstitucionID" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LocalidadID" Type="Int32" Nullable="false" />
+    <Property Name="NacionalidadID" Type="Int32" Nullable="false" />
+    <Property Name="SexoID" Type="Int32" Nullable="false" />
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="RangoID" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Protesta_Convocatoria">
+    <Key>
+      <PropertyRef Name="ProtestaConvocatoriaID" />
+    </Key>
+    <Property Name="ProtestaConvocatoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Recuperaciones">
+    <Key>
+      <PropertyRef Name="RecuperacionID" />
+    </Key>
+    <Property Name="RecuperacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Retenciones">
+    <Key>
+      <PropertyRef Name="RetencionID" />
+    </Key>
+    <Property Name="RetencionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="SexoID" />
+    </Key>
+    <Property Name="SexoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estatus" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Arma">
+    <Key>
+      <PropertyRef Name="TipoArmaID" />
+    </Key>
+    <Property Name="TipoArmaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Droga">
+    <Key>
+      <PropertyRef Name="TipoDrogaID" />
+    </Key>
+    <Property Name="TipoDrogaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Novedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tipo_Novedad_Vehiculo">
+    <Key>
+      <PropertyRef Name="TipoNovedadVehiculoID" />
+    </Key>
+    <Property Name="TipoNovedadVehiculoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tipo_Producto">
+    <Key>
+      <PropertyRef Name="TipoProductoID" />
+    </Key>
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Producto_Bebida">
+    <Key>
+      <PropertyRef Name="TipoBebidaID" />
+    </Key>
+    <Property Name="TipoBebidaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Producto_Comestible">
+    <Key>
+      <PropertyRef Name="TipoComestibleID" />
+    </Key>
+    <Property Name="TipoComestibleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Protesta">
+    <Key>
+      <PropertyRef Name="TipoProtestaID" />
+    </Key>
+    <Property Name="TipoProtestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tipo_Vehiculo">
+    <Key>
+      <PropertyRef Name="TipoVehiculoID" />
+    </Key>
+    <Property Name="TipoVehiculoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tipo_Medicamento">
+    <Key>
+      <PropertyRef Name="TipoMedicamentoID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="idEstatus" />
+    </Key>
+    <Property Name="TipoMedicamentoID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tipo_Medicamentos">
+    <Key>
+      <PropertyRef Name="TipoMedicamentoID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="idEstatus" />
+      <PropertyRef Name="idAuditoria" />
+    </Key>
+    <Property Name="TipoMedicamentoID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idAuditoria" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="db_G2ERDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Causa_Herida" EntityType="Self.Causa_Herida" />
+    <EntitySet Name="Causa_Muerte" EntityType="Self.Causa_Muerte" />
+    <EntitySet Name="Detalle_Medioambiente" EntityType="Self.Detalle_Medioambiente" />
+    <EntitySet Name="Detalle_Novedad_Protesta" EntityType="Self.Detalle_Novedad_Protesta" />
+    <EntitySet Name="Detalle_Novedad_Vehiculo" EntityType="Self.Detalle_Novedad_Vehiculo" />
+    <EntitySet Name="Entrega" EntityType="Self.Entrega" />
+    <EntitySet Name="Incautaciones" EntityType="Self.Incautaciones" />
+    <EntitySet Name="Marca_Vehiculo" EntityType="Self.Marca_Vehiculo" />
+    <EntitySet Name="Modelo_Vehiculo" EntityType="Self.Modelo_Vehiculo" />
+    <EntitySet Name="Novedades" EntityType="Self.Novedades" />
+    <EntitySet Name="Protesta_Convocatoria" EntityType="Self.Protesta_Convocatoria" />
+    <EntitySet Name="Recuperaciones" EntityType="Self.Recuperaciones" />
+    <EntitySet Name="Retenciones" EntityType="Self.Retenciones" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tipo_Arma" EntityType="Self.Tipo_Arma" />
+    <EntitySet Name="Tipo_Droga" EntityType="Self.Tipo_Droga" />
+    <EntitySet Name="Tipo_Novedad" EntityType="Self.Tipo_Novedad" />
+    <EntitySet Name="Tipo_Novedad_Vehiculo" EntityType="Self.Tipo_Novedad_Vehiculo" />
+    <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" />
+    <EntitySet Name="Tipo_Producto_Bebida" EntityType="Self.Tipo_Producto_Bebida" />
+    <EntitySet Name="Tipo_Producto_Comestible" EntityType="Self.Tipo_Producto_Comestible" />
+    <EntitySet Name="Tipo_Protesta" EntityType="Self.Tipo_Protesta" />
+    <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" />
+    <EntitySet Name="Tipo_Medicamento" EntityType="Self.Tipo_Medicamento" />
+    <EntitySet Name="Tipo_Medicamentos" EntityType="Self.Tipo_Medicamentos" />
+  </EntityContainer>
+</Schema>

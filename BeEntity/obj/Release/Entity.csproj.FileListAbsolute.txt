@@ -1,0 +1,6 @@
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\bin\Release\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\bin\Release\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\obj\Release\Entity.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\obj\Release\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\obj\Release\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BeEntity\obj\Release\BeEntity.pdb

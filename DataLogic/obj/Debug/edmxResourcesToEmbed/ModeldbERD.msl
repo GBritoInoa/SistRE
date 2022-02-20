@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbPersonalERDModelStoreContainer" CdmEntityContainer="ContextDbERD">
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Municipios">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="MunicipioID" ColumnName="MunicipioID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+          <ScalarProperty Name="codAnterior" ColumnName="codAnterior" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paises">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Paises">
+        <MappingFragment StoreEntitySet="Paises">
+          <ScalarProperty Name="PaisID" ColumnName="PaisID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="capital" ColumnName="capital" />
+          <ScalarProperty Name="ContinenteID" ColumnName="ContinenteID" />
+          <ScalarProperty Name="codAnterior" ColumnName="codAnterior" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincias">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Provincias">
+        <MappingFragment StoreEntitySet="Provincias">
+          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regiones">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Regiones">
+        <MappingFragment StoreEntitySet="Regiones">
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sectores">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Sectores">
+        <MappingFragment StoreEntitySet="Sectores">
+          <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Batallones">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Batallones">
+        <MappingFragment StoreEntitySet="Batallones">
+          <ScalarProperty Name="codAnterior" ColumnName="codAnterior" />
+          <ScalarProperty Name="UnidadID" ColumnName="UnidadID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="BatallonID" ColumnName="BatallonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rangos">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Rangos">
+        <MappingFragment StoreEntitySet="Rangos">
+          <ScalarProperty Name="Abreviatura2" ColumnName="Abreviatura2" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Riesgo" ColumnName="Riesgo" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="nombreARD" ColumnName="nombreARD" />
+          <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+          <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+          <ScalarProperty Name="codAnterior" ColumnName="codAnterior" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="nivelRangoID" ColumnName="nivelRangoID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unidades">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Unidades">
+        <MappingFragment StoreEntitySet="Unidades">
+          <ScalarProperty Name="codAnterior" ColumnName="codAnterior" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="UnidadID" ColumnName="UnidadID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companias">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Companias">
+        <MappingFragment StoreEntitySet="Companias">
+          <ScalarProperty Name="Historica" ColumnName="Historica" />
+          <ScalarProperty Name="Igualado" ColumnName="Igualado" />
+          <ScalarProperty Name="Asimilado" ColumnName="Asimilado" />
+          <ScalarProperty Name="Conscripto" ColumnName="Conscripto" />
+          <ScalarProperty Name="Raso" ColumnName="Raso" />
+          <ScalarProperty Name="Cabo" ColumnName="Cabo" />
+          <ScalarProperty Name="Sargento" ColumnName="Sargento" />
+          <ScalarProperty Name="SargentoAyC" ColumnName="SargentoAyC" />
+          <ScalarProperty Name="SargentoMayor" ColumnName="SargentoMayor" />
+          <ScalarProperty Name="AspiranteAcadete" ColumnName="AspiranteAcadete" />
+          <ScalarProperty Name="Cadete1erAño" ColumnName="Cadete1erAño" />
+          <ScalarProperty Name="Cadete2doAño" ColumnName="Cadete2doAño" />
+          <ScalarProperty Name="Cadete3erAño" ColumnName="Cadete3erAño" />
+          <ScalarProperty Name="Cadete4toAño" ColumnName="Cadete4toAño" />
+          <ScalarProperty Name="SeguntoTeniente" ColumnName="SeguntoTeniente" />
+          <ScalarProperty Name="PrimerTeniente" ColumnName="PrimerTeniente" />
+          <ScalarProperty Name="Capitan" ColumnName="Capitan" />
+          <ScalarProperty Name="Mayor" ColumnName="Mayor" />
+          <ScalarProperty Name="TenienteCoronel" ColumnName="TenienteCoronel" />
+          <ScalarProperty Name="Coronel" ColumnName="Coronel" />
+          <ScalarProperty Name="General" ColumnName="General" />
+          <ScalarProperty Name="MayorGeneral" ColumnName="MayorGeneral" />
+          <ScalarProperty Name="TenienteGeneral" ColumnName="TenienteGeneral" />
+          <ScalarProperty Name="Nomina" ColumnName="Nomina" />
+          <ScalarProperty Name="codAnterior" ColumnName="codAnterior" />
+          <ScalarProperty Name="BatallonID" ColumnName="BatallonID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

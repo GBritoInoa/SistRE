@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EstG2ModelStoreContainer" CdmEntityContainer="EstG2Contex">
+    <EntitySetMapping Name="Estatus">
+      <EntityTypeMapping TypeName="EstG2Model.Estatus">
+        <MappingFragment StoreEntitySet="Estatus">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoArma">
+      <EntityTypeMapping TypeName="EstG2Model.TipoArma">
+        <MappingFragment StoreEntitySet="TipoArma">
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoArmaID" ColumnName="TipoArmaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDroga">
+      <EntityTypeMapping TypeName="EstG2Model.TipoDroga">
+        <MappingFragment StoreEntitySet="TipoDroga">
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoDrogaID" ColumnName="TipoDrogaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoIncautacion">
+      <EntityTypeMapping TypeName="EstG2Model.TipoIncautacion">
+        <MappingFragment StoreEntitySet="TipoIncautacion">
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoIncautacionID" ColumnName="TipoIncautacionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoNovedad">
+      <EntityTypeMapping TypeName="EstG2Model.TipoNovedad">
+        <MappingFragment StoreEntitySet="TipoNovedad">
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerdidaDocumento">
+      <EntityTypeMapping TypeName="EstG2Model.PerdidaDocumento">
+        <MappingFragment StoreEntitySet="PerdidaDocumento">
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PerdidaDocumentoID" ColumnName="PerdidaDocumentoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoHerido">
+      <EntityTypeMapping TypeName="EstG2Model.TipoHerido">
+        <MappingFragment StoreEntitySet="TipoHerido">
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoHeridoID" ColumnName="TipoHeridoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMuerte">
+      <EntityTypeMapping TypeName="EstG2Model.TipoMuerte">
+        <MappingFragment StoreEntitySet="TipoMuerte">
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoMuerteID" ColumnName="TipoMuerteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fallecidos">
+      <EntityTypeMapping TypeName="EstG2Model.Fallecidos">
+        <MappingFragment StoreEntitySet="Fallecidos">
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsaurioActualizo" ColumnName="UsaurioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FallecidoID" ColumnName="FallecidoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDecomiso">
+      <EntityTypeMapping TypeName="EstG2Model.TipoDecomiso">
+        <MappingFragment StoreEntitySet="TipoDecomiso">
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoDecomisoID" ColumnName="TipoDecomisoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMedida">
+      <EntityTypeMapping TypeName="EstG2Model.TipoMedida">
+        <MappingFragment StoreEntitySet="TipoMedida">
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Medida" ColumnName="Medida" />
+          <ScalarProperty Name="TipoMedidaID" ColumnName="TipoMedidaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NovedadIncautacion">
+      <EntityTypeMapping TypeName="EstG2Model.NovedadIncautacion">
+        <MappingFragment StoreEntitySet="NovedadIncautacion">
+          <ScalarProperty Name="FechaActualizo" ColumnName="FechaActualizo" />
+          <ScalarProperty Name="UsuarioActualizo" ColumnName="UsuarioActualizo" />
+          <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+          <ScalarProperty Name="UsuarioCreo" ColumnName="UsuarioCreo" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="TipoMedidaID" ColumnName="TipoMedidaID" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="TipoIncautacionID" ColumnName="TipoIncautacionID" />
+          <ScalarProperty Name="NovedadIncautacionID" ColumnName="NovedadIncautacionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

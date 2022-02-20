@@ -1,0 +1,84 @@
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\obj\Debug\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\obj\Debug\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\bin\Debug\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\obj\Debug\BusinessControl.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\BusinessControl.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\BusinessControl.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\BeEntity.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\DataLogic.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\EntityFramework.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\BeEntity.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\DataLogic.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\DataLogic.dll.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\bin\Debug\EntityFramework.xml
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.csprojAssemblyReference.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\bin\Debug\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\BusinessControl\obj\Debug\BusinessControl.pdb
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\BusinessControl.dll
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\BusinessControl.pdb
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\BeEntity.dll
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\DataLogic.dll
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\EntityFramework.dll
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\BeEntity.pdb
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\DataLogic.pdb
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\DataLogic.dll.config
+K:\Backup SistRE\SistRE\BusinessControl\bin\Debug\EntityFramework.xml
+K:\Backup SistRE\SistRE\BusinessControl\obj\Debug\BusinessControl.csprojAssemblyReference.cache
+K:\Backup SistRE\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cache
+K:\Backup SistRE\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
+K:\Backup SistRE\SistRE\BusinessControl\obj\Debug\BusinessControl.dll
+K:\Backup SistRE\SistRE\BusinessControl\obj\Debug\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\bin\Debug\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Debug\BusinessControl.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Debug\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\BusinessControl\obj\Debug\BusinessControl.pdb
+C:\SistRE\BusinessControl\bin\Debug\BusinessControl.dll
+C:\SistRE\BusinessControl\bin\Debug\BusinessControl.pdb
+C:\SistRE\BusinessControl\bin\Debug\BeEntity.dll
+C:\SistRE\BusinessControl\bin\Debug\DataLogic.dll
+C:\SistRE\BusinessControl\bin\Debug\EntityFramework.dll
+C:\SistRE\BusinessControl\bin\Debug\BeEntity.pdb
+C:\SistRE\BusinessControl\bin\Debug\DataLogic.pdb
+C:\SistRE\BusinessControl\bin\Debug\DataLogic.dll.config
+C:\SistRE\BusinessControl\bin\Debug\EntityFramework.xml
+C:\SistRE\BusinessControl\obj\Debug\BusinessControl.csprojAssemblyReference.cache
+C:\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cache
+C:\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
+C:\SistRE\BusinessControl\obj\Debug\BusinessControl.dll
+C:\SistRE\BusinessControl\obj\Debug\BusinessControl.pdb

@@ -1,0 +1,369 @@
+﻿    <!-- Navbar -->
+
+    <nav class="main-header navbar navbar-expand   navbar-success">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="Home/Index/" class="nav-link"></a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-gradient-secondady" >
+            <!-- Brand Logo -->
+            <a href="~/Home/Index/" class="brand-link">
+                <img src="~/Content/dist/img/LogoERD.png" alt="Logo ERD" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">SistRE-G2</span>
+            </a>
+
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+    with font-awesome or any other icon font library -->
+                @*Dashboard*@
+                <li class="nav-item">
+                    <a href="~/Home/Index/" class="nav-link badge-info">
+                        <i class="nav-icon fa fa-home "></i>
+                        <p>
+                            Dashboard
+                            <!--<i class="right fas fa-angle-left"></i>-->
+                        </p>
+                    </a>
+
+                </li>
+
+
+                @*Menú Administración*@
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link badge-info">
+                        <i class="nav-icon fa fa-user-lock fa-fw"></i>
+                        <p>
+                            Administración
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link badge-info">
+                                <i class="fas fa-university nav-item"></i>
+                                <p><small>Institución</small></p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link badge-info">
+                                <i class="fa fa-user-plus nav-item"></i>
+                                <p><small>Usuarios</small></p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="fas fa-user-check nav-item"></i>
+                                <p><small>Roles</small></p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                @*Fin Administración*@
+
+                @*<div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Registro de Novedades
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="~/Procesos/NovedadPerdidaDocumento/Create">Decomisos</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+        </div>*@
+
+                @*Menú Registro Novedades*@
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link badge-info">
+                        <i class="nav-icon fa fa-database fa-fw"></i>
+                        <p>
+                            Registro  Novedades
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        @*<li class="nav-item">
+            <a href="~/Procesos/RegistroNovedades/Register" class="nav-link badge-info">
+                <i class="fas fa-pen-alt nav-item"></i>
+                <p><small>Registro de Novedades</small></p>
+
+            </a>
+        </li>*@
+                        <li class="nav-item">
+                            <a href="~/Procesos/NovedadAusencia/Create" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p><small>Ausencias</small></p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Procesos/NovedadApresamientos/Create" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p><small>Apresamientos</small></p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Procesos/NovedadContrabando/Create" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p><small>Contrabando</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Procesos/NovedadDecomiso/Create" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p><small>Decomisos</small></p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Procesos/NovedadIncautacion/Create" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p><small>Incautaciones</small></p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Procesos/NovedadPerdidaDocumento/Create" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p><small>Pérdida Documento</small></p>
+
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Procesos/NovedadRepatriacion/Create" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p><small>Repatriaciones</small></p>
+
+                            </a>
+                        </li>
+
+
+
+
+
+
+                    </ul>
+                </li>
+                @*Fin Procesos*@
+
+
+                @*Menú Configuración*@
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link badge-info">
+                        <i class="nav-icon fa fa-cog fa-fw"></i>
+                        <p>
+                            Configuración
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoAusencias/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Ausencias</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoApresamiento/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Apresamientos</small></p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoArma/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Armas</small></p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoContrabando/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Contrabando</small></p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoNovedad/Index/" class="nav-link badge-info">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Novedad</small></p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoIncautacion/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small> Tipo Incautación</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/Nacionalidad/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Nacionalidades</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoDecomiso/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Decomiso</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoDocumento/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Documento</small></p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/TipoProducto/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Tipo Producto</small></p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Mantenimientos/Productos/Index" class="nav-link">
+                                <i class="fas fa-pen-alt nav-item"></i>
+                                <p> <small>Producto</small></p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*Fin Configuración*@
+
+
+                @*Reportes*@
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link badge-info">
+                        <i class="nav-icon fa fa-chart-area fa-fw"></i>
+                        <p>
+                            Reportes
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link badge-info">
+                                <i class="av-icon fa fa-chart-area fa-fw"></i>
+                                <p><small>Report1</small></p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link badge-info">
+                                <i class="av-icon fa fa-chart-area fa-fw"></i>
+                                <p><small>Report2</small></p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="av-icon fa fa-chart-area fa-fw"></i>
+                                <p><small>Report3</small></p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                @*Fin Reportes*@
+
+                @*Consultas*@
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link badge-info">
+                        <i class="nav-icon fa fa-search fa-fw"></i>
+                        <p>
+                            Consultas
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link badge-info">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta1</small></p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link badge-info">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta2</small></p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta3</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta3</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta3</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta3</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta3</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta3</small></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <i class="far fa-circle nav-item"></i>
+                                <p><small>Consulta3</small></p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                @*Fin Consultas*@
+            </ul>
+
+        </aside>
+

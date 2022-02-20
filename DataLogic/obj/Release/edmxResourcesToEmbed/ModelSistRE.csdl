@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_SistREModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Auditoria">
+    <Key>
+      <PropertyRef Name="AuditoriaID" />
+    </Key>
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioCreo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreo" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioActualizo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaActualizo" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Fallecidos" Relationship="Self.FK_Fallecidos_Auditoria" FromRole="Auditoria" ToRole="Fallecidos" />
+    <NavigationProperty Name="TipoNovedad" Relationship="Self.FK_TipoNovedad_Auditoria" FromRole="Auditoria" ToRole="TipoNovedad" />
+  </EntityType>
+  <EntityType Name="CausaHerido">
+    <Key>
+      <PropertyRef Name="CausaHeridoID" />
+    </Key>
+    <Property Name="CausaHeridoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_CausaHerido_Estatus" FromRole="CausaHerido" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="CausaMuerte">
+    <Key>
+      <PropertyRef Name="TipoMuerteID" />
+    </Key>
+    <Property Name="TipoMuerteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Estatus">
+    <Key>
+      <PropertyRef Name="EstatusID" />
+    </Key>
+    <Property Name="EstatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CausaHerido" Relationship="Self.FK_CausaHerido_Estatus" FromRole="Estatus" ToRole="CausaHerido" />
+    <NavigationProperty Name="Fallecidos" Relationship="Self.FK_Fallecidos_Estatus" FromRole="Estatus" ToRole="Fallecidos" />
+    <NavigationProperty Name="NovedadIncautacion" Relationship="Self.FK_NovedadIncautacion_Estatus" FromRole="Estatus" ToRole="NovedadIncautacion" />
+    <NavigationProperty Name="TipoNovedad" Relationship="Self.FK_Tipo_Novedad_Estatus" FromRole="Estatus" ToRole="TipoNovedad" />
+    <NavigationProperty Name="TipoArma" Relationship="Self.FK_TipoArma_Estatus" FromRole="Estatus" ToRole="TipoArma" />
+    <NavigationProperty Name="TipoDroga" Relationship="Self.FK_TipoDroga_Estatus" FromRole="Estatus" ToRole="TipoDroga" />
+    <NavigationProperty Name="TipoProducto" Relationship="Self.FK_TipoProducto_Estatus" FromRole="Estatus" ToRole="TipoProducto" />
+    <NavigationProperty Name="TipoRecuperacion" Relationship="Self.FK_TipoRecuperacion_Estatus" FromRole="Estatus" ToRole="TipoRecuperacion" />
+  </EntityType>
+  <EntityType Name="Fallecidos">
+    <Key>
+      <PropertyRef Name="FallecidoID" />
+    </Key>
+    <Property Name="FallecidoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+    <NavigationProperty Name="Auditoria" Relationship="Self.FK_Fallecidos_Auditoria" FromRole="Fallecidos" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_Fallecidos_Estatus" FromRole="Fallecidos" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="NovedadIncautacion">
+    <Key>
+      <PropertyRef Name="NovedadIncautacionID" />
+    </Key>
+    <Property Name="NovedadIncautacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoIncautacionID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="TipoMedidaID" Type="Int32" Nullable="false" />
+    <Property Name="Localidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNovedad" Type="DateTime" Precision="0" />
+    <Property Name="HoraNovedad" Type="DateTime" Precision="3" />
+    <Property Name="EstatusID" Type="Int32" />
+    <Property Name="AuditoriaID" Type="Int32" />
+    <Property Name="BatallonID" Type="Int32" />
+    <Property Name="BrigadaID" Type="Int32" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_NovedadIncautacion_Estatus" FromRole="NovedadIncautacion" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="PerdidaDocumento">
+    <Key>
+      <PropertyRef Name="PerdidaDocumentoID" />
+    </Key>
+    <Property Name="PerdidaDocumentoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TipoArma">
+    <Key>
+      <PropertyRef Name="TipoArmaID" />
+    </Key>
+    <Property Name="TipoArmaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_TipoArma_Estatus" FromRole="TipoArma" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="TipoDecomiso">
+    <Key>
+      <PropertyRef Name="TipoDecomisoID" />
+    </Key>
+    <Property Name="TipoDecomisoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TipoDroga">
+    <Key>
+      <PropertyRef Name="TipoDrogaID" />
+    </Key>
+    <Property Name="TipoDrogaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_TipoDroga_Estatus" FromRole="TipoDroga" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="TipoIncautacion">
+    <Key>
+      <PropertyRef Name="TipoIncautacionID" />
+    </Key>
+    <Property Name="TipoIncautacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TipoMedicamento">
+    <Key>
+      <PropertyRef Name="TipoMedicamentoID" />
+    </Key>
+    <Property Name="TipoMedicamentoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreo" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioActualizo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaActualizo" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TipoMedida">
+    <Key>
+      <PropertyRef Name="TipoMedidaID" />
+    </Key>
+    <Property Name="TipoMedidaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Medida" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoNovedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="Vista" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auditoria" Relationship="Self.FK_TipoNovedad_Auditoria" FromRole="TipoNovedad" ToRole="Auditoria" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_Tipo_Novedad_Estatus" FromRole="TipoNovedad" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="TipoProducto">
+    <Key>
+      <PropertyRef Name="TipoProductoID" />
+    </Key>
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_TipoProducto_Estatus" FromRole="TipoProducto" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="TipoRecuperacion">
+    <Key>
+      <PropertyRef Name="TipoRecuperacionID" />
+    </Key>
+    <Property Name="TipoRecuperacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_TipoRecuperacion_Estatus" FromRole="TipoRecuperacion" ToRole="Estatus" />
+  </EntityType>
+  <EntityType Name="TipoVehiculo">
+    <Key>
+      <PropertyRef Name="TipoVehiculoID" />
+    </Key>
+    <Property Name="TipoVehiculoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Fallecidos_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="0..1" />
+    <End Role="Fallecidos" Type="Self.Fallecidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="Fallecidos">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoNovedad_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="TipoNovedad" Type="Self.TipoNovedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="TipoNovedad">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CausaHerido_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="CausaHerido" Type="Self.CausaHerido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="CausaHerido">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fallecidos_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="Fallecidos" Type="Self.Fallecidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Fallecidos">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadIncautacion_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="0..1" />
+    <End Role="NovedadIncautacion" Type="Self.NovedadIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadIncautacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo_Novedad_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoNovedad" Type="Self.TipoNovedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoNovedad">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoArma_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoArma" Type="Self.TipoArma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoArma">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoDroga_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoDroga" Type="Self.TipoDroga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoDroga">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoProducto_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoProducto">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoRecuperacion_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoRecuperacion" Type="Self.TipoRecuperacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoRecuperacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Context_SistRE" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Auditoria" EntityType="Self.Auditoria" />
+    <EntitySet Name="CausaHerido" EntityType="Self.CausaHerido" />
+    <EntitySet Name="CausaMuerte" EntityType="Self.CausaMuerte" />
+    <EntitySet Name="Estatus" EntityType="Self.Estatus" />
+    <EntitySet Name="Fallecidos" EntityType="Self.Fallecidos" />
+    <EntitySet Name="NovedadIncautacion" EntityType="Self.NovedadIncautacion" />
+    <EntitySet Name="PerdidaDocumento" EntityType="Self.PerdidaDocumento" />
+    <EntitySet Name="TipoArma" EntityType="Self.TipoArma" />
+    <EntitySet Name="TipoDecomiso" EntityType="Self.TipoDecomiso" />
+    <EntitySet Name="TipoDroga" EntityType="Self.TipoDroga" />
+    <EntitySet Name="TipoIncautacion" EntityType="Self.TipoIncautacion" />
+    <EntitySet Name="TipoMedicamento" EntityType="Self.TipoMedicamento" />
+    <EntitySet Name="TipoMedida" EntityType="Self.TipoMedida" />
+    <EntitySet Name="TipoNovedad" EntityType="Self.TipoNovedad" />
+    <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" />
+    <EntitySet Name="TipoRecuperacion" EntityType="Self.TipoRecuperacion" />
+    <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" />
+    <AssociationSet Name="FK_Fallecidos_Auditoria" Association="Self.FK_Fallecidos_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="Fallecidos" EntitySet="Fallecidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoNovedad_Auditoria" Association="Self.FK_TipoNovedad_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CausaHerido_Estatus" Association="Self.FK_CausaHerido_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="CausaHerido" EntitySet="CausaHerido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fallecidos_Estatus" Association="Self.FK_Fallecidos_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Fallecidos" EntitySet="Fallecidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadIncautacion_Estatus" Association="Self.FK_NovedadIncautacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadIncautacion" EntitySet="NovedadIncautacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo_Novedad_Estatus" Association="Self.FK_Tipo_Novedad_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoArma_Estatus" Association="Self.FK_TipoArma_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoArma" EntitySet="TipoArma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoDroga_Estatus" Association="Self.FK_TipoDroga_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoDroga" EntitySet="TipoDroga" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoProducto_Estatus" Association="Self.FK_TipoProducto_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoRecuperacion_Estatus" Association="Self.FK_TipoRecuperacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoRecuperacion" EntitySet="TipoRecuperacion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,1096 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_SistREModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Auditoria">
+    <Key>
+      <PropertyRef Name="AuditoriaID" />
+    </Key>
+    <Property Name="AuditoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioCreo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreo" Type="datetime" />
+    <Property Name="UsuarioActualizo" Type="varchar" MaxLength="50" />
+    <Property Name="FechaActualizo" Type="datetime" />
+    <Property Name="IpAddress" Type="nvarchar" MaxLength="25" />
+    <Property Name="NombrePC" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ausencias">
+    <Key>
+      <PropertyRef Name="AusenciaID" />
+    </Key>
+    <Property Name="AusenciaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaApresamiento">
+    <Key>
+      <PropertyRef Name="CausaApresamientoID" />
+    </Key>
+    <Property Name="CausaApresamientoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaFallecimiento">
+    <Key>
+      <PropertyRef Name="CausaFallecimientoID" />
+    </Key>
+    <Property Name="CausaFallecimientoID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaHerido">
+    <Key>
+      <PropertyRef Name="CausaHeridoID" />
+    </Key>
+    <Property Name="CausaHeridoID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaHospitalizacion">
+    <Key>
+      <PropertyRef Name="CausaHospitalizacionID" />
+    </Key>
+    <Property Name="CausaHospitalizacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaIncautacion">
+    <Key>
+      <PropertyRef Name="CausaIncautacionID" />
+    </Key>
+    <Property Name="CausaIncautacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AutitoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaMuerte">
+    <Key>
+      <PropertyRef Name="CausaMuerteID" />
+    </Key>
+    <Property Name="CausaMuerteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaRepatriacion">
+    <Key>
+      <PropertyRef Name="CausaRepratriacionID" />
+    </Key>
+    <Property Name="CausaRepratriacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CausaSuicidio">
+    <Key>
+      <PropertyRef Name="CausaSuicidioID" />
+    </Key>
+    <Property Name="CausaSuicidioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entrega">
+    <Key>
+      <PropertyRef Name="EntregaID" />
+    </Key>
+    <Property Name="EntregaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estatus">
+    <Key>
+      <PropertyRef Name="EstatusID" />
+    </Key>
+    <Property Name="EstatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistoricoNovedades">
+    <Key>
+      <PropertyRef Name="NovedadesID" />
+    </Key>
+    <Property Name="NovedadesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoID" Type="int" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institucion">
+    <Key>
+      <PropertyRef Name="InstitucionID" />
+    </Key>
+    <Property Name="InstitucionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Lema" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Anio" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LugarActividad">
+    <Key>
+      <PropertyRef Name="LugarActividadID" />
+    </Key>
+    <Property Name="LugarActividadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nacionalidad">
+    <Key>
+      <PropertyRef Name="NacionalidadID" />
+    </Key>
+    <Property Name="NacionalidadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadApresamiento">
+    <Key>
+      <PropertyRef Name="NovedadAPresamientoID" />
+    </Key>
+    <Property Name="NovedadAPresamientoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="NacionalidadID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="SexoID" Type="int" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="TipoApresamientoID" Type="int" Nullable="false" />
+    <Property Name="RangoID" Type="int" />
+    <Property Name="CompaniaID" Type="int" />
+  </EntityType>
+  <EntityType Name="NovedadAusencia">
+    <Key>
+      <PropertyRef Name="NovedadAusenciaID" />
+    </Key>
+    <Property Name="NovedadAusenciaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AusenciaID" Type="int" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="RangoID" Type="int" Nullable="false" />
+    <Property Name="CompaniaID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadContrabando">
+    <Key>
+      <PropertyRef Name="NovedadContrabandoID" />
+    </Key>
+    <Property Name="NovedadContrabandoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoContrabandoID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="TipoMedidaID" Type="int" Nullable="false" />
+    <Property Name="ProductoID" Type="int" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadDecomiso">
+    <Key>
+      <PropertyRef Name="NovedadDecomisoID" />
+    </Key>
+    <Property Name="NovedadDecomisoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoDecomisoID" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="TipoMedidaID" Type="int" Nullable="false" />
+    <Property Name="TipoID" Type="int" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadIncautacion">
+    <Key>
+      <PropertyRef Name="NovedadIncautacionID" />
+    </Key>
+    <Property Name="NovedadIncautacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoIncautacionID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="TipoMedidaID" Type="int" Nullable="false" />
+    <Property Name="ProductoID" Type="int" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadPerdidaDocumento">
+    <Key>
+      <PropertyRef Name="NovedadPerdidaDocumentoID" />
+    </Key>
+    <Property Name="NovedadPerdidaDocumentoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="RangoID" Type="int" Nullable="false" />
+    <Property Name="CompaniaID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoDocumentoID" Type="int" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadRepatriaciones">
+    <Key>
+      <PropertyRef Name="NovedadRepatriacionID" />
+    </Key>
+    <Property Name="NovedadRepatriacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="PaisID" Type="int" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="SexoID" Type="int" Nullable="false" />
+    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="CausaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="PaisID" />
+    </Key>
+    <Property Name="PaisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="IdPerfil" />
+    </Key>
+    <Property Name="IdPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Perfil" Type="int" Nullable="false" />
+    <Property Name="IdAuditoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="ProductoID" />
+    </Key>
+    <Property Name="ProductoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoProductoID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProtestaConvocatoria">
+    <Key>
+      <PropertyRef Name="ProtestaConvocatoriaID" />
+    </Key>
+    <Property Name="ProtestaConvocatoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="SexoID" />
+    </Key>
+    <Property Name="SexoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoActividad">
+    <Key>
+      <PropertyRef Name="TipoActividadID" />
+    </Key>
+    <Property Name="TipoActividadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoApresamiento">
+    <Key>
+      <PropertyRef Name="TipoApresamientoID" />
+    </Key>
+    <Property Name="TipoApresamientoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoArma">
+    <Key>
+      <PropertyRef Name="TipoArmaID" />
+    </Key>
+    <Property Name="TipoArmaID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoCombustible">
+    <Key>
+      <PropertyRef Name="TipoCombustibleID" />
+    </Key>
+    <Property Name="TipoCombustibleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoContrabando">
+    <Key>
+      <PropertyRef Name="TipoContrabandoID" />
+    </Key>
+    <Property Name="TipoContrabandoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoProductoID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDecomiso">
+    <Key>
+      <PropertyRef Name="TipoDecomisoID" />
+    </Key>
+    <Property Name="TipoDecomisoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="TipoDocumentoID" />
+    </Key>
+    <Property Name="TipoDocumentoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDroga">
+    <Key>
+      <PropertyRef Name="TipoDrogaID" />
+    </Key>
+    <Property Name="TipoDrogaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoIncautacion">
+    <Key>
+      <PropertyRef Name="TipoIncautacionID" />
+    </Key>
+    <Property Name="TipoIncautacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoProductoID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoMedicamento">
+    <Key>
+      <PropertyRef Name="TipoMedicamentoID" />
+    </Key>
+    <Property Name="TipoMedicamentoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMedidaCombustible">
+    <Key>
+      <PropertyRef Name="TipoMedidaCombustibleID" />
+    </Key>
+    <Property Name="TipoMedidaCombustibleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Medida" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMedidas">
+    <Key>
+      <PropertyRef Name="TipoMedidaID" />
+    </Key>
+    <Property Name="TipoMedidaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TipoProductoID" Type="int" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMoneda">
+    <Key>
+      <PropertyRef Name="TipoMonedaID" />
+    </Key>
+    <Property Name="TipoMonedaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="Simbolo" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoNovedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="Vista" Type="varchar" MaxLength="50" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPresentacionMedicamento">
+    <Key>
+      <PropertyRef Name="TipoPresentacionMedicamentoID" />
+    </Key>
+    <Property Name="TipoPresentacionMedicamentoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoProducto">
+    <Key>
+      <PropertyRef Name="TipoProductoID" />
+    </Key>
+    <Property Name="TipoProductoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoProtesta">
+    <Key>
+      <PropertyRef Name="TipoProtestaID" />
+    </Key>
+    <Property Name="TipoProtestaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoRecuperacion">
+    <Key>
+      <PropertyRef Name="TipoRecuperacionID" />
+    </Key>
+    <Property Name="TipoRecuperacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoRetencion">
+    <Key>
+      <PropertyRef Name="RetencionID" />
+    </Key>
+    <Property Name="RetencionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoVehiculo">
+    <Key>
+      <PropertyRef Name="TipoVehiculoID" />
+    </Key>
+    <Property Name="TipoVehiculoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ausencias_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="Ausencias" Type="Self.Ausencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="Ausencias">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ausencias_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="Ausencias" Type="Self.Ausencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Ausencias">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CausaHerido_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="CausaHerido" Type="Self.CausaHerido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="CausaHerido">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fallecidos_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="CausaFallecimiento" Type="Self.CausaFallecimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="CausaFallecimiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fallecidos_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="CausaFallecimiento" Type="Self.CausaFallecimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="CausaFallecimiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadApresamiento_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="NovedadApresamiento" Type="Self.NovedadApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadApresamiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadApresamiento_Auditoria1">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="NovedadApresamiento" Type="Self.NovedadApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadApresamiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadApresamiento_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="NovedadApresamiento" Type="Self.NovedadApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadApresamiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadContrabando_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="NovedadContrabando" Type="Self.NovedadContrabando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadContrabando">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadContrabando_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="NovedadContrabando" Type="Self.NovedadContrabando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadContrabando">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadIncautacion_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="NovedadIncautacion" Type="Self.NovedadIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="NovedadIncautacion">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadIncautacion_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="NovedadIncautacion" Type="Self.NovedadIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadIncautacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadPerdidaDocumento_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="NovedadPerdidaDocumento" Type="Self.NovedadPerdidaDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="NovedadPerdidaDocumento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadPerdidaDocumento_TipoDocumento">
+    <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+    <End Role="NovedadPerdidaDocumento" Type="Self.NovedadPerdidaDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="TipoDocumentoID" />
+      </Principal>
+      <Dependent Role="NovedadPerdidaDocumento">
+        <PropertyRef Name="TipoDocumentoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NovedadPerdidaDocumento_TipoNovedad">
+    <End Role="TipoNovedad" Type="Self.TipoNovedad" Multiplicity="1" />
+    <End Role="NovedadPerdidaDocumento" Type="Self.NovedadPerdidaDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoNovedad">
+        <PropertyRef Name="TipoNovedadID" />
+      </Principal>
+      <Dependent Role="NovedadPerdidaDocumento">
+        <PropertyRef Name="TipoNovedadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_TipoProducto">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TipoProductoID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="TipoProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Repatriacion_Tipo_Novedad">
+    <End Role="TipoNovedad" Type="Self.TipoNovedad" Multiplicity="1" />
+    <End Role="NovedadRepatriaciones" Type="Self.NovedadRepatriaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoNovedad">
+        <PropertyRef Name="TipoNovedadID" />
+      </Principal>
+      <Dependent Role="NovedadRepatriaciones">
+        <PropertyRef Name="TipoNovedadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo_Novedad_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoNovedad" Type="Self.TipoNovedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoNovedad">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoApresamiento_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="TipoApresamiento" Type="Self.TipoApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="TipoApresamiento">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoApresamiento_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoApresamiento" Type="Self.TipoApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoApresamiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoApresamiento_Estatus1">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoApresamiento" Type="Self.TipoApresamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoApresamiento">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoDroga_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoDroga" Type="Self.TipoDroga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoDroga">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoIncautacion_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="TipoIncautacion" Type="Self.TipoIncautacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="TipoIncautacion">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoNovedad_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="TipoNovedad" Type="Self.TipoNovedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="TipoNovedad">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoProducto_Bebida_Auditoria">
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auditoria">
+        <PropertyRef Name="AuditoriaID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="AuditoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoProducto_Bebida_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoProducto_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoProducto">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoRecuperacion_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoRecuperacion" Type="Self.TipoRecuperacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoRecuperacion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoRetencion_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="1" />
+    <End Role="TipoRetencion" Type="Self.TipoRetencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="TipoRetencion">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_CreateTipoNovedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TipoNovedadID" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="EstatusID" Type="int" Mode="In" />
+    <Parameter Name="AuditoriaID" Type="int" Mode="In" />
+    <Parameter Name="UsuarioCreo" Type="varchar" Mode="In" />
+    <Parameter Name="FechaCreo" Type="datetime" Mode="In" />
+    <Parameter Name="codigo_estado" Type="int" Mode="InOut" />
+    <Parameter Name="mensaje_estado" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="usp_decomiso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Option" Type="int" Mode="In" />
+    <Parameter Name="UsuarioCreo" Type="varchar" Mode="In" />
+    <Parameter Name="FechaCreo" Type="datetime" Mode="In" />
+    <Parameter Name="UsuarioActualizo" Type="varchar" Mode="In" />
+    <Parameter Name="FechaActualizo" Type="datetime" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="EstatusID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EditTipoNovedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TipoNovedadID" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="EstatusID" Type="int" Mode="In" />
+    <Parameter Name="AuditoriaID" Type="int" Mode="In" />
+    <Parameter Name="UsuarioActualizo" Type="varchar" Mode="In" />
+    <Parameter Name="FechaActualizo" Type="datetime" Mode="In" />
+    <Parameter Name="codigo_estado" Type="int" Mode="InOut" />
+    <Parameter Name="mensaje_estado" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="usp_maxCodAuditoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="DB_SistREModelStoreContainer">
+    <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ausencias" EntityType="Self.Ausencias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaApresamiento" EntityType="Self.CausaApresamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaFallecimiento" EntityType="Self.CausaFallecimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaHerido" EntityType="Self.CausaHerido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaHospitalizacion" EntityType="Self.CausaHospitalizacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaIncautacion" EntityType="Self.CausaIncautacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaMuerte" EntityType="Self.CausaMuerte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaRepatriacion" EntityType="Self.CausaRepatriacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CausaSuicidio" EntityType="Self.CausaSuicidio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entrega" EntityType="Self.Entrega" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoricoNovedades" EntityType="Self.HistoricoNovedades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Institucion" EntityType="Self.Institucion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LugarActividad" EntityType="Self.LugarActividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nacionalidad" EntityType="Self.Nacionalidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadApresamiento" EntityType="Self.NovedadApresamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadAusencia" EntityType="Self.NovedadAusencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadContrabando" EntityType="Self.NovedadContrabando" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadDecomiso" EntityType="Self.NovedadDecomiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadIncautacion" EntityType="Self.NovedadIncautacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadPerdidaDocumento" EntityType="Self.NovedadPerdidaDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadRepatriaciones" EntityType="Self.NovedadRepatriaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProtestaConvocatoria" EntityType="Self.ProtestaConvocatoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoActividad" EntityType="Self.TipoActividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoApresamiento" EntityType="Self.TipoApresamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoArma" EntityType="Self.TipoArma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoCombustible" EntityType="Self.TipoCombustible" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoContrabando" EntityType="Self.TipoContrabando" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDecomiso" EntityType="Self.TipoDecomiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDroga" EntityType="Self.TipoDroga" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoIncautacion" EntityType="Self.TipoIncautacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMedicamento" EntityType="Self.TipoMedicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMedidaCombustible" EntityType="Self.TipoMedidaCombustible" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMedidas" EntityType="Self.TipoMedidas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMoneda" EntityType="Self.TipoMoneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoNovedad" EntityType="Self.TipoNovedad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPresentacionMedicamento" EntityType="Self.TipoPresentacionMedicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoProtesta" EntityType="Self.TipoProtesta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoRecuperacion" EntityType="Self.TipoRecuperacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoRetencion" EntityType="Self.TipoRetencion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ausencias_Auditoria" Association="Self.FK_Ausencias_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="Ausencias" EntitySet="Ausencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ausencias_Estatus" Association="Self.FK_Ausencias_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Ausencias" EntitySet="Ausencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CausaHerido_Estatus" Association="Self.FK_CausaHerido_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="CausaHerido" EntitySet="CausaHerido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fallecidos_Auditoria" Association="Self.FK_Fallecidos_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="CausaFallecimiento" EntitySet="CausaFallecimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fallecidos_Estatus" Association="Self.FK_Fallecidos_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="CausaFallecimiento" EntitySet="CausaFallecimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadApresamiento_Auditoria" Association="Self.FK_NovedadApresamiento_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadApresamiento" EntitySet="NovedadApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadApresamiento_Auditoria1" Association="Self.FK_NovedadApresamiento_Auditoria1">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadApresamiento" EntitySet="NovedadApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadApresamiento_Estatus" Association="Self.FK_NovedadApresamiento_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadApresamiento" EntitySet="NovedadApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadContrabando_Auditoria" Association="Self.FK_NovedadContrabando_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadContrabando" EntitySet="NovedadContrabando" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadContrabando_Estatus" Association="Self.FK_NovedadContrabando_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadContrabando" EntitySet="NovedadContrabando" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadIncautacion_Auditoria" Association="Self.FK_NovedadIncautacion_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="NovedadIncautacion" EntitySet="NovedadIncautacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadIncautacion_Estatus" Association="Self.FK_NovedadIncautacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadIncautacion" EntitySet="NovedadIncautacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadPerdidaDocumento_Estatus" Association="Self.FK_NovedadPerdidaDocumento_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="NovedadPerdidaDocumento" EntitySet="NovedadPerdidaDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadPerdidaDocumento_TipoDocumento" Association="Self.FK_NovedadPerdidaDocumento_TipoDocumento">
+      <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+      <End Role="NovedadPerdidaDocumento" EntitySet="NovedadPerdidaDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NovedadPerdidaDocumento_TipoNovedad" Association="Self.FK_NovedadPerdidaDocumento_TipoNovedad">
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+      <End Role="NovedadPerdidaDocumento" EntitySet="NovedadPerdidaDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Auditoria" Association="Self.FK_Productos_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Estatus" Association="Self.FK_Productos_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_TipoProducto" Association="Self.FK_Productos_TipoProducto">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Repatriacion_Tipo_Novedad" Association="Self.FK_Repatriacion_Tipo_Novedad">
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+      <End Role="NovedadRepatriaciones" EntitySet="NovedadRepatriaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo_Novedad_Estatus" Association="Self.FK_Tipo_Novedad_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoApresamiento_Auditoria" Association="Self.FK_TipoApresamiento_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="TipoApresamiento" EntitySet="TipoApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoApresamiento_Estatus" Association="Self.FK_TipoApresamiento_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoApresamiento" EntitySet="TipoApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoApresamiento_Estatus1" Association="Self.FK_TipoApresamiento_Estatus1">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoApresamiento" EntitySet="TipoApresamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoDroga_Estatus" Association="Self.FK_TipoDroga_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoDroga" EntitySet="TipoDroga" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoIncautacion_Auditoria" Association="Self.FK_TipoIncautacion_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="TipoIncautacion" EntitySet="TipoIncautacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoNovedad_Auditoria" Association="Self.FK_TipoNovedad_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="TipoNovedad" EntitySet="TipoNovedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoProducto_Bebida_Auditoria" Association="Self.FK_TipoProducto_Bebida_Auditoria">
+      <End Role="Auditoria" EntitySet="Auditoria" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoProducto_Bebida_Estatus" Association="Self.FK_TipoProducto_Bebida_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoProducto_Estatus" Association="Self.FK_TipoProducto_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoRecuperacion_Estatus" Association="Self.FK_TipoRecuperacion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoRecuperacion" EntitySet="TipoRecuperacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoRetencion_Estatus" Association="Self.FK_TipoRetencion_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="TipoRetencion" EntitySet="TipoRetencion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

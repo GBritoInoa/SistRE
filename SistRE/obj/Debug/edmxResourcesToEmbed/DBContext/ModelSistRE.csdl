@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_G2ERDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ContextEstadisticasG2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estatus" EntityType="db_G2ERDModel.Estatus" />
+    <EntitySet Name="Tipo_Novedad" EntityType="db_G2ERDModel.Tipo_Novedad" />
+    <AssociationSet Name="FK_Tipo_Novedad_Estatus" Association="db_G2ERDModel.FK_Tipo_Novedad_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Tipo_Novedad" EntitySet="Tipo_Novedad" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Estatus">
+    <Key>
+      <PropertyRef Name="EstatusID" />
+    </Key>
+    <Property Name="EstatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tipo_Novedad" Relationship="db_G2ERDModel.FK_Tipo_Novedad_Estatus" FromRole="Estatus" ToRole="Tipo_Novedad" />
+  </EntityType>
+  <EntityType Name="Tipo_Novedad">
+    <Key>
+      <PropertyRef Name="TipoNovedadID" />
+    </Key>
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioCreo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreo" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioActualizo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaActualizo" Type="DateTime" Precision="3" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estatus" Relationship="db_G2ERDModel.FK_Tipo_Novedad_Estatus" FromRole="Tipo_Novedad" ToRole="Estatus" />
+  </EntityType>
+  <Association Name="FK_Tipo_Novedad_Estatus">
+    <End Type="db_G2ERDModel.Estatus" Role="Estatus" Multiplicity="1" />
+    <End Type="db_G2ERDModel.Tipo_Novedad" Role="Tipo_Novedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="EstatusID" />
+      </Principal>
+      <Dependent Role="Tipo_Novedad">
+        <PropertyRef Name="EstatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

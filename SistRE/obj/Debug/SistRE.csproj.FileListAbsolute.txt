@@ -1,0 +1,452 @@
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Sist-G2ERD.dll.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Sist-G2ERD.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Sist-G2ERD.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\csc.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\csc.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\csc.rsp
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\csi.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\csi.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\csi.rsp
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.AppContext.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Console.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.IO.Compression.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Security.Claims.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\vbc.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\vbc.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\vbc.rsp
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Antlr3.Runtime.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\EntityFramework.SqlServer.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Newtonsoft.Json.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Helpers.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Mvc.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Optimization.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Razor.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.WebPages.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\WebGrease.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\EntityFramework.SqlServer.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Helpers.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Mvc.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Optimization.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.Razor.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.WebPages.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Antlr3.Runtime.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\es\System.Web.Razor.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\obj\Debug\SistRE.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\obj\Debug\SistRE.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\obj\Debug\SistRE.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\obj\Debug\Sist-G2ERD.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\Sist-G2ERD\obj\Debug\Sist-G2ERD.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\SistRE.dll.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\SistRE.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\SistRE.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\csc.exe
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\csc.exe.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\csc.rsp
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\csi.exe
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\csi.exe.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\csi.rsp
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.AppContext.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Console.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.IO.Compression.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.ValueTuple.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\vbc.exe
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\vbc.exe.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\vbc.rsp
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\BeEntity.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\BusinessControl.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\DataLogic.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\System.Net.Http.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\BeEntity.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\BusinessControl.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\DataLogic.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\bin\DataLogic.dll.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\obj\Debug\SistRE.csprojAssemblyReference.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\obj\Debug\SistRE.csproj.CoreCompileInputs.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\obj\Debug\SistRE.csproj.CopyComplete
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\obj\Debug\SistRE.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\SistRE\obj\Debug\SistRE.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\SistRE.dll.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\SistRE.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\SistRE.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\csc.exe
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\csc.exe.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\csc.rsp
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\csi.exe
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\csi.exe.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\csi.rsp
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.AppContext.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Console.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.IO.Compression.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\vbc.exe
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\vbc.exe.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\vbc.rsp
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\System.Net.Http.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\obj\Debug\SistRE.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\obj\Debug\SistRE.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\obj\Debug\SistRE.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\obj\Debug\SistRE.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\obj\Debug\SistRE.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\SistRE\bin\Newtonsoft.Json.xml
+K:\Backup SistRE\SistRE\SistRE\bin\SistRE.dll.config
+K:\Backup SistRE\SistRE\SistRE\bin\SistRE.dll
+K:\Backup SistRE\SistRE\SistRE\bin\SistRE.pdb
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\csc.exe
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\csc.exe.config
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\csc.rsp
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\csi.exe
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\csi.exe.config
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\csi.rsp
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.CSharp.Core.targets
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.Managed.Core.targets
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.VisualBasic.Core.targets
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\Microsoft.Win32.Primitives.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.AppContext.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Collections.Immutable.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Console.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Diagnostics.StackTrace.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Globalization.Calendars.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.IO.Compression.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.IO.Compression.ZipFile.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.Primitives.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Net.Sockets.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Reflection.Metadata.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Encoding.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Primitives.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Text.Encoding.CodePages.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Threading.Tasks.Extensions.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.ValueTuple.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Xml.ReaderWriter.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Xml.XmlDocument.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Xml.XPath.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\System.Xml.XPath.XDocument.dll
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\vbc.exe
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\vbc.exe.config
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\vbc.rsp
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe
+K:\Backup SistRE\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe.config
+K:\Backup SistRE\SistRE\SistRE\bin\BeEntity.dll
+K:\Backup SistRE\SistRE\SistRE\bin\BusinessControl.dll
+K:\Backup SistRE\SistRE\SistRE\bin\DataLogic.dll
+K:\Backup SistRE\SistRE\SistRE\bin\System.Net.Http.dll
+K:\Backup SistRE\SistRE\SistRE\bin\BeEntity.pdb
+K:\Backup SistRE\SistRE\SistRE\bin\BusinessControl.pdb
+K:\Backup SistRE\SistRE\SistRE\bin\DataLogic.pdb
+K:\Backup SistRE\SistRE\SistRE\bin\DataLogic.dll.config
+K:\Backup SistRE\SistRE\SistRE\obj\Debug\SistRE.csprojAssemblyReference.cache
+K:\Backup SistRE\SistRE\SistRE\obj\Debug\SistRE.csproj.CoreCompileInputs.cache
+K:\Backup SistRE\SistRE\SistRE\obj\Debug\SistRE.csproj.CopyComplete
+K:\Backup SistRE\SistRE\SistRE\obj\Debug\SistRE.dll
+K:\Backup SistRE\SistRE\SistRE\obj\Debug\SistRE.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\Areas\Procesos\Controllers\NovedadContrabandoController.cs
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\Areas\Procesos\Controllers\NovedadIncautacionController.cs
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\SistRE.dll.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\SistRE.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\SistRE.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\csc.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\csc.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\csc.rsp
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\csi.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\csi.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\csi.rsp
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.AppContext.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Console.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\vbc.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\vbc.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\vbc.rsp
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\BusinessControl.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\ExcelDataReader.DataSet.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\ExcelDataReader.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\PdfSharp.Charting.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\PdfSharp.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\System.IO.Compression.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\System.Net.Http.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\BusinessControl.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\ExcelDataReader.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\ExcelDataReader.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\ExcelDataReader.DataSet.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\ExcelDataReader.DataSet.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\PdfSharp.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\PdfSharp.Charting.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\de\PdfSharp.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\bin\de\PdfSharp.Charting.resources.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\SistRE.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\Interop.CrystalAnalysisCommonControlsLib.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\Interop.CrystalReportsCommonObjectModelLib.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\SistRE.csproj.ResolveComReference.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\SistRE.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\SistRE.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\SistRE.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\SistRE\obj\Debug\SistRE.pdb
+C:\SistRE\SistRE\bin\Areas\Procesos\Controllers\NovedadContrabandoController.cs
+C:\SistRE\SistRE\bin\Areas\Procesos\Controllers\NovedadIncautacionController.cs
+C:\SistRE\SistRE\bin\SistRE.dll.config
+C:\SistRE\SistRE\bin\SistRE.dll
+C:\SistRE\SistRE\bin\SistRE.pdb
+C:\SistRE\SistRE\bin\roslyn\csc.exe
+C:\SistRE\SistRE\bin\roslyn\csc.exe.config
+C:\SistRE\SistRE\bin\roslyn\csc.rsp
+C:\SistRE\SistRE\bin\roslyn\csi.exe
+C:\SistRE\SistRE\bin\roslyn\csi.exe.config
+C:\SistRE\SistRE\bin\roslyn\csi.rsp
+C:\SistRE\SistRE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\SistRE\SistRE\bin\roslyn\Microsoft.Managed.Core.targets
+C:\SistRE\SistRE\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\SistRE\SistRE\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\SistRE\SistRE\bin\roslyn\System.AppContext.dll
+C:\SistRE\SistRE\bin\roslyn\System.Collections.Immutable.dll
+C:\SistRE\SistRE\bin\roslyn\System.Console.dll
+C:\SistRE\SistRE\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\SistRE\SistRE\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\SistRE\SistRE\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\SistRE\SistRE\bin\roslyn\System.Globalization.Calendars.dll
+C:\SistRE\SistRE\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.dll
+C:\SistRE\SistRE\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\SistRE\SistRE\bin\roslyn\System.Net.Sockets.dll
+C:\SistRE\SistRE\bin\roslyn\System.Reflection.Metadata.dll
+C:\SistRE\SistRE\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\SistRE\SistRE\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\SistRE\SistRE\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\SistRE\SistRE\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\SistRE\SistRE\bin\roslyn\System.ValueTuple.dll
+C:\SistRE\SistRE\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\SistRE\SistRE\bin\roslyn\System.Xml.XmlDocument.dll
+C:\SistRE\SistRE\bin\roslyn\System.Xml.XPath.dll
+C:\SistRE\SistRE\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\SistRE\SistRE\bin\roslyn\vbc.exe
+C:\SistRE\SistRE\bin\roslyn\vbc.exe.config
+C:\SistRE\SistRE\bin\roslyn\vbc.rsp
+C:\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe
+C:\SistRE\SistRE\bin\roslyn\VBCSCompiler.exe.config
+C:\SistRE\SistRE\bin\BeEntity.dll
+C:\SistRE\SistRE\bin\BusinessControl.dll
+C:\SistRE\SistRE\bin\DataLogic.dll
+C:\SistRE\SistRE\bin\ExcelDataReader.DataSet.dll
+C:\SistRE\SistRE\bin\ExcelDataReader.dll
+C:\SistRE\SistRE\bin\Microsoft.ReportViewer.Common.dll
+C:\SistRE\SistRE\bin\Microsoft.ReportViewer.WebForms.dll
+C:\SistRE\SistRE\bin\PdfSharp.Charting.dll
+C:\SistRE\SistRE\bin\PdfSharp.dll
+C:\SistRE\SistRE\bin\System.IO.Compression.dll
+C:\SistRE\SistRE\bin\System.Net.Http.dll
+C:\SistRE\SistRE\bin\BeEntity.pdb
+C:\SistRE\SistRE\bin\BusinessControl.pdb
+C:\SistRE\SistRE\bin\DataLogic.pdb
+C:\SistRE\SistRE\bin\DataLogic.dll.config
+C:\SistRE\SistRE\bin\ExcelDataReader.pdb
+C:\SistRE\SistRE\bin\ExcelDataReader.xml
+C:\SistRE\SistRE\bin\ExcelDataReader.DataSet.pdb
+C:\SistRE\SistRE\bin\ExcelDataReader.DataSet.xml
+C:\SistRE\SistRE\bin\PdfSharp.xml
+C:\SistRE\SistRE\bin\PdfSharp.Charting.xml
+C:\SistRE\SistRE\bin\de\PdfSharp.resources.dll
+C:\SistRE\SistRE\bin\de\PdfSharp.Charting.resources.dll
+C:\SistRE\SistRE\obj\Debug\SistRE.csprojAssemblyReference.cache
+C:\SistRE\SistRE\obj\Debug\Interop.CrystalAnalysisCommonControlsLib.dll
+C:\SistRE\SistRE\obj\Debug\Interop.CrystalReportsCommonObjectModelLib.dll
+C:\SistRE\SistRE\obj\Debug\SistRE.csproj.ResolveComReference.cache
+C:\SistRE\SistRE\obj\Debug\SistRE.csproj.CoreCompileInputs.cache
+C:\SistRE\SistRE\obj\Debug\SistRE.csproj.CopyComplete
+C:\SistRE\SistRE\obj\Debug\SistRE.dll
+C:\SistRE\SistRE\obj\Debug\SistRE.pdb

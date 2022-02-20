@@ -1,0 +1,84 @@
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\obj\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\Sist-G2ERD\DataLogic\obj\Debug\DataLogic.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\DataLogic.dll.config
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\DataLogic.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\DataLogic.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\BeEntity.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\EntityFramework.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\BeEntity.pdb
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\EntityFramework.xml
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\obj\Debug\DataLogic.dll
+C:\Users\Mabel\OneDrive\Documentos\master\SistRE\DataLogic\obj\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\obj\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\master\SistRE\DataLogic\obj\Debug\DataLogic.pdb
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\DataLogic.dll.config
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\DataLogic.dll
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\DataLogic.pdb
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\BeEntity.dll
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\EntityFramework.dll
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\BeEntity.pdb
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\EntityFramework.xml
+K:\Backup SistRE\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+K:\Backup SistRE\SistRE\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+K:\Backup SistRE\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+K:\Backup SistRE\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+K:\Backup SistRE\SistRE\DataLogic\obj\Debug\DataLogic.dll
+K:\Backup SistRE\SistRE\DataLogic\obj\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\EntityFramework.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\EntityFramework.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\obj\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\source\repos\SistRE\DataLogic\obj\Debug\DataLogic.pdb
+C:\SistRE\DataLogic\bin\Debug\DataLogic.dll.config
+C:\SistRE\DataLogic\bin\Debug\DataLogic.dll
+C:\SistRE\DataLogic\bin\Debug\DataLogic.pdb
+C:\SistRE\DataLogic\bin\Debug\BeEntity.dll
+C:\SistRE\DataLogic\bin\Debug\EntityFramework.dll
+C:\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\SistRE\DataLogic\bin\Debug\BeEntity.pdb
+C:\SistRE\DataLogic\bin\Debug\EntityFramework.xml
+C:\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\SistRE\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+C:\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+C:\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+C:\SistRE\DataLogic\obj\Debug\DataLogic.dll
+C:\SistRE\DataLogic\obj\Debug\DataLogic.pdb
