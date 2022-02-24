@@ -49,7 +49,7 @@ namespace DataLogic
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
                                       FechaActualizo = a.FechaActualizo,
-                                      
+
                                   });
 
                 };
@@ -76,25 +76,28 @@ namespace DataLogic
             {
                 using (var db = new Context_SistRE())
                 {
-                    data.AddRange(from tn in db.TipoContrabando
+                    data.AddRange(from tc in db.TipoContrabando
                                   join a in db.Auditoria
-                                  on tn.AuditoriaID equals a.AuditoriaID
-                                  join e in db.Estatus on tn.EstatusID equals e.EstatusID
-                                  where tn.TipoContrabandoID == id
+                                  on tc.AuditoriaID equals a.AuditoriaID
+                                  join e in db.Estatus on tc.EstatusID equals e.EstatusID
+                                  join tp in db.TipoProducto on tc.TipoProductoID equals tp.TipoProductoID
+                                  where tc.TipoContrabandoID == id
                                   select new BeTipoContrabando()
 
                                   {
 
-                                      ID = tn.TipoContrabandoID,
-                                      //ProductoID = tn.ProductoID,
-                                      TipoProductoID = tn.TipoProductoID,
-                                      EstatusID = tn.EstatusID,
+                                      ID = tc.TipoContrabandoID,
+                                      AuditoriaID = a.AuditoriaID,
+                                      Nombre = tp.Nombre,
+                                      TipoProductoID = tc.TipoProductoID,
+                                      EstatusID = tc.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
                                       FechaActualizo = a.FechaActualizo
 
                                   });
+
 
                 };
                 return data.FirstOrDefault();
@@ -122,9 +125,9 @@ namespace DataLogic
                 try
                 {
                     ///Create Auditoria
-                    var a = new Auditoria();                    
-                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;               
-                    a.UsuarioCreo = userName.Substring(0,6);
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                    a.UsuarioCreo = userName.Substring(0, 6);
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -133,8 +136,9 @@ namespace DataLogic
 
                     ////Create Tipo Contrabando
                     var tc = new TipoContrabando();
-                   tc.EstatusID = (int)item.EstatusID;
+                    tc.EstatusID = (int)item.EstatusID;
                     tc.TipoProductoID = item.TipoProductoID;
+                    tc.TipoNovedadID = item.TipoNovedadID;
                     //tc.TipoProductoID = item.ProductoID;
                     tc.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
                     db.TipoContrabando.Add(tc);
@@ -159,45 +163,50 @@ namespace DataLogic
         public bool Edit(BeTipoContrabando item)
         {
 
-            try
-            {
                 using (var db = new Context_SistRE())
+                using (var dbContextTransaction = db.Database.BeginTransaction())
                 {
-                    var tc = new TipoContrabando();
 
+                    try
+                    {
+                         var a = new Auditoria();
+                         string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0,6).ToLower();
+                         a.AuditoriaID = item.AuditoriaID;
+                         a.UsuarioActualizo = userName;
+                         a.FechaActualizo = DateTime.Now;
+                         db.Auditoria.Attach(a);
+                         db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                         db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
+                         db.SaveChanges();
 
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    //tc.ProductoID = item.ProductoID;
-                    tc.TipoContrabandoID = item.ID;
-                    tc.EstatusID = (int)item.EstatusID;
-                    tc.TipoProductoID = item.TipoProductoID;
-                    db.TipoContrabando.Attach(tc);
-                    db.Entry(tc).Property(x => x.TipoProductoID).IsModified = true;
-                    //db.Entry(tc).Property(x => x.ProductoID).IsModified = true;
-                    db.Entry(tc).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
-                    db.SaveChanges();
-                    return true;
+                        var tc = new TipoContrabando();
 
+                        tc.TipoContrabandoID = item.ID;
+                        tc.EstatusID = (int)item.EstatusID;
+                        tc.TipoProductoID = item.TipoProductoID;
+                        db.TipoContrabando.Attach(tc);
+                        db.Entry(tc).Property(x => x.TipoProductoID).IsModified = true;
+                        db.Entry(tc).Property(x => x.EstatusID).IsModified = true;
+      
+                        db.SaveChanges();
+                        dbContextTransaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        throw new Exception(ex.Message);
+                    }
                 }
 
             }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
-            }
-
-        }
 
         /// <summary>
         /// Elimina Tipo Novedad
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool Delete(int? id)
+            public bool Delete(int? id)
         {
             try
             {

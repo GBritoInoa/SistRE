@@ -73,13 +73,16 @@ namespace DataLogic
                                   join a in db.Auditoria
                                   on tn.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus on tn.EstatusID equals e.EstatusID
+                                  join tp in db.TipoProducto on tn.TipoProductoID equals tp.TipoProductoID
                                   where tn.TipoIncautacionID == id
                                   select new BeTipoIncautacion()
 
                                   {
 
                                       ID = tn.TipoIncautacionID,
+                                      AuditoriaID = a.AuditoriaID,
                                       TipoNovedadID = tn.TipoNovedadID,
+                                      Nombre = tp.Nombre,
                                       EstatusID = tn.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
@@ -156,31 +159,40 @@ namespace DataLogic
         public bool Edit(BeTipoIncautacion item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = userName;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
+                    db.SaveChanges();
+
                     var ti = new TipoIncautacion();
-
-
-
-                    ti.TipoProductoID = item.TipoProductoID;
-                    ti.TipoIncautacionID = item.ID;
-                    ti.EstatusID = (int)item.EstatusID;
-                    db.TipoIncautacion.Attach(ti);
-                    db.Entry(ti).Property(x => x.TipoProductoID).IsModified = true;
-                    db.Entry(ti).Property(x => x.EstatusID).IsModified = true;
+                ti.TipoProductoID = item.TipoProductoID;
+                ti.TipoIncautacionID = item.ID;
+                item.AuditoriaID = item.AuditoriaID;
+                ti.EstatusID = (int)item.EstatusID;
+                db.TipoIncautacion.Attach(ti);
+                db.Entry(ti).Property(x => x.TipoProductoID).IsModified = true;
+                db.Entry(ti).Property(x => x.EstatusID).IsModified = true;
 
                     db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }

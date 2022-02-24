@@ -66,7 +66,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
-
+                GetTypeNovedad();
                 GetEstatus();
                 return View();
             }
@@ -85,6 +85,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if(!ModelState.IsValid)
             {
+                GetTypeNovedad();
                 GetEstatus();
                 return View(model);
             }
@@ -100,6 +101,33 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+
+
+
+
+
+        /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Decomiso")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
 
 
         /// <summary>
@@ -139,6 +167,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                     return HttpNotFound();
                 }
 
+                GetTypeNovedad();
                 GetEstatus();
                 return View(tipodecomiso);
             }
@@ -158,6 +187,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if(!ModelState.IsValid)
             {
+                GetTypeNovedad();
                 GetEstatus();
                 return View(model);
 

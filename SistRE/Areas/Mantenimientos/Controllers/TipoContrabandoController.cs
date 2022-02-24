@@ -26,6 +26,31 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
         }
 
+
+
+
+        /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Contrabando")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
+
         /// <summary>
         /// GetProducto
         /// </summary>
@@ -54,7 +79,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
-                var Producto = BcTipoProducto.GetAll().ToList().OrderBy(a => a.Nombre);
+                var Producto = BcTipoProducto.GetAll().ToList();
                 ViewBag.TipoProductoID = new SelectList(Producto, "TipoProductoID", "Nombre");
             }
             catch (Exception ex)
@@ -125,6 +150,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         {
             try
             {
+                GetTypeNovedad();
                 GetProducto();
                 GetTipoProducto();
                 GetEstatus();
@@ -150,6 +176,9 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if (!ModelState.IsValid)
             {
+                GetTypeNovedad();
+                GetProducto();
+                GetTipoProducto();
                 GetEstatus();
                 return View(item);
             }
@@ -192,7 +221,12 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 {
                     return HttpNotFound();
                 }
+                GetTypeNovedad();
+                GetProducto();
+                GetTipoProducto();
                 GetEstatus();
+                ViewBag.AuditoriaID = TipoContrabando.AuditoriaID;
+                 
                 return View(TipoContrabando);
 
             }
@@ -213,6 +247,9 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if (!ModelState.IsValid)
             {
+                GetTipoProducto();
+                GetProducto();
+                GetTypeNovedad();
                 GetEstatus();
                 return View(item);
 
@@ -221,7 +258,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcTipoContrabando.Edit(item);
-                TempData["success"] = "Tipo Contrabando actualizdo Satisfactoriamente!";
+                TempData["success"] = "Tipo Contrabando actualizado Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }

@@ -91,10 +91,8 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 throw new Exception(ex.Message);
             }
 
-
         }
-
-       
+      
 
         // GET: TipoIncautacion/Details/5
         public ActionResult Details(int? id)
@@ -182,8 +180,12 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
                     return HttpNotFound();
                 }
+
+
+                GetTipoProducto();           
+                GetTypeNovedad();
                 AllEstados();
-                //ListTipoNovedad();
+                ViewBag.AuditoriaID = tipoIncacutacion.AuditoriaID;
                 return View(tipoIncacutacion);
 
             }
@@ -209,7 +211,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcTipoIncautacion.Edit(item);
-                TempData["success"] = "Tipo Incautacion;n actualizada Satisfactoriamente!";
+                TempData["success"] = "Tipo Incautacion actualizada Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
 

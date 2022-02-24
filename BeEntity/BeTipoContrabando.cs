@@ -16,8 +16,14 @@ namespace BeEntity
         
         public int ID { get; set; }
 
+        public int AuditoriaID { get; set; }
+
         [DisplayName("Tipo Contrabando")]
         public int TipoProductoID { get; set; }
+
+        [Required]
+        [DisplayName("Tipo Novedad")]
+        public int TipoNovedadID { get; set; }
 
         [DisplayName("Producto")]
         public int ProductoID { get; set; }

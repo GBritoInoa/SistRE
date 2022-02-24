@@ -18,6 +18,10 @@ namespace BeEntity
         [Required]
         [DisplayName("Tipo Decomiso")]
         public string Nombre { get; set; }
+
+        [Required]
+        public int TipoNovedadID { get; set; }
+
         [Required]
         [DisplayName("Estatus ")]
         public int EstatusID { get; set; }
