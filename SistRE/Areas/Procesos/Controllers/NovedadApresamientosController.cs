@@ -151,12 +151,15 @@ namespace SistRE.Areas.Procesos.Controllers
             }
         }
 
+
+   
         // GET: Procesos/NovedadApresamientos/Create
         public ActionResult Create()
         {
             try
             {
                 var model = new BeNovedadApresamientos();
+               
                 GetTipoApresamientos();
                 GetBrigadas();
                 GetRangos();

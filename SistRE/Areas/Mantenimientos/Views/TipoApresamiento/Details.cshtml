@@ -44,6 +44,28 @@
                         @Html.DisplayNameFor(model => model.EstatusID)
                     </dt>
 
+
+
+                    @if (Model.UsuarioActualizo != null)
+                    {
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UsuarioActualizo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UsuarioActualizo)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaActualizo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaActualizo)
+                        </dd>
+                    }
+
+
                     <dd>
                         @if (Model.EstatusID == 1)
                         {

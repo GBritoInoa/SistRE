@@ -110,9 +110,9 @@
 
             <div class="form-group">
                 @*@Html.LabelFor(model => model.Causa, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                <label>Causa o Razón</label><label class="bg-label">*</label>
+                <label>Comentario</label><label class="bg-label">*</label>
                 <div class="col-md-10">
-                    <textarea class="form-control" id="Causa" rows="3" name="Causa" style="resize: none;" placeholder="Causa o Razón de la Repatriación"></textarea>
+                    <textarea class="form-control" id="Causa" rows="3" name="Causa" style="resize: none;" placeholder="Comentario u observación"></textarea>
                     @Html.ValidationMessageFor(model => model.Causa, "", new { @class = "text-danger" })
                 </div>
             </div>

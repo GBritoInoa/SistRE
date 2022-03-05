@@ -36,6 +36,7 @@ namespace DataLogic
                                       {
                                           ID = tn.TipoApresamientoID,
                                           TipoNovedadID = tn.TipoNovedadID,
+                                           AuditoriaID = a.AuditoriaID,
                                           Nombre = tn.Nombre,
                                           EstatusID = tn.EstatusID,
                                           UsuarioCreo = a.UsuarioCreo,
@@ -79,6 +80,7 @@ namespace DataLogic
 
                                           ID = tn.TipoApresamientoID,
                                           TipoNovedadID = tn.TipoNovedadID,
+                                          AuditoriaID = tn.AuditoriaID,
                                           Nombre = tn.Nombre,
                                           EstatusID = tn.EstatusID,
                                           UsuarioCreo = a.UsuarioCreo,
@@ -115,7 +117,7 @@ namespace DataLogic
                     {
                         ///Create Auditoria
                         var a = new Auditoria();
-                            string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
+                        string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString().ToLower();
                           a.UsuarioCreo = _User.Substring(0, 6);
                         a.FechaCreo = DateTime.Now;
                         a.NombrePC = Environment.MachineName;
@@ -143,41 +145,51 @@ namespace DataLogic
 
             }
 
-            /// <summary>
-            /// Edit Tipo Apresamiento
-            /// </summary>
-            /// <param name="item"></param>
-            /// <returns></returns>
-            public bool Edit(BeTipoApresamiento item)
-            {
+        /// <summary>
+        /// Edit Tipo Apresamiento
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool Edit(BeTipoApresamiento item)
+        {
 
-                try
+          
+                using (var db = new Context_SistRE())
+                using (var dbContextTransaction = db.Database.BeginTransaction())
                 {
-                    using (var db = new Context_SistRE())
+
+                    try
                     {
+
+                        var a = new Auditoria();
+                        string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                        a.AuditoriaID = item.AuditoriaID;
+                        a.UsuarioActualizo = userName;
+                        a.FechaActualizo = DateTime.Now;
+                        db.Auditoria.Attach(a);
+                        db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                        db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
+                        db.SaveChanges();
+
+
                         var ta = new TipoApresamiento();
-
-
-                        //tn.UsuarioActualizo = "gbrito";
-                        //tn.FechaActualizo = DateTime.Now;
                         ta.Nombre = item.Nombre;
                         ta.TipoApresamientoID = item.ID;
                         ta.EstatusID = (int)item.EstatusID;
+                        ta.AuditoriaID = item.AuditoriaID;
                         db.TipoApresamiento.Attach(ta);
                         db.Entry(ta).Property(x => x.Nombre).IsModified = true;
                         db.Entry(ta).Property(x => x.EstatusID).IsModified = true;
-                        //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                        //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
                         db.SaveChanges();
+                        dbContextTransaction.Commit();
                         return true;
 
                     }
-
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                    throw new Exception(ex.Message);
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        throw new Exception(ex.Message);
+                    }
                 }
 
             }

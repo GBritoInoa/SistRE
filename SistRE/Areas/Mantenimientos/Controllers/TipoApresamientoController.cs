@@ -12,6 +12,30 @@ namespace SistRE.Areas.Mantenimientos.Controllers
     public class TipoApresamientoController : Controller
     {
 
+
+
+        /// <summary>
+        /// Get Tipo Apresamientos
+        /// </summary>
+        private void GetTypeApresamientos()
+        {
+
+            try
+            {
+                List<BeTipoApresamiento> TipoApresamientos = BcTipoApresamiento.GetAll().ToList();
+                ViewBag.TipoApresamientoID = new SelectList(TipoApresamientos.OrderBy(p => p.Nombre), "ID", "Nombre");
+                ViewBag.TipoNovedadID = new SelectList(TipoApresamientos.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error al obtener Listado Tipo Apresamientos");
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         /// <summary>
         /// All Estatus
         /// </summary>
@@ -78,6 +102,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         {
             try
             {
+                GetTypeApresamientos();
                 GetEstatus();
                 return View();
             }
@@ -95,6 +120,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         {
             if(!ModelState.IsValid)
             {
+                GetTypeApresamientos();
                 GetEstatus();
                 return View(item);
 
@@ -129,6 +155,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                     HttpNotFound();
 
                 }
+                GetTypeApresamientos();
                 GetEstatus();
                 return View(tipoapresamiento);
             }
@@ -149,6 +176,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if(!ModelState.IsValid)
             {
+                GetTypeApresamientos();
                 GetEstatus();
                 return View(item);
 

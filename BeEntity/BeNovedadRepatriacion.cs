@@ -59,10 +59,11 @@ namespace BeEntity
         [DisplayName("País")]
         public int PaisID { get; set; }
 
-        [DisplayName("Razón/Causa Novedad")]
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
-        [MinLength(10, ErrorMessage = "Debe tener mínimio 10 caracteres")]
-        [MaxLength(150, ErrorMessage = "No debe sobrepasar los 150 caracteres")]
+        //[DisplayName("Razón/Causa Novedad")]
+        [DisplayName("Comentario u observación")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[MinLength(10, ErrorMessage = "Debe tener mínimio 10 caracteres")]
+        //[MaxLength(150, ErrorMessage = "No debe sobrepasar los 150 caracteres")]
         public string Causa { get; set; }
 
         [Required(ErrorMessage = "{0} no puede estar vacio")]

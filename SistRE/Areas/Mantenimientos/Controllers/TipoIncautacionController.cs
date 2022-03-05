@@ -31,8 +31,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
 
         }
-
-        
+               
 
         /// <summary>
         /// Get TypeNovedad

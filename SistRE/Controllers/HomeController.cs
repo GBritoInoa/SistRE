@@ -40,7 +40,7 @@ namespace SistRE.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.userName != "gbrito" && model.passWord != "admin")
+            if (model.userName != "884196" && model.passWord != "admin")
             {
                 ModelState.AddModelError("password", "Usuario o contraseña no validos");
                 return View(model);
