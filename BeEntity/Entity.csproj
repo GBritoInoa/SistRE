@@ -45,8 +45,10 @@
     <Compile Include="BeAuditoria.cs" />
     <Compile Include="BeAusencias.cs" />
     <Compile Include="BeBrigada.cs" />
+    <Compile Include="BeCategoriaProtesta.cs" />
     <Compile Include="BeCompania.cs" />
     <Compile Include="BeHistoricoNovedades.cs" />
+    <Compile Include="BeInstitucionProtestante.cs" />
     <Compile Include="BeMilitar.cs" />
     <Compile Include="BeNacionalidad.cs" />
     <Compile Include="BeNovedadApresamientos.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="BeNovedadContrabando.cs" />
     <Compile Include="BeNovedadIncautacion.cs" />
     <Compile Include="BeNovedadPerdidaDocumento.cs" />
+    <Compile Include="BeNovedadProtesta.cs" />
     <Compile Include="BeNovedadRepatriacion.cs" />
     <Compile Include="BePais.cs" />
     <Compile Include="BeProductos.cs" />

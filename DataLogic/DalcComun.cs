@@ -169,6 +169,111 @@ namespace DataLogic
 
         }
 
+
+        public List<BeCategoriaProtesta> GetCategoriaProtesta()
+        {
+            List<BeCategoriaProtesta> data = new List<BeCategoriaProtesta>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from c in db.CategoriaProtesta
+                                  select new BeCategoriaProtesta()
+                                  {
+                                      CategoriaProtestaID = c.CategoriaProtestaID,
+                                      Nombre = c.Nombre,
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public List<BeTipoProtesta> GetTipoProtesta()
+        {
+            List<BeTipoProtesta> data = new List<BeTipoProtesta>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from c in db.TipoProtesta
+                                  select new BeTipoProtesta()
+                                  {
+                                      TipoProtestaID = c.TipoProtestaID,
+                                      Nombre = c.Nombre,
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public List<BeProtestaConvocatoria> GetProtestaConvocatoria()
+        {
+            List<BeProtestaConvocatoria> data = new List<BeProtestaConvocatoria>();
+            try
+            {
+
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from b in db.ProtestaConvocatoria
+                                  where b.Nombre.Contains("Nombre")
+                                  select new BeProtestaConvocatoria
+                                  {
+                                      ProtestaConvocatoriaID = b.ProtestaConvocatoriaID,
+                                      Nombre = b.Nombre
+
+                                  });
+                    return data.ToList();
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public List<BeInstitucionProtestante> GetInstitucionProtestante()
+        {
+            List<BeInstitucionProtestante> data = new List<BeInstitucionProtestante>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from c in db.InstitucionProtestante
+                                  select new BeInstitucionProtestante()
+                                  {
+                                      InstitucionProtestanteID = c.InstitucionProtestanteID,
+                                      Nombre = c.Nombre,
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
         public List<BeTipoDroga> GetTipoDroga()
         {
             List<BeTipoDroga> data = new List<BeTipoDroga>();
@@ -377,34 +482,34 @@ namespace DataLogic
 
         //}
 
-        public List<BeTipoProtesta> GetTipoProtesta()
-        {
-            List<BeTipoProtesta> data = new List<BeTipoProtesta>();
-            try
-            {
+        //public List<BeTipoProtesta> GetTipoProtesta()
+        //{
+        //    List<BeTipoProtesta> data = new List<BeTipoProtesta>();
+        //    try
+        //    {
 
-                using (var db = new Context_SistRE())
-                {
-                    data.AddRange(from b in db.TipoProtesta
-                                  where b.Nombre.Contains("Nombre")
-                                  select new BeTipoProtesta
-                                  {
-                                      TipoProtestaID = b.TipoProtestaID,
-                                      Nombre = b.Nombre
+        //        using (var db = new Context_SistRE())
+        //        {
+        //            data.AddRange(from b in db.TipoProtesta
+        //                          where b.Nombre.Contains("Nombre")
+        //                          select new BeTipoProtesta
+        //                          {
+        //                              TipoProtestaID = b.TipoProtestaID,
+        //                              Nombre = b.Nombre
 
-                                  });
-                    return data.ToList();
-                }
+        //                          });
+        //            return data.ToList();
+        //        }
 
-            }
+        //    }
 
-            catch (Exception ex)
-            {
+        //    catch (Exception ex)
+        //    {
 
-                throw new Exception(ex.Message);
-            }
+        //        throw new Exception(ex.Message);
+        //    }
 
-        }
+        //}
 
         public List<BePais> GetPais()
         {
@@ -435,34 +540,34 @@ namespace DataLogic
 
         }
 
-        public List<BeProtestaConvocatoria> GetProtestaConvocatoria()
-        {
-            List<BeProtestaConvocatoria> data = new List<BeProtestaConvocatoria>();
-            try
-            {
+        //public List<BeProtestaConvocatoria> GetProtestaConvocatoria()
+        //{
+        //    List<BeProtestaConvocatoria> data = new List<BeProtestaConvocatoria>();
+        //    try
+        //    {
 
-                using (var db = new Context_SistRE())
-                {
-                    data.AddRange(from b in db.ProtestaConvocatoria
-                                  where b.Nombre.Contains("Nombre")
-                                  select new BeProtestaConvocatoria
-                                  {
-                                      ProtestaConvocatoriaID = b.ProtestaConvocatoriaID,
-                                      Nombre = b.Nombre
+        //        using (var db = new Context_SistRE())
+        //        {
+        //            data.AddRange(from b in db.ProtestaConvocatoria
+        //                          where b.Nombre.Contains("Nombre")
+        //                          select new BeProtestaConvocatoria
+        //                          {
+        //                              ProtestaConvocatoriaID = b.ProtestaConvocatoriaID,
+        //                              Nombre = b.Nombre
 
-                                  });
-                    return data.ToList();
-                }
+        //                          });
+        //            return data.ToList();
+        //        }
 
-            }
+        //    }
 
-            catch (Exception ex)
-            {
+        //    catch (Exception ex)
+        //    {
 
-                throw new Exception(ex.Message);
-            }
+        //        throw new Exception(ex.Message);
+        //    }
 
-        }
+        //}
 
         public List<BeNacionalidad> GetNacionalidad()
         {

@@ -34,6 +34,61 @@ namespace BusinessControl
         }
 
 
+   
+
+        /// <summary>
+        /// Get Protesta Convocatoria
+        /// </summary>
+        /// <returns></returns>
+        public static List<BeProtestaConvocatoria> GetProtestaConvocatoria()
+        {
+            try
+            {
+                return _dalc.GetProtestaConvocatoria();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Institución Protestante
+        /// </summary>
+        /// <returns></returns>
+        public static List<BeInstitucionProtestante> GetInstitucionProtestante()
+        {
+            try
+            {
+                return _dalc.GetInstitucionProtestante();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Get Categoria Protesta
+        /// </summary>
+        /// <returns></returns>
+        public static List<BeCategoriaProtesta> GetCategoriaProtesta()
+        {
+            try
+            {
+                return _dalc.GetCategoriaProtesta();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         /// <summary>
         /// Bc Provincias
         /// </summary>
@@ -227,18 +282,18 @@ namespace BusinessControl
         }
 
 
-        public static List<BeProtestaConvocatoria> GetProtestaConvocatoria()
-        {
-            try
-            {
-                return _dalc.GetProtestaConvocatoria();
-            }
-            catch (Exception ex)
-            {
+        //public static List<BeProtestaConvocatoria> GetProtestaConvocatoria()
+        //{
+        //    try
+        //    {
+        //        return _dalc.GetProtestaConvocatoria();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw new Exception(ex.Message);
-            }
-        }
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
 
         public static List<BeNacionalidad> GetNacionalidad()
         {

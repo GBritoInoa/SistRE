@@ -570,5 +570,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="InstitucionProtestante">
+      <EntityTypeMapping TypeName="DB_SistREModel.InstitucionProtestante">
+        <MappingFragment StoreEntitySet="InstitucionProtestante">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="InstitucionProtestanteID" ColumnName="InstitucionProtestanteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NovedadProtesta">
+      <EntityTypeMapping TypeName="DB_SistREModel.NovedadProtesta">
+        <MappingFragment StoreEntitySet="NovedadProtesta">
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="CategoriaProtestaID" ColumnName="CategoriaProtestaID" />
+          <ScalarProperty Name="InstitucionProtestanteID" ColumnName="InstitucionProtestanteID" />
+          <ScalarProperty Name="TipoProtestaID" ColumnName="TipoProtestaID" />
+          <ScalarProperty Name="LugarProtesta" ColumnName="LugarProtesta" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="NovedadProtestaID" ColumnName="NovedadProtestaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaProtesta">
+      <EntityTypeMapping TypeName="DB_SistREModel.CategoriaProtesta">
+        <MappingFragment StoreEntitySet="CategoriaProtesta">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CategoriaProtestaID" ColumnName="CategoriaProtestaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

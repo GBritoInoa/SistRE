@@ -189,6 +189,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Areas\Procesos\Controllers\NovedadPerdidaDocumentoController.cs" />
+    <Compile Include="Areas\Procesos\Controllers\NovedadProtestaController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadRepatriacionController.cs" />
     <Compile Include="Areas\Procesos\ProcesosAreaRegistration.cs" />
     <Compile Include="Areas\Reportes\Controllers\ReportsController.cs" />
@@ -963,6 +964,7 @@
     <Content Include="Areas\Procesos\Views\Shared\_Medidas.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadRepatriacion\Create.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadContrabando\Create.cshtml" />
+    <Content Include="Areas\Procesos\Views\NovedadProtesta\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -1,0 +1,116 @@
+﻿@model BeEntity.BeNovedadProtesta
+
+@{ ViewBag.Title = "Protestas";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fa fa-pen-alt"><strong> Registro de Novedad Protesta </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+        <div style="float:right">
+            <span><strong>Nota:</strong> Todos los campos son (<label class="bg-label">*</label>)  son obligatorios</span>
+        </div>
+        <br />
+
+
+        @using (Html.BeginForm())
+        {
+
+@Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Tipo de Protesta</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                @Html.DropDownList("TipoProtestaID", null, "---Seleccione Tipo Protesta---", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoProtestaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Categoria de Protesta</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                @Html.DropDownList("CategoriaProtesta", null, "---Seleccione Categoria Protesta---", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoriaProtestaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Institucion Protestante</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                @Html.DropDownList("InstitucionProtestante", null, "---Seleccione Institucion Protestante---", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.InstitucionProtestanteID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Provincia</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                @Html.DropDownList("ProvinciaID", null, "---Seleccione Provincia---", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProvinciaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Causa, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Lugar de la Protesta</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                <textarea class="form-control" id="LugarProtesta" rows="3" name="LugarProtesta" style="resize: none;" placeholder="Lugar"></textarea>
+                @Html.ValidationMessageFor(model => model.LugarProtesta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FechaNovedad, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Fecha Novedad</label><label class="bg-label">*</label>
+            <div class="col-md-10" id="datapicker">
+                @Html.EditorFor(model => model.FechaNovedad, new { htmlAttributes = new { @class = " ", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.FechaNovedad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.HoraNovedad, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Hora Novedad</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoraNovedad, new { htmlAttributes = new { @class = " ", @type = "time" } })
+                @Html.ValidationMessageFor(model => model.HoraNovedad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Causa, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label>Causa o Razón</label><label class="bg-label">*</label>
+            <div class="col-md-10">
+                <textarea class="form-control" id="Causa" rows="3" name="Causa" style="resize: none;" placeholder="Causa o Razón de la Ausencia"></textarea>
+                @Html.ValidationMessageFor(model => model.Causa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div style="float:unset">
+            @Html.Partial("OptionsBox/Save")
+        </div>
+        <br />
+        <br />
+        <br />
+
+    </div>}
+
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>$(function () {
+    $(".datepicker").datepicker();
+
+
+    });</script>
+
+}

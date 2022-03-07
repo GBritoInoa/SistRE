@@ -27,6 +27,15 @@
           <Property Name="AuditoriaID" Type="int" Nullable="false" />
           <Property Name="TipoNovedadID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="CategoriaProtesta">
+          <Key>
+            <PropertyRef Name="CategoriaProtestaID" />
+          </Key>
+          <Property Name="CategoriaProtestaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EstatusID" Type="int" />
+          <Property Name="AuditoriaID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="CausaApresamiento">
           <Key>
             <PropertyRef Name="CausaApresamientoID" />
@@ -135,6 +144,15 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Lema" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Anio" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EstatusID" Type="int" Nullable="false" />
+          <Property Name="AuditoriaID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstitucionProtestante">
+          <Key>
+            <PropertyRef Name="InstitucionProtestanteID" />
+          </Key>
+          <Property Name="InstitucionProtestanteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="EstatusID" Type="int" Nullable="false" />
           <Property Name="AuditoriaID" Type="int" Nullable="false" />
         </EntityType>
@@ -260,6 +278,23 @@
           <Property Name="AuditoriaID" Type="int" Nullable="false" />
           <Property Name="TipoDocumentoID" Type="int" Nullable="false" />
           <Property Name="ProvinciaID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NovedadProtesta">
+          <Key>
+            <PropertyRef Name="NovedadProtestaID" />
+          </Key>
+          <Property Name="NovedadProtestaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+          <Property Name="ProvinciaID" Type="int" Nullable="false" />
+          <Property Name="FechaNovedad" Type="date" Nullable="false" />
+          <Property Name="HoraNovedad" Type="time" Precision="7" />
+          <Property Name="AuditoriaID" Type="int" Nullable="false" />
+          <Property Name="EstatusID" Type="int" Nullable="false" />
+          <Property Name="LugarProtesta" Type="nvarchar" MaxLength="150" />
+          <Property Name="TipoProtestaID" Type="int" Nullable="false" />
+          <Property Name="InstitucionProtestanteID" Type="int" Nullable="false" />
+          <Property Name="CategoriaProtestaID" Type="int" Nullable="false" />
+          <Property Name="Causa" Type="nvarchar" MaxLength="300" Nullable="false" />
         </EntityType>
         <EntityType Name="NovedadRepatriaciones">
           <Key>
@@ -926,6 +961,7 @@
         <EntityContainer Name="DB_SistREModelStoreContainer">
           <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ausencias" EntityType="Self.Ausencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoriaProtesta" EntityType="Self.CategoriaProtesta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CausaApresamiento" EntityType="Self.CausaApresamiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CausaFallecimiento" EntityType="Self.CausaFallecimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CausaHerido" EntityType="Self.CausaHerido" Schema="dbo" store:Type="Tables" />
@@ -938,6 +974,7 @@
           <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HistoricoNovedades" EntityType="Self.HistoricoNovedades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Institucion" EntityType="Self.Institucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstitucionProtestante" EntityType="Self.InstitucionProtestante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LugarActividad" EntityType="Self.LugarActividad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nacionalidad" EntityType="Self.Nacionalidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NovedadApresamiento" EntityType="Self.NovedadApresamiento" Schema="dbo" store:Type="Tables" />
@@ -946,6 +983,7 @@
           <EntitySet Name="NovedadDecomiso" EntityType="Self.NovedadDecomiso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NovedadIncautacion" EntityType="Self.NovedadIncautacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NovedadPerdidaDocumento" EntityType="Self.NovedadPerdidaDocumento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NovedadProtesta" EntityType="Self.NovedadProtesta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NovedadRepatriaciones" EntityType="Self.NovedadRepatriaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
@@ -1306,6 +1344,9 @@
             <End Role="Auditoria" EntitySet="Auditoria" />
             <End Role="TipoIncautacion" EntitySet="TipoIncautacion" />
           </AssociationSet>
+          <EntitySet Name="InstitucionProtestante" EntityType="DB_SistREModel.InstitucionProtestante" />
+          <EntitySet Name="NovedadProtesta" EntityType="DB_SistREModel.NovedadProtesta" />
+          <EntitySet Name="CategoriaProtesta" EntityType="DB_SistREModel.CategoriaProtesta" />
           </EntityContainer>
         <EntityType Name="Auditoria">
           <Key>
@@ -2255,6 +2296,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="InstitucionProtestante">
+          <Key>
+            <PropertyRef Name="InstitucionProtestanteID" />
+          </Key>
+          <Property Name="InstitucionProtestanteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EstatusID" Type="Int32" Nullable="false" />
+          <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NovedadProtesta">
+          <Key>
+            <PropertyRef Name="NovedadProtestaID" />
+          </Key>
+          <Property Name="NovedadProtestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+          <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+          <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HoraNovedad" Type="Time" Precision="7" />
+          <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+          <Property Name="EstatusID" Type="Int32" Nullable="false" />
+          <Property Name="LugarProtesta" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TipoProtestaID" Type="Int32" Nullable="false" />
+          <Property Name="InstitucionProtestanteID" Type="Int32" Nullable="false" />
+          <Property Name="CategoriaProtestaID" Type="Int32" Nullable="false" />
+          <Property Name="Causa" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CategoriaProtesta">
+          <Key>
+            <PropertyRef Name="CategoriaProtestaID" />
+          </Key>
+          <Property Name="CategoriaProtestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EstatusID" Type="Int32" />
+          <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2827,6 +2903,44 @@
                 <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
                 <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
                 <ScalarProperty Name="TipoIncautacionID" ColumnName="TipoIncautacionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstitucionProtestante">
+            <EntityTypeMapping TypeName="DB_SistREModel.InstitucionProtestante">
+              <MappingFragment StoreEntitySet="InstitucionProtestante">
+                <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+                <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="InstitucionProtestanteID" ColumnName="InstitucionProtestanteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NovedadProtesta">
+            <EntityTypeMapping TypeName="DB_SistREModel.NovedadProtesta">
+              <MappingFragment StoreEntitySet="NovedadProtesta">
+                <ScalarProperty Name="Causa" ColumnName="Causa" />
+                <ScalarProperty Name="CategoriaProtestaID" ColumnName="CategoriaProtestaID" />
+                <ScalarProperty Name="InstitucionProtestanteID" ColumnName="InstitucionProtestanteID" />
+                <ScalarProperty Name="TipoProtestaID" ColumnName="TipoProtestaID" />
+                <ScalarProperty Name="LugarProtesta" ColumnName="LugarProtesta" />
+                <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+                <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+                <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+                <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+                <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+                <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+                <ScalarProperty Name="NovedadProtestaID" ColumnName="NovedadProtestaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriaProtesta">
+            <EntityTypeMapping TypeName="DB_SistREModel.CategoriaProtesta">
+              <MappingFragment StoreEntitySet="CategoriaProtesta">
+                <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+                <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CategoriaProtestaID" ColumnName="CategoriaProtestaID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

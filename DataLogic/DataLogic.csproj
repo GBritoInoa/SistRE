@@ -59,6 +59,9 @@
     <Compile Include="Batallones.cs">
       <DependentUpon>ModeldbERD.tt</DependentUpon>
     </Compile>
+    <Compile Include="CategoriaProtesta.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
     <Compile Include="CausaApresamiento.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
@@ -88,13 +91,16 @@
     </Compile>
     <Compile Include="DalcAuditoria.cs" />
     <Compile Include="DalcAusencias.cs" />
+    <Compile Include="DalcCategoriaProtesta.cs" />
     <Compile Include="DalcComun.cs" />
+    <Compile Include="DalcInstitucionProtestante.cs" />
     <Compile Include="DalcNacionalidad.cs" />
     <Compile Include="DalcNovedadApresamiento.cs" />
     <Compile Include="DalcNovedadAusencia.cs" />
     <Compile Include="DalcNovedadDecomiso.cs" />
     <Compile Include="DalcNovedadIncautacion.cs" />
     <Compile Include="DalcNovedadPerdidaDocumento.cs" />
+    <Compile Include="DalcNovedadProtesta.cs" />
     <Compile Include="DalcNovedadRepatriacion.cs" />
     <Compile Include="DalcPais.cs" />
     <Compile Include="DalcProductos.cs" />
@@ -135,6 +141,9 @@
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="Institucion.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InstitucionProtestante.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="LugarActividad.cs">
@@ -192,6 +201,9 @@
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="NovedadPerdidaDocumento.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NovedadProtesta.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="NovedadRepatriaciones.cs">

@@ -48,6 +48,7 @@
     <Compile Include="BcNovedadApresamiento.cs" />
     <Compile Include="BcNovedadAusencia.cs" />
     <Compile Include="BcNovedadDecomiso.cs" />
+    <Compile Include="BcNovedadProtesta.cs" />
     <Compile Include="BcNovedadPerdidaDocumento.cs" />
     <Compile Include="BcNovedadRepatriacion.cs" />
     <Compile Include="BcPais.cs" />

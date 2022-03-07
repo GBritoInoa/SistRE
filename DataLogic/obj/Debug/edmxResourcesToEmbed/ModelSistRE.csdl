@@ -204,6 +204,9 @@
       <End Role="Auditoria" EntitySet="Auditoria" />
       <End Role="TipoIncautacion" EntitySet="TipoIncautacion" />
     </AssociationSet>
+    <EntitySet Name="InstitucionProtestante" EntityType="DB_SistREModel.InstitucionProtestante" />
+    <EntitySet Name="NovedadProtesta" EntityType="DB_SistREModel.NovedadProtesta" />
+    <EntitySet Name="CategoriaProtesta" EntityType="DB_SistREModel.CategoriaProtesta" />
   </EntityContainer>
   <EntityType Name="Auditoria">
     <Key>
@@ -1153,4 +1156,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="InstitucionProtestante">
+    <Key>
+      <PropertyRef Name="InstitucionProtestanteID" />
+    </Key>
+    <Property Name="InstitucionProtestanteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadProtesta">
+    <Key>
+      <PropertyRef Name="NovedadProtestaID" />
+    </Key>
+    <Property Name="NovedadProtestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Precision="7" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="LugarProtesta" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TipoProtestaID" Type="Int32" Nullable="false" />
+    <Property Name="InstitucionProtestanteID" Type="Int32" Nullable="false" />
+    <Property Name="CategoriaProtestaID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CategoriaProtesta">
+    <Key>
+      <PropertyRef Name="CategoriaProtestaID" />
+    </Key>
+    <Property Name="CategoriaProtestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

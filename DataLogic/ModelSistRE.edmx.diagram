@@ -85,6 +85,9 @@
         <EntityTypeShape EntityType="DB_SistREModel.Perfiles" Width="1.5" PointX="0.75" PointY="14.75" />
         <EntityTypeShape EntityType="DB_SistREModel.TipoIncautacion" Width="1.5" PointX="3.625" PointY="15.375" />
         <AssociationConnector Association="DB_SistREModel.FK_TipoIncautacion_Auditoria" />
+        <EntityTypeShape EntityType="DB_SistREModel.InstitucionProtestante" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadProtesta" Width="1.5" PointX="15.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.CategoriaProtesta" Width="1.5" PointX="15.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
