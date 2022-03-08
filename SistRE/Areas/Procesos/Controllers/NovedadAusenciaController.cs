@@ -84,8 +84,8 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 List<BeSexo> Sexo = new List<BeSexo>();
-                 Sexo = BcComun.GetSexo().ToList();                
-                 ViewBag.SexoID = new SelectList(Sexo.OrderBy(s=>s.SexoID), "SexoID", "Nombre");
+                Sexo = BcComun.GetSexo().Where(a => a.SexoID <= 2).ToList();
+                ViewBag.SexoID = new SelectList(Sexo.OrderBy(s=>s.SexoID), "SexoID", "Nombre");
             }
             catch (Exception ex)
             {
@@ -145,7 +145,7 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 BcNovedadAusencia.Create(item);
-                TempData["success"] = "Novedad creada Satisfactoriamente!";
+                TempData["success"] = "Ausencia REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");
             }
             catch (Exception ex)

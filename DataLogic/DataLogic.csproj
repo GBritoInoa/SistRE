@@ -98,6 +98,7 @@
     <Compile Include="DalcNovedadApresamiento.cs" />
     <Compile Include="DalcNovedadAusencia.cs" />
     <Compile Include="DalcNovedadDecomiso.cs" />
+    <Compile Include="DalcNovedadContrabando.cs" />
     <Compile Include="DalcNovedadIncautacion.cs" />
     <Compile Include="DalcNovedadPerdidaDocumento.cs" />
     <Compile Include="DalcNovedadProtesta.cs" />

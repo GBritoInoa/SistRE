@@ -64,6 +64,7 @@ namespace DataLogic
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.TipoID = item.TipoApresamientoID;
+                    hn.ProvinciaID = item.ProvinciaID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

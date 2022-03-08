@@ -27,7 +27,8 @@ namespace DataLogic
           
                     /////////Crea Registro Auditoría//////////
                     var a = new Auditoria();
-                    a.UsuarioCreo = "gbrito";
+                    string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
+                    a.UsuarioCreo = _User.Substring(0, 6);
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -44,8 +45,8 @@ namespace DataLogic
                     npd.FechaNovedad = item.FechaNovedad;
                     npd.HoraNovedad = (item.HoraNovedad);
                     npd.Causa = item.Causa;
-                    npd.TipoNovedadID = 25;
-                    npd.EstatusID = 1;
+                    npd.TipoNovedadID = item.TipoNovedadID;
+                    npd.EstatusID = item.EstatusID;
                     npd.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
                     db.NovedadPerdidaDocumento.Add(npd);
                     db.SaveChanges();

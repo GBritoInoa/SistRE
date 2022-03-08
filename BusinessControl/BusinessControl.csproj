@@ -47,6 +47,7 @@
     <Compile Include="BcNacionalidad.cs" />
     <Compile Include="BcNovedadApresamiento.cs" />
     <Compile Include="BcNovedadAusencia.cs" />
+    <Compile Include="BcNovedadContrabando.cs" />
     <Compile Include="BcNovedadDecomiso.cs" />
     <Compile Include="BcNovedadProtesta.cs" />
     <Compile Include="BcNovedadPerdidaDocumento.cs" />

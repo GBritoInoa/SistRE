@@ -66,7 +66,7 @@ namespace SistRE.Areas.Procesos.Controllers
         }
 
         /// <summary>
-        /// GetTipoIncautacion
+        /// Get Tipo Contrabando
         /// </summary>
         private void GetTipoContrabando()
         {
@@ -76,11 +76,12 @@ namespace SistRE.Areas.Procesos.Controllers
 
                 List<BeTipoContrabando> TipoContrabando = BcTipoContrabando.GetAll().OrderBy(r => r.ID).ToList();
                 ViewBag.TipoContrabandoID = new SelectList(TipoContrabando.OrderBy(c => c.ID), "ID", "Nombre");
+                ViewBag.TipoNovedadID = new SelectList(TipoContrabando, "TipoNovedadID", "Nombre");
             }
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
+                ModelState.AddModelError(ex.Message, "Error generar Listado Contrabando");
                 throw new Exception(ex.Message);
             }
          }
@@ -192,7 +193,7 @@ namespace SistRE.Areas.Procesos.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BeNovedadIncautacion model)
+        public ActionResult Create(BeNovedadContrabando model)
         {
          
            model.EstatusID = (int)EstatusRegistro.Estatus.Activo;
@@ -206,7 +207,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             try
             {
-                BcNovedadIncautacion.Create(model);
+                BcNovedadContrabando.Create(model);
                 TempData["success"] = "Contrabando REGISTRADO Satisfactoriamente!";
                 return RedirectToAction("Create");
             }

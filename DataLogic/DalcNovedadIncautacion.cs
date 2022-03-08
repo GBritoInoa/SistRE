@@ -27,7 +27,7 @@ namespace DataLogic
 
                                   {
 
-                                      NovedadIncautacionID = ni.TipoNovedadID,
+                                      NovedadIncautacionID = ni.NovedadIncautacionID,
                                       TipoNovedadID = ni.TipoNovedadID,
                                       TipoMedidaID = ni.TipoMedidaID,
                                       Causa = ni.Causa,
@@ -124,7 +124,7 @@ namespace DataLogic
                     ni.Cantidad = item.Cantidad;                   
                     ni.TipoIncautacionID = item.TipoIncautacionID;
                     ni.ProductoID = item.ProductoID;
-                    ni.TipoMedidaID = item.TipoMedidaID;
+                    ni.TipoMedidaID = Convert.ToInt32(item.TipoMedidaID).Equals(0) ? 0: item.TipoMedidaID;
                     ni.ProvinciaID = item.ProvinciaID;
                     ni.FechaNovedad = item.FechaNovedad;
                     ni.HoraNovedad = item.HoraNovedad;
@@ -143,7 +143,7 @@ namespace DataLogic
                     hn.FechaNovedad = ni.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.ProvinciaID = item.ProvinciaID;
-                    hn.TipoID = item.TipoMedidaID;
+                    hn.TipoID = Convert.ToInt32(item.TipoMedidaID).Equals(0) ? 0 : item.TipoMedidaID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

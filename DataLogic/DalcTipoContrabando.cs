@@ -43,6 +43,7 @@ namespace DataLogic
                                       TipoProductoID = tc.TipoProductoID,
                                       ID = tc.TipoContrabandoID,
                                       Nombre = tp.Nombre,
+                                      TipoNovedadID = tc.TipoNovedadID,
                                       //ProductoID = tc.ProductoID,                                       
                                       EstatusID = tc.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
@@ -139,7 +140,6 @@ namespace DataLogic
                     tc.EstatusID = (int)item.EstatusID;
                     tc.TipoProductoID = item.TipoProductoID;
                     tc.TipoNovedadID = item.TipoNovedadID;
-                    //tc.TipoProductoID = item.ProductoID;
                     tc.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
                     db.TipoContrabando.Add(tc);
                     db.SaveChanges();
