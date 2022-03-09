@@ -526,10 +526,10 @@
       <PropertyRef Name="TipoDecomisoID" />
     </Key>
     <Property Name="TipoDecomisoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="EstatusID" Type="Int32" Nullable="false" />
     <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
     <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TipoDocumento">
     <Key>

@@ -414,7 +414,7 @@
       <PropertyRef Name="TipoDecomisoID" />
     </Key>
     <Property Name="TipoDecomisoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="TipoProductoID" Type="int" Nullable="false" />
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
     <Property Name="TipoNovedadID" Type="int" Nullable="false" />

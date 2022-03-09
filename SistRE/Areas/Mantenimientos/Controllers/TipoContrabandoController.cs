@@ -49,8 +49,6 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
 
         }
-
-
         /// <summary>
         /// GetProducto
         /// </summary>
@@ -69,8 +67,6 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
 
         }
-
-
         /// <summary>
         /// GetTipoProducto
         /// </summary>

@@ -15,9 +15,9 @@ namespace DataLogic
     public partial class TipoDecomiso
     {
         public int TipoDecomisoID { get; set; }
-        public string Nombre { get; set; }
         public int EstatusID { get; set; }
         public int AuditoriaID { get; set; }
         public int TipoNovedadID { get; set; }
+        public int TipoProductoID { get; set; }
     }
 }

@@ -338,7 +338,8 @@ namespace DataLogic
                                   {
 
                                       ID = d.TipoDecomisoID,
-                                      Nombre = d.Nombre,
+                                      TipoNovedadID = d.TipoNovedadID,
+                                      //Nombre  = d.Nombre,
                                   });
                     return data.ToList();
                 }

@@ -35,7 +35,8 @@ namespace DataLogic
                                   {
 
                                       ID = d.TipoDecomisoID,
-                                      Nombre = d.Nombre,
+                                     TipoNovedadID = d.TipoNovedadID,
+                                     TipoProductoID = d.TipoProductoID,
                                       EstatusID = d.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
@@ -82,7 +83,8 @@ namespace DataLogic
                                   select new BeTipoDecomiso()
                                   {
                                       ID = d.TipoDecomisoID,
-                                      Nombre = d.Nombre,
+                                    TipoProductoID = d.TipoProductoID,
+                                    TipoNovedadID = d.TipoNovedadID,
                                       EstatusID = d.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
@@ -123,7 +125,7 @@ namespace DataLogic
                     {
                         ///Create Auditoria
                         var a = new Auditoria();
-                        a.UsuarioCreo = "gbrito";
+                      var _User = 
                         a.FechaCreo = DateTime.Now;
                         a.NombrePC = Environment.MachineName;
                         a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -132,7 +134,8 @@ namespace DataLogic
 
                         ////Create Tipo Novedad
                         var tn = new TipoDecomiso();
-                        tn.Nombre = item.Nombre;
+                        tn.TipoNovedadID = item.TipoNovedadID;
+                        tn.TipoProductoID = item.TipoProductoID;
                         tn.EstatusID = (int)item.EstatusID;
                         tn.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
                         db.TipoDecomiso.Add(tn);
@@ -168,11 +171,12 @@ namespace DataLogic
                     {
                         //tn.UsuarioActualizo = "gbrito";
                         //tn.FechaActualizo = DateTime.Now;
-                        td.Nombre = item.Nombre;
+                        td.TipoProductoID = item.TipoProductoID;
+                        td.TipoNovedadID = item.TipoNovedadID;
                         td.TipoDecomisoID = item.ID;
                         td.EstatusID = (int)item.EstatusID;
                         db.TipoDecomiso.Attach(td);
-                        db.Entry(td).Property(x => x.Nombre).IsModified = true;
+                        //db.Entry(td).Property(x => x.Nombre).IsModified = true;
                         db.Entry(td).Property(x => x.EstatusID).IsModified = true;
                         //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
                         //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;

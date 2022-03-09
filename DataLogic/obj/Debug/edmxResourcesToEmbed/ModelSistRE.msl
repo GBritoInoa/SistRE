@@ -307,10 +307,10 @@
     <EntitySetMapping Name="TipoDecomiso">
       <EntityTypeMapping TypeName="DB_SistREModel.TipoDecomiso">
         <MappingFragment StoreEntitySet="TipoDecomiso">
+          <ScalarProperty Name="TipoProductoID" ColumnName="TipoProductoID" />
           <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
           <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
           <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="TipoDecomisoID" ColumnName="TipoDecomisoID" />
         </MappingFragment>
       </EntityTypeMapping>

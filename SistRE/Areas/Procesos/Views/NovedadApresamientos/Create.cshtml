@@ -44,7 +44,6 @@
 
                 <div class="form-group">
 
-                    <div class="form-group">
                         <div class="col-md-10" style="visibility:hidden">
                             @Html.DropDownList("TipoNovedadID", null, null, new { @class = "form-control", name = "TipoNovedadID", id = "TipoNovedadID" })
                             @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
@@ -54,7 +53,6 @@
                             @Html.DropDownList("TipoApresamientoID", null, "---Seleccione Tipo Apresamiento ---", htmlAttributes: new { @class = "form-control", id = "numbers", onchange = "myFunction()" })
                             @Html.ValidationMessageFor(model => model.TipoApresamientoID, "", new { @class = "text-danger" })
 
-                        </div>
                     </div>
 
                 </div>

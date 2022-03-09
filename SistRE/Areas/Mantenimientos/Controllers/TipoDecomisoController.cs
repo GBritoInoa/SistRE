@@ -80,6 +80,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
         // POST: Mantenimientos/TipoDecomiso/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(BeTipoDecomiso model)
         {
 
@@ -92,7 +93,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcTipoDecomiso.Create(model);
-                TempData["success"] = "Tipo Decomiso creado Satisfactoriamente!";
+                TempData["success"] = "Tipo Decomiso CREADO Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -105,8 +106,6 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
 
 
-
-
         /// <summary>
         /// Get TypeNovedad
         /// </summary>
@@ -115,7 +114,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
-                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Decomiso")).ToList();
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Contrabando")).ToList();
                 ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
 
             }
@@ -127,6 +126,45 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
 
         }
+        /// <summary>
+        /// GetProducto
+        /// </summary>
+        public void GetProducto()
+        {
+
+            try
+            {
+                var Producto = BcProductos.GetAll().ToList().OrderBy(a => a.Nombre);
+                ViewBag.ProductoID = new SelectList(Producto, "ID", "Nombre");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+        }
+        /// <summary>
+        /// GetTipoProducto
+        /// </summary>
+        public void GetTipoProducto()
+        {
+
+            try
+            {
+                var Producto = BcTipoProducto.GetAll().ToList();
+                ViewBag.TipoProductoID = new SelectList(Producto, "TipoProductoID", "Nombre");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }     
+
+        
 
 
 
@@ -143,7 +181,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(ex.Message, "Error MOSTRAR Listado Estatus");
+                ModelState.AddModelError(ex.Message, "Error MOSTRAR  Estatus");
                 throw new Exception(ex.Message);
             }
 

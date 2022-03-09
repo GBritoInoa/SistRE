@@ -419,7 +419,7 @@
             <PropertyRef Name="TipoDecomisoID" />
           </Key>
           <Property Name="TipoDecomisoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="TipoProductoID" Type="int" Nullable="false" />
           <Property Name="EstatusID" Type="int" Nullable="false" />
           <Property Name="AuditoriaID" Type="int" Nullable="false" />
           <Property Name="TipoNovedadID" Type="int" Nullable="false" />
@@ -1666,10 +1666,10 @@
             <PropertyRef Name="TipoDecomisoID" />
           </Key>
           <Property Name="TipoDecomisoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="EstatusID" Type="Int32" Nullable="false" />
           <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
           <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+          <Property Name="TipoProductoID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoDocumento">
           <Key>
@@ -2643,10 +2643,10 @@
           <EntitySetMapping Name="TipoDecomiso">
             <EntityTypeMapping TypeName="DB_SistREModel.TipoDecomiso">
               <MappingFragment StoreEntitySet="TipoDecomiso">
+                <ScalarProperty Name="TipoProductoID" ColumnName="TipoProductoID" />
                 <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
                 <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
                 <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="TipoDecomisoID" ColumnName="TipoDecomisoID" />
               </MappingFragment>
             </EntityTypeMapping>

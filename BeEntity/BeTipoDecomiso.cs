@@ -15,12 +15,19 @@ namespace BeEntity
    public class BeTipoDecomiso
     {
         public int ID { get; set; }
-        [Required]
-        [DisplayName("Tipo Decomiso")]
-        public string Nombre { get; set; }
 
         [Required]
         public int TipoNovedadID { get; set; }
+
+        [Required]
+        [DisplayName("Tipo Producto")]
+        public int TipoProductoID { get; set; }
+
+        [DisplayName("Producto")]
+        public int ProductoID { get; set; }
+
+        [DisplayName("Tipo Decomiso")]
+        public string Nombre { get; set; }
 
         [Required]
         [DisplayName("Estatus ")]

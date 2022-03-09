@@ -144,6 +144,7 @@ namespace DataLogic
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     hn.TipoID = item.TipoMedidaID;
+                    hn.ProvinciaID = item.ProvinciaID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

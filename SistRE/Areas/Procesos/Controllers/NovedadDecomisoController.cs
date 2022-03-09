@@ -59,6 +59,7 @@ namespace SistRE.Areas.Procesos.Controllers
             {
                 List<BeTipoDecomiso> TipoDecomiso = BcTipos.GetTipoDecomisos().ToList();
                 ViewBag.TipoDecomisoID = new SelectList(TipoDecomiso.OrderBy(td => td.Nombre), "ID", "Nombre");
+                ViewBag.TipoNovedadID = new SelectList(TipoDecomiso.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
 
             }
             catch (Exception ex)
@@ -152,7 +153,7 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 BcNovedadDecomiso.Create(model);
-                TempData["success"] = "Novedad CREADA Satisfactoriamente!";
+                TempData["success"] = "Decomiso REGISTRADO Satisfactoriamente!";
                 return RedirectToAction("Create");
             }
             catch (Exception ex)
