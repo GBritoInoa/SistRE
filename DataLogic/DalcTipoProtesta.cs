@@ -81,6 +81,8 @@ namespace DataLogic
                                   {
 
                                       TipoProtestaID = tn.TipoProtestaID,
+                                      TipoNovedadID = tn.TipoNovedadID,
+                                      AuditoriaID = tn.AuditoriaID,                                       
                                       Nombre = tn.Nombre,
                                       EstatusID = tn.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
@@ -117,7 +119,8 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "MJimenez";
+                    string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
+                    a.UsuarioCreo = _User.Substring(0, 6);
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -128,6 +131,7 @@ namespace DataLogic
                     var tn = new TipoProtesta();
                     tn.Nombre = item.Nombre;
                     tn.EstatusID = (int)item.EstatusID;
+                    tn.TipoNovedadID = item.TipoNovedadID;
                     tn.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
                     db.TipoProtesta.Add(tn);
                     db.SaveChanges();
@@ -143,74 +147,84 @@ namespace DataLogic
 
         }
 
+        
         /// <summary>
-        /// Edit Tipo Novedad
+        /// Edit Tipo Novedad Protesta
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
         public bool Edit(BeTipoProtesta item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var tn = new TipoProtesta();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.Nombre = item.Nombre;
-                    tn.TipoProtestaID = item.TipoProtestaID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.TipoProtesta.Attach(tn);
-                    db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = userName;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var tp = new TipoProtesta();                  
+                  
+                    tp.AuditoriaID = item.AuditoriaID;
+                    tp.TipoProtestaID = item.TipoProtestaID;
+                    tp.Nombre = item.Nombre;
+                    tp.EstatusID = (int)item.EstatusID;
+                    db.TipoProtesta.Attach(tp);
+                    db.Entry(tp).Property(x => x.Nombre).IsModified = true;
+                       db.Entry(tp).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
-        /// <summary>
-        /// Elimina Tipo Novedad
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
+
+        ///// <summary>
+        ///// Elimina Tipo Novedad
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public bool Delete(int? id)
+        //{
+        //    try
+        //    {
+        //        using (var db = new Context_SistRE())
+        //        {
 
 
-                    var tn = db.TipoProtesta.Find(id);
-                    if (tn != null)
+        //            var tn = db.TipoProtesta.Find(id);
+        //            if (tn != null)
 
-                        db.TipoProtesta.Remove(tn);
-                    db.SaveChanges();
-                    return true;
+        //                db.TipoProtesta.Remove(tn);
+        //            db.SaveChanges();
+        //            return true;
 
-                }
+        //        }
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw new Exception(ex.Message);
+        //        throw new Exception(ex.Message);
 
-            }
-        }
+        //    }
+        //}
     }
 }

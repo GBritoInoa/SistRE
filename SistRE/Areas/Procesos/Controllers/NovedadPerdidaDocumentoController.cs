@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
+using SistRE.Comun;
 
 namespace SistRE.Areas.Procesos.Controllers
 {
@@ -75,12 +76,13 @@ namespace SistRE.Areas.Procesos.Controllers
         /// </summary>
         public void GetTipoDocumento()
         {
-
-            try
+           try
             {
 
                 List<BeTipoDocumento> TipoDocumentoID = BcTipoDocumento.GetTipoDocumento().OrderBy(r => r.ID).ToList();
                 ViewBag.TipoDocumentoID = new SelectList(TipoDocumentoID.OrderBy(c => c.ID), "ID", "Nombre");
+                List<BeTipoNovedad> TipoNovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Contains("Pérdida de Documento")).ToList(); 
+                ViewBag.TipoNovedadID = new SelectList(TipoNovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
             }
             catch (Exception ex)
             {
@@ -114,18 +116,20 @@ namespace SistRE.Areas.Procesos.Controllers
         // POST: Procesos/PerdidaDocumento/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BeNovedadPerdidaDocumento item)
+        public ActionResult Create(BeNovedadPerdidaDocumento model)
         {
-            if(!ModelState.IsValid)
+
+            model.EstatusID = (int)EstatusRegistro.Estatus.Activo;
+            if (!ModelState.IsValid)
             {
-                return View(item);
+                return View(model);
 
             }
 
             try
             {
-                BcNovedadPerdidaDocumento.Create(item);
-                TempData["success"] = "Novedad creada Satisfactoriamente!";
+                BcNovedadPerdidaDocumento.Create(model);
+                TempData["success"] = "Novedad REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");
             }
             catch (Exception ex)

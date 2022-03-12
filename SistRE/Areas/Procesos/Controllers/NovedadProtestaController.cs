@@ -12,6 +12,9 @@ namespace SistRE.Areas.Procesos.Controllers
     public class NovedadProtestaController : Controller
     {
 
+        /// <summary>
+        /// Get Provincias
+        /// </summary>
         public void GetProvincias()
         {
 
@@ -30,6 +33,9 @@ namespace SistRE.Areas.Procesos.Controllers
 
         }
 
+        /// <summary>
+        /// Get Tipo Protesta
+        /// </summary>
         public void GetTipoProtesta()
         {
 
@@ -38,6 +44,7 @@ namespace SistRE.Areas.Procesos.Controllers
                 List<BeTipoProtesta> TipoProtesta = new List<BeTipoProtesta>();
                 TipoProtesta = BcComun.GetTipoProtesta().OrderBy(r => r.TipoProtestaID).ToList();
                 ViewBag.TipoProtestaID = new SelectList(TipoProtesta.OrderBy(c => c.TipoProtestaID), "TipoProtestaID", "Nombre");
+                ViewBag.TipoNovedadID = new SelectList(TipoProtesta.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
             }
             catch (Exception ex)
             {
@@ -47,7 +54,10 @@ namespace SistRE.Areas.Procesos.Controllers
             }
 
         }
-
+        
+        /// <summary>
+        /// Get Institución Protestante
+        /// </summary>
         public void GetInstitucionProtestante()
         {
 
@@ -66,6 +76,9 @@ namespace SistRE.Areas.Procesos.Controllers
 
         }
 
+        /// <summary>
+        /// Get Categoria Protesta
+        /// </summary>
         public void GetCategoriaProtesta()
         {
 
@@ -117,15 +130,12 @@ namespace SistRE.Areas.Procesos.Controllers
                 GetInstitucionProtestante();
                 GetCategoriaProtesta();
                 return View(model);
-
-
-
             }
             try
             {
 
                 BcNovedadProtesta.Create(model);
-                TempData["success"] = "Protesta REGISTRADO Satisfactoriamente!";
+                TempData["success"] = "Novedad REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");
             }
             catch (Exception ex)

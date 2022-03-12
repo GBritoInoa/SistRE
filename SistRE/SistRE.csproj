@@ -148,8 +148,10 @@
     <Compile Include="Areas\CascadingController.cs" />
     <Compile Include="Areas\Consultas\ConsultasAreaRegistration.cs" />
     <Compile Include="Areas\Consultas\Login\LoginAreaRegistration.cs" />
+    <Compile Include="Areas\Mantenimientos\Controllers\CategoriaProtestaController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\CausaHeridaController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\EstatusController.cs" />
+    <Compile Include="Areas\Mantenimientos\Controllers\InstitucionProtestanteController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\NacionalidadController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\PaisController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\ProductosController.cs" />
@@ -965,6 +967,14 @@
     <Content Include="Areas\Procesos\Views\NovedadRepatriacion\Create.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadContrabando\Create.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadProtesta\Create.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\InstitucionProtestante\Create.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\InstitucionProtestante\Details.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\InstitucionProtestante\Edit.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\InstitucionProtestante\Index.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Create.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Details.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Edit.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

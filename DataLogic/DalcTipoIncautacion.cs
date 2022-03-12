@@ -175,10 +175,10 @@ namespace DataLogic
                     db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
 
-                    var ti = new TipoIncautacion();
+                 var ti = new TipoIncautacion();
                 ti.TipoProductoID = item.TipoProductoID;
                 ti.TipoIncautacionID = item.ID;
-                item.AuditoriaID = item.AuditoriaID;
+                ti.AuditoriaID = item.AuditoriaID;
                 ti.EstatusID = (int)item.EstatusID;
                 db.TipoIncautacion.Attach(ti);
                 db.Entry(ti).Property(x => x.TipoProductoID).IsModified = true;

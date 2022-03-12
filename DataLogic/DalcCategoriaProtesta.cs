@@ -81,6 +81,7 @@ namespace DataLogic
                                   {
 
                                       CategoriaProtestaID = tn.CategoriaProtestaID,
+                                      AuditoriaID = tn.AuditoriaID,
                                       Nombre = tn.Nombre,
                                       EstatusID = tn.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
@@ -117,7 +118,8 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "MJimenez";
+                    string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
+                    a.UsuarioCreo = _User.Substring(0, 6);
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -143,41 +145,48 @@ namespace DataLogic
 
         }
 
+
+
+
         /// <summary>
-        /// Edit Tipo Novedad
+        ///Edit Categoria Protesta
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
         public bool Edit(BeCategoriaProtesta item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var tn = new CategoriaProtesta();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.Nombre = item.Nombre;
-                    tn.CategoriaProtestaID = item.CategoriaProtestaID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.CategoriaProtesta.Attach(tn);
-                    db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = userName;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var ti = new CategoriaProtesta();              
+                    ti.CategoriaProtestaID = item.CategoriaProtestaID;           
+                    ti.EstatusID = (int)item.EstatusID;
+                    db.CategoriaProtesta.Attach(ti);
+                    db.Entry(ti).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(ti).Property(x => x.EstatusID).IsModified = true;
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }

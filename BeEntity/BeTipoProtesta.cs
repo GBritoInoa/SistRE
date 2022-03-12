@@ -18,6 +18,13 @@ namespace BeEntity
         public int TipoProtestaID { get; set; }
         [DisplayName("Protesta")]
         public string Nombre { get; set; }
+
+        public int AuditoriaID { get; set; }
+
+        [Required]
+        [DisplayName("Tipo Novedad")]
+        public Nullable<int> TipoNovedadID { get; set; }
+
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Usuario Creó")]
         public string UsuarioCreo { get; set; }

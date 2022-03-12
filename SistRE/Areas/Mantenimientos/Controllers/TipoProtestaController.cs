@@ -27,6 +27,27 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         }
 
         /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Protesta")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
+        /// <summary>
         /// All Estatus
         /// </summary>
         public void GetEstatus()
@@ -83,6 +104,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         {
             try
             {
+                GetTypeNovedad();
                 GetEstatus();
                 return View();
 
@@ -148,7 +170,9 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 {
                     return HttpNotFound();
                 }
+                GetTypeNovedad();
                 GetEstatus();
+                ViewBag.AuditoriaID = TipoProtesta.AuditoriaID;
                 return View(TipoProtesta);
 
             }
@@ -169,6 +193,8 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if (!ModelState.IsValid)
             {
+
+                GetTypeNovedad();
                 GetEstatus();
                 return View(item);
 
@@ -184,7 +210,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al crear Tipo Protesta");
+                ModelState.AddModelError(ex.Message, "Error al ACTUALIZAR Tipo Protesta");
                 throw new Exception(ex.Message);
 
 

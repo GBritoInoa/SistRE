@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="BcAuditoría.cs" />
     <Compile Include="BcAusencias.cs" />
+    <Compile Include="BcCategoriaProtesta.cs" />
     <Compile Include="BcComun.cs" />
+    <Compile Include="BcInstitucionProtestante.cs" />
     <Compile Include="BcNacionalidad.cs" />
     <Compile Include="BcNovedadApresamiento.cs" />
     <Compile Include="BcNovedadAusencia.cs" />

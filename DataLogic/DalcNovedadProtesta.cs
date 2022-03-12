@@ -36,7 +36,6 @@ namespace DataLogic
                     db.Auditoria.Add(a);
                     db.SaveChanges();
 
-
                     ////Create Novedad Protesta
                     var na = new NovedadProtesta();
                     na.TipoProtestaID = item.TipoProtestaID;
@@ -62,6 +61,7 @@ namespace DataLogic
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.TipoID = item.TipoProtestaID;
+                    hn.ProvinciaID = item.ProvinciaID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

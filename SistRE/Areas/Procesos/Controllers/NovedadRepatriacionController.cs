@@ -211,7 +211,7 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 BcNovedadRepatriacion.Create(model);
-                TempData["success"] = "Repatriacion REGISTRADA Satisfactoriamente!";
+                TempData["success"] = "Novedad REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");
             }
             catch (Exception ex)

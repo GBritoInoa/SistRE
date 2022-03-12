@@ -210,7 +210,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcTipoIncautacion.Edit(item);
-                TempData["success"] = "Tipo Incautacion actualizada Satisfactoriamente!";
+                TempData["success"] = "Tipo Incautacion ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
 

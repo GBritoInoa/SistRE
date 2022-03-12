@@ -182,6 +182,7 @@ namespace DataLogic
                         var tc = new TipoContrabando();
 
                         tc.TipoContrabandoID = item.ID;
+                        tc.AuditoriaID = item.AuditoriaID;
                         tc.EstatusID = (int)item.EstatusID;
                         tc.TipoProductoID = item.TipoProductoID;
                         db.TipoContrabando.Attach(tc);

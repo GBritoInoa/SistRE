@@ -15,6 +15,8 @@ namespace BeEntity
    public  class BeNovedadPerdidaDocumento
     {
         public int ID { get; set; }
+
+
         [DisplayName("Tipo Novedad ")]
         public int TipoNovedadID { get; set; }
         [DisplayName("Estatus ")]

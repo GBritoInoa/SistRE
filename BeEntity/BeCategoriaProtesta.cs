@@ -15,6 +15,7 @@ namespace BeEntity
     {
 
         [DisplayName("Categoria Protesta")]
+         public int AuditoriaID { get; set; }
         public int CategoriaProtestaID { get; set; }
         [DisplayName("Categoria Protesta")]
         public string Nombre { get; set; }

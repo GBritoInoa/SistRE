@@ -195,6 +195,11 @@ namespace DataLogic
 
         }
 
+
+        /// <summary>
+        /// Get Tipo Protesta
+        /// </summary>
+        /// <returns></returns>
         public List<BeTipoProtesta> GetTipoProtesta()
         {
             List<BeTipoProtesta> data = new List<BeTipoProtesta>();
@@ -202,11 +207,23 @@ namespace DataLogic
             {
                 using (var db = new Context_SistRE())
                 {
-                    data.AddRange(from c in db.TipoProtesta
+                    data.AddRange(from tp in db.TipoProtesta
+                                   join a in db.Auditoria on
+                                  tp.AuditoriaID equals a.AuditoriaID
+                                  join e in db.Estatus
+                                  on tp.EstatusID equals e.EstatusID
+                                  where tp.EstatusID != 3
                                   select new BeTipoProtesta()
+
                                   {
-                                      TipoProtestaID = c.TipoProtestaID,
-                                      Nombre = c.Nombre,
+                                      
+                                      Nombre = tp.Nombre,
+                                      TipoNovedadID = tp.TipoNovedadID,
+                                      EstatusID = tp.EstatusID,
+                                      UsuarioCreo = a.UsuarioCreo,
+                                      FechaCreo = a.FechaCreo,
+                                      UsuarioActualizo = a.UsuarioActualizo,
+                                      FechaActualizo = a.FechaActualizo,
 
                                   });
                     return data;
