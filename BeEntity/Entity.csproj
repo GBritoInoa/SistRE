@@ -92,6 +92,9 @@
     <Compile Include="BeTipoRecuperacion.cs" />
     <Compile Include="BeTipoRepatriacion.cs" />
     <Compile Include="BeTipoVehiculo.cs" />
+    <Compile Include="BeUser.cs" />
+    <Compile Include="BeCredencials.cs" />
+    <Compile Include="BeLoginResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoPerdidaDocumento.cs" />
   </ItemGroup>

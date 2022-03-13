@@ -608,5 +608,44 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Perfil">
+      <EntityTypeMapping TypeName="DB_SistREModel.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="DB_SistREModel.Permisos">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="idPantalla" ColumnName="idPantalla" />
+          <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+          <ScalarProperty Name="idRow" ColumnName="idRow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_SistREModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
+          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="CambioClave" ColumnName="CambioClave" />
+          <ScalarProperty Name="InstitucionID" ColumnName="InstitucionID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

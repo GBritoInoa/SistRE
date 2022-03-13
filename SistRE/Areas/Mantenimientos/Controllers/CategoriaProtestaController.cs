@@ -33,7 +33,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
         }
 
-        // GET: Mantenimientos/CategoriaProtesta
+        // GET: Mantenimientos/Categoria Protesta
         public ActionResult Index()
         {
 
@@ -47,7 +47,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al obtener listado de CategoriaProtestaes");
+                ModelState.AddModelError(ex.Message, "Error al obtener listado de Categoria Protesta");
                 throw new Exception(ex.Message);
             }
 
@@ -90,7 +90,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al generar la vista Institucion Protestante");
+                ModelState.AddModelError(ex.Message, "Error al generar la vista Categoría Protesta");
                 throw new Exception(ex.Message);
             }
 
@@ -110,7 +110,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcCategoriaProtesta.Create(item);
-                TempData["success"] = "Institucion Protestante CREADA Satisfactoriamente!";
+                TempData["success"] = "Categoría Protesta CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -163,7 +163,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcCategoriaProtesta.Edit(item);
-                TempData["success"] = "CategoriaProtesta actualizada Satisfactoriamente!";
+                TempData["success"] = "Categoría Protesta ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

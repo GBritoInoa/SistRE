@@ -14,6 +14,13 @@ namespace SistRE.AccessControl
         private string destinationAction;
         public string codModule { get; set; }
         public bool AllowAllModules { get; set; }
+
+
+        /// <summary>
+        /// AuthorizeCore
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <returns></returns>
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             //Si la sesion esta iniciada pasa si no se redireciona al "Login" para su autenticacion
@@ -38,6 +45,10 @@ namespace SistRE.AccessControl
             }
         }
 
+        /// <summary>
+        /// HandleUnauthorizedRequest
+        /// </summary>
+        /// <param name="filterContext"></param>
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
             RedirectToRouteResult routeData = null;

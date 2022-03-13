@@ -207,6 +207,9 @@
     <EntitySet Name="InstitucionProtestante" EntityType="DB_SistREModel.InstitucionProtestante" />
     <EntitySet Name="NovedadProtesta" EntityType="DB_SistREModel.NovedadProtesta" />
     <EntitySet Name="CategoriaProtesta" EntityType="DB_SistREModel.CategoriaProtesta" />
+    <EntitySet Name="Perfil" EntityType="DB_SistREModel.Perfil" />
+    <EntitySet Name="Permisos" EntityType="DB_SistREModel.Permisos" />
+    <EntitySet Name="Users" EntityType="DB_SistREModel.Users" />
   </EntityContainer>
   <EntityType Name="Auditoria">
     <Key>
@@ -1190,5 +1193,41 @@
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="EstatusID" Type="Int32" />
     <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="PerfilID" />
+    </Key>
+    <Property Name="PerfilID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="idRow" />
+    </Key>
+    <Property Name="idRow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPerfil" Type="Int32" Nullable="false" />
+    <Property Name="idPantalla" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Salt" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Boolean" Nullable="false" />
+    <Property Name="InstitucionID" Type="Int32" />
+    <Property Name="CambioClave" Type="Boolean" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="PerfilID" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

@@ -27,8 +27,8 @@ namespace DataLogic
           
                     /////////Crea Registro Auditoría//////////
                     var a = new Auditoria();
-                    string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
-                    a.UsuarioCreo = _User.Substring(0, 6);
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -41,7 +41,7 @@ namespace DataLogic
                     npd.TipoDocumentoID = item.TipoDocumentoID;
                     npd.RangoID = item.RangoID;
                     npd.CompaniaID = item.CompaniaID;
-                    npd.ProvinciaID = item.ProvinciaID;
+                    npd.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     npd.FechaNovedad = item.FechaNovedad;
                     npd.HoraNovedad = (item.HoraNovedad);
                     npd.Causa = item.Causa;
@@ -57,7 +57,7 @@ namespace DataLogic
                     hn.AuditoriaID = npd.AuditoriaID;
                     hn.FechaNovedad = npd.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
-                    hn.ProvinciaID = item.ProvinciaID;
+                    hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     hn.TipoID = item.TipoDocumentoID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();

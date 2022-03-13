@@ -1,67 +1,100 @@
-﻿@model IEnumerable<BeEntity.BeCategoriaProtesta>
+﻿@model BeEntity.BeCategoriaProtesta
 
-@{ /**/
+@{
+    /**/
 
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml"; }
+    ViewBag.Title = "Detalle Categoria Protesta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-
-@*<---->Esta parte se copia </---->*@
 <div class="panel panel-body" id="container" style="width:unset">
     <div class="panel-heading" style="text-align:center">
         <br />
-        <h4 class="fa fa-list"><strong> CategoriaProtestaes </strong></h4>
+        <h4><strong> Detalle Categoría Protesta </strong></h4>
     </div>
     <hr />
     <div class="container body-content">
         <div>
-            @Html.Partial("OptionsBox/Add")
-        </div>
-        <br />
-        <br />
-
-        <table class="table data-table">
-            <thead style="align-content:center">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nombre)
-                    </th>
-
-                    <th>
-                        @Html.DisplayNameFor(model => model.EstatusID)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-
-        <td>
-            @if (item.EstatusID == 1)
+            @using (Html.BeginForm())
             {
-<span>Activo</span> }
-else if (item.EstatusID == 2)
-{
-<span>Inactvo</span> }
-else
-{
-<span>Eliminado</span>}
+                <div>
+                    @Html.Partial("OptionsBox/Edit_Back", Model.CategoriaProtestaID)
+                </div>
+                <br />
+                <br />
 
-        </td>
-        <td>
-            @Html.Partial("OptionsBox/Edit_Details", item.CategoriaProtestaID)
-        </td>
-    </tr>
-}
-            </tbody>
+                @Html.AntiForgeryToken()
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
 
-        </table>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UsuarioCreo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.UsuarioCreo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaCreo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FechaCreo)
+                    </dd>
+
+                    @if (Model.UsuarioActualizo != null)
+                    {
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UsuarioActualizo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UsuarioActualizo)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaActualizo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaActualizo)
+                        </dd>
+                    }
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EstatusID)
+                    </dt>
+
+                    <dd>
+                        @if (Model.EstatusID == 1)
+                        {
+                            <span>Activo</span>
+                        }
+                        else if (Model.EstatusID == 2)
+                        {
+                            <span>Inactivo</span>
+
+                        }
+                        else
+                        {
+                            <span>Eliminado</span>
+                        }
+
+                    </dd>
+
+                </dl>
+            }
+        </div>
     </div>
 </div>
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

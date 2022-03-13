@@ -28,8 +28,8 @@ namespace DataLogic
                     DateTime hora = DateTime.Now;
                     /////////Crea Registro Auditoria//////////
                     var a = new Auditoria();
-                    string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
-                    a.UsuarioCreo = _User.Substring(0, 6);
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -47,7 +47,7 @@ namespace DataLogic
                     na.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
                     na.FechaNovedad = item.FechaNovedad;
                     na.HoraNovedad = item.HoraNovedad;
-                    na.ProvinciaID = item.ProvinciaID;
+                    na.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     na.BrigadaID = item.BrigadaID;
                     na.RangoID = Convert.ToInt32(item.RangoID).Equals(0) ? 0 : item.RangoID;
                     na.CompaniaID = Convert.ToInt32(item.CompaniaID).Equals(0) ? 0 : item.CompaniaID;
@@ -64,7 +64,7 @@ namespace DataLogic
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.TipoID = item.TipoApresamientoID;
-                    hn.ProvinciaID = item.ProvinciaID;
+                    hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

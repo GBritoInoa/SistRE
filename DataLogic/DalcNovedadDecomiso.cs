@@ -28,7 +28,8 @@ namespace DataLogic
                     DateTime hora = DateTime.Now;
                     /////////Crea Registro Auditoria//////////
                     var a = new Auditoria();
-                    a.UsuarioCreo = "gbrito";
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -44,9 +45,9 @@ namespace DataLogic
                     nd.FechaNovedad = item.FechaNovedad;
                     nd.BrigadaID = item.BrigadaID;
                     nd.HoraNovedad = item.HoraNovedad;
-                    nd.TipoNovedadID = 31;
+                    nd.TipoNovedadID = item.TipoNovedadID;
                     nd.TipoMedidaID = item.TipoMedidaID;
-                    nd.ProvinciaID = item.ProvinciaID;
+                    nd.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     nd.Causa = item.Causa;
                     nd.EstatusID = (int)EnumEstatus.Estado.Activo;
                     nd.TipoID = item.TipoDrogaID;
@@ -59,6 +60,7 @@ namespace DataLogic
                     hn.AuditoriaID = nd.AuditoriaID;
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
+                    hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

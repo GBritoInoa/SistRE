@@ -59,6 +59,7 @@
     <Compile Include="BcProtestaConvocatoria.cs" />
     <Compile Include="BcTipoApresamiento.cs" />
     <Compile Include="BcTipoCausaMuerte.cs" />
+    <Compile Include="BcUsers.cs" />
     <Compile Include="BcTipoContrabando.cs" />
     <Compile Include="BcTipoDecomiso.cs" />
     <Compile Include="BcTipoDocumento.cs" />
@@ -83,6 +84,8 @@
     <Compile Include="BcTipoCausaHerida.cs" />
     <Compile Include="BcTipoFallecimiento.cs" />
     <Compile Include="BcTipoProducto.cs" />
+    <Compile Include="BcMembresia.cs" />
+    <Compile Include="BcCriptografia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

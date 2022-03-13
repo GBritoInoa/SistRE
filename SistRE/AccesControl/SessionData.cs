@@ -13,15 +13,16 @@ namespace SistRE.AccesControl
             var isOnline = HttpContext.Current.Session["SI"];
             return (isOnline == null ? false : true);
         }
-        public static void SetSesion(string userName, string profile)
+        public static void SetSesion(string userName, string profile, int idProfile)
         {
             HttpContext.Current.Session["SI"] = true;
             HttpContext.Current.Session["userName"] = userName;
             HttpContext.Current.Session["profile"] = profile;
+            HttpContext.Current.Session["idProfile"] = idProfile;
         }
         public static UserInfo GetOnlineUserInfo()
         {
-            return new UserInfo((string)HttpContext.Current.Session["userName"], (string)HttpContext.Current.Session["profile"]);
+            return new UserInfo((string)HttpContext.Current.Session["userName"], (string)HttpContext.Current.Session["profile"], (int)HttpContext.Current.Session["idProfile"]);
         }
         public static void ClearSession()
         {

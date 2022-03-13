@@ -11,8 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoContrabando
     /// </summary>
-    public class BeTipoContrabando
-    {
+    public class BeTipoContrabando    {
         
         public int ID { get; set; }
 
@@ -31,12 +30,17 @@ namespace BeEntity
         [DisplayName("Tipo Contrabando")]
         public string Nombre { get; set; }
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
+
+
         [DisplayName("Usuario Creó")]
         public string UsuarioCreo { get; set; }
-        //[Required(ErrorMessage = "{0} no puede estar vacio")]
+       /// [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Fecha Creó")]
         public Nullable<System.DateTime> FechaCreo { get; set; }
+        [DisplayName("Usuario Actualizó")]
         public string UsuarioActualizo { get; set; }
+
+        [DisplayName("Fecha Actualizó")]
         public Nullable<System.DateTime> FechaActualizo { get; set; }
         //public string Vista { get; set; }
         [Required]

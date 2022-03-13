@@ -9,11 +9,13 @@ namespace SistRE.Models
     {
         public string userName { get; set; }
         public string profile { get; set; }
+        public int idProfile { get; set; }
 
-        public UserInfo(string userName, string profile)
+        public UserInfo(string userName, string profile, int idProfile)
         {
             this.userName = userName;
             this.profile = profile;
+            this.idProfile = idProfile;
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace SistRE.Models
+namespace BeEntity
 {
-    public class Credencials
+    public class BeCredencials
     {
         [Required]
         [DisplayName("Nombre de usuario")]

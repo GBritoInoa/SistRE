@@ -201,7 +201,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Credencials.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -661,6 +660,7 @@
     <Content Include="Content\pages\UI\sliders.html" />
     <Content Include="Content\pages\UI\timeline.html" />
     <Content Include="Content\pages\widgets.html" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -972,9 +972,11 @@
     <Content Include="Areas\Mantenimientos\Views\InstitucionProtestante\Edit.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\InstitucionProtestante\Index.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Create.cshtml" />
-    <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Details.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Edit.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Index.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1121,7 +1123,6 @@
     <Folder Include="Areas\Consultas\Models\" />
     <Folder Include="Areas\Consultas\Views\Shared\" />
     <Folder Include="Areas\Mantenimientos\Models\" />
-    <Folder Include="Areas\Mantenimientos\Views\Shared\" />
     <Folder Include="Areas\Procesos\Models\" />
     <Folder Include="Areas\Reportes\Models\" />
     <Folder Include="Areas\Reportes\Views\Shared\" />

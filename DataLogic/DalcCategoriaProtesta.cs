@@ -173,8 +173,10 @@ namespace DataLogic
                     db.SaveChanges();
 
                     var ti = new CategoriaProtesta();              
-                    ti.CategoriaProtestaID = item.CategoriaProtestaID;           
+                    ti.CategoriaProtestaID = item.CategoriaProtestaID;
+                    ti.AuditoriaID = item.AuditoriaID;
                     ti.EstatusID = (int)item.EstatusID;
+                    ti.Nombre = item.Nombre;
                     db.CategoriaProtesta.Attach(ti);
                     db.Entry(ti).Property(x => x.Nombre).IsModified = true;
                     db.Entry(ti).Property(x => x.EstatusID).IsModified = true;

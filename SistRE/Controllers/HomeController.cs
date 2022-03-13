@@ -3,6 +3,7 @@ using System.Net;
 using System.Web.Mvc;
 using SistRE.Models;
 using SistRE.AccesControl;
+using BusinessControl;
 
 namespace SistRE.Controllers
 {
@@ -35,18 +36,21 @@ namespace SistRE.Controllers
         }
       
         [HttpPost]
-        public ActionResult Login(Credencials model)
+        public ActionResult Login(BeEntity.BeCredencials model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.userName != "884196" && model.passWord != "admin")
+            DalcMembresia MB = new DalcMembresia();
+            var loginResult = MB.Login(model);
+
+            if (!loginResult.Success)
             {
-                ModelState.AddModelError("password", "Usuario o contraseña no validos");
+                ModelState.AddModelError("password", loginResult.Message);
                 return View(model);
             }
 
-            SessionData.SetSesion(model.userName, "Administrador");
+            SessionData.SetSesion(loginResult.User.UserName, loginResult.User.PerfilID.ToString(), loginResult.User.PerfilID);
 
             return RedirectToAction("Index");
 

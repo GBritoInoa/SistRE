@@ -180,7 +180,7 @@ namespace DataLogic
                     tp.EstatusID = (int)item.EstatusID;
                     db.TipoProtesta.Attach(tp);
                     db.Entry(tp).Property(x => x.Nombre).IsModified = true;
-                       db.Entry(tp).Property(x => x.EstatusID).IsModified = true;
+                    db.Entry(tp).Property(x => x.EstatusID).IsModified = true;
 
                     db.SaveChanges();
                     dbContextTransaction.Commit();

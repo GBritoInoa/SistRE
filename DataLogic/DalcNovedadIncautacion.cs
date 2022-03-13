@@ -110,8 +110,8 @@ namespace DataLogic
                     #region Begin Transacction
                     /////////Crea Registro Auditoria////////
                     var a = new Auditoria();
-                    string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
-                    a.UsuarioCreo = _User.Substring(0, 6);
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -125,7 +125,7 @@ namespace DataLogic
                     ni.TipoIncautacionID = item.TipoIncautacionID;
                     ni.ProductoID = item.ProductoID;
                     ni.TipoMedidaID = Convert.ToInt32(item.TipoMedidaID).Equals(0) ? 0: item.TipoMedidaID;
-                    ni.ProvinciaID = item.ProvinciaID;
+                    ni.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     ni.FechaNovedad = item.FechaNovedad;
                     ni.HoraNovedad = item.HoraNovedad;
                     ni.BrigadaID = item.BrigadaID;
@@ -142,7 +142,7 @@ namespace DataLogic
                     hn.AuditoriaID = ni.AuditoriaID;
                     hn.FechaNovedad = ni.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
-                    hn.ProvinciaID = item.ProvinciaID;
+                    hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     hn.TipoID = Convert.ToInt32(item.TipoMedidaID).Equals(0) ? 0 : item.TipoMedidaID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();

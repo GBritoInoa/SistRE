@@ -88,6 +88,9 @@
         <EntityTypeShape EntityType="DB_SistREModel.InstitucionProtestante" Width="1.5" PointX="15.375" PointY="3.75" />
         <EntityTypeShape EntityType="DB_SistREModel.NovedadProtesta" Width="1.5" PointX="15.375" PointY="6.75" />
         <EntityTypeShape EntityType="DB_SistREModel.CategoriaProtesta" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Perfil" Width="1.5" PointX="9.375" PointY="15.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Permisos" Width="1.5" PointX="11.375" PointY="15.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Users" Width="1.5" PointX="15.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -109,6 +109,7 @@
     <Compile Include="DalcTipoApresamiento.cs" />
     <Compile Include="DalcTipoCausaHerida.cs" />
     <Compile Include="DalcTipoCausaMuerte.cs" />
+    <Compile Include="DalUsers.cs" />
     <Compile Include="DalcTipoContrabando.cs" />
     <Compile Include="DalcTipoDecomiso.cs" />
     <Compile Include="DalcTipoDocumento.cs" />
@@ -216,7 +217,13 @@
     <Compile Include="Paises.cs">
       <DependentUpon>ModeldbERD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Perfil.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
     <Compile Include="Perfiles.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="Productos.cs">
@@ -306,6 +313,9 @@
     </Compile>
     <Compile Include="Unidades.cs">
       <DependentUpon>ModeldbERD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
