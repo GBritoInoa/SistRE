@@ -112,7 +112,8 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "MJimenez";
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -153,16 +154,16 @@ namespace DataLogic
                     var tn = new Pais();
 
 
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.Nombre = item.Nombre;
-                    tn.PaisID = item.PaisID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.Pais.Attach(tn);
-                    db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    ////tn.UsuarioActualizo = "gbrito";
+                    ////tn.FechaActualizo = DateTime.Now;
+                    //tn.Nombre = item.Nombre;
+                    //tn.PaisID = item.PaisID;
+                    //tn.EstatusID = (int)item.EstatusID;
+                    //db.Pais.Attach(tn);
+                    //db.Entry(tn).Property(x => x.Nombre).IsModified = true;
+                    //db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
+                    ////db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
+                    ////db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
                     return true;
 

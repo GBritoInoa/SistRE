@@ -550,15 +550,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Perfiles">
-      <EntityTypeMapping TypeName="DB_SistREModel.Perfiles">
-        <MappingFragment StoreEntitySet="Perfiles">
-          <ScalarProperty Name="IdAuditoria" ColumnName="IdAuditoria" />
-          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
-          <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TipoIncautacion">
       <EntityTypeMapping TypeName="DB_SistREModel.TipoIncautacion">
         <MappingFragment StoreEntitySet="TipoIncautacion">
@@ -625,6 +616,17 @@
           <ScalarProperty Name="idPantalla" ColumnName="idPantalla" />
           <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
           <ScalarProperty Name="idRow" ColumnName="idRow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pantallas">
+      <EntityTypeMapping TypeName="DB_SistREModel.Pantallas">
+        <MappingFragment StoreEntitySet="Pantallas">
+          <ScalarProperty Name="EsPrincipal" ColumnName="EsPrincipal" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="NombreEnMenu" ColumnName="NombreEnMenu" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idPantalla" ColumnName="idPantalla" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

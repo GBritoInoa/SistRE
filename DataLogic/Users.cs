@@ -21,7 +21,7 @@ namespace DataLogic
         public string Apellidos { get; set; }
         public string Password { get; set; }
         public string Salt { get; set; }
-        public bool EstatusID { get; set; }
+        public int EstatusID { get; set; }
         public Nullable<int> InstitucionID { get; set; }
         public bool CambioClave { get; set; }
         public int AuditoriaID { get; set; }

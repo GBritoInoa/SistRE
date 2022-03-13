@@ -60,6 +60,7 @@
     <Compile Include="BeNovedadProtesta.cs" />
     <Compile Include="BeNovedadRepatriacion.cs" />
     <Compile Include="BePais.cs" />
+    <Compile Include="BePerfil.cs" />
     <Compile Include="BeProductos.cs" />
     <Compile Include="BeProtestaConvocatoria.cs" />
     <Compile Include="BeProvincias.cs" />

@@ -127,8 +127,8 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                    a.UsuarioCreo = userName.Substring(0, 6);
+                     string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -202,35 +202,35 @@ namespace DataLogic
 
             }
 
-        /// <summary>
-        /// Elimina Tipo Novedad
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-            public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
+        ///// <summary>
+        ///// Elimina Tipo Novedad
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //    public bool Delete(int? id)
+        //{
+        //    try
+        //    {
+        //        using (var db = new Context_SistRE())
+        //        {
 
 
-                    var tn = db.TipoContrabando.Find(id);
-                    if (tn != null)
+        //            var tn = db.TipoContrabando.Find(id);
+        //            if (tn != null)
 
-                        db.TipoContrabando.Remove(tn);
-                    db.SaveChanges();
-                    return true;
+        //                db.TipoContrabando.Remove(tn);
+        //            db.SaveChanges();
+        //            return true;
 
-                }
+        //        }
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw new Exception(ex.Message);
+        //        throw new Exception(ex.Message);
 
-            }
-        }
+        //    }
+        //}
     }
 }

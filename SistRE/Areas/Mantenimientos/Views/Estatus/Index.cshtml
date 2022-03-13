@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataLogic.Estatus>
+﻿@model IEnumerable<BeEntity.BeEstatus>
 
 @{
     ViewBag.Title = "Index";
@@ -18,17 +18,18 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EstatusID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EstatusID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EstatusID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EstatusID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EstatusID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EstatusID })
+            </td>
+        </tr>
+    }
 
 </table>

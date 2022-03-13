@@ -217,10 +217,10 @@
     <Compile Include="Paises.cs">
       <DependentUpon>ModeldbERD.tt</DependentUpon>
     </Compile>
-    <Compile Include="Perfil.cs">
+    <Compile Include="Pantallas.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Perfiles.cs">
+    <Compile Include="Perfil.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="Permisos.cs">

@@ -318,6 +318,16 @@
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" />
   </EntityType>
+  <EntityType Name="Pantallas">
+    <Key>
+      <PropertyRef Name="idPantalla" />
+    </Key>
+    <Property Name="idPantalla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreEnMenu" Type="varchar" MaxLength="100" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="EsPrincipal" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Perfil">
     <Key>
       <PropertyRef Name="PerfilID" />
@@ -327,14 +337,6 @@
     <Property Name="Descripcion" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Perfiles">
-    <Key>
-      <PropertyRef Name="IdPerfil" />
-    </Key>
-    <Property Name="IdPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Perfil" Type="int" Nullable="false" />
-    <Property Name="IdAuditoria" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Permisos">
     <Key>
@@ -580,7 +582,7 @@
     <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Salt" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EstatusID" Type="bit" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="InstitucionID" Type="int" />
     <Property Name="CambioClave" Type="bit" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
@@ -1017,8 +1019,8 @@
     <EntitySet Name="NovedadProtesta" EntityType="Self.NovedadProtesta" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadRepatriaciones" EntityType="Self.NovedadRepatriaciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pantallas" EntityType="Self.Pantallas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProtestaConvocatoria" EntityType="Self.ProtestaConvocatoria" Schema="dbo" store:Type="Tables" />

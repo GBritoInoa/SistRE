@@ -114,7 +114,8 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "gbrito";
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -148,66 +149,74 @@ namespace DataLogic
         public bool Edit(BeTipoDocumento item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var tn = new TipoDocumento();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.Nombre = item.Nombre;
-                    tn.TipoDocumentoID = item.ID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.TipoDocumento.Attach(tn);
-                    db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = userName;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var tc = new TipoDocumento();
+
+                    tc.TipoDocumentoID = item.ID;
+                    tc.AuditoriaID = item.AuditoriaID;
+                    tc.EstatusID = (int)item.EstatusID;
+                    tc.Nombre = item.Nombre;
+                    db.TipoDocumento.Attach(tc);
+                    db.Entry(tc).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(tc).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
-        /// <summary>
-        /// Delete  Tipo Documento
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
+        ///// <summary>
+        ///// Delete  Tipo Documento
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public bool Delete(int? id)
+        //{
+        //    try
+        //    {
+        //        using (var db = new Context_SistRE())
+        //        {
 
 
-                    var tn = db.TipoDocumento.Find(id);
-                    if (tn != null)
+        //            var tn = db.TipoDocumento.Find(id);
+        //            if (tn != null)
 
-                        db.TipoDocumento.Remove(tn);
-                    db.SaveChanges();
-                    return true;
+        //                db.TipoDocumento.Remove(tn);
+        //            db.SaveChanges();
+        //            return true;
 
-                }
+        //        }
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw new Exception(ex.Message);
+        //        throw new Exception(ex.Message);
 
-            }
-        }
+        //    }
+        //}
     }
 }

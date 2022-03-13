@@ -12,6 +12,7 @@ namespace BeEntity
     /// </summary>
   public  class BeUser
     {
+        public int ID { get; set; }
         public int UserId { get; set; }
         [DisplayName("Usuario")]
         public string UserName { get; set; }
@@ -24,7 +25,7 @@ namespace BeEntity
         public string Password { get; set; }
         public string Salt { get; set; }
         [DisplayName("Estatus")]
-        public bool EstatusID { get; set; }
+        public int EstatusID { get; set; }
         [DisplayName("Institución")]
         public Nullable<int> InstitucionID { get; set; }
         [DisplayName("Cambio Clave")]

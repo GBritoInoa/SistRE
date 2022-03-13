@@ -82,7 +82,6 @@
         <AssociationConnector Association="DB_SistREModel.FK_NovedadContrabando_Estatus" />
         <EntityTypeShape EntityType="DB_SistREModel.TipoContrabando" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="DB_SistREModel.CausaApresamiento" Width="1.5" PointX="13.75" PointY="12.75" />
-        <EntityTypeShape EntityType="DB_SistREModel.Perfiles" Width="1.5" PointX="0.75" PointY="14.75" />
         <EntityTypeShape EntityType="DB_SistREModel.TipoIncautacion" Width="1.5" PointX="3.625" PointY="15.375" />
         <AssociationConnector Association="DB_SistREModel.FK_TipoIncautacion_Auditoria" />
         <EntityTypeShape EntityType="DB_SistREModel.InstitucionProtestante" Width="1.5" PointX="15.375" PointY="3.75" />
@@ -90,6 +89,7 @@
         <EntityTypeShape EntityType="DB_SistREModel.CategoriaProtesta" Width="1.5" PointX="15.375" PointY="0.75" />
         <EntityTypeShape EntityType="DB_SistREModel.Perfil" Width="1.5" PointX="9.375" PointY="15.75" />
         <EntityTypeShape EntityType="DB_SistREModel.Permisos" Width="1.5" PointX="11.375" PointY="15.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Pantallas" Width="1.5" PointX="16.375" PointY="11.75" />
         <EntityTypeShape EntityType="DB_SistREModel.Users" Width="1.5" PointX="15.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>

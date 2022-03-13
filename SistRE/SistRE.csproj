@@ -146,6 +146,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\CascadingController.cs" />
+    <Compile Include="Areas\Configuracion\ConfiguracionAreaRegistration.cs" />
+    <Compile Include="Areas\Configuracion\Controllers\UsersController.cs" />
     <Compile Include="Areas\Consultas\ConsultasAreaRegistration.cs" />
     <Compile Include="Areas\Consultas\Login\LoginAreaRegistration.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\CategoriaProtestaController.cs" />
@@ -977,6 +979,10 @@
     <Content Include="Areas\Mantenimientos\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\CategoriaProtesta\Details.cshtml" />
+    <Content Include="Areas\Configuracion\Views\web.config" />
+    <Content Include="Areas\Configuracion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1120,11 +1126,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Consultas\Controllers\" />
-    <Folder Include="Areas\Consultas\Models\" />
     <Folder Include="Areas\Consultas\Views\Shared\" />
-    <Folder Include="Areas\Mantenimientos\Models\" />
-    <Folder Include="Areas\Procesos\Models\" />
-    <Folder Include="Areas\Reportes\Models\" />
     <Folder Include="Areas\Reportes\Views\Shared\" />
     <Folder Include="Images\" />
     <Folder Include="obj\Release\TempPE\" />

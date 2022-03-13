@@ -19,7 +19,7 @@ namespace BeEntity
         [DisplayName("Estatus")]
         public int EstatusID { get; set; }
         [DisplayName("Auditoria")]
-        public Nullable<int> AuditoriaID { get; set; }
+        public int  AuditoriaID { get; set; }
         [DisplayName("Usuario Creó")]
         public string UsuarioCreo { get; set; }
         //[Required(ErrorMessage = "{0} no puede estar vacio")]

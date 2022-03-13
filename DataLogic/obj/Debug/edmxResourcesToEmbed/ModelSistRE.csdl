@@ -198,7 +198,6 @@
     </AssociationSet>
     <EntitySet Name="TipoContrabando" EntityType="DB_SistREModel.TipoContrabando" />
     <EntitySet Name="CausaApresamiento" EntityType="DB_SistREModel.CausaApresamiento" />
-    <EntitySet Name="Perfiles" EntityType="DB_SistREModel.Perfiles" />
     <EntitySet Name="TipoIncautacion" EntityType="DB_SistREModel.TipoIncautacion" />
     <AssociationSet Name="FK_TipoIncautacion_Auditoria" Association="DB_SistREModel.FK_TipoIncautacion_Auditoria">
       <End Role="Auditoria" EntitySet="Auditoria" />
@@ -209,6 +208,7 @@
     <EntitySet Name="CategoriaProtesta" EntityType="DB_SistREModel.CategoriaProtesta" />
     <EntitySet Name="Perfil" EntityType="DB_SistREModel.Perfil" />
     <EntitySet Name="Permisos" EntityType="DB_SistREModel.Permisos" />
+    <EntitySet Name="Pantallas" EntityType="DB_SistREModel.Pantallas" />
     <EntitySet Name="Users" EntityType="DB_SistREModel.Users" />
   </EntityContainer>
   <EntityType Name="Auditoria">
@@ -1128,14 +1128,6 @@
     <Property Name="EstatusID" Type="Int32" Nullable="false" />
     <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="Perfiles">
-    <Key>
-      <PropertyRef Name="IdPerfil" />
-    </Key>
-    <Property Name="IdPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Perfil" Type="Int32" Nullable="false" />
-    <Property Name="IdAuditoria" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="TipoIncautacion">
     <Key>
       <PropertyRef Name="TipoIncautacionID" />
@@ -1212,6 +1204,16 @@
     <Property Name="idPerfil" Type="Int32" Nullable="false" />
     <Property Name="idPantalla" Type="Int32" Nullable="false" />
   </EntityType>
+  <EntityType Name="Pantallas">
+    <Key>
+      <PropertyRef Name="idPantalla" />
+    </Key>
+    <Property Name="idPantalla" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreEnMenu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="EsPrincipal" Type="Boolean" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserId" />
@@ -1223,7 +1225,7 @@
     <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Salt" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="EstatusID" Type="Boolean" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
     <Property Name="InstitucionID" Type="Int32" />
     <Property Name="CambioClave" Type="Boolean" Nullable="false" />
     <Property Name="AuditoriaID" Type="Int32" Nullable="false" />

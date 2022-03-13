@@ -74,13 +74,13 @@ namespace DataLogic
         public virtual DbSet<NovedadContrabando> NovedadContrabando { get; set; }
         public virtual DbSet<TipoContrabando> TipoContrabando { get; set; }
         public virtual DbSet<CausaApresamiento> CausaApresamiento { get; set; }
-        public virtual DbSet<Perfiles> Perfiles { get; set; }
         public virtual DbSet<TipoIncautacion> TipoIncautacion { get; set; }
         public virtual DbSet<InstitucionProtestante> InstitucionProtestante { get; set; }
         public virtual DbSet<NovedadProtesta> NovedadProtesta { get; set; }
         public virtual DbSet<CategoriaProtesta> CategoriaProtesta { get; set; }
         public virtual DbSet<Perfil> Perfil { get; set; }
         public virtual DbSet<Permisos> Permisos { get; set; }
+        public virtual DbSet<Pantallas> Pantallas { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     
         public virtual int usp_CreateTipoNovedad(Nullable<int> tipoNovedadID, string nombre, Nullable<int> estatusID, Nullable<int> auditoriaID, string usuarioCreo, Nullable<System.DateTime> fechaCreo, ObjectParameter codigo_estado, ObjectParameter mensaje_estado)

@@ -17,6 +17,14 @@ namespace DataLogic
     public class DalcUser
     {
         public static string MachineName { get; }
+
+
+
+        /// <summary>
+        /// Get Users
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public List<BeUser> GetIncluding(Func<Users, bool> filter)
         {
             var data = new List<BeUser>();
@@ -31,7 +39,7 @@ namespace DataLogic
                                       //join e in db.Estatus
                                       //on tn.EstatusID equals e.EstatusID
                                   join p in db.Perfil on tn.PerfilID equals p.PerfilID
-                                  where tn.EstatusID == true
+                                  where tn.EstatusID != 3
                                   select new BeUser()
 
                                   {
@@ -43,7 +51,7 @@ namespace DataLogic
                                       Password = tn.Password,
                                       CambioClave = tn.CambioClave,
                                       Email = tn.Email,
-                                      EstatusID = true,
+                                      EstatusID = tn.EstatusID,
                                       Perfil = p.Nombre
                                   });
 
