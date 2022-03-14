@@ -23,7 +23,16 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nombre)
+                        @Html.DisplayNameFor(model => model.NombreCmpleto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rango)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Perfil)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Institucion)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.EstatusID)
@@ -35,31 +44,43 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nombre)
-                        </td>
-                        <td>
-                            @if (item.EstatusID == 1)
-                            {
-                                <span>Activo</span>
-                            }
-                            else if (item.EstatusID ==2)
-                            {
-                                <span>Inactvo</span>
-                            }
-                            else
-                            {
-                                <span>Eliminado</span>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreCmpleto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rango)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Perfil)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Institucion)
+                    </td>
+                    <td>
+                        @if (item.EstatusID == 1)
+                        {
+                            <span>Activo</span>
+                        }
+                        else if (item.EstatusID == 2)
+                        {
+                            <span>Inactvo</span>
+                        }
+                        else
+                        {
+                            <span>Eliminado</span>
 
-                            }
+                        }
 
-                        </td>
-                        <td>
-                            @Html.Partial("OptionsBox/Edit_Details", item.ID)
-                        </td>
-                    </tr>
+                    </td>
+                    <td>
+                        @Html.Partial("OptionsBox/Edit_Details", item.ID)
+                    </td>
+                </tr>
                 }
+                
             </tbody>
 
         </table>
+        </div>
+    </div>

@@ -34,5 +34,7 @@ namespace DataLogic
         public virtual DbSet<Rangos> Rangos { get; set; }
         public virtual DbSet<Unidades> Unidades { get; set; }
         public virtual DbSet<Companias> Companias { get; set; }
+        public virtual DbSet<Instituciones> Instituciones { get; set; }
+        public virtual DbSet<Miembros> Miembros { get; set; }
     }
 }

@@ -145,11 +145,17 @@
     <Compile Include="Institucion.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
+    <Compile Include="Instituciones.cs">
+      <DependentUpon>ModeldbERD.tt</DependentUpon>
+    </Compile>
     <Compile Include="InstitucionProtestante.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="LugarActividad.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Miembros.cs">
+      <DependentUpon>ModeldbERD.tt</DependentUpon>
     </Compile>
     <Compile Include="ModeldbERD.Context.cs">
       <AutoGen>True</AutoGen>

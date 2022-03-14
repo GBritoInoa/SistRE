@@ -21,6 +21,8 @@ namespace BeEntity
         public string Nombre { get; set; }
         [DisplayName("Apellidos")]
         public string Apellidos { get; set; }
+        [DisplayName("Nombre Completo")]
+        public string NombreCmpleto { get; set; }
         [DisplayName("Password")]
         public string Password { get; set; }
         public string Salt { get; set; }
@@ -28,10 +30,14 @@ namespace BeEntity
         public int EstatusID { get; set; }
         [DisplayName("Institución")]
         public Nullable<int> InstitucionID { get; set; }
+        public string Institucion { get; set; }
         [DisplayName("Cambio Clave")]
         public bool CambioClave { get; set; }
         public int AuditoriaID { get; set; }
         public int BrigadaID { get; set; }
+        public string Brigada { get; set; }
+        public int RangoID { get; set; }
+        public string Rango { get; set; }
         [DisplayName("Perfil")]
         public int PerfilID { get; set; }
         [DisplayName("Perfil")]

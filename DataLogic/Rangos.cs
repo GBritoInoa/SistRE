@@ -14,6 +14,12 @@ namespace DataLogic
     
     public partial class Rangos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rangos()
+        {
+            this.Miembros = new HashSet<Miembros>();
+        }
+    
         public int RangoID { get; set; }
         public string nombre { get; set; }
         public int nivelRangoID { get; set; }
@@ -26,5 +32,8 @@ namespace DataLogic
         public decimal Riesgo { get; set; }
         public decimal Cargo { get; set; }
         public string Abreviatura2 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Miembros> Miembros { get; set; }
     }
 }

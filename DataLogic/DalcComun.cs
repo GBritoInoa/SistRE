@@ -41,9 +41,46 @@ namespace DataLogic
 
         }
 
+        /// <summary>
+        /// Get Mienbro ERD
+        /// </summary>
+        /// <returns></returns>
+        public BeMilitar GetMemberERD(int user)
+        {
+            var data = new List<BeMilitar>();
+            try
+            {
+                using (var dbERD = new ContextDbERD())
+                {
+                    data.AddRange(from m in dbERD.Miembros
+                                  join i in dbERD.Instituciones on m.InstitucionID equals i.InstitucionID
+                                  join r in dbERD.Rangos on m.RangoID equals r.RangoID
+                                  where m.numero_carnet == user
+
+                                  select new BeMilitar()
+                                  {
+                                     Miembro  = m.Apellidos + "," + m.Nombres,
+                                     Rango = r.nombre,
+                                     RangoID = m.RangoID,
+                                     InstitucionID = i.InstitucionID,
+                                     Institucion = i.nombre,
+                                     NumCarnet = m.numero_carnet,
 
 
+                                  });
 
+                };
+                return data.FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        
         /// <summary>
         /// Dalc Provincias
         /// </summary>

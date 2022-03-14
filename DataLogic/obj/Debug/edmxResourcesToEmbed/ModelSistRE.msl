@@ -633,6 +633,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="DB_SistREModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
           <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
           <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
           <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />

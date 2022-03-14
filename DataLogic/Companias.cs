@@ -14,6 +14,12 @@ namespace DataLogic
     
     public partial class Companias
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Companias()
+        {
+            this.Miembros = new HashSet<Miembros>();
+        }
+    
         public int CompaniaID { get; set; }
         public string nombre { get; set; }
         public int BatallonID { get; set; }
@@ -42,5 +48,8 @@ namespace DataLogic
         public int Asimilado { get; set; }
         public int Igualado { get; set; }
         public bool Historica { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Miembros> Miembros { get; set; }
     }
 }

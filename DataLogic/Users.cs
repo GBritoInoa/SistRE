@@ -27,5 +27,6 @@ namespace DataLogic
         public int AuditoriaID { get; set; }
         public int BrigadaID { get; set; }
         public int PerfilID { get; set; }
+        public Nullable<int> RangoID { get; set; }
     }
 }

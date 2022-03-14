@@ -16,10 +16,21 @@ namespace BeEntity
 
         [DisplayName("CompaniaID")]
         public int CompaniaID { get; set; }
-        public int Nombre { get; set; }
-        [DisplayName("Companía")]
+        [DisplayName("Número Carnet")]
+        public Nullable<int> NumCarnet { get; set; }
+        public string Miembro { get; set; }
+        [DisplayName("Compañía")]
+        public int Compania { get; set; }
+
+        [DisplayName("Rango Id")]
         public int RangoID { get; set; }
         public string Rango { get; set; }
+        public int InstitucionID { get; set; }
+        [DisplayName("Institución")]
+        public string Institucion { get; set; }
+        public int BrigadaID { get; set; }
+        public string Brigada { get; set; }
+
 
     }
 }

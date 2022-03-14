@@ -47,6 +47,88 @@
           <Property Name="Igualado" Type="int" Nullable="false" />
           <Property Name="Historica" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Instituciones">
+          <Key>
+            <PropertyRef Name="InstitucionID" />
+          </Key>
+          <Property Name="InstitucionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="direccion" Type="nvarchar(max)" />
+          <Property Name="telefono" Type="nvarchar(max)" />
+          <Property Name="correo" Type="nvarchar(max)" />
+          <Property Name="pagina" Type="nvarchar(max)" />
+          <Property Name="MinisterioID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Miembros">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_Ingreso_Institucion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_funcion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_ingreso_unidad" Type="datetime" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="MunicipioID" Type="int" Nullable="false" />
+          <Property Name="licencia_conducir" Type="nvarchar(max)" />
+          <Property Name="telefono" Type="nvarchar(max)" />
+          <Property Name="fecha_ascenso" Type="datetime" Nullable="false" />
+          <Property Name="fecha_calculada" Type="datetime" Nullable="false" />
+          <Property Name="numero_escalafon" Type="nvarchar(max)" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="RangoID" Type="int" Nullable="false" />
+          <Property Name="ProfesionID" Type="int" Nullable="false" />
+          <Property Name="direccion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="urbanizacion" Type="nvarchar(max)" />
+          <Property Name="FuncionID" Type="int" Nullable="false" />
+          <Property Name="CompaniaID" Type="int" Nullable="false" />
+          <Property Name="RangoIDing" Type="int" Nullable="false" />
+          <Property Name="ProfesionIDing" Type="int" Nullable="false" />
+          <Property Name="recomendadoPor" Type="nvarchar(max)" />
+          <Property Name="ocupacionAnterior" Type="nvarchar(max)" />
+          <Property Name="Altura" Type="nvarchar(max)" />
+          <Property Name="Peso" Type="nvarchar(max)" />
+          <Property Name="fechaCarnet" Type="datetime" Nullable="false" />
+          <Property Name="numero_carnet" Type="int" />
+          <Property Name="RutaFoto" Type="nvarchar(max)" />
+          <Property Name="modificado" Type="datetime" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar(max)" />
+          <Property Name="dirIP" Type="nvarchar(max)" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Sueldo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NoCuenta" Type="nvarchar(max)" />
+          <Property Name="Especialismo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Compensacion" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Prima" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="InstitucionID" Type="int" Nullable="false" />
+          <Property Name="PromocionID" Type="int" Nullable="false" />
+          <Property Name="LugarNacimiento" Type="int" Nullable="false" />
+          <Property Name="Bautismo" Type="bit" Nullable="false" />
+          <Property Name="Confirmacion" Type="bit" Nullable="false" />
+          <Property Name="Comunion" Type="bit" Nullable="false" />
+          <Property Name="Matrimonio" Type="bit" Nullable="false" />
+          <Property Name="TipoLicenciaConducirID" Type="int" Nullable="false" />
+          <Property Name="reintegro" Type="bit" Nullable="false" />
+          <Property Name="Celular" Type="nvarchar(max)" />
+          <Property Name="telefonoTrabajo" Type="nvarchar(max)" />
+          <Property Name="tSangreID" Type="int" Nullable="false" />
+          <Property Name="PielID" Type="int" Nullable="false" />
+          <Property Name="OjosID" Type="int" Nullable="false" />
+          <Property Name="CabelloID" Type="int" Nullable="false" />
+          <Property Name="EstatusID" Type="int" Nullable="false" />
+          <Property Name="EstadoCivilID" Type="int" Nullable="false" />
+          <Property Name="Correo" Type="nvarchar(max)" />
+          <Property Name="Facebook" Type="nvarchar(max)" />
+          <Property Name="tweeter" Type="nvarchar(max)" />
+          <Property Name="DireccionAlterna" Type="nvarchar(max)" />
+          <Property Name="Alerta" Type="nvarchar(max)" />
+          <Property Name="CompensacionEspecial" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Adicion" Type="int" Nullable="false" />
+          <Property Name="fechaAdicion" Type="datetime" Nullable="false" />
+          <Property Name="tarjeta" Type="nvarchar(max)" />
+          <Property Name="Reintegros" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Municipios">
           <Key>
             <PropertyRef Name="MunicipioID" />
@@ -141,9 +223,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Miembros_Companias">
+          <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
+          <End Role="Miembros" Type="Self.Miembros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companias">
+              <PropertyRef Name="CompaniaID" />
+            </Principal>
+            <Dependent Role="Miembros">
+              <PropertyRef Name="CompaniaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Miembros_Rangos">
+          <End Role="Rangos" Type="Self.Rangos" Multiplicity="1" />
+          <End Role="Miembros" Type="Self.Miembros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rangos">
+              <PropertyRef Name="RangoID" />
+            </Principal>
+            <Dependent Role="Miembros">
+              <PropertyRef Name="RangoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="dbPersonalERDModelStoreContainer">
           <EntitySet Name="Batallones" EntityType="Self.Batallones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Companias" EntityType="Self.Companias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instituciones" EntityType="Self.Instituciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Miembros" EntityType="Self.Miembros" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provincias" EntityType="Self.Provincias" Schema="dbo" store:Type="Tables" />
@@ -158,6 +266,14 @@
           <AssociationSet Name="FK_dbo_Provincias_dbo_Regiones_RegionID" Association="Self.FK_dbo_Provincias_dbo_Regiones_RegionID">
             <End Role="Regiones" EntitySet="Regiones" />
             <End Role="Provincias" EntitySet="Provincias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Miembros_Companias" Association="Self.FK_Miembros_Companias">
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Miembros" EntitySet="Miembros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Miembros_Rangos" Association="Self.FK_Miembros_Rangos">
+            <End Role="Rangos" EntitySet="Rangos" />
+            <End Role="Miembros" EntitySet="Miembros" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -255,6 +371,16 @@
           <EntitySet Name="Rangos" EntityType="dbPersonalERDModel.Rangos" />
           <EntitySet Name="Unidades" EntityType="dbPersonalERDModel.Unidades" />
           <EntitySet Name="Companias" EntityType="dbPersonalERDModel.Companias" />
+          <EntitySet Name="Instituciones" EntityType="dbPersonalERDModel.Instituciones" />
+          <EntitySet Name="Miembros" EntityType="dbPersonalERDModel.Miembros" />
+          <AssociationSet Name="FK_Miembros_Companias" Association="dbPersonalERDModel.FK_Miembros_Companias">
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Miembros" EntitySet="Miembros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Miembros_Rangos" Association="dbPersonalERDModel.FK_Miembros_Rangos">
+            <End Role="Rangos" EntitySet="Rangos" />
+            <End Role="Miembros" EntitySet="Miembros" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Batallones">
           <Key>
@@ -281,6 +407,7 @@
           <Property Name="Riesgo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Cargo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Abreviatura2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Miembros" Relationship="dbPersonalERDModel.FK_Miembros_Rangos" FromRole="Rangos" ToRole="Miembros" />
         </EntityType>
         <EntityType Name="Unidades">
           <Key>
@@ -322,7 +449,116 @@
           <Property Name="Asimilado" Type="Int32" Nullable="false" />
           <Property Name="Igualado" Type="Int32" Nullable="false" />
           <Property Name="Historica" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Miembros" Relationship="dbPersonalERDModel.FK_Miembros_Companias" FromRole="Companias" ToRole="Miembros" />
         </EntityType>
+        <EntityType Name="Instituciones">
+          <Key>
+            <PropertyRef Name="InstitucionID" />
+          </Key>
+          <Property Name="InstitucionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pagina" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MinisterioID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Miembros">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_Ingreso_Institucion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_funcion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_ingreso_unidad" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MunicipioID" Type="Int32" Nullable="false" />
+          <Property Name="licencia_conducir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_ascenso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_calculada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="numero_escalafon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <Property Name="RangoID" Type="Int32" Nullable="false" />
+          <Property Name="ProfesionID" Type="Int32" Nullable="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="urbanizacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FuncionID" Type="Int32" Nullable="false" />
+          <Property Name="CompaniaID" Type="Int32" Nullable="false" />
+          <Property Name="RangoIDing" Type="Int32" Nullable="false" />
+          <Property Name="ProfesionIDing" Type="Int32" Nullable="false" />
+          <Property Name="recomendadoPor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ocupacionAnterior" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Altura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Peso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaCarnet" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="numero_carnet" Type="Int32" />
+          <Property Name="RutaFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="modificado" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dirIP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Sueldo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="NoCuenta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Especialismo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Compensacion" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Prima" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="InstitucionID" Type="Int32" Nullable="false" />
+          <Property Name="PromocionID" Type="Int32" Nullable="false" />
+          <Property Name="LugarNacimiento" Type="Int32" Nullable="false" />
+          <Property Name="Bautismo" Type="Boolean" Nullable="false" />
+          <Property Name="Confirmacion" Type="Boolean" Nullable="false" />
+          <Property Name="Comunion" Type="Boolean" Nullable="false" />
+          <Property Name="Matrimonio" Type="Boolean" Nullable="false" />
+          <Property Name="TipoLicenciaConducirID" Type="Int32" Nullable="false" />
+          <Property Name="reintegro" Type="Boolean" Nullable="false" />
+          <Property Name="Celular" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telefonoTrabajo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tSangreID" Type="Int32" Nullable="false" />
+          <Property Name="PielID" Type="Int32" Nullable="false" />
+          <Property Name="OjosID" Type="Int32" Nullable="false" />
+          <Property Name="CabelloID" Type="Int32" Nullable="false" />
+          <Property Name="EstatusID" Type="Int32" Nullable="false" />
+          <Property Name="EstadoCivilID" Type="Int32" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tweeter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DireccionAlterna" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Alerta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompensacionEspecial" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Adicion" Type="Int32" Nullable="false" />
+          <Property Name="fechaAdicion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tarjeta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reintegros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Companias" Relationship="dbPersonalERDModel.FK_Miembros_Companias" FromRole="Miembros" ToRole="Companias" />
+          <NavigationProperty Name="Rangos" Relationship="dbPersonalERDModel.FK_Miembros_Rangos" FromRole="Miembros" ToRole="Rangos" />
+        </EntityType>
+        <Association Name="FK_Miembros_Companias">
+          <End Type="dbPersonalERDModel.Companias" Role="Companias" Multiplicity="1" />
+          <End Type="dbPersonalERDModel.Miembros" Role="Miembros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companias">
+              <PropertyRef Name="CompaniaID" />
+            </Principal>
+            <Dependent Role="Miembros">
+              <PropertyRef Name="CompaniaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Miembros_Rangos">
+          <End Type="dbPersonalERDModel.Rangos" Role="Rangos" Multiplicity="1" />
+          <End Type="dbPersonalERDModel.Miembros" Role="Miembros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rangos">
+              <PropertyRef Name="RangoID" />
+            </Principal>
+            <Dependent Role="Miembros">
+              <PropertyRef Name="RangoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -443,6 +679,90 @@
                 <ScalarProperty Name="BatallonID" ColumnName="BatallonID" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instituciones">
+            <EntityTypeMapping TypeName="dbPersonalERDModel.Instituciones">
+              <MappingFragment StoreEntitySet="Instituciones">
+                <ScalarProperty Name="MinisterioID" ColumnName="MinisterioID" />
+                <ScalarProperty Name="pagina" ColumnName="pagina" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="InstitucionID" ColumnName="InstitucionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Miembros">
+            <EntityTypeMapping TypeName="dbPersonalERDModel.Miembros">
+              <MappingFragment StoreEntitySet="Miembros">
+                <ScalarProperty Name="Reintegros" ColumnName="Reintegros" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="fechaAdicion" ColumnName="fechaAdicion" />
+                <ScalarProperty Name="Adicion" ColumnName="Adicion" />
+                <ScalarProperty Name="CompensacionEspecial" ColumnName="CompensacionEspecial" />
+                <ScalarProperty Name="Alerta" ColumnName="Alerta" />
+                <ScalarProperty Name="DireccionAlterna" ColumnName="DireccionAlterna" />
+                <ScalarProperty Name="tweeter" ColumnName="tweeter" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="EstadoCivilID" ColumnName="EstadoCivilID" />
+                <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+                <ScalarProperty Name="CabelloID" ColumnName="CabelloID" />
+                <ScalarProperty Name="OjosID" ColumnName="OjosID" />
+                <ScalarProperty Name="PielID" ColumnName="PielID" />
+                <ScalarProperty Name="tSangreID" ColumnName="tSangreID" />
+                <ScalarProperty Name="telefonoTrabajo" ColumnName="telefonoTrabajo" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="reintegro" ColumnName="reintegro" />
+                <ScalarProperty Name="TipoLicenciaConducirID" ColumnName="TipoLicenciaConducirID" />
+                <ScalarProperty Name="Matrimonio" ColumnName="Matrimonio" />
+                <ScalarProperty Name="Comunion" ColumnName="Comunion" />
+                <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+                <ScalarProperty Name="Bautismo" ColumnName="Bautismo" />
+                <ScalarProperty Name="LugarNacimiento" ColumnName="LugarNacimiento" />
+                <ScalarProperty Name="PromocionID" ColumnName="PromocionID" />
+                <ScalarProperty Name="InstitucionID" ColumnName="InstitucionID" />
+                <ScalarProperty Name="Prima" ColumnName="Prima" />
+                <ScalarProperty Name="Compensacion" ColumnName="Compensacion" />
+                <ScalarProperty Name="Especialismo" ColumnName="Especialismo" />
+                <ScalarProperty Name="NoCuenta" ColumnName="NoCuenta" />
+                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="dirIP" ColumnName="dirIP" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="modificado" ColumnName="modificado" />
+                <ScalarProperty Name="RutaFoto" ColumnName="RutaFoto" />
+                <ScalarProperty Name="numero_carnet" ColumnName="numero_carnet" />
+                <ScalarProperty Name="fechaCarnet" ColumnName="fechaCarnet" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Altura" ColumnName="Altura" />
+                <ScalarProperty Name="ocupacionAnterior" ColumnName="ocupacionAnterior" />
+                <ScalarProperty Name="recomendadoPor" ColumnName="recomendadoPor" />
+                <ScalarProperty Name="ProfesionIDing" ColumnName="ProfesionIDing" />
+                <ScalarProperty Name="RangoIDing" ColumnName="RangoIDing" />
+                <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+                <ScalarProperty Name="FuncionID" ColumnName="FuncionID" />
+                <ScalarProperty Name="urbanizacion" ColumnName="urbanizacion" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ProfesionID" ColumnName="ProfesionID" />
+                <ScalarProperty Name="RangoID" ColumnName="RangoID" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="numero_escalafon" ColumnName="numero_escalafon" />
+                <ScalarProperty Name="fecha_calculada" ColumnName="fecha_calculada" />
+                <ScalarProperty Name="fecha_ascenso" ColumnName="fecha_ascenso" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="licencia_conducir" ColumnName="licencia_conducir" />
+                <ScalarProperty Name="MunicipioID" ColumnName="MunicipioID" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="fecha_ingreso_unidad" ColumnName="fecha_ingreso_unidad" />
+                <ScalarProperty Name="fecha_funcion" ColumnName="fecha_funcion" />
+                <ScalarProperty Name="fecha_Ingreso_Institucion" ColumnName="fecha_Ingreso_Institucion" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

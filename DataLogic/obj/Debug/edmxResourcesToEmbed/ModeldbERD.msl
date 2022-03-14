@@ -118,5 +118,89 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Instituciones">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Instituciones">
+        <MappingFragment StoreEntitySet="Instituciones">
+          <ScalarProperty Name="MinisterioID" ColumnName="MinisterioID" />
+          <ScalarProperty Name="pagina" ColumnName="pagina" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="InstitucionID" ColumnName="InstitucionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Miembros">
+      <EntityTypeMapping TypeName="dbPersonalERDModel.Miembros">
+        <MappingFragment StoreEntitySet="Miembros">
+          <ScalarProperty Name="Reintegros" ColumnName="Reintegros" />
+          <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+          <ScalarProperty Name="fechaAdicion" ColumnName="fechaAdicion" />
+          <ScalarProperty Name="Adicion" ColumnName="Adicion" />
+          <ScalarProperty Name="CompensacionEspecial" ColumnName="CompensacionEspecial" />
+          <ScalarProperty Name="Alerta" ColumnName="Alerta" />
+          <ScalarProperty Name="DireccionAlterna" ColumnName="DireccionAlterna" />
+          <ScalarProperty Name="tweeter" ColumnName="tweeter" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="EstadoCivilID" ColumnName="EstadoCivilID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="CabelloID" ColumnName="CabelloID" />
+          <ScalarProperty Name="OjosID" ColumnName="OjosID" />
+          <ScalarProperty Name="PielID" ColumnName="PielID" />
+          <ScalarProperty Name="tSangreID" ColumnName="tSangreID" />
+          <ScalarProperty Name="telefonoTrabajo" ColumnName="telefonoTrabajo" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="reintegro" ColumnName="reintegro" />
+          <ScalarProperty Name="TipoLicenciaConducirID" ColumnName="TipoLicenciaConducirID" />
+          <ScalarProperty Name="Matrimonio" ColumnName="Matrimonio" />
+          <ScalarProperty Name="Comunion" ColumnName="Comunion" />
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="Bautismo" ColumnName="Bautismo" />
+          <ScalarProperty Name="LugarNacimiento" ColumnName="LugarNacimiento" />
+          <ScalarProperty Name="PromocionID" ColumnName="PromocionID" />
+          <ScalarProperty Name="InstitucionID" ColumnName="InstitucionID" />
+          <ScalarProperty Name="Prima" ColumnName="Prima" />
+          <ScalarProperty Name="Compensacion" ColumnName="Compensacion" />
+          <ScalarProperty Name="Especialismo" ColumnName="Especialismo" />
+          <ScalarProperty Name="NoCuenta" ColumnName="NoCuenta" />
+          <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="dirIP" ColumnName="dirIP" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="RutaFoto" ColumnName="RutaFoto" />
+          <ScalarProperty Name="numero_carnet" ColumnName="numero_carnet" />
+          <ScalarProperty Name="fechaCarnet" ColumnName="fechaCarnet" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Altura" ColumnName="Altura" />
+          <ScalarProperty Name="ocupacionAnterior" ColumnName="ocupacionAnterior" />
+          <ScalarProperty Name="recomendadoPor" ColumnName="recomendadoPor" />
+          <ScalarProperty Name="ProfesionIDing" ColumnName="ProfesionIDing" />
+          <ScalarProperty Name="RangoIDing" ColumnName="RangoIDing" />
+          <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+          <ScalarProperty Name="FuncionID" ColumnName="FuncionID" />
+          <ScalarProperty Name="urbanizacion" ColumnName="urbanizacion" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="ProfesionID" ColumnName="ProfesionID" />
+          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="numero_escalafon" ColumnName="numero_escalafon" />
+          <ScalarProperty Name="fecha_calculada" ColumnName="fecha_calculada" />
+          <ScalarProperty Name="fecha_ascenso" ColumnName="fecha_ascenso" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="licencia_conducir" ColumnName="licencia_conducir" />
+          <ScalarProperty Name="MunicipioID" ColumnName="MunicipioID" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="fecha_ingreso_unidad" ColumnName="fecha_ingreso_unidad" />
+          <ScalarProperty Name="fecha_funcion" ColumnName="fecha_funcion" />
+          <ScalarProperty Name="fecha_Ingreso_Institucion" ColumnName="fecha_Ingreso_Institucion" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

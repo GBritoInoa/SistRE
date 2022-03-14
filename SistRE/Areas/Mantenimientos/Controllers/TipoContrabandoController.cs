@@ -166,7 +166,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // POST: Tipo_Novedad/Create
-        public ActionResult Create(BeTipoContrabando item)
+        public ActionResult Create(BeTipoContrabando model)
         {
 
 
@@ -176,13 +176,13 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 GetProducto();
                 GetTipoProducto();
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
 
             try
             {
 
-                BcTipoContrabando.Create(item);
+                BcTipoContrabando.Create(model);
                 TempData["success"] = "Tipo Contrabando creado Satisfactoriamente!";
                 return RedirectToAction("Index");
 

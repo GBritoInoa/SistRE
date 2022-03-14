@@ -91,6 +91,16 @@
     <EntitySet Name="Rangos" EntityType="dbPersonalERDModel.Rangos" />
     <EntitySet Name="Unidades" EntityType="dbPersonalERDModel.Unidades" />
     <EntitySet Name="Companias" EntityType="dbPersonalERDModel.Companias" />
+    <EntitySet Name="Instituciones" EntityType="dbPersonalERDModel.Instituciones" />
+    <EntitySet Name="Miembros" EntityType="dbPersonalERDModel.Miembros" />
+    <AssociationSet Name="FK_Miembros_Companias" Association="dbPersonalERDModel.FK_Miembros_Companias">
+      <End Role="Companias" EntitySet="Companias" />
+      <End Role="Miembros" EntitySet="Miembros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Miembros_Rangos" Association="dbPersonalERDModel.FK_Miembros_Rangos">
+      <End Role="Rangos" EntitySet="Rangos" />
+      <End Role="Miembros" EntitySet="Miembros" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Batallones">
     <Key>
@@ -117,6 +127,7 @@
     <Property Name="Riesgo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="Cargo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="Abreviatura2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Miembros" Relationship="dbPersonalERDModel.FK_Miembros_Rangos" FromRole="Rangos" ToRole="Miembros" />
   </EntityType>
   <EntityType Name="Unidades">
     <Key>
@@ -158,5 +169,114 @@
     <Property Name="Asimilado" Type="Int32" Nullable="false" />
     <Property Name="Igualado" Type="Int32" Nullable="false" />
     <Property Name="Historica" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Miembros" Relationship="dbPersonalERDModel.FK_Miembros_Companias" FromRole="Companias" ToRole="Miembros" />
   </EntityType>
+  <EntityType Name="Instituciones">
+    <Key>
+      <PropertyRef Name="InstitucionID" />
+    </Key>
+    <Property Name="InstitucionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pagina" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinisterioID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Miembros">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nombres" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_Ingreso_Institucion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_funcion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_ingreso_unidad" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MunicipioID" Type="Int32" Nullable="false" />
+    <Property Name="licencia_conducir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_ascenso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_calculada" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="numero_escalafon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Boolean" Nullable="false" />
+    <Property Name="RangoID" Type="Int32" Nullable="false" />
+    <Property Name="ProfesionID" Type="Int32" Nullable="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="urbanizacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FuncionID" Type="Int32" Nullable="false" />
+    <Property Name="CompaniaID" Type="Int32" Nullable="false" />
+    <Property Name="RangoIDing" Type="Int32" Nullable="false" />
+    <Property Name="ProfesionIDing" Type="Int32" Nullable="false" />
+    <Property Name="recomendadoPor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ocupacionAnterior" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Altura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Peso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fechaCarnet" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="numero_carnet" Type="Int32" />
+    <Property Name="RutaFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="modificado" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dirIP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Sueldo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="NoCuenta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Especialismo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Compensacion" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Prima" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="InstitucionID" Type="Int32" Nullable="false" />
+    <Property Name="PromocionID" Type="Int32" Nullable="false" />
+    <Property Name="LugarNacimiento" Type="Int32" Nullable="false" />
+    <Property Name="Bautismo" Type="Boolean" Nullable="false" />
+    <Property Name="Confirmacion" Type="Boolean" Nullable="false" />
+    <Property Name="Comunion" Type="Boolean" Nullable="false" />
+    <Property Name="Matrimonio" Type="Boolean" Nullable="false" />
+    <Property Name="TipoLicenciaConducirID" Type="Int32" Nullable="false" />
+    <Property Name="reintegro" Type="Boolean" Nullable="false" />
+    <Property Name="Celular" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefonoTrabajo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tSangreID" Type="Int32" Nullable="false" />
+    <Property Name="PielID" Type="Int32" Nullable="false" />
+    <Property Name="OjosID" Type="Int32" Nullable="false" />
+    <Property Name="CabelloID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="EstadoCivilID" Type="Int32" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tweeter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DireccionAlterna" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Alerta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompensacionEspecial" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Adicion" Type="Int32" Nullable="false" />
+    <Property Name="fechaAdicion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="tarjeta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reintegros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Companias" Relationship="dbPersonalERDModel.FK_Miembros_Companias" FromRole="Miembros" ToRole="Companias" />
+    <NavigationProperty Name="Rangos" Relationship="dbPersonalERDModel.FK_Miembros_Rangos" FromRole="Miembros" ToRole="Rangos" />
+  </EntityType>
+  <Association Name="FK_Miembros_Companias">
+    <End Type="dbPersonalERDModel.Companias" Role="Companias" Multiplicity="1" />
+    <End Type="dbPersonalERDModel.Miembros" Role="Miembros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companias">
+        <PropertyRef Name="CompaniaID" />
+      </Principal>
+      <Dependent Role="Miembros">
+        <PropertyRef Name="CompaniaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Miembros_Rangos">
+    <End Type="dbPersonalERDModel.Rangos" Role="Rangos" Multiplicity="1" />
+    <End Type="dbPersonalERDModel.Miembros" Role="Miembros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rangos">
+        <PropertyRef Name="RangoID" />
+      </Principal>
+      <Dependent Role="Miembros">
+        <PropertyRef Name="RangoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

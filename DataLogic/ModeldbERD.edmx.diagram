@@ -16,6 +16,10 @@
         <EntityTypeShape EntityType="dbPersonalERDModel.Rangos" Width="1.5" PointX="5.75" PointY="3.75" />
         <EntityTypeShape EntityType="dbPersonalERDModel.Unidades" Width="1.5" PointX="0.875" PointY="6.375" />
         <EntityTypeShape EntityType="dbPersonalERDModel.Companias" Width="1.5" PointX="8.375" PointY="3.75" />
+        <EntityTypeShape EntityType="dbPersonalERDModel.Instituciones" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="dbPersonalERDModel.Miembros" Width="1.5" PointX="11" PointY="0.75" />
+        <AssociationConnector Association="dbPersonalERDModel.FK_Miembros_Companias" />
+        <AssociationConnector Association="dbPersonalERDModel.FK_Miembros_Rangos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

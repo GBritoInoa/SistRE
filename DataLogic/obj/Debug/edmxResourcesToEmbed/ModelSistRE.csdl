@@ -1231,5 +1231,6 @@
     <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
     <Property Name="BrigadaID" Type="Int32" Nullable="false" />
     <Property Name="PerfilID" Type="Int32" Nullable="false" />
+    <Property Name="RangoID" Type="Int32" />
   </EntityType>
 </Schema>

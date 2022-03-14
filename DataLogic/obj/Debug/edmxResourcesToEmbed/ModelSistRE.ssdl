@@ -588,6 +588,7 @@
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
     <Property Name="BrigadaID" Type="int" Nullable="false" />
     <Property Name="PerfilID" Type="int" Nullable="false" />
+    <Property Name="RangoID" Type="int" />
   </EntityType>
   <Association Name="FK_Ausencias_Auditoria">
     <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="1" />

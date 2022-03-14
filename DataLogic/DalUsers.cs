@@ -32,27 +32,44 @@ namespace DataLogic
             try
             {
                 using (var db = new Context_SistRE())
+                using (var dbERD = new ContextDbERD())
+              
                 {
-                    data.AddRange(from tn in db.Users.Where(filter)
+                    data.AddRange(from u in db.Users.Where(filter)
                                       //join a in db.Auditoria on
                                       //tn.AuditoriaID equals a.AuditoriaID
                                       //join e in db.Estatus
                                       //on tn.EstatusID equals e.EstatusID
-                                  join p in db.Perfil on tn.PerfilID equals p.PerfilID
-                                  where tn.EstatusID != 3
+                                  join p in db.Perfil on u.PerfilID equals p.PerfilID
+                                  join e in db.Estatus on u.EstatusID equals e.EstatusID
+                                  join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID
+                                  join b in dbERD.Unidades on u.BrigadaID equals b.UnidadID
+                                  join r in dbERD.Rangos on u.RangoID  equals r.RangoID
+                                  
+                                  where u.EstatusID != 3
                                   select new BeUser()
 
                                   {
-                                      UserId = tn.UserId,
-                                      Nombre = tn.Nombre,
-                                      Apellidos = tn.Apellidos,
-                                      PerfilID = tn.PerfilID,
-                                      Salt = tn.Salt,
-                                      Password = tn.Password,
-                                      CambioClave = tn.CambioClave,
-                                      Email = tn.Email,
-                                      EstatusID = tn.EstatusID,
-                                      Perfil = p.Nombre
+                                      UserId = u.UserId,
+                                      ID = u.UserId,
+                                      Nombre = u.Nombre,
+                                      UserName = u.UserName,
+                                      NombreCmpleto = u.Nombre + " " + u.Apellidos,
+                                      Institucion = i.nombre,
+                                      InstitucionID = u.InstitucionID,
+                                      BrigadaID = u.BrigadaID,
+                                      Rango = r.nombre,
+                                      RangoID = r.RangoID,                                 
+                                      Brigada = b.nombre,
+                                      Apellidos = u.Apellidos,
+                                      PerfilID = u.PerfilID,
+                                      Perfil = p.Nombre,
+                                      Salt = u.Salt,
+                                      Password = u.Password,
+                                      CambioClave = u.CambioClave,
+                                      Email = u.Email,
+                                      EstatusID = u.EstatusID
+                                   
                                   });
 
                 };

@@ -34,6 +34,25 @@ namespace BusinessControl
         }
 
 
+        /// <summary>
+        /// Get Member Militar
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static  BeMilitar GetMemberERD(int user)
+        {
+            try
+            {
+                return _dalc.GetMemberERD(user);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+
+        }
    
 
         /// <summary>
