@@ -35,5 +35,6 @@ namespace BeEntity
         public int TipoDocumentoID { get; set; }
         [DisplayName("Provincia ")]
         public int ProvinciaID { get; set; }
+        public string UserLogueado { get; set; }
     }
 }

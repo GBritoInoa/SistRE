@@ -44,6 +44,6 @@ namespace BeEntity
         [Required]
         [DisplayName("Brigada Responsable")]
         public int BrigadaID { get; set; }
-    
+        public string UserLogueado { get; set; }
     }
 }

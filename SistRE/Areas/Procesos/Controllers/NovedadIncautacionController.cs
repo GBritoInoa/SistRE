@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using SistRE.Comun;
 using System;
 using System.Collections.Generic;
@@ -247,6 +248,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); //Usuario Logueado
                 BcNovedadIncautacion.Create(model);
                 TempData["success"] = "Incautacion REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");

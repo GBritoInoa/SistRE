@@ -66,6 +66,7 @@ namespace BeEntity
 
         [DisplayName("Fecha Creó")]
         public System.DateTime FechaCreo { get; set; }
+        public string UserLogueado { get; set; }
 
 
     }

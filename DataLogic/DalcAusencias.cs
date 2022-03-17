@@ -112,9 +112,8 @@ namespace DataLogic
                     try
                     {
                         ///Create Auditoria
-                        var a = new Auditoria();
-                         string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
-                         a.UsuarioCreo = _User.Substring(0, 6);
+                         var a = new Auditoria();                      
+                         a.UsuarioCreo = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
                          a.FechaCreo = DateTime.Now;
                          a.NombrePC = Environment.MachineName;
                          a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -157,7 +156,7 @@ namespace DataLogic
 
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioActualizo = "gbrito";
+                    a.UsuarioActualizo = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
                     a.FechaActualizo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -186,36 +185,36 @@ namespace DataLogic
             }
         }
 
-            /// <summary>
-            /// Elimina Tipo Ausencia
-            /// </summary>
-            /// <param name="id"></param>
-            /// <returns></returns>
-            public bool Delete(int? id)
-            {
-                try
-                {
-                    using (var db = new Context_SistRE())
-                    {
+            ///// <summary>
+            ///// Elimina Tipo Ausencia
+            ///// </summary>
+            ///// <param name="id"></param>
+            ///// <returns></returns>
+            //public bool Delete(int? id)
+            //{
+            //    try
+            //    {
+            //        using (var db = new Context_SistRE())
+            //        {
 
 
-                        var au = db.Ausencias.Find(id);
-                        if (au != null)
+            //            var au = db.Ausencias.Find(id);
+            //            if (au != null)
 
-                            db.Ausencias.Remove(au);
-                        db.SaveChanges();
-                        return true;
+            //                db.Ausencias.Remove(au);
+            //            db.SaveChanges();
+            //            return true;
 
-                    }
+            //        }
 
-                }
-                catch (Exception ex)
-                {
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    throw new Exception(ex.Message);
+            //        throw new Exception(ex.Message);
 
-                }
-            }
+            //    }
+            //}
         }
     }
 

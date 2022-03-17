@@ -1,6 +1,7 @@
 ﻿using BeEntity;
 using BusinessControl;
 using DataLogic;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -133,7 +134,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             try
             {
-
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); //Usuario Logueado
                 BcNovedadProtesta.Create(model);
                 TempData["success"] = "Novedad REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");

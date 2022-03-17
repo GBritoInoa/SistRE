@@ -82,8 +82,9 @@
 <script>
     function consultaMiembro(inpt) {
             useAjax('@Url.Action("ValidaCarnet", "Users")', '{carnet:"' + inpt.value + '"}', function (data) {
-                $("#NombreCompleto").val(data);
-                $("#Rango").val(data);
+                $("#NombreCompleto").val(data.Miembro);
+                $("#Rango").val(data.Rango);
+                $("#Institucion").val(data.Institucion);
             });
     }
 

@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using SistRE.Comun;
 using System;
 using System.Collections.Generic;
@@ -207,6 +208,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName;
                 BcNovedadContrabando.Create(model);
                 TempData["success"] = "Contrabando REGISTRADO Satisfactoriamente!";
                 return RedirectToAction("Create");

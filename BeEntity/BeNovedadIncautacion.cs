@@ -65,6 +65,7 @@ namespace BeEntity
         [Required]
         [DisplayName("Tipo Producto")]
         public int ProductoID { get; set; }
+        public string UserLogueado { get; set; }
 
     }
 }

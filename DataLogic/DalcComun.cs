@@ -55,7 +55,7 @@ namespace DataLogic
                     data.AddRange(from m in dbERD.Miembros
                                   join i in dbERD.Instituciones on m.InstitucionID equals i.InstitucionID
                                   join r in dbERD.Rangos on m.RangoID equals r.RangoID
-                                  where m.numero_carnet == user
+                                   where m.numero_carnet == user
 
                                   select new BeMilitar()
                                   {
@@ -65,6 +65,7 @@ namespace DataLogic
                                      InstitucionID = i.InstitucionID,
                                      Institucion = i.nombre,
                                      NumCarnet = m.numero_carnet,
+
 
 
                                   });

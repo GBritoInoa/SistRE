@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 
 namespace SistRE.Areas.Procesos.Controllers
 {
@@ -152,6 +153,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); //Usuario Logueado
                 BcNovedadDecomiso.Create(model);
                 TempData["success"] = "Decomiso REGISTRADO Satisfactoriamente!";
                 return RedirectToAction("Create");

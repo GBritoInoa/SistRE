@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -158,6 +159,8 @@ namespace SistRE.Areas.Procesos.Controllers
         {
             try
             {
+
+              
                 var model = new BeNovedadApresamientos();
                
                 GetTipoApresamientos();
@@ -200,7 +203,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             try
             {
-
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Guarda el usuario logueado
                 BcNovedadApresamiento.Create(model);
                 TempData["success"] = "Apresamiento REGISTRADO Satisfactoriamente!";
                 return RedirectToAction("Create");

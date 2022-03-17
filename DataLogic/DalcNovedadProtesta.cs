@@ -27,9 +27,8 @@ namespace DataLogic
                     #region Begin Transacction
                     DateTime hora = DateTime.Now;
                     /////////Crea Registro Auditoria//////////
-                    var a = new Auditoria();
-                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
-                    a.UsuarioCreo = userName;
+                    var a = new Auditoria();           
+                    a.UsuarioCreo = item.UserLogueado;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();

@@ -70,5 +70,8 @@ namespace BeEntity
         [DisplayName("Compañía")] 
         public Nullable<int> CompaniaID { get; set; } = 0;
 
+        public string UserLogueado { get; set; }
+       
+
     }
 }

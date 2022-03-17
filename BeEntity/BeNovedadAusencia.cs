@@ -60,5 +60,7 @@ namespace BeEntity
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Sexo")]
         public int SexoID { get; set; }
+
+        public string UserLogueado { get; set; }
     }
 }

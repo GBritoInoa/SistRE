@@ -31,18 +31,13 @@ namespace SistRE.Areas.Configuracion.Controllers
         /// <summary>
         /// Trae los datos Miembro ERD
         /// </summary>
-        public string ValidaCarnet(int carnet)
+        public JsonResult ValidaCarnet(int carnet)
         {
             try
             {
 
                 var miembro = BcComun.GetMemberERD(carnet);
-                var jsonString = new JavaScriptSerializer();
-                //Use of Serialize() method
-                var jsonStringResult = jsonString.Serialize(miembro);
-
-                return jsonStringResult;
-
+                return Json(miembro);
             }
             catch (Exception ex)
             {
