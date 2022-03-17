@@ -22,7 +22,7 @@ namespace BeEntity
         [DisplayName("Apellidos")]
         public string Apellidos { get; set; }
         [DisplayName("Nombre Completo")]
-        public string NombreCmpleto { get; set; }
+        public string NombreCompleto { get; set; }
         [DisplayName("Password")]
         public string Password { get; set; }
         public string Salt { get; set; }
@@ -42,5 +42,7 @@ namespace BeEntity
         public int PerfilID { get; set; }
         [DisplayName("Perfil")]
         public string Perfil { get; set; }
+        [DisplayName("Carnet")]
+        public int NumCarnet { get; set; }
     }
 }

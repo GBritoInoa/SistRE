@@ -136,7 +136,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
 
                 BcTipoProtesta.Create(item);
-                TempData["success"] = "Tipo Protesta creada Satisfactoriamente!";
+                TempData["success"] = "Tipo Protesta REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }
@@ -172,7 +172,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 }
                 GetTypeNovedad();
                 GetEstatus();
-                ViewBag.AuditoriaID = TipoProtesta.AuditoriaID;
+           
                 return View(TipoProtesta);
 
             }

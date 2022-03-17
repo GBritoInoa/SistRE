@@ -221,7 +221,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 GetProducto();
                 GetTipoProducto();
                 GetEstatus();
-                ViewBag.AuditoriaID = TipoContrabando.AuditoriaID;
+             
                  
                 return View(TipoContrabando);
 

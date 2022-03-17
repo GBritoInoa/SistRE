@@ -157,6 +157,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 }
                 GetTypeApresamientos();
                 GetEstatus();
+                ViewBag.AuditoriaID = tipoapresamiento.AuditoriaID;
                 return View(tipoapresamiento);
             }
             catch (Exception ex)

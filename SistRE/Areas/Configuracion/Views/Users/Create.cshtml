@@ -1,8 +1,10 @@
-﻿@model BeEntity.BeAusencias
+﻿@model BeEntity.BeUser
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+   
+
 }
 
 
@@ -10,7 +12,7 @@
 <div class="panel panel-body" id="container" style="width:unset">
     <div class="panel-heading" style="text-align:center">
         <br />
-        <h4 class="fa fa-check"><strong> Registro Tipo de Novedad </strong></h4>
+        <h4 class="fa fa-check"><strong> Mantenimiento de Usuarios </strong></h4>
     </div>
     <hr />
     <div class="container body-content">
@@ -29,27 +31,39 @@
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+                @*<div class="form-group">
+            @Html.LabelFor(model => model.TipoNovedadID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="visibility:hidden">
+                @Html.DropDownList("TipoNovedadID", null, null, new { @class = "form-control", name = "TipoNovedadID", id = "TipoNovedadID" })
+                @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
                 <div class="form-group">
-                    @Html.LabelFor(model => model.TipoNovedadID, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10" style="visibility:hidden">
-                        @Html.DropDownList("TipoNovedadID", null, null, new { @class = "form-control", name = "TipoNovedadID", id = "TipoNovedadID" })
-                        @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.NumCarnet, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.NumCarnet, htmlAttributes: new {  @class = "form-control", @style = "background-position: center center",
+                            placeholder = "Digite el no. de documento sin guiones", required = "required", maxlength = "8" , onblur = "consultaMiembro(this)"})
+                        @Html.ValidationMessageFor(model => model.NumCarnet)
+                    </div>
+                </div>
+                <h3> @ViewBag.Rango </h3>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NombreCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.NombreCompleto, htmlAttributes: new { @readonly = true, @class = "form-control", @style = "background-position: center center", placeholder = "Nombre Completo" })
+                        @Html.ValidationMessageFor(model => model.NombreCompleto)
+
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Rango, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                        @Html.TextBoxFor(model => model.Rango, htmlAttributes: new { @readonly = true, @class = "form-control", @style = "background-position: center center", placeholder = "Nombre Completo" })
+                        @Html.ValidationMessageFor(model => model.Rango)
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.EstatusID, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("EstatusID", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.EstatusID, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -62,5 +76,16 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }
 
+<script>
+    function consultaMiembro(inpt) {
+            useAjax('@Url.Action("ValidaCarnet", "Users")', '{carnet:"' + inpt.value + '"}', function (data) {
+                $("#NombreCompleto").val(data);
+                $("#Rango").val(data);
+            });
+    }
+
+
+</script>

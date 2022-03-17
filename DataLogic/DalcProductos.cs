@@ -11,7 +11,7 @@ namespace DataLogic
     /// <summary>
     /// Dalc Productos
     /// </summary>
-   public class DalcProductos
+    public class DalcProductos
     {
 
         public static string MachineName { get; }
@@ -28,18 +28,18 @@ namespace DataLogic
                 using (var db = new Context_SistRE())
                 {
                     data.AddRange(from p in db.Productos
-                                  join  tp in db.TipoProducto
+                                  join tp in db.TipoProducto
                                   on p.TipoProductoID equals tp.TipoProductoID
                                   join a in db.Auditoria on
                                   p.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus
                                   on p.EstatusID equals e.EstatusID
-                                  where p.EstatusID != 3                                
+                                  where p.EstatusID != 3
                                   select new BeProductos()
 
                                   {
 
-                                      ID= p.ProductoID,
+                                      ID = p.ProductoID,
                                       TipoProductoID = tp.TipoProductoID,
                                       Producto = tp.Nombre,
                                       Nombre = p.Nombre,
@@ -93,7 +93,9 @@ namespace DataLogic
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      FechaActualizo = a.FechaActualizo,
+                                      AuditoriaID = a.AuditoriaID
+
 
                                   });
 
@@ -152,75 +154,56 @@ namespace DataLogic
 
         }
 
+
         /// <summary>
-        /// Edit Producto
+        /// Edit  Producto
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
         public bool Edit(BeProductos item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var p = new Productos();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    p.ProductoID = item.ID;
-                    p.Nombre = item.Nombre;
-                    p.TipoProductoID = item.TipoProductoID;
-                    p.EstatusID = (int)item.EstatusID;
-                    db.Productos.Attach(p);
-                    db.Entry(p).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(p).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = userName;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var tp = new Productos();
+
+                    tp.AuditoriaID = item.AuditoriaID;
+                    tp.ProductoID = item.ID;
+                    tp.Nombre = item.Nombre;
+                    tp.EstatusID = (int)item.EstatusID;
+                    tp.TipoProductoID = item.TipoProductoID;
+                    db.Productos.Attach(tp);
+                    db.Entry(tp).Property(x => x.TipoProductoID).IsModified = true;
+                    db.Entry(tp).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(tp).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
-        /// <summary>
-        /// Elimina Producto
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
 
-
-                    var p = db.Productos.Find(id);
-                    if (p != null)
-
-                        db.Productos.Remove(p);
-                    db.SaveChanges();
-                    return true;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-
-            }
-        }
     }
 }

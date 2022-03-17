@@ -46,6 +46,8 @@
                     <dd>
                         @Html.DisplayFor(model => model.FechaCreo)
                     </dd>
+                    @if (Model.UsuarioActualizo !=null)
+                    {
 
                     <dt>
                         @Html.DisplayNameFor(model => model.UsuarioActualizo)
@@ -62,6 +64,7 @@
                     <dd>
                         @Html.DisplayFor(model => model.FechaActualizo)
                     </dd>
+                    }
 
                     <dt>
                         @Html.DisplayNameFor(model => model.EstatusID)

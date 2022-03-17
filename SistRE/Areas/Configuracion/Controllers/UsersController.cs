@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using BeEntity;
 using BusinessControl;
 
@@ -30,11 +31,18 @@ namespace SistRE.Areas.Configuracion.Controllers
         /// <summary>
         /// Trae los datos Miembro ERD
         /// </summary>
-        public void GetMiembroERD( int user)
+        public string ValidaCarnet(int carnet)
         {
             try
             {
-                var miembro = BcComun.GetMemberERD(user);
+
+                var miembro = BcComun.GetMemberERD(carnet);
+                var jsonString = new JavaScriptSerializer();
+                //Use of Serialize() method
+                var jsonStringResult = jsonString.Serialize(miembro);
+
+                return jsonStringResult;
+
             }
             catch (Exception ex)
             {
@@ -43,6 +51,83 @@ namespace SistRE.Areas.Configuracion.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+
+
+        ///// <summary>
+        ///// Trae los datos Miembro ERD
+        ///// </summary>
+        //public  JsonResult ValidaCarnet(int carnet)
+        //{
+        //    try
+        //    {
+
+        //        string Rango = string.Empty;
+        //        string NombreCompleto = string.Empty;
+        //        ValidaRango(carnet);
+        //        var miembro = BcComun.GetMemberERD(carnet);
+
+        //        return Json(miembro, JsonRequestBehavior.AllowGet);
+
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        ModelState.AddModelError(ex.Message, "Error");
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
+
+        /// <summary>
+        /// Trae los datos Miembro ERD
+        /// </summary>
+        //public string ValidaCarnet(int carnet)
+        //{
+        //    try
+        //    {
+
+        //        string Rango = string.Empty;
+        //        string NombreCompleto = string.Empty;
+        //        ValidaRango(carnet);
+        //        var miembro = BcComun.GetMemberERD(carnet);
+
+        //        return miembro.Miembro;
+
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        ModelState.AddModelError(ex.Message, "Error");
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
+
+
+        ///// <summary>
+        ///// Trae los datos Miembro ERD
+        ///// </summary>
+        //public string ValidaRango(int carnet)
+        //{
+        //    try
+        //    {
+        //        var miembro = BcComun.GetMemberERD(carnet);
+
+        //        return miembro.Miembro;
+
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        ModelState.AddModelError(ex.Message, "Error");
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
 
 
 
@@ -63,7 +148,6 @@ namespace SistRE.Areas.Configuracion.Controllers
                 ModelState.AddModelError(ex.Message, "Error al CREAR Usuario");
                 throw new Exception(ex.Message);
             }
-
 
 
         }

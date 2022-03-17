@@ -54,7 +54,7 @@ namespace DataLogic
                                       ID = u.UserId,
                                       Nombre = u.Nombre,
                                       UserName = u.UserName,
-                                      NombreCmpleto = u.Nombre + " " + u.Apellidos,
+                                      NombreCompleto = u.Apellidos + "," + u.Nombre,
                                       Institucion = i.nombre,
                                       InstitucionID = u.InstitucionID,
                                       BrigadaID = u.BrigadaID,

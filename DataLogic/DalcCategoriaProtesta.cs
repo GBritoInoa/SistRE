@@ -193,35 +193,6 @@ namespace DataLogic
 
         }
 
-        /// <summary>
-        /// Elimina Tipo Novedad
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
 
-
-                    var tn = db.CategoriaProtesta.Find(id);
-                    if (tn != null)
-
-                        db.CategoriaProtesta.Remove(tn);
-                    db.SaveChanges();
-                    return true;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-
-            }
-        }
     }
 }

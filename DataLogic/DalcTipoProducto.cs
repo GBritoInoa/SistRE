@@ -86,7 +86,8 @@ namespace DataLogic
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      FechaActualizo = a.FechaActualizo,
+                                      AuditoriaID = a.AuditoriaID
 
                                   });
 
@@ -152,66 +153,45 @@ namespace DataLogic
         public bool Edit(BeTipoProducto item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var tn = new TipoProducto();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.Nombre = item.Nombre;
-                    tn.TipoProductoID = item.TipoProductoID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.TipoProducto.Attach(tn);
-                    db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = userName;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var tp = new TipoProducto();
+
+                    tp.AuditoriaID = item.AuditoriaID;
+                    tp.TipoProductoID = item.TipoProductoID;
+                    tp.Nombre = item.Nombre;
+                    tp.EstatusID = (int)item.EstatusID;
+                    tp.TipoProductoID = item.TipoProductoID;
+                    db.TipoProducto.Attach(tp);
+                    db.Entry(tp).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(tp).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
-        /// <summary>
-        /// Elimina Tipo Producto
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
-
-
-                    var tn = db.TipoProducto.Find(id);
-                    if (tn != null)
-
-                        db.TipoProducto.Remove(tn);
-                    db.SaveChanges();
-                    return true;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-
-            }
-        }
     }
 }

@@ -12,7 +12,7 @@ namespace DataLogic
 {
 
     /// <summary>
-    /// Dalc Tipo Novedad
+    /// Dalc Tipo Droga
     /// </summary>
     public class DalcTipoDroga
     {
@@ -59,7 +59,7 @@ namespace DataLogic
         }
 
         /// <summary>
-        /// Tipo Novedad Id
+        /// Tipo Droga Id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -103,7 +103,7 @@ namespace DataLogic
         }
 
         /// <summary>
-        /// Create Tipo Novedad
+        /// Create Tipo Droga
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
@@ -117,14 +117,15 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "MJimenez";
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioCreo = userName;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
                     db.Auditoria.Add(a);
                     db.SaveChanges();
 
-                    ////Create Tipo Novedad
+                    ////Create Tipo Droga
                     var tn = new TipoDroga();
                     tn.Nombre = item.Nombre;
                     tn.EstatusID = (int)item.EstatusID;
@@ -144,73 +145,52 @@ namespace DataLogic
         }
 
         /// <summary>
-        /// Edit Tipo Novedad
+        /// Edit Tipo Droga
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
         public bool Edit(BeTipoDroga item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var tn = new TipoDroga();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.Nombre = item.Nombre;
-                    tn.TipoDrogaID = item.TipoDrogaID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.TipoDroga.Attach(tn);
-                    db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = userName;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var ti = new TipoDroga();
+               
+                    ti.TipoDrogaID = item.TipoDrogaID;
+                    ti.AuditoriaID = item.AuditoriaID;
+                    ti.Nombre = item.Nombre;
+                    ti.EstatusID = (int)item.EstatusID;
+                    db.TipoDroga.Attach(ti);
+                    db.Entry(ti).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(ti).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
-        /// <summary>
-        /// Elimina Tipo Novedad
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
 
-
-                    var tn = db.TipoDroga.Find(id);
-                    if (tn != null)
-
-                        db.TipoDroga.Remove(tn);
-                    db.SaveChanges();
-                    return true;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-
-            }
-        }
     }
 }

@@ -20,65 +20,59 @@
                                 <br />
 
                                                 @Html.AntiForgeryToken()
-                                                                <dl class="dl-horizontal">
-                                                                    <dt>
-                                                                        @Html.DisplayNameFor(model => model.Nombre)
-                                                                    </dt>
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Nombre)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Nombre)
+                                    </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.UsuarioCreo)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.UsuarioCreo)
+                                    </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FechaCreo)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FechaCreo)
+                                    </dd>
+                                    @if (Model.UsuarioActualizo != null)
+                                    {
 
-                                                                    <dd>
-                                                                        @Html.DisplayFor(model => model.Nombre)
-                                                                    </dd>
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.UsuarioActualizo)
+                                        </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.UsuarioActualizo)
+                                    </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FechaActualizo)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FechaActualizo)
+                                    </dd>
+                                    }
 
-                                                                    <dt>
-                                                                        @Html.DisplayNameFor(model => model.UsuarioCreo)
-                                                                    </dt>
-
-                                                                    <dd>
-                                                                        @Html.DisplayFor(model => model.UsuarioCreo)
-                                                                    </dd>
-
-                                                                    <dt>
-                                                                        @Html.DisplayNameFor(model => model.FechaCreo)
-                                                                    </dt>
-
-                                                                    <dd>
-                                                                        @Html.DisplayFor(model => model.FechaCreo)
-                                                                    </dd>
-
-                                                                    <dt>
-                                                                        @Html.DisplayNameFor(model => model.UsuarioActualizo)
-                                                                    </dt>
-
-                                                                    <dd>
-                                                                        @Html.DisplayFor(model => model.UsuarioActualizo)
-                                                                    </dd>
-
-                                                                    <dt>
-                                                                        @Html.DisplayNameFor(model => model.FechaActualizo)
-                                                                    </dt>
-
-                                                                    <dd>
-                                                                        @Html.DisplayFor(model => model.FechaActualizo)
-                                                                    </dd>
-
-                                                                    <dt>
-                                                                        @Html.DisplayNameFor(model => model.EstatusID)
-                                                                    </dt>
-
-                                                                    <dd>
-                                                                        @if (Model.EstatusID == 1)
-                                                                        {
-                                                        <span>Activo</span> }
-                                                                        else if (Model.EstatusID == 2)
-                                                                        {
-                                                        <span>Inactivo</span> }
-                                                                        else
-                                                                        {
-                                                        <span>Eliminado</span>}
-
-                                                                    </dd>
-
-                                                                </dl>            }
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.EstatusID)
+                                    </dt>
+                                    
+                                    <dd>
+                                        @if (Model.EstatusID == 1)
+                                        {
+                                            <span>Activo</span> }
+                                        else if (Model.EstatusID == 2)
+                                        {
+                                            <span>Inactivo</span> }
+                                        else
+                                        {
+                                            <span>Eliminado</span>}
+                                    </dd>
+                                </dl>            
+            }
         </div>
     </div>
 </div>

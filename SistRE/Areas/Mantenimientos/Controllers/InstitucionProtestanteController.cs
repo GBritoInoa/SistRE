@@ -47,7 +47,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al obtener listado de InstitucionProtestantees");
+                ModelState.AddModelError(ex.Message, "Error al obtener listado de Institucion Protestantees");
                 throw new Exception(ex.Message);
             }
 
@@ -110,7 +110,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcInstitucionProtestante.Create(item);
-                TempData["success"] = "Institucion Protestante creada Satisfactoriamente!";
+                TempData["success"] = "Institucion Protestante REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -138,7 +138,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
                 }
                 GetEstatus();
-                return View(InstitucionProtestante);
+                  return View(InstitucionProtestante);
             }
             catch (Exception ex)
             {
@@ -163,7 +163,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcInstitucionProtestante.Edit(item);
-                TempData["success"] = "InstitucionProtestante actualizada Satisfactoriamente!";
+                TempData["success"] = "Institucion Protestante ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -173,27 +173,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
-        // GET: Mantenimientos/InstitucionProtestante/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //// POST: Mantenimientos/InstitucionProtestante/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        
+      
     }
 }

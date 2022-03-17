@@ -47,44 +47,48 @@
                         @Html.DisplayFor(model => model.FechaCreo)
                     </dd>
 
-                    <dt>
-                        @Html.DisplayNameFor(model => model.UsuarioActualizo)
-                    </dt>
+                    @if (Model.UsuarioActualizo != null)
+                    {
 
-                    <dd>
-                        @Html.DisplayFor(model => model.UsuarioActualizo)
-                    </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UsuarioActualizo)
+                        </dt>
 
-                    <dt>
-                        @Html.DisplayNameFor(model => model.FechaActualizo)
-                    </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.UsuarioActualizo)
+                        </dd>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.FechaActualizo)
-                    </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaActualizo)
+                        </dt>
 
-                    <dt>
-                        @Html.DisplayNameFor(model => model.EstatusID)
-                    </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaActualizo)
+                        </dd>
+                    }
 
-                    <dd>
-                        @if (Model.EstatusID == 1)
-                        {
-                            <span>Activo</span>
-                        }
-                        else if (Model.EstatusID == 2)
-                        {
-                            <span>Inactivo</span>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EstatusID)
+                        </dt>
 
-                        }
-                        else
-                        {
-                            <span>Eliminado</span>
-                        }
+                        <dd>
+                            @if (Model.EstatusID == 1)
+                            {
+                                <span>Activo</span>
+                            }
+                            else if (Model.EstatusID == 2)
+                            {
+                                <span>Inactivo</span>
 
-                    </dd>
+                            }
+                            else
+                            {
+                                <span>Eliminado</span>
+                            }
 
-                </dl>
+                        </dd>
+
+                    </dl>
             }
         </div>
     </div>

@@ -197,35 +197,6 @@ namespace DataLogic
 
         }
 
-        ///// <summary>
-        ///// Elimina Tipo Novedad
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public bool Delete(int? id)
-        //{
-        //    try
-        //    {
-        //        using (var db = new ContextDB_SistRE())
-        //        {
-
-
-        //            var tn = db.TipoIncautacion.Find(id);
-        //            if (tn != null)
-
-        //                db.TipoIncautacion.Remove(tn);
-        //            db.SaveChanges();
-        //            return true;
-
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw new Exception(ex.Message);
-
-        //    }
-        //}
+      
     }
 }

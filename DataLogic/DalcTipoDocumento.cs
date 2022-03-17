@@ -188,35 +188,6 @@ namespace DataLogic
 
         }
 
-        ///// <summary>
-        ///// Delete  Tipo Documento
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public bool Delete(int? id)
-        //{
-        //    try
-        //    {
-        //        using (var db = new Context_SistRE())
-        //        {
-
-
-        //            var tn = db.TipoDocumento.Find(id);
-        //            if (tn != null)
-
-        //                db.TipoDocumento.Remove(tn);
-        //            db.SaveChanges();
-        //            return true;
-
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw new Exception(ex.Message);
-
-        //    }
-        //}
+     
     }
 }
