@@ -52,7 +52,7 @@ namespace DataLogic
                                   {
                                       UserId = u.UserId,
                                       ID = u.UserId,
-                                      Nombre = u.Nombre,
+                                      Nombres = u.Nombre,                                      
                                       UserName = u.UserName,
                                       NombreCompleto = u.Apellidos + "," + u.Nombre,
                                       Institucion = i.nombre,

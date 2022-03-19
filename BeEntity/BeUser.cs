@@ -18,7 +18,7 @@ namespace BeEntity
         public string UserName { get; set; }
         public string Email { get; set; }
         [DisplayName("Nombre")]
-        public string Nombre { get; set; }
+        public string Nombres { get; set; }
         [DisplayName("Apellidos")]
         public string Apellidos { get; set; }
         [DisplayName("Nombre Completo")]

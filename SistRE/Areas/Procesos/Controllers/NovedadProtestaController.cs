@@ -66,7 +66,7 @@ namespace SistRE.Areas.Procesos.Controllers
             {
                 List<BeInstitucionProtestante> InstitucionProtestante = new List<BeInstitucionProtestante>();
                 InstitucionProtestante = BcComun.GetInstitucionProtestante().OrderBy(r => r.InstitucionProtestanteID).ToList();
-                ViewBag.InstitucionProtestante = new SelectList(InstitucionProtestante.OrderBy(c => c.InstitucionProtestanteID), "InstitucionProtestanteID", "Nombre");
+                ViewBag.InstitucionProtestanteID = new SelectList(InstitucionProtestante.OrderBy(c => c.InstitucionProtestanteID), "InstitucionProtestanteID", "Nombre");
             }
             catch (Exception ex)
             {
@@ -87,7 +87,7 @@ namespace SistRE.Areas.Procesos.Controllers
             {
                 List<BeCategoriaProtesta> CategoriaProtesta = new List<BeCategoriaProtesta>();
                 CategoriaProtesta = BcComun.GetCategoriaProtesta().OrderBy(r => r.CategoriaProtestaID).ToList();
-                ViewBag.CategoriaProtesta = new SelectList(CategoriaProtesta.OrderBy(c => c.CategoriaProtestaID), "CategoriaProtestaID", "Nombre");
+                ViewBag.CategoriaProtestaID = new SelectList(CategoriaProtesta.OrderBy(c => c.CategoriaProtestaID), "CategoriaProtestaID", "Nombre");
             }
             catch (Exception ex)
             {

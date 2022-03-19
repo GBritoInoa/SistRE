@@ -257,6 +257,7 @@ namespace DataLogic
                                       
                                       Nombre = tp.Nombre,
                                       TipoNovedadID = tp.TipoNovedadID,
+                                      TipoProtestaID = tp.TipoProtestaID,
                                       EstatusID = tp.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,

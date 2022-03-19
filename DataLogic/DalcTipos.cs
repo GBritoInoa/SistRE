@@ -332,13 +332,21 @@ namespace DataLogic
             {
                 using (var db = new Context_SistRE())
                 {
-                    data.AddRange(from d in db.TipoDecomiso where d.EstatusID ==1
+                    data.AddRange(from d in db.TipoDecomiso 
+                                  join a in db.Auditoria 
+                                  on d.AuditoriaID equals a.AuditoriaID
+                                  join tp in db.TipoProducto 
+                                  on d.TipoProductoID equals tp.TipoProductoID
+                                  join p in db.Productos on tp.TipoProductoID equals p.TipoProductoID
 
                                   select new BeTipoDecomiso()
                                   {
 
                                       ID = d.TipoDecomisoID,
                                       TipoNovedadID = d.TipoNovedadID,
+                                        Nombre = p.Nombre,
+
+                                        TipoProductoID = d.TipoProductoID
                                       //Nombre  = d.Nombre,
                                   });
                     return data.ToList();

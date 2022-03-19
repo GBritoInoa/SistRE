@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class Tipo Decomiso
     /// </summary>
-   public class BeTipoDecomiso
+   public class BeTipoDecomiso 
     {
         public int ID { get; set; }
 
@@ -35,13 +35,17 @@ namespace BeEntity
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Usuario Creó")]
         public string UsuarioCreo { get; set; }
+        public string NombreCompleto { get; set; } 
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Fecha Creó")]
         public Nullable<System.DateTime> FechaCreo { get; set; }
         public string UsuarioActualizo { get; set; }
         public Nullable<System.DateTime> FechaActualizo { get; set; }
         [DisplayName("Auditoría")]
-        public Nullable<int> AuditoriaID { get; set; }
+        public int AuditoriaID { get; set; }
+        public string UserLogueado { get; set; }
+
+     
 
     }
 }

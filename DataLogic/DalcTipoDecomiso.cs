@@ -30,13 +30,17 @@ namespace DataLogic
                                   d.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus
                                   on d.EstatusID equals e.EstatusID
+                                  join tp in db.TipoProducto 
+                                  on d.TipoProductoID equals tp.TipoProductoID
 
                                   select new BeTipoDecomiso()
                                   {
 
                                       ID = d.TipoDecomisoID,
+                                      
                                      TipoNovedadID = d.TipoNovedadID,
-                                     TipoProductoID = d.TipoProductoID,
+                                      Nombre = tp.Nombre,
+                                     TipoProductoID = tp.TipoProductoID,
                                       EstatusID = d.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
@@ -72,28 +76,34 @@ namespace DataLogic
             try
             {
                 using (var db = new Context_SistRE())
+                using (var dbERD = new ContextDbERD())
                 {
                     data.AddRange(from d in db.TipoDecomiso
                                   join a in db.Auditoria on
                                   d.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus on
                                   d.EstatusID equals e.EstatusID
+                                  join tp in db.TipoProducto
+                                  on d.TipoProductoID equals tp.TipoProductoID
+                             
                                   where d.TipoDecomisoID == id
 
                                   select new BeTipoDecomiso()
                                   {
+                                      AuditoriaID = d.AuditoriaID,
                                       ID = d.TipoDecomisoID,
-                                    TipoProductoID = d.TipoProductoID,
-                                    TipoNovedadID = d.TipoNovedadID,
-                                      EstatusID = d.EstatusID,
+                                      TipoProductoID = d.TipoProductoID,
+                                      Nombre = tp.Nombre,
+                                      TipoNovedadID = d.TipoNovedadID,
+                                      EstatusID = d.EstatusID, 
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
-
+                                      FechaActualizo = a.FechaActualizo,
+                                 
 
                                   });
-                                 
+
                 };
                 return data.FirstOrDefault();
 
@@ -125,14 +135,14 @@ namespace DataLogic
                     {
                         ///Create Auditoria
                         var a = new Auditoria();
-                      var _User = 
+                        a.UsuarioCreo = item.UserLogueado;
                         a.FechaCreo = DateTime.Now;
                         a.NombrePC = Environment.MachineName;
                         a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
                         db.Auditoria.Add(a);
                         db.SaveChanges();
 
-                        ////Create Tipo Novedad
+                        ////Create Tipo Decomiso
                         var tn = new TipoDecomiso();
                         tn.TipoNovedadID = item.TipoNovedadID;
                         tn.TipoProductoID = item.TipoProductoID;
@@ -152,7 +162,6 @@ namespace DataLogic
                     }
                 }
             }
-            
 
 
         /// <summary>
@@ -162,39 +171,48 @@ namespace DataLogic
         /// <returns></returns>
         public bool Edit(BeTipoDecomiso item)
         {
-            try
+
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db= new Context_SistRE())
+
+                try
                 {
+                    var a = new Auditoria();
+                  
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo =item.UserLogueado;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
+                    db.SaveChanges();
 
-                    var td = new TipoDecomiso();
-                    {
-                        //tn.UsuarioActualizo = "gbrito";
-                        //tn.FechaActualizo = DateTime.Now;
-                        td.TipoProductoID = item.TipoProductoID;
-                        td.TipoNovedadID = item.TipoNovedadID;
-                        td.TipoDecomisoID = item.ID;
-                        td.EstatusID = (int)item.EstatusID;
-                        db.TipoDecomiso.Attach(td);
-                        //db.Entry(td).Property(x => x.Nombre).IsModified = true;
-                        db.Entry(td).Property(x => x.EstatusID).IsModified = true;
-                        //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                        //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
-                        db.SaveChanges();
-                        return true;
+                    var tc = new TipoDecomiso();
 
-                    }
+                    tc.TipoDecomisoID = item.ID;
+                    tc.AuditoriaID = item.AuditoriaID;
+                    tc.EstatusID = (int)item.EstatusID;
+                    tc.TipoProductoID = item.TipoProductoID;
+                    db.TipoDecomiso.Attach(tc);
+                    db.Entry(tc).Property(x => x.TipoProductoID).IsModified = true;
+                    db.Entry(tc).Property(x => x.EstatusID).IsModified = true;
 
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
+                    return true;
                 }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
-    } 
-    
+
+
+    }
+
 }

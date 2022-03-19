@@ -43,7 +43,7 @@
             @*@Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <label>Categoria de Protesta</label><label class="bg-label">*</label>
             <div class="col-md-10">
-                @Html.DropDownList("CategoriaProtesta", null, "---Seleccione Categoria Protesta---", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("CategoriaProtestaID", null, "---Seleccione Categoria Protesta---", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoriaProtestaID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -51,7 +51,7 @@
             @*@Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <label>Institucion Protestante</label><label class="bg-label">*</label>
             <div class="col-md-10">
-                @Html.DropDownList("InstitucionProtestante", null, "---Seleccione Institucion Protestante---", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("InstitucionProtestanteID", null, "---Seleccione Institucion Protestante---", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.InstitucionProtestanteID, "", new { @class = "text-danger" })
             </div>
         </div>

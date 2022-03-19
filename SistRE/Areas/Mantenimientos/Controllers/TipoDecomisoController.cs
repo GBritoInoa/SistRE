@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,8 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
+                
+                GetTipoProducto();
                 GetTypeNovedad();
                 GetEstatus();
                 return View();
@@ -78,6 +81,11 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         
         }
 
+
+
+
+
+
         // POST: Mantenimientos/TipoDecomiso/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -86,12 +94,15 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if(!ModelState.IsValid)
             {
+                GetTipoProducto();
                 GetTypeNovedad();
                 GetEstatus();
                 return View(model);
             }
             try
             {
+
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName;
                 BcTipoDecomiso.Create(model);
                 TempData["success"] = "Tipo Decomiso CREADO Satisfactoriamente!";
                 return RedirectToAction("Index");
@@ -114,7 +125,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
-                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Contrabando")).ToList();
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Decomiso")).ToList();
                 ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
 
             }
@@ -144,6 +155,9 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
 
         }
+
+       
+
         /// <summary>
         /// GetTipoProducto
         /// </summary>
@@ -205,6 +219,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                     return HttpNotFound();
                 }
 
+                GetTipoProducto();
                 GetTypeNovedad();
                 GetEstatus();
                 return View(tipodecomiso);
@@ -225,6 +240,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             if(!ModelState.IsValid)
             {
+                GetTipoProducto();
                 GetTypeNovedad();
                 GetEstatus();
                 return View(model);
@@ -233,7 +249,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
-
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoDecomiso.Edit(model);
                 TempData["success"] = "Tipo Decomiso ACTUALIZADO Satisfactoriamente!";
                 return RedirectToAction("Index");
