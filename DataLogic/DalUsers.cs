@@ -69,6 +69,7 @@ namespace DataLogic
                                       CambioClave = u.CambioClave,
                                       Email = u.Email,
                                       EstatusID = u.EstatusID
+                                      
                                    
                                   });
 

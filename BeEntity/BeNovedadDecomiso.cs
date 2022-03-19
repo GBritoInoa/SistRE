@@ -18,6 +18,7 @@ namespace BeEntity
         [DisplayName("Tipo Decomiso")]
         public int TipoDecomisoID { get; set; }
         [Required]
+        [DisplayName("Cantidad Decomisada")]
         public decimal Cantidad { get; set; }
         public int AuditoriaID { get; set; }
         [Required]

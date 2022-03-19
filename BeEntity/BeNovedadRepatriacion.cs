@@ -30,6 +30,7 @@ namespace BeEntity
 
         [Range(1, int.MaxValue, ErrorMessage = "Debe introducir la cantidad de apresados")]
         [Required(ErrorMessage = "{0} no puede estar vacio")]
+        [DisplayName("Cantidad Repatriados")]
         public int Cantidad { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Debe seleccionar Sexo")]
@@ -64,6 +65,7 @@ namespace BeEntity
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
         //[MinLength(10, ErrorMessage = "Debe tener mínimio 10 caracteres")]
         //[MaxLength(150, ErrorMessage = "No debe sobrepasar los 150 caracteres")]
+        [MinLength(length: 5)]
         public string Causa { get; set; }
 
         [Required(ErrorMessage = "{0} no puede estar vacio")]

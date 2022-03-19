@@ -46,5 +46,7 @@ namespace BeEntity
 
         [DisplayName("Tipo Incautación")]
         public int TipoProductoID { get; set; }
+
+        public string UserLogueado { get; set; }
     }
 }

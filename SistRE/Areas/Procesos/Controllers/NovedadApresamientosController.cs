@@ -153,7 +153,29 @@ namespace SistRE.Areas.Procesos.Controllers
         }
 
 
-   
+
+
+        /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Apresamientos")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
         // GET: Procesos/NovedadApresamientos/Create
         public ActionResult Create()
         {
@@ -162,7 +184,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
               
                 var model = new BeNovedadApresamientos();
-               
+                GetTypeNovedad();
                 GetTipoApresamientos();
                 GetBrigadas();
                 GetRangos();
@@ -189,6 +211,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
             if(!ModelState.IsValid)
             {
+                GetTypeNovedad();
                 GetTipoApresamientos();
                 GetBrigadas();
                 GetRangos();

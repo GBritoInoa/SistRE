@@ -24,14 +24,11 @@
         <div class="form-horizontal">
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @*@<div class="form-group">
-            @Html.LabelFor(model => model.TipoNovedadID, "TipoNovedadID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("TipoNovedadID", null, htmlAttributes: new { @class = "form-control" })
+
+            <div class="col-md-10" style="visibility:hidden">
+                @Html.DropDownList("TipoNovedadID", null, null, new { @class = "form-control", name = "TipoNovedadID", id = "TipoNovedadID" })
                 @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
             </div>
-        </div>*@
-
 
             <div class="form-group">
                 @*@Html.LabelFor(model => model.PaisID, htmlAttributes: new { @class = "control-label col-md-2" })*@

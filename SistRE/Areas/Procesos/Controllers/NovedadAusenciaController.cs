@@ -76,6 +76,29 @@ namespace SistRE.Areas.Procesos.Controllers
 
         }
 
+
+        /// <summary>
+        /// Get TypeNovedad Ausencias
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Ausencias")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
+
         /// <summary>
         /// Get Sexo
         /// </summary>

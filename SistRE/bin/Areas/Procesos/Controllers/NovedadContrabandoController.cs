@@ -11,6 +11,8 @@ using System.Web.Mvc;
 
 namespace SistRE.Areas.Procesos.Controllers
 {
+
+    //[Authorize(Roles ="Administrador")]
     public class NovedadContrabandoController : Controller
     {
              
@@ -20,7 +22,7 @@ namespace SistRE.Areas.Procesos.Controllers
         {
             return View();
         }
-          
+
         /// <summary>
         /// JsonResult Productos
         /// </summary>
@@ -31,17 +33,20 @@ namespace SistRE.Areas.Procesos.Controllers
 
             try
             {
-                var tipoC = BcTipoContrabando.GetAll().Where(a=>a.ID == TipoProductoID).FirstOrDefault();
-                var tipoproducto = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == tipoC.TipoProductoID).FirstOrDefault();
-                var productos = BcProductos.GetAll().Where(x => x.TipoProductoID == 2).ToList();
-                 
+
+                var tipoInc = BcTipoContrabando.GetAll().Where(a => a.ID == TipoProductoID).FirstOrDefault();
+                var tipoproducto = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == tipoInc.TipoProductoID).FirstOrDefault();
+                var productos = BcProductos.GetAll().Where(x => x.TipoProductoID == tipoproducto.TipoProductoID).ToList();
+
                 return Json(productos, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
+
                 throw new Exception(ex.Message);
             }
         }
+
 
         /// <summary>
         /// Tipo Medidas
@@ -54,9 +59,9 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
 
-                var p = BcProductos.GetAll().Where(a => a.ID == ProductoID).FirstOrDefault();
-                var tp = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == p.ID).FirstOrDefault();
-                var TipoMedidaID = BcTipoMedidas.GetAll().Where(x => x.TipoProductoID == tp.TipoProductoID).ToList();
+                //var p = BcProductos.GetAll().Where(a => a.ID == ProductoID).FirstOrDefault();
+                var tp = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == ProductoID).FirstOrDefault();
+                var TipoMedidaID = BcTipoMedidas.GetAll().Where(x => x.TipoProductoID == ProductoID).ToList();
                 return Json(TipoMedidaID, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -64,6 +69,29 @@ namespace SistRE.Areas.Procesos.Controllers
 
                 throw new Exception(ex.Message);
             }
+        }
+
+
+        /// <summary>
+        /// GetTipoIncautacion
+        /// </summary>
+        private void GetTipoIncautacion()
+        {
+
+            try
+            {
+
+                List<BeTipoIncautacion> TipoIncautacion = BcTipoIncautacion.GetAll().OrderBy(r => r.ID).ToList();
+                ViewBag.TipoIncautacionID = new SelectList(TipoIncautacion.OrderBy(c => c.ID), "ID", "Nombre");
+                ViewBag.TipoNovedadID = new SelectList(TipoIncautacion.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
+                throw new Exception(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -77,7 +105,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
                 List<BeTipoContrabando> TipoContrabando = BcTipoContrabando.GetAll().OrderBy(r => r.ID).ToList();
                 ViewBag.TipoContrabandoID = new SelectList(TipoContrabando.OrderBy(c => c.ID), "ID", "Nombre");
-                ViewBag.TipoNovedadID = new SelectList(TipoContrabando, "TipoNovedadID", "Nombre");
+                ViewBag.TipoNovedadID = new SelectList(TipoContrabando.OrderBy(c=> c.TipoNovedadID), "TipoNovedadID", "Nombre");
             }
             catch (Exception ex)
             {

@@ -57,7 +57,7 @@ namespace BeEntity
         public int CategoriaProtestaID { get; set; }
 
         [Required(ErrorMessage = "{0} no puede estar vacio")]
-        [DisplayName("Causa")]
+        [DisplayName("Causa/Razón Protesta")]
         public string Causa { get; set; }
 
 

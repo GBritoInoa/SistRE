@@ -48,7 +48,7 @@ namespace BeEntity
         public System.TimeSpan HoraNovedad { get; set; }
 
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
-        [MinLength(length: 10)]
+        [MinLength(length: 5)]
         public string Causa { get; set; }
 
         public Nullable<int> AuditoriaID { get; set; } = 0;

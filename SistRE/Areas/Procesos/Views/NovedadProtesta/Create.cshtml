@@ -26,6 +26,11 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
+
+            <div class="col-md-10" style="visibility:hidden">
+                @Html.DropDownList("TipoNovedadID", null, null, new { @class = "form-control", name = "TipoNovedadID", id = "TipoNovedadID" })
+                @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
+            </div>
             @*@Html.LabelFor(model => model.RangoID, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <label>Tipo de Protesta</label><label class="bg-label">*</label>
             <div class="col-md-10">

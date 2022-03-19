@@ -6,9 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SistRE.Areas.Procesos.Controllers
 {
+
+
+    //[Authorize(Roles = "Administrador")]
     public class NovedadRepatriacionController : Controller
     {
 
@@ -34,6 +38,27 @@ namespace SistRE.Areas.Procesos.Controllers
 
         }
 
+
+        /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Repatriación")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
 
         /// <summary>
         /// Causa Apresamiento
@@ -178,6 +203,7 @@ namespace SistRE.Areas.Procesos.Controllers
         {
 
             var model = new BeNovedadRepatriacion();
+            GetTypeNovedad();
             GetCausaRepatriación();
             GetBrigadas();
             GetCompanias();
@@ -191,12 +217,13 @@ namespace SistRE.Areas.Procesos.Controllers
 
         // POST: Procesos/NovedadRepatriacion/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]      
         public ActionResult Create(BeNovedadRepatriacion model)
         {
 
             if (!ModelState.IsValid)
             {
+                GetTypeNovedad();
                 GetCausaRepatriación();
                 GetBrigadas();
                 GetCompanias();
@@ -212,6 +239,7 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); //Usuario Logueado
+                var permiso = SessionData.GetOnlineUserInfo().idProfile.ToString();
                 BcNovedadRepatriacion.Create(model);
                 TempData["success"] = "Novedad REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");

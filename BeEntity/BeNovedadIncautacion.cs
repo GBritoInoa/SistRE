@@ -28,6 +28,7 @@ namespace BeEntity
         public int AuditoriaID { get; set; }
 
         [Required]
+        [DisplayName("Cantidad Incautada")]
         public decimal Cantidad { get; set; }
 
         [DisplayName("Tipo Medida")]

@@ -184,7 +184,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 GetTipoProducto();           
                 GetTypeNovedad();
                 AllEstados();
-                ViewBag.AuditoriaID = tipoIncacutacion.AuditoriaID;
+               // ViewBag.AuditoriaID = tipoIncacutacion.AuditoriaID;
                 return View(tipoIncacutacion);
 
             }

@@ -59,9 +59,9 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 
-                var p = BcProductos.GetAll().Where(a => a.ID == ProductoID).FirstOrDefault();
-                var tp = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == p.ID).FirstOrDefault();               
-               var TipoMedidaID = BcTipoMedidas.GetAll().Where(x => x.TipoProductoID == tp.TipoProductoID).ToList();
+                //var p = BcProductos.GetAll().Where(a => a.ID == ProductoID).FirstOrDefault();
+                var tp = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == ProductoID).FirstOrDefault();               
+               var TipoMedidaID = BcTipoMedidas.GetAll().Where(x => x.TipoProductoID == ProductoID).ToList();
               return Json(TipoMedidaID, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
