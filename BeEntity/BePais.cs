@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BePais
     /// </summary>
-    public class BePais
+    public class BePais : BeUserLogueado
     {
 
         [Key]
@@ -32,5 +32,6 @@ namespace BeEntity
         [Required]
         [DisplayName("Estatus")]
         public Nullable<int> EstatusID { get; set; }
+        public int AuditoriaID { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoApresamiento
     /// </summary>
-   public class BeTipoApresamiento
+   public class BeTipoApresamiento: BeUserLogueado
     {
         [Key]
         public int ID { get; set; }

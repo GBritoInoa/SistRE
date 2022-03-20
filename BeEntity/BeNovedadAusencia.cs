@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BeEntity
 {
-  public class BeNovedadAusencia
+  public class BeNovedadAusencia : BeUserLogueado
     {
 
 
@@ -61,6 +61,6 @@ namespace BeEntity
         [DisplayName("Sexo")]
         public int SexoID { get; set; }
 
-        public string UserLogueado { get; set; }
+
     }
 }

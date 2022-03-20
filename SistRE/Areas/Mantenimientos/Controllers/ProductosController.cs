@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -130,6 +131,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcProductos.Create(model);
                 TempData["success"] = "Producto CREADO Satisfactoriamente!";
                 return RedirectToAction("Index");
@@ -188,6 +190,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcProductos.Edit(model);
                 TempData["success"] = "Producto ACTUALIZADO Satisfactoriamente!!";
                 return RedirectToAction("Index");

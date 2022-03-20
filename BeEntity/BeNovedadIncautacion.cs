@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class para el Registro de  Novedades de Tipo Incautacion
     /// </summary>
-    public class BeNovedadIncautacion
+    public class BeNovedadIncautacion : BeUserLogueado
     {
 
         public int NovedadIncautacionID { get; set; }
@@ -66,7 +66,7 @@ namespace BeEntity
         [Required]
         [DisplayName("Tipo Producto")]
         public int ProductoID { get; set; }
-        public string UserLogueado { get; set; }
+      
 
     }
 }

@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeNovedadDecomiso
     /// </summary>
-    public class BeNovedadDecomiso
+    public class BeNovedadDecomiso: BeUserLogueado
     {
         
         public int NovedadDecomisoID { get; set; }
@@ -45,6 +45,6 @@ namespace BeEntity
         [Required]
         [DisplayName("Brigada Responsable")]
         public int BrigadaID { get; set; }
-        public string UserLogueado { get; set; }
+        
     }
 }

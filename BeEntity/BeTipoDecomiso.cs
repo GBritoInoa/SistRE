@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class Tipo Decomiso
     /// </summary>
-   public class BeTipoDecomiso 
+   public class BeTipoDecomiso : BeUserLogueado
     {
         public int ID { get; set; }
 
@@ -43,7 +43,7 @@ namespace BeEntity
         public Nullable<System.DateTime> FechaActualizo { get; set; }
         [DisplayName("Auditoría")]
         public int AuditoriaID { get; set; }
-        public string UserLogueado { get; set; }
+   
 
      
 

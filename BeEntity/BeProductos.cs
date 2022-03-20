@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeProductos
     /// </summary>
-     public class BeProductos
+     public class BeProductos : BeUserLogueado
     {
   
         public int ID { get; set; }

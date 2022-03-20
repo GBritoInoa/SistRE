@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeNacionalidad
     /// </summary>
-   public class BeNacionalidad
+   public class BeNacionalidad: BeUserLogueado
     {
         public int ID { get; set; }
         [DisplayName("Nacionalidad")]
@@ -29,5 +29,6 @@ namespace BeEntity
         public string UsuarioActualizo { get; set; }
         [DisplayName("Fecha Actualizó")]
         public Nullable<System.DateTime> FechaActualizo { get; set; }
+       
     }
 }

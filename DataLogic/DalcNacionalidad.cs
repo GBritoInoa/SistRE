@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -39,7 +40,8 @@ namespace DataLogic
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      FechaActualizo = a.FechaActualizo,
+                                      AuditoriaID = a.AuditoriaID
                                   });
 
                 };
@@ -81,7 +83,9 @@ namespace DataLogic
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      FechaActualizo = a.FechaActualizo,
+                                      AuditoriaID = a.AuditoriaID
+
 
                                   });
 
@@ -112,7 +116,7 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "gbrito";
+                    a.UsuarioCreo = item.UserLogueado;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -146,62 +150,46 @@ namespace DataLogic
         public bool Edit(BeNacionalidad item)
         {
 
-            try
+
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+                try
                 {
+
+
+                    var a = new Auditoria();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = item.UserLogueado;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
+                    db.SaveChanges();
+
                     var n = new Nacionalidad();
 
 
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
                     n.Nombre = item.Nombre;
+                    n.AuditoriaID = item.AuditoriaID;
                     n.NacionalidadID = item.ID;
                     n.EstatusID = (int)item.EstatusID;
                     db.Nacionalidad.Attach(n);
                     db.Entry(n).Property(x => x.Nombre).IsModified = true;
                     db.Entry(n).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
-                    db.SaveChanges();
+
+                    dbContextTransaction.Commit();
                     return true;
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
-            }
-
-        }
-
-        /// <summary>
-        /// Delete Nacionalidad
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
+                catch (Exception ex)
                 {
-
-                    var n = db.Nacionalidad.Find(id);
-                    if (n != null)
-                    db.Nacionalidad.Remove(n);
-                    db.SaveChanges();
-                    return true;
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
                 }
 
             }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-
-            }
         }
+
+      
     }
 }

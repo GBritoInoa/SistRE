@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BeEntity
 {
-    public class BeNovedadProtesta
+    public class BeNovedadProtesta: BeUserLogueado
     {
         [DisplayName("Novedad Protesta")]
         public int NovedadProtestaID { get; set; } 
@@ -66,7 +66,7 @@ namespace BeEntity
 
         [DisplayName("Fecha Creó")]
         public System.DateTime FechaCreo { get; set; }
-        public string UserLogueado { get; set; }
+        
 
 
     }

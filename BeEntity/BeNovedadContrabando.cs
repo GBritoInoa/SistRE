@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class para el Registro de  Novedades Contrabando
     /// </summary>
-    public class BeNovedadContrabando
+    public class BeNovedadContrabando : BeUserLogueado
     {
 
         public int NovedadContrabandoID { get; set; }
@@ -67,7 +67,7 @@ namespace BeEntity
         [DisplayName("Tipo Producto")]
         public int ProductoID { get; set; }
 
-        public string UserLogueado { get; set; }
+       
 
     }
 }

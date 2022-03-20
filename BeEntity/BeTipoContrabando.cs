@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoContrabando
     /// </summary>
-    public class BeTipoContrabando
+    public class BeTipoContrabando : BeUserLogueado
     {
         
         public int ID { get; set; }

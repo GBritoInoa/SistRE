@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,18 +117,19 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
         // POST: Mantenimientos/TipoApresamiento/Create
         [HttpPost]
-        public ActionResult Create(BeTipoApresamiento item)
+        public ActionResult Create(BeTipoApresamiento model)
         {
             if(!ModelState.IsValid)
             {
                 GetTypeApresamientos();
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
             try
             {
-                BcTipoApresamiento.Create(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcTipoApresamiento.Create(model);
                 TempData["success"] = "Tipo Apresamiento creado Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
@@ -172,19 +174,20 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/TipoApresamiento/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeTipoApresamiento item)
+        public ActionResult Edit(BeTipoApresamiento model)
         {
 
             if(!ModelState.IsValid)
             {
                 GetTypeApresamientos();
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
             try
             {
-                BcTipoApresamiento.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcTipoApresamiento.Edit(model);
                 TempData["success"] = "Tipo Apresamiento actualiado Satisfactoriamente!";
                 return RedirectToAction("Index");
             }

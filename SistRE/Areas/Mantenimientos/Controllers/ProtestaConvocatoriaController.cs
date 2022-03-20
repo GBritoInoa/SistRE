@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Linq;
 using System.Net;
@@ -100,20 +101,20 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // POST: Tipo_Novedad/Create
-        public ActionResult Create(BeProtestaConvocatoria item)
+        public ActionResult Create(BeProtestaConvocatoria model)
         {
 
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
 
             try
             {
-
-                BcProtestaConvocatoria.Create(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcProtestaConvocatoria.Create(model);
                 TempData["success"] = " Convocatoria Protesta creada Satisfactoriamente!";
                 return RedirectToAction("Index");
 
@@ -164,19 +165,20 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Tipo_Novedad/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeProtestaConvocatoria item)
+        public ActionResult Edit(BeProtestaConvocatoria model)
         {
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
 
             try
             {
-                BcProtestaConvocatoria.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcProtestaConvocatoria.Edit(model);
                 TempData["success"] = " Convocatoria Protesta actulizada Satisfactoriamente!";
                 return RedirectToAction("Index");
 

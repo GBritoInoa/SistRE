@@ -29,16 +29,24 @@ namespace DataLogic
             {
                 using (var db = new Context_SistRE())
                 {
-                    data.AddRange(from tn in db.Pais
+                    data.AddRange(from p in db.Pais
+                                  join a in db.Auditoria
+                                  on p.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus
-                                  on tn.EstatusID equals e.EstatusID
-                                  where tn.EstatusID != 3
+                                  on p.EstatusID equals e.EstatusID
+                                  where p.EstatusID != 3
                                   select new BePais()
 
                                   {
-                                      PaisID = tn.PaisID,
-                                      Nombre = tn.Nombre,
-                                      EstatusID = tn.EstatusID
+                                      PaisID = p.PaisID,
+                                      Nombre = p.Nombre,
+                                      EstatusID = p.EstatusID,
+                                      AuditoriaID = a.AuditoriaID,
+                                      UsuarioCreo = a.UsuarioCreo,
+                                      FechaCreo = a.FechaCreo,
+                                      UsuarioActualizo = a.UsuarioActualizo,
+                                      FechaActualizo = a.FechaActualizo
+                                      
                                
                                   });
 
@@ -81,7 +89,8 @@ namespace DataLogic
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      FechaActualizo = a.FechaActualizo,
+                                      AuditoriaID= a.AuditoriaID
 
                                   });
 
@@ -110,10 +119,10 @@ namespace DataLogic
             {
                 try
                 {
+
                     ///Create Auditoria
                     var a = new Auditoria();
-                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
-                    a.UsuarioCreo = userName;
+                    a.UsuarioCreo = item.UserLogueado;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -121,11 +130,11 @@ namespace DataLogic
                     db.SaveChanges();
 
                     ////Create Tipo Novedad
-                    var tn = new Pais();
-                    tn.Nombre = item.Nombre;
-                    tn.EstatusID = (int)item.EstatusID;
-                    tn.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
-                    db.Pais.Add(tn);
+                    var p = new Pais();
+                    p.Nombre = item.Nombre;
+                    p.EstatusID = (int)item.EstatusID;
+                    p.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
+                    db.Pais.Add(p);
                     db.SaveChanges();
                     dbContextTransaction.Commit();
                     return true;
@@ -140,73 +149,49 @@ namespace DataLogic
         }
 
         /// <summary>
-        /// Edit Tipo Novedad
+        ///Edit Institución Protesta
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
         public bool Edit(BePais item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var tn = new Pais();
+                    var a = new Auditoria();
 
-
-                    ////tn.UsuarioActualizo = "gbrito";
-                    ////tn.FechaActualizo = DateTime.Now;
-                    //tn.Nombre = item.Nombre;
-                    //tn.PaisID = item.PaisID;
-                    //tn.EstatusID = (int)item.EstatusID;
-                    //db.Pais.Attach(tn);
-                    //db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    //db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    ////db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    ////db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = item.UserLogueado;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var p = new Pais();
+                    p.PaisID = item.PaisID;
+                    p.AuditoriaID = item.AuditoriaID;
+                    p.EstatusID = (int)item.EstatusID;
+                    p.Nombre = item.Nombre;
+                    db.Pais.Attach(p);
+                    db.Entry(p).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(p).Property(x => x.EstatusID).IsModified = true;
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
-        /// <summary>
-        /// Elimina Tipo Novedad
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
-
-
-                    var tn = db.Pais.Find(id);
-                    if (tn != null)
-
-                        db.Pais.Remove(tn);
-                    db.SaveChanges();
-                    return true;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-
-            }
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,17 +100,18 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/CategoriaProtesta/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BeCategoriaProtesta item)
+        public ActionResult Create(BeCategoriaProtesta model)
         {
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
             try
             {
-                BcCategoriaProtesta.Create(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Guarda User Logueado
+                BcCategoriaProtesta.Create(model);
                 TempData["success"] = "Categoría Protesta CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
@@ -151,18 +153,19 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/CategoriaProtesta/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeCategoriaProtesta item)
+        public ActionResult Edit(BeCategoriaProtesta model)
         {
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
             try
             {
-                BcCategoriaProtesta.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Guarda User Logueado
+                BcCategoriaProtesta.Edit(model);
                 TempData["success"] = "Categoría Protesta ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }

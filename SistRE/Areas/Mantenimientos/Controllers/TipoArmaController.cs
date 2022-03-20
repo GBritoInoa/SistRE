@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
           
@@ -108,6 +109,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcTipoArma.Create(model);
                 TempData["success"] = "Tipo Arma creada Satisfactoriamente!";
                 return RedirectToAction("Index");
@@ -159,6 +161,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcTipoArma.Edit(model);
                 TempData["success"] = "Tipo Arma actualizada Satisfactoriamente!";
                 return RedirectToAction("Index");

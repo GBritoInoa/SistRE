@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,17 +100,19 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/Nacionalidad/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BeNacionalidad item)
+        public ActionResult Create(BeNacionalidad model)
         {
 
             if(!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
             try
             {
-                BcNacionalidad.Create(item);
+
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcNacionalidad.Create(model);
                 TempData["success"] = "Nacionalidad creada Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
@@ -151,18 +154,19 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/Nacionalidad/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeNacionalidad item)
+        public ActionResult Edit(BeNacionalidad model)
         {
 
             if(!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
             try
             {
-                BcNacionalidad.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcNacionalidad.Edit(model);
                 TempData["success"] = "Nacionalidad actualizada Satisfactoriamente!";
                 return RedirectToAction("Index");
             }

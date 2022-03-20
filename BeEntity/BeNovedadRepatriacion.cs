@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeNovedadRepatriación
     /// </summary>
-   public class BeNovedadRepatriacion
+   public class BeNovedadRepatriacion : BeUserLogueado
     {
 
         [DisplayName("RapatriacionID")]
@@ -75,6 +75,6 @@ namespace BeEntity
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Hora Novedad")]
         public System.TimeSpan HoraNovedad { get; set; }
-        public string UserLogueado { get; set; }
+        
     }
 }

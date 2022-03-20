@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,17 +100,19 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/InstitucionProtestante/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BeInstitucionProtestante item)
+        public ActionResult Create(BeInstitucionProtestante model)
         {
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
             try
             {
-                BcInstitucionProtestante.Create(item);
+
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Guarda User Logueado
+                BcInstitucionProtestante.Create(model);
                 TempData["success"] = "Institucion Protestante REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
@@ -151,18 +154,19 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/InstitucionProtestante/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeInstitucionProtestante item)
+        public ActionResult Edit(BeInstitucionProtestante model)
         {
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
             try
             {
-                BcInstitucionProtestante.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Guarda User Logueado
+                BcInstitucionProtestante.Edit(model);
                 TempData["success"] = "Institucion Protestante ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }

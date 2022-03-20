@@ -13,7 +13,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeApresamientos
     /// </summary>
-  public  class BeNovedadApresamientos
+  public  class BeNovedadApresamientos: BeUserLogueado
     {
 
        
@@ -70,7 +70,6 @@ namespace BeEntity
         [DisplayName("Compañía")] 
         public Nullable<int> CompaniaID { get; set; } = 0;
 
-        public string UserLogueado { get; set; }
        
 
     }

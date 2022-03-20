@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class Tipo Arma
     /// </summary>
- public   class BeTipoArma
+ public   class BeTipoArma: BeUserLogueado
     {
 
         public int ID { get; set; }
@@ -30,10 +30,10 @@ namespace BeEntity
         public string UsuarioActualizo { get; set; }
         [DisplayName("Fecha Actualizó")]
         public Nullable<System.DateTime> FechaActualizo { get; set; }
-
         //[Required]
         //public Nullable<int> TipoNovedadID { get; set; }
         [DisplayName("Estatus")]
         public int EstatusID { get; set; }
+        public int AuditoriaID { get; set; }
     }
 }

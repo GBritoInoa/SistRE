@@ -50,7 +50,7 @@ namespace SistRE.Controllers
                 return View(model);
             }
 
-            SessionData.SetSesion(loginResult.User.UserName, loginResult.User.PerfilID.ToString(), loginResult.User.PerfilID);
+            SessionData.SetSesion(loginResult.User.UserName, loginResult.User.Perfil.ToString(), loginResult.User.PerfilID, loginResult.User.NombreCompleto, loginResult.User.Rango);
 
             return RedirectToAction("Index");
 

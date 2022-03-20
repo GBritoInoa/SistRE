@@ -10,7 +10,7 @@ namespace BeEntity
     /// <summary>
     /// Clas Users
     /// </summary>
-  public  class BeUser
+  public  class BeUser: BeUserLogueado
     {
         public int ID { get; set; }
         public int UserId { get; set; }
@@ -21,8 +21,8 @@ namespace BeEntity
         public string Nombres { get; set; }
         [DisplayName("Apellidos")]
         public string Apellidos { get; set; }
-        [DisplayName("Nombre Completo")]
-        public string NombreCompleto { get; set; }
+        [DisplayName("Apellidos, Nombre")]
+        public string ApellidosNombre{ get; set; }
         [DisplayName("Password")]
         public string Password { get; set; }
         public string Salt { get; set; }
