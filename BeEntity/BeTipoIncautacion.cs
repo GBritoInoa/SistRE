@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class Tipo Incautación
     /// </summary>
- public   class BeTipoIncautacion
+ public   class BeTipoIncautacion : BeUserLogueado
     {
 
         public int ID { get; set; }
@@ -47,6 +47,6 @@ namespace BeEntity
         [DisplayName("Tipo Incautación")]
         public int TipoProductoID { get; set; }
 
-        public string UserLogueado { get; set; }
+        
     }
 }

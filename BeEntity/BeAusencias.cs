@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class Ausencias
     /// </summary>
-    public class BeAusencias
+    public class BeAusencias : BeUserLogueado
     {
         public int ID { get; set; }
         [Required]

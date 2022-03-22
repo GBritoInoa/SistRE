@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeCausaRepatriacion
     /// </summary>
-    public class BeCausaRepatriacion
+    public class BeCausaRepatriacion: BeUserLogueado
     {
 
         [DisplayName("Tipo Repatriacion")]
@@ -30,5 +30,7 @@ namespace BeEntity
         [Required]
         [DisplayName("Estatus")]
         public Nullable<int> EstatusID { get; set; }
+
+        public int AuditoriaID { get; set; }
     }
 }

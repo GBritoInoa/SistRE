@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
 {
@@ -152,6 +153,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoIncautacion.Create(model);
                 TempData["success"] = "Tipo Incautacion creada Satisfactoriamente!";
                 return RedirectToAction("Index");
@@ -198,10 +200,10 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: TipoIncautacion/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeTipoIncautacion item)
+        public ActionResult Edit(BeTipoIncautacion model)
         {
 
-            if(item == null)
+            if(model == null)
                 {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
@@ -209,7 +211,8 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
-                BcTipoIncautacion.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoIncautacion.Edit(model);
                 TempData["success"] = "Tipo Incautacion ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }

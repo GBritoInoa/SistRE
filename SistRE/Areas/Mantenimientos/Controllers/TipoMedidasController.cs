@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
 {
@@ -152,6 +153,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
 
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoMedidas.Create(model);
                 TempData["success"] = "Tipo Medida CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
@@ -209,6 +211,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
             try
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoMedidas.Edit(model);
                 TempData["success"] = "TIpo Medida ACTUALIZADA Satisfactoriamente!!";
                 return RedirectToAction("Index");

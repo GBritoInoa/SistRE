@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Linq;
 using System.Net;
@@ -122,20 +123,21 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // POST: Tipo_Novedad/Create
-        public ActionResult Create(BeTipoProtesta item)
+        public ActionResult Create(BeTipoProtesta model)
         {
 
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
 
             try
             {
 
-                BcTipoProtesta.Create(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoProtesta.Create(model);
                 TempData["success"] = "Tipo Protesta REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
@@ -188,7 +190,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Tipo_Novedad/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeTipoProtesta item)
+        public ActionResult Edit(BeTipoProtesta model)
         {
 
             if (!ModelState.IsValid)
@@ -196,14 +198,15 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
                 GetTypeNovedad();
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
 
             try
             {
-                BcTipoProtesta.Edit(item);
-                TempData["success"] = "Tipo Protesta actualizada Satisfactoriamente!";
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoProtesta.Edit(model);
+                TempData["success"] = "Tipo Protesta ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }

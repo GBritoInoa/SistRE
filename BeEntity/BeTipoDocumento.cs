@@ -10,7 +10,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoDocumento
     /// </summary>
-    public class BeTipoDocumento
+    public class BeTipoDocumento : BeUserLogueado
     {
 
         public int ID { get; set; }

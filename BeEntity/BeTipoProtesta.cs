@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoProtesta
     /// </summary>
-    public class BeTipoProtesta
+    public class BeTipoProtesta: BeUserLogueado
     {
 
         [DisplayName("Tipo Protesta")]

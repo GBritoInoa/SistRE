@@ -40,7 +40,8 @@ namespace DataLogic
                                           UsuarioCreo = a.UsuarioCreo,
                                           FechaCreo = a.FechaCreo,
                                           UsuarioActualizo = a.UsuarioActualizo,
-                                          FechaActualizo = a.FechaActualizo
+                                          FechaActualizo = a.FechaActualizo,
+                                          AuditoriaID = a.AuditoriaID
                                       });
 
                     };
@@ -82,7 +83,9 @@ namespace DataLogic
                                           UsuarioCreo = a.UsuarioCreo,
                                           FechaCreo = a.FechaCreo,
                                           UsuarioActualizo = a.UsuarioActualizo,
-                                          FechaActualizo = a.FechaActualizo
+                                          FechaActualizo = a.FechaActualizo,
+                                          AuditoriaID = a.AuditoriaID
+                                         
 
                                       });
 
@@ -112,8 +115,8 @@ namespace DataLogic
                     try
                     {
                         ///Create Auditoria
-                         var a = new Auditoria();                      
-                         a.UsuarioCreo = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                         var a = new Auditoria();
+                         a.UsuarioCreo = item.UserLogueado;
                          a.FechaCreo = DateTime.Now;
                          a.NombrePC = Environment.MachineName;
                          a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -156,7 +159,8 @@ namespace DataLogic
 
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioActualizo = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
+                    a.UsuarioActualizo = item.UserLogueado;
+                    a.AuditoriaID = item.AuditoriaID;
                     a.FechaActualizo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -167,6 +171,7 @@ namespace DataLogic
                     var au = new Ausencias();
                     au.Nombre = item.Nombre;
                     au.AusenciaID = item.ID;
+                    au.AuditoriaID = item.AuditoriaID;
                     au.EstatusID = (int)item.EstatusID;
                     db.Ausencias.Attach(au);
                     db.Entry(au).Property(x => x.Nombre).IsModified = true;

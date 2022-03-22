@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -119,20 +120,21 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
         // POST: TipoAusencias/Create
         [HttpPost]
-        public ActionResult Create(BeAusencias item)
+        public ActionResult Create(BeAusencias model)
         {
 
-            if(item==null)
+            if(model==null)
 
             {
                 LoadTypeNovedad();
                 AllEstados();
-                return View(item);
+                return View(model);
             }
 
             try
             {
-                BcAusencias.Create(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcAusencias.Create(model);
                 TempData["success"] = "Tipo Ausencia creada Satisfactoriamente!";
                 return RedirectToAction("Index");
             }

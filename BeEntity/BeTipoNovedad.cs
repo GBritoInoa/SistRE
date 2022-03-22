@@ -8,7 +8,7 @@ namespace BeEntity
     /// <summary>
     /// Class Tipo Novedad
     /// </summary>
-    public class BeTipoNovedad
+    public class BeTipoNovedad : BeUserLogueado
     {
 
 
@@ -32,5 +32,6 @@ namespace BeEntity
         [Required]
         [DisplayName("Estatus")]
         public Nullable<int> EstatusID { get; set; }
+        public int AuditoriaID { get; set; }
     }
 }

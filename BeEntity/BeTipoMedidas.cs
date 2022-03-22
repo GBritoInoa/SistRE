@@ -12,7 +12,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoMedidas
     /// </summary>
-   public class BeTipoMedidas
+   public class BeTipoMedidas : BeUserLogueado
     {
 
         

@@ -118,7 +118,7 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "gbrito";
+                    a.UsuarioCreo = item.UserLogueado;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -145,43 +145,50 @@ namespace DataLogic
         }
 
         /// <summary>
-/// Edit Tipo Novedad
-/// </summary>
-/// <param name="item"></param>
-/// <returns></returns>
+        /// Edit Tipo Novedad
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Edit(BeTipoNovedad item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var tn = new TipoNovedad();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.Nombre = item.Nombre;
-                    tn.TipoNovedadID = item.ID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.TipoNovedad.Attach(tn);
-                    db.Entry(tn).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = item.UserLogueado;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var ti = new TipoNovedad();
+
+                    ti.TipoNovedadID = item.ID;
+                    ti.AuditoriaID = item.AuditoriaID;
+                    ti.Nombre = item.Nombre;
+                    ti.EstatusID = (int)item.EstatusID;
+                    db.TipoNovedad.Attach(ti);
+                    db.Entry(ti).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(ti).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-                  
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
-       }
+        }
 
         /// <summary>
         /// Elimina Tipo Novedad

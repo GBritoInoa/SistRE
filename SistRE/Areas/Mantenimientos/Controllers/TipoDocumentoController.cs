@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -97,7 +98,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
         // POST: Mantenimientos/TipoDocumento/Create
         [HttpPost]
-        public ActionResult Create(BeTipoDocumento item)
+        public ActionResult Create(BeTipoDocumento model)
         {
 
             if(!ModelState.IsValid)
@@ -108,8 +109,8 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 
             try
             {
-
-                BcTipoDocumento.Create(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoDocumento.Create(model);
                 TempData["success"] = "Tipo Documento creado Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
@@ -151,18 +152,19 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Mantenimientos/TipoDocumento/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeTipoDocumento item)
+        public ActionResult Edit(BeTipoDocumento model)
         {
 
             if(!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
             try
             {
-                BcTipoDocumento.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoDocumento.Edit(model);
                 TempData["success"] = "Tipo Documento actualizado Satisfactoriamente!";
                 return RedirectToAction("Index");
             }

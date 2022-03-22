@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Linq;
 using System.Net;
@@ -181,7 +182,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try
             {
-
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoContrabando.Create(model);
                 TempData["success"] = "Tipo Contrabando creado Satisfactoriamente!";
                 return RedirectToAction("Index");
@@ -238,7 +239,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Tipo_Novedad/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeTipoContrabando item)
+        public ActionResult Edit(BeTipoContrabando model)
         {
 
             if (!ModelState.IsValid)
@@ -247,13 +248,14 @@ namespace SistRE.Areas.Mantenimientos.Controllers
                 GetProducto();
                 GetTypeNovedad();
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
 
             try
             {
-                BcTipoContrabando.Edit(item);
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoContrabando.Edit(model);
                 TempData["success"] = "Tipo Contrabando actualizado Satisfactoriamente!";
                 return RedirectToAction("Index");
 

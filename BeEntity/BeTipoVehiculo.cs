@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoVehiculo
     /// </summary>
-    public class BeTipoVehiculo
+    public class BeTipoVehiculo : BeUserLogueado
     {
 
         [DisplayName("Tipo Vehiculo")]
@@ -31,6 +31,7 @@ namespace BeEntity
         [Required]
         [DisplayName("Estatus")]
         public Nullable<int> EstatusID { get; set; }
+        public int AuditoriaID { get; set; }
     }
 }
 

@@ -42,7 +42,9 @@ namespace DataLogic
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
                                       FechaActualizo = a.FechaActualizo,
-                                      TipoProductoID = tp.TipoProductoID
+                                      TipoProductoID = tp.TipoProductoID,
+                                      AuditoriaID = a.AuditoriaID
+                                      
                                   });
 
                 };
@@ -120,8 +122,8 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
-                    a.UsuarioCreo = userName;
+                    
+                    a.UsuarioCreo = item.UserLogueado;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -166,9 +168,8 @@ namespace DataLogic
                 try
                 {
                     var a = new Auditoria();
-                    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(0, 6).ToLower();
                     a.AuditoriaID = item.AuditoriaID;
-                    a.UsuarioActualizo = userName;
+                    a.UsuarioActualizo = item.UserLogueado ;
                     a.FechaActualizo = DateTime.Now;
                     db.Auditoria.Attach(a);
                     db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;

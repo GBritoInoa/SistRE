@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Linq;
 using System.Net;
@@ -100,21 +101,21 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // POST: Tipo_Novedad/Create
-        public ActionResult Create(BeTipoProducto item)
+        public ActionResult Create(BeTipoProducto model)
         {
 
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
 
             try
             {
-
-                BcTipoProducto.Create(item);
-                TempData["success"] = "Tipo Producto creado Satisfactoriamente!";
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoProducto.Create(model);
+                TempData["success"] = "Tipo Producto CREADO Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }
@@ -164,20 +165,21 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Tipo_Novedad/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeTipoProducto item)
+        public ActionResult Edit(BeTipoProducto model)
         {
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
 
             try
             {
-                BcTipoProducto.Edit(item);
-                TempData["success"] = "Tipo Producto actualizado Satisfactoriamente!";
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoProducto.Edit(model);
+                TempData["success"] = "Tipo Producto ACTUALIZADO Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }

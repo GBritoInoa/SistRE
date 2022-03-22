@@ -1,5 +1,6 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
 using System;
 using System.Linq;
 using System.Net;
@@ -113,8 +114,9 @@ namespace SistRE.Areas.Mantenimientos.Controllers
            try
             {
 
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoNovedad.Create(model);
-                TempData["success"] = "Tipo Novedad creada Satisfactoriamente!";
+                TempData["success"] = "Tipo Novedad CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }
@@ -176,8 +178,9 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
             try 
             {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoNovedad.Edit(model);
-                TempData["success"] = "Tipo Novedad actualizada Satisfactoriamente!";
+                TempData["success"] = "Tipo Novedad ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }

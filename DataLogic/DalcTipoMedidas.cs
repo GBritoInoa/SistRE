@@ -47,7 +47,8 @@ namespace DataLogic
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      FechaActualizo = a.FechaActualizo,
+                                      AuditoriaID = a.AuditoriaID
                                   });
 
                 };
@@ -93,7 +94,8 @@ namespace DataLogic
                                       UsuarioCreo = a.UsuarioCreo,
                                       FechaCreo = a.FechaCreo,
                                       UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      FechaActualizo = a.FechaActualizo,
+                                      AuditoriaID = a.AuditoriaID
 
                                   });
 
@@ -124,7 +126,7 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = "gbrito";
+                    a.UsuarioCreo = item.UserLogueado;
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -152,41 +154,47 @@ namespace DataLogic
         }
 
         /// <summary>
-        /// Edit Tipo Medida
+        /// Edit Tipo Medidas
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
         public bool Edit(BeTipoMedidas item)
         {
 
-            try
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
             {
-                using (var db = new Context_SistRE())
+
+                try
                 {
-                    var p = new TipoMedidas();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    p.TipoMedidaID = item.ID;
-                    p.Nombre = item.Nombre;
-                    p.TipoProductoID = item.TipoProductoID;
-                    p.EstatusID = (int)item.EstatusID;
-                    db.TipoMedidas.Attach(p);
-                    db.Entry(p).Property(x => x.Nombre).IsModified = true;
-                    db.Entry(p).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+                    var a = new Auditoria();
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = item.UserLogueado;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
+
+                    var ti = new TipoMedidas();
+                 
+                    ti.TipoMedidaID = item.ID;
+                    ti.AuditoriaID = item.AuditoriaID;
+                    ti.Nombre = item.Nombre;
+                    ti.EstatusID = (int)item.EstatusID;
+                    db.TipoMedidas.Attach(ti);
+                    db.Entry(ti).Property(x => x.Nombre).IsModified = true;
+                    db.Entry(ti).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
                     return true;
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }

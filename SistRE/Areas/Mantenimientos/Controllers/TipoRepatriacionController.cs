@@ -1,6 +1,7 @@
 ﻿using BeEntity;
 using BusinessControl;
 using DataLogic;
+using SistRE.AccesControl;
 using System;
 using System.Linq;
 using System.Net;
@@ -101,21 +102,21 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // POST: Tipo_Novedad/Create
-        public ActionResult Create(BeCausaRepatriacion item)
+        public ActionResult Create(BeCausaRepatriacion model)
         {
 
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
             }
 
             try
             {
-
-                BcTipoRepatriacion.Create(item);
-                TempData["success"] = "Tipo Repatriación creada Satisfactoriamente!";
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoRepatriacion.Create(model);
+                TempData["success"] = "Tipo Repatriación CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }
@@ -165,20 +166,21 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Tipo_Novedad/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BeCausaRepatriacion item)
+        public ActionResult Edit(BeCausaRepatriacion model)
         {
 
             if (!ModelState.IsValid)
             {
                 GetEstatus();
-                return View(item);
+                return View(model);
 
             }
 
             try
             {
-                BcTipoRepatriacion.Edit(item);
-                TempData["success"] = "Tipo Repatriación actualizada Satisfactoriamente!";
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                BcTipoRepatriacion.Edit(model);
+                TempData["success"] = "Tipo Repatriación ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }

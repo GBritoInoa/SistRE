@@ -11,7 +11,7 @@ namespace BeEntity
     /// <summary>
     /// Class BeTipoRecuperacion
     /// </summary>
-    public class BeTipoRecuperacion
+    public class BeTipoRecuperacion: BeUserLogueado
     {
 
         [DisplayName("Tipo Recuperacion")]
@@ -30,5 +30,6 @@ namespace BeEntity
         [Required]
         [DisplayName("Estatus")]
         public Nullable<int> EstatusID { get; set; }
+        public int AuditoriaID { get; set; }
     }
 }

@@ -91,7 +91,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al generar la vista Naciolidad");
+                ModelState.AddModelError(ex.Message, "Error al generar la vista Nacionalidad");
                 throw new Exception(ex.Message);
             }
     
