@@ -17,6 +17,6 @@ namespace DataLogic
         public int PaisID { get; set; }
         public string Nombre { get; set; }
         public int EstatusID { get; set; }
-        public int AuditoriaID { get; set; }
+        public Nullable<int> AuditoriaID { get; set; }
     }
 }

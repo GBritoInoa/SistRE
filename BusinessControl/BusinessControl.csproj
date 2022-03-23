@@ -45,12 +45,15 @@
     <Compile Include="BcAusencias.cs" />
     <Compile Include="BcCategoriaProtesta.cs" />
     <Compile Include="BcComun.cs" />
+    <Compile Include="BcEnfermedades.cs" />
+    <Compile Include="BcHospitales.cs" />
     <Compile Include="BcInstitucionProtestante.cs" />
     <Compile Include="BcNacionalidad.cs" />
     <Compile Include="BcNovedadApresamiento.cs" />
     <Compile Include="BcNovedadAusencia.cs" />
     <Compile Include="BcNovedadContrabando.cs" />
     <Compile Include="BcNovedadDecomiso.cs" />
+    <Compile Include="BcNovedadHospitalizacion.cs" />
     <Compile Include="BcNovedadProtesta.cs" />
     <Compile Include="BcNovedadPerdidaDocumento.cs" />
     <Compile Include="BcNovedadRepatriacion.cs" />

@@ -210,6 +210,11 @@
     <EntitySet Name="Permisos" EntityType="DB_SistREModel.Permisos" />
     <EntitySet Name="Pantallas" EntityType="DB_SistREModel.Pantallas" />
     <EntitySet Name="Users" EntityType="DB_SistREModel.Users" />
+    <EntitySet Name="Accidentes" EntityType="DB_SistREModel.Accidentes" />
+    <EntitySet Name="Diagnostico" EntityType="DB_SistREModel.Diagnostico" />
+    <EntitySet Name="Enfermedades" EntityType="DB_SistREModel.Enfermedades" />
+    <EntitySet Name="Hospitales" EntityType="DB_SistREModel.Hospitales" />
+    <EntitySet Name="NovedadHospitalizacion" EntityType="DB_SistREModel.NovedadHospitalizacion" />
   </EntityContainer>
   <EntityType Name="Auditoria">
     <Key>
@@ -1232,5 +1237,68 @@
     <Property Name="BrigadaID" Type="Int32" Nullable="false" />
     <Property Name="PerfilID" Type="Int32" Nullable="false" />
     <Property Name="RangoID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Accidentes">
+    <Key>
+      <PropertyRef Name="AccidentesID" />
+    </Key>
+    <Property Name="AccidentesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="CausaHospitalizacionID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diagnostico">
+    <Key>
+      <PropertyRef Name="DiagnosticoID" />
+    </Key>
+    <Property Name="DiagnosticoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enfermedades">
+    <Key>
+      <PropertyRef Name="EnfermedadesID" />
+    </Key>
+    <Property Name="EnfermedadesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="CausaHospitalizacionID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hospitales">
+    <Key>
+      <PropertyRef Name="HospitalID" />
+    </Key>
+    <Property Name="HospitalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadHospitalizacion">
+    <Key>
+      <PropertyRef Name="NovedadHospitalizacionID" />
+    </Key>
+    <Property Name="NovedadHospitalizacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="NacionalidadID" Type="Int32" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaTermino" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HoraTermino" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="SexoID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RangoID" Type="Int32" Nullable="false" />
+    <Property Name="CompaniaID" Type="Int32" Nullable="false" />
+    <Property Name="CausaHospitalizacionID" Type="Int32" Nullable="false" />
+    <Property Name="AccidentesID" Type="Int32" Nullable="false" />
+    <Property Name="EnfermedadesID" Type="Int32" Nullable="false" />
+    <Property Name="DisgnosticoID" Type="Int32" Nullable="false" />
+    <Property Name="HospitalID" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

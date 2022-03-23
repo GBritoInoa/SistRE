@@ -152,7 +152,9 @@
     <Compile Include="Areas\Consultas\Login\LoginAreaRegistration.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\CategoriaProtestaController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\CausaHeridaController.cs" />
+    <Compile Include="Areas\Mantenimientos\Controllers\EnfermedadesController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\EstatusController.cs" />
+    <Compile Include="Areas\Mantenimientos\Controllers\HospitalesController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\InstitucionProtestanteController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\NacionalidadController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\PaisController.cs" />
@@ -189,6 +191,7 @@
     <Compile Include="Areas\Procesos\Controllers\NovedadContrabandoController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Areas\Procesos\Controllers\NovedadHospitalizacionsController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadIncautacionController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -984,6 +987,17 @@
     <Content Include="Areas\Configuracion\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Configuracion\Views\Users\Index.cshtml" />
     <Content Include="Areas\Configuracion\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Enfermedades\Create.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Enfermedades\Details.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Enfermedades\Edit.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Enfermedades\Index.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Hospitales\Create.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Hospitales\Details.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Hospitales\Edit.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\Hospitales\Index.cshtml" />
+    <Content Include="Areas\Procesos\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Procesos\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Procesos\Views\NovedadHospitalizacions\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

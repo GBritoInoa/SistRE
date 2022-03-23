@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accidentes.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
     <Compile Include="Auditoria.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
@@ -93,12 +96,15 @@
     <Compile Include="DalcAusencias.cs" />
     <Compile Include="DalcCategoriaProtesta.cs" />
     <Compile Include="DalcComun.cs" />
+    <Compile Include="DalcEnfermedades.cs" />
+    <Compile Include="DalcHospitales.cs" />
     <Compile Include="DalcInstitucionProtestante.cs" />
     <Compile Include="DalcNacionalidad.cs" />
     <Compile Include="DalcNovedadApresamiento.cs" />
     <Compile Include="DalcNovedadAusencia.cs" />
     <Compile Include="DalcNovedadDecomiso.cs" />
     <Compile Include="DalcNovedadContrabando.cs" />
+    <Compile Include="DalcNovedadHospitalizacion.cs" />
     <Compile Include="DalcNovedadIncautacion.cs" />
     <Compile Include="DalcNovedadPerdidaDocumento.cs" />
     <Compile Include="DalcNovedadProtesta.cs" />
@@ -132,6 +138,12 @@
     <Compile Include="DalcTipoRepatriacion.cs" />
     <Compile Include="DalcTipos.cs" />
     <Compile Include="DalcTipoVehiculo.cs" />
+    <Compile Include="Diagnostico.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enfermedades.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entrega.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
@@ -140,6 +152,9 @@
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="HistoricoNovedades.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hospitales.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="Institucion.cs">
@@ -203,6 +218,9 @@
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="NovedadDecomiso.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NovedadHospitalizacion.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="NovedadIncautacion.cs">

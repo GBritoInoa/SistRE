@@ -650,5 +650,73 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Accidentes">
+      <EntityTypeMapping TypeName="DB_SistREModel.Accidentes">
+        <MappingFragment StoreEntitySet="Accidentes">
+          <ScalarProperty Name="CausaHospitalizacionID" ColumnName="CausaHospitalizacionID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="AccidentesID" ColumnName="AccidentesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diagnostico">
+      <EntityTypeMapping TypeName="DB_SistREModel.Diagnostico">
+        <MappingFragment StoreEntitySet="Diagnostico">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DiagnosticoID" ColumnName="DiagnosticoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enfermedades">
+      <EntityTypeMapping TypeName="DB_SistREModel.Enfermedades">
+        <MappingFragment StoreEntitySet="Enfermedades">
+          <ScalarProperty Name="CausaHospitalizacionID" ColumnName="CausaHospitalizacionID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EnfermedadesID" ColumnName="EnfermedadesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hospitales">
+      <EntityTypeMapping TypeName="DB_SistREModel.Hospitales">
+        <MappingFragment StoreEntitySet="Hospitales">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NovedadHospitalizacion">
+      <EntityTypeMapping TypeName="DB_SistREModel.NovedadHospitalizacion">
+        <MappingFragment StoreEntitySet="NovedadHospitalizacion">
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="DisgnosticoID" ColumnName="DisgnosticoID" />
+          <ScalarProperty Name="EnfermedadesID" ColumnName="EnfermedadesID" />
+          <ScalarProperty Name="AccidentesID" ColumnName="AccidentesID" />
+          <ScalarProperty Name="CausaHospitalizacionID" ColumnName="CausaHospitalizacionID" />
+          <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="SexoID" ColumnName="SexoID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="HoraTermino" ColumnName="HoraTermino" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="FechaTermino" ColumnName="FechaTermino" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="NacionalidadID" ColumnName="NacionalidadID" />
+          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+          <ScalarProperty Name="NovedadHospitalizacionID" ColumnName="NovedadHospitalizacionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

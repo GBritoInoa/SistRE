@@ -771,5 +771,59 @@ namespace DataLogic
             }
 
         }
+
+        public List<BeEnfermedades> GetEnfermedades()
+        {
+            List<BeEnfermedades> data = new List<BeEnfermedades>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from c in db.Enfermedades
+                                  select new BeEnfermedades()
+                                  {
+                                      EnfermedadID = c.EnfermedadesID,
+                                      Nombre = c.Nombre,
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// GetHospitales
+        /// </summary>
+        /// <returns></returns>
+        public List<BeHospitales> GetBeHospitales()
+        {
+            List<BeHospitales> data = new List<BeHospitales>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from c in db.Hospitales
+                                  select new BeHospitales()
+                                  {
+                                      HospitalID = c.HospitalID,
+                                      Nombre = c.Nombre,
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
     }
 }

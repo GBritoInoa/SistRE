@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_SistREModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accidentes">
+    <Key>
+      <PropertyRef Name="AccidentesID" />
+    </Key>
+    <Property Name="AccidentesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="CausaHospitalizacionID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Auditoria">
     <Key>
       <PropertyRef Name="AuditoriaID" />
@@ -103,6 +113,25 @@
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Diagnostico">
+    <Key>
+      <PropertyRef Name="DiagnosticoID" />
+    </Key>
+    <Property Name="DiagnosticoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enfermedades">
+    <Key>
+      <PropertyRef Name="EnfermedadesID" />
+    </Key>
+    <Property Name="EnfermedadesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="CausaHospitalizacionID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Entrega">
     <Key>
       <PropertyRef Name="EntregaID" />
@@ -130,6 +159,15 @@
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
     <Property Name="TipoID" Type="int" Nullable="false" />
     <Property Name="ProvinciaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hospitales">
+    <Key>
+      <PropertyRef Name="HospitalID" />
+    </Key>
+    <Property Name="HospitalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Institucion">
     <Key>
@@ -239,6 +277,31 @@
     <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadHospitalizacion">
+    <Key>
+      <PropertyRef Name="NovedadHospitalizacionID" />
+    </Key>
+    <Property Name="NovedadHospitalizacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="NacionalidadID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" Nullable="false" />
+    <Property Name="FechaTermino" Type="date" Nullable="false" />
+    <Property Name="HoraInicio" Type="time" Precision="7" Nullable="false" />
+    <Property Name="HoraTermino" Type="time" Precision="7" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="SexoID" Type="int" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="RangoID" Type="int" Nullable="false" />
+    <Property Name="CompaniaID" Type="int" Nullable="false" />
+    <Property Name="CausaHospitalizacionID" Type="int" Nullable="false" />
+    <Property Name="AccidentesID" Type="int" Nullable="false" />
+    <Property Name="EnfermedadesID" Type="int" Nullable="false" />
+    <Property Name="DisgnosticoID" Type="int" Nullable="false" />
+    <Property Name="HospitalID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NovedadIncautacion">
     <Key>
@@ -993,6 +1056,7 @@
   </Function>
   <Function Name="usp_maxCodAuditoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="DB_SistREModelStoreContainer">
+    <EntitySet Name="Accidentes" EntityType="Self.Accidentes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ausencias" EntityType="Self.Ausencias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CategoriaProtesta" EntityType="Self.CategoriaProtesta" Schema="dbo" store:Type="Tables" />
@@ -1004,9 +1068,12 @@
     <EntitySet Name="CausaMuerte" EntityType="Self.CausaMuerte" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CausaRepatriacion" EntityType="Self.CausaRepatriacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CausaSuicidio" EntityType="Self.CausaSuicidio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diagnostico" EntityType="Self.Diagnostico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enfermedades" EntityType="Self.Enfermedades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Entrega" EntityType="Self.Entrega" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HistoricoNovedades" EntityType="Self.HistoricoNovedades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hospitales" EntityType="Self.Hospitales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Institucion" EntityType="Self.Institucion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InstitucionProtestante" EntityType="Self.InstitucionProtestante" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LugarActividad" EntityType="Self.LugarActividad" Schema="dbo" store:Type="Tables" />
@@ -1015,6 +1082,7 @@
     <EntitySet Name="NovedadAusencia" EntityType="Self.NovedadAusencia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadContrabando" EntityType="Self.NovedadContrabando" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadDecomiso" EntityType="Self.NovedadDecomiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadHospitalizacion" EntityType="Self.NovedadHospitalizacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadIncautacion" EntityType="Self.NovedadIncautacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadPerdidaDocumento" EntityType="Self.NovedadPerdidaDocumento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadProtesta" EntityType="Self.NovedadProtesta" Schema="dbo" store:Type="Tables" />

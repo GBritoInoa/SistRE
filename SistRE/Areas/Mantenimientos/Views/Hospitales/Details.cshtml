@@ -1,0 +1,101 @@
+﻿@model BeEntity.BeHospitales
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4><strong> Detalle Hospitales </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+        <div>
+            @using (Html.BeginForm())
+            {
+                <div>
+                    @Html.Partial("OptionsBox/Edit_Back", Model.HospitalID)
+                </div>
+                <br />
+                <br />
+
+                @Html.AntiForgeryToken()
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UsuarioCreo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.UsuarioCreo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaCreo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FechaCreo)
+                    </dd>
+
+                    @if(Model.UsuarioActualizo !=null)
+                    { 
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UsuarioActualizo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.UsuarioActualizo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaActualizo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FechaActualizo)
+                    </dd>
+                    }
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EstatusID)
+                    </dt>
+
+                    <dd>
+                        @if (Model.EstatusID == 1)
+                        {
+                            <span>Activo</span>
+                        }
+                        else if (Model.EstatusID == 2)
+                        {
+                            <span>Inactivo</span>
+
+                        }
+                        else
+                        {
+                            <span>Eliminado</span>
+                        }
+
+                    </dd>
+                </dl>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

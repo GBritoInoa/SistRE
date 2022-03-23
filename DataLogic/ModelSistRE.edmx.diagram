@@ -91,6 +91,11 @@
         <EntityTypeShape EntityType="DB_SistREModel.Permisos" Width="1.5" PointX="11.375" PointY="15.75" />
         <EntityTypeShape EntityType="DB_SistREModel.Pantallas" Width="1.5" PointX="16.375" PointY="11.75" />
         <EntityTypeShape EntityType="DB_SistREModel.Users" Width="1.5" PointX="15.375" PointY="15.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Accidentes" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Diagnostico" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Enfermedades" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.Hospitales" Width="1.5" PointX="17.375" PointY="14.75" />
+        <EntityTypeShape EntityType="DB_SistREModel.NovedadHospitalizacion" Width="1.5" PointX="17.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

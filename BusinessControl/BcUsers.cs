@@ -40,6 +40,12 @@ namespace BusinessControl
 
 
         }
+
+        /// <summary>
+        /// Get Users
+        /// </summary>
+        /// <param name="UserName"></param>
+        /// <returns></returns>
         public static BeUser Get(string UserName)
         {
             try

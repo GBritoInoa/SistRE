@@ -37,7 +37,7 @@ namespace BeEntity
         public int BrigadaID { get; set; }
         public string Brigada { get; set; }
         public int RangoID { get; set; }
-        public string Rango { get; set; }
+        //public string Rango { get; set; }
         [DisplayName("Perfil")]
         public int PerfilID { get; set; }
         [DisplayName("Perfil")]

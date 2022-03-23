@@ -378,5 +378,37 @@ namespace BusinessControl
                 throw new Exception(ex.Message);
             }
         }
+
+
+
+        /// <summary>
+        /// GetEnfermedades
+        /// </summary>
+        /// <returns></returns>
+        public static List<BeEnfermedades> GetBeEnfermedades()
+        {
+            try
+            {
+                return _dalc.GetEnfermedades();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<BeHospitales> GetBeHospitales()
+        {
+            try
+            {
+                return _dalc.GetBeHospitales();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
