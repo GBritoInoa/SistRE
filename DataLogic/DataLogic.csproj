@@ -108,6 +108,7 @@
     <Compile Include="DalcNovedadIncautacion.cs" />
     <Compile Include="DalcNovedadPerdidaDocumento.cs" />
     <Compile Include="DalcNovedadProtesta.cs" />
+    <Compile Include="DalcNovedadRecorridos.cs" />
     <Compile Include="DalcNovedadRepatriacion.cs" />
     <Compile Include="DalcPais.cs" />
     <Compile Include="DalcProductos.cs" />
@@ -230,6 +231,9 @@
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="NovedadProtesta.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NovedadRecorridos.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="NovedadRepatriaciones.cs">

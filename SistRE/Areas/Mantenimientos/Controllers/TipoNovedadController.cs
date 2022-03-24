@@ -16,7 +16,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
 
-                var tiponovedad = BcTipoNovedad.GetAll().ToList();
+                var tiponovedad = BcTipoNovedad.GetAll().OrderBy(o=> o.Nombre).ToList();
                 return View(tiponovedad);
             }
             catch (Exception ex)

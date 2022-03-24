@@ -34,6 +34,8 @@ namespace BusinessControl
         }
 
 
+
+
         /// <summary>
         /// Get Member Militar
         /// </summary>
@@ -44,6 +46,27 @@ namespace BusinessControl
             try
             {
                 return _dalc.GetMemberERD(user);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// Get Perfiles
+        /// </summary>
+        /// <returns></returns>
+        public static List<BePerfil> GetPerfiles()
+        {
+
+            try
+            {
+                return _dalc.GetPerfiles().ToList();
             }
             catch (Exception ex)
             {

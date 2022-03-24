@@ -191,12 +191,13 @@
     <Compile Include="Areas\Procesos\Controllers\NovedadContrabandoController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Areas\Procesos\Controllers\NovedadHospitalizacionsController.cs" />
+    <Compile Include="Areas\Procesos\Controllers\NovedadHospitalizacionController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadIncautacionController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Areas\Procesos\Controllers\NovedadPerdidaDocumentoController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadProtestaController.cs" />
+    <Compile Include="Areas\Procesos\Controllers\NovedadRecorridosController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadRepatriacionController.cs" />
     <Compile Include="Areas\Procesos\ProcesosAreaRegistration.cs" />
     <Compile Include="Areas\Reportes\Controllers\ReportsController.cs" />
@@ -997,7 +998,8 @@
     <Content Include="Areas\Mantenimientos\Views\Hospitales\Index.cshtml" />
     <Content Include="Areas\Procesos\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Procesos\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Procesos\Views\NovedadHospitalizacions\Create.cshtml" />
+    <Content Include="Areas\Procesos\Views\NovedadHospitalizacion\Create.cshtml" />
+    <Content Include="Areas\Procesos\Views\NovedadRecorridos\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

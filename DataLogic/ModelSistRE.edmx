@@ -135,7 +135,6 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="EstatusID" Type="int" Nullable="false" />
           <Property Name="AuditoriaID" Type="int" Nullable="false" />
-          <Property Name="CausaHospitalizacionID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Entrega">
           <Key>
@@ -292,10 +291,8 @@
           <Property Name="NacionalidadID" Type="int" Nullable="false" />
           <Property Name="TipoNovedadID" Type="int" Nullable="false" />
           <Property Name="ProvinciaID" Type="int" Nullable="false" />
-          <Property Name="FechaInicio" Type="date" Nullable="false" />
-          <Property Name="FechaTermino" Type="date" Nullable="false" />
-          <Property Name="HoraInicio" Type="time" Precision="7" Nullable="false" />
-          <Property Name="HoraTermino" Type="time" Precision="7" Nullable="false" />
+          <Property Name="FechaNovedad" Type="date" Nullable="false" />
+          <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
           <Property Name="AuditoriaID" Type="int" Nullable="false" />
           <Property Name="SexoID" Type="int" Nullable="false" />
           <Property Name="EstatusID" Type="int" Nullable="false" />
@@ -358,6 +355,24 @@
           <Property Name="InstitucionProtestanteID" Type="int" Nullable="false" />
           <Property Name="CategoriaProtestaID" Type="int" Nullable="false" />
           <Property Name="Causa" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NovedadRecorridos">
+          <Key>
+            <PropertyRef Name="NovedadRecorridoID" />
+          </Key>
+          <Property Name="NovedadRecorridoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+          <Property Name="ProvinciaID" Type="int" Nullable="false" />
+          <Property Name="FechaNovedad" Type="date" Nullable="false" />
+          <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+          <Property Name="AuditoriaID" Type="int" Nullable="false" />
+          <Property Name="EstatusID" Type="int" Nullable="false" />
+          <Property Name="Rango1ID" Type="int" Nullable="false" />
+          <Property Name="Rango2ID" Type="int" Nullable="false" />
+          <Property Name="SexoID" Type="int" Nullable="false" />
+          <Property Name="Causa" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="BrigadaID" Type="int" Nullable="false" />
+          <Property Name="CompaniaID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="NovedadRepatriaciones">
           <Key>
@@ -1091,6 +1106,7 @@
           <EntitySet Name="NovedadIncautacion" EntityType="Self.NovedadIncautacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NovedadPerdidaDocumento" EntityType="Self.NovedadPerdidaDocumento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NovedadProtesta" EntityType="Self.NovedadProtesta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NovedadRecorridos" EntityType="Self.NovedadRecorridos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NovedadRepatriaciones" EntityType="Self.NovedadRepatriaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pantallas" EntityType="Self.Pantallas" Schema="dbo" store:Type="Tables" />
@@ -1462,9 +1478,10 @@
           <EntitySet Name="Users" EntityType="DB_SistREModel.Users" />
           <EntitySet Name="Accidentes" EntityType="DB_SistREModel.Accidentes" />
           <EntitySet Name="Diagnostico" EntityType="DB_SistREModel.Diagnostico" />
-          <EntitySet Name="Enfermedades" EntityType="DB_SistREModel.Enfermedades" />
           <EntitySet Name="Hospitales" EntityType="DB_SistREModel.Hospitales" />
+          <EntitySet Name="Enfermedades" EntityType="DB_SistREModel.Enfermedades" />
           <EntitySet Name="NovedadHospitalizacion" EntityType="DB_SistREModel.NovedadHospitalizacion" />
+          <EntitySet Name="NovedadRecorridos" EntityType="DB_SistREModel.NovedadRecorridos" />
           </EntityContainer>
         <EntityType Name="Auditoria">
           <Key>
@@ -2507,21 +2524,20 @@
           <Property Name="EstatusID" Type="Int32" Nullable="false" />
           <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="Enfermedades">
-          <Key>
-            <PropertyRef Name="EnfermedadesID" />
-          </Key>
-          <Property Name="EnfermedadesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="EstatusID" Type="Int32" Nullable="false" />
-          <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
-          <Property Name="CausaHospitalizacionID" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Hospitales">
           <Key>
             <PropertyRef Name="HospitalID" />
           </Key>
           <Property Name="HospitalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EstatusID" Type="Int32" Nullable="false" />
+          <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Enfermedades">
+          <Key>
+            <PropertyRef Name="EnfermedadesID" />
+          </Key>
+          <Property Name="EnfermedadesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="EstatusID" Type="Int32" Nullable="false" />
           <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
@@ -2535,10 +2551,8 @@
           <Property Name="NacionalidadID" Type="Int32" Nullable="false" />
           <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
           <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
-          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FechaTermino" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="HoraTermino" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
           <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
           <Property Name="SexoID" Type="Int32" Nullable="false" />
           <Property Name="EstatusID" Type="Int32" Nullable="false" />
@@ -2550,6 +2564,24 @@
           <Property Name="EnfermedadesID" Type="Int32" Nullable="false" />
           <Property Name="DisgnosticoID" Type="Int32" Nullable="false" />
           <Property Name="HospitalID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NovedadRecorridos">
+          <Key>
+            <PropertyRef Name="NovedadRecorridoID" />
+          </Key>
+          <Property Name="NovedadRecorridoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+          <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+          <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+          <Property Name="EstatusID" Type="Int32" Nullable="false" />
+          <Property Name="Rango1ID" Type="Int32" Nullable="false" />
+          <Property Name="Rango2ID" Type="Int32" Nullable="false" />
+          <Property Name="SexoID" Type="Int32" Nullable="false" />
+          <Property Name="Causa" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+          <Property Name="CompaniaID" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3227,17 +3259,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Enfermedades">
-            <EntityTypeMapping TypeName="DB_SistREModel.Enfermedades">
-              <MappingFragment StoreEntitySet="Enfermedades">
-                <ScalarProperty Name="CausaHospitalizacionID" ColumnName="CausaHospitalizacionID" />
-                <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
-                <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="EnfermedadesID" ColumnName="EnfermedadesID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Hospitales">
             <EntityTypeMapping TypeName="DB_SistREModel.Hospitales">
               <MappingFragment StoreEntitySet="Hospitales">
@@ -3245,6 +3266,16 @@
                 <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enfermedades">
+            <EntityTypeMapping TypeName="DB_SistREModel.Enfermedades">
+              <MappingFragment StoreEntitySet="Enfermedades">
+                <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+                <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="EnfermedadesID" ColumnName="EnfermedadesID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3262,15 +3293,32 @@
                 <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
                 <ScalarProperty Name="SexoID" ColumnName="SexoID" />
                 <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
-                <ScalarProperty Name="HoraTermino" ColumnName="HoraTermino" />
-                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
-                <ScalarProperty Name="FechaTermino" ColumnName="FechaTermino" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+                <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
                 <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
                 <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
                 <ScalarProperty Name="NacionalidadID" ColumnName="NacionalidadID" />
                 <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
                 <ScalarProperty Name="NovedadHospitalizacionID" ColumnName="NovedadHospitalizacionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NovedadRecorridos">
+            <EntityTypeMapping TypeName="DB_SistREModel.NovedadRecorridos">
+              <MappingFragment StoreEntitySet="NovedadRecorridos">
+                <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+                <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+                <ScalarProperty Name="Causa" ColumnName="Causa" />
+                <ScalarProperty Name="SexoID" ColumnName="SexoID" />
+                <ScalarProperty Name="Rango2ID" ColumnName="Rango2ID" />
+                <ScalarProperty Name="Rango1ID" ColumnName="Rango1ID" />
+                <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+                <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+                <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+                <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+                <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+                <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+                <ScalarProperty Name="NovedadRecorridoID" ColumnName="NovedadRecorridoID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

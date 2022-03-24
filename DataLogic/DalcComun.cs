@@ -11,6 +11,38 @@ namespace DataLogic
     {
 
 
+
+        /// <summary>
+        /// Dalc Perfil
+        /// </summary>
+        /// <returns></returns>
+        public List<BePerfil> GetPerfiles()
+        {
+            List<BePerfil> data = new List<BePerfil>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from s in db.Perfil
+                                 
+                                  select new BePerfil()
+                                  {
+                                      PerfilID = s.PerfilID,
+                                      Nombre = s.Nombre
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+
         /// <summary>
         /// Dalc Sexo
         /// </summary>
@@ -55,6 +87,8 @@ namespace DataLogic
                     data.AddRange(from m in dbERD.Miembros
                                   join i in dbERD.Instituciones on m.InstitucionID equals i.InstitucionID
                                   join r in dbERD.Rangos on m.RangoID equals r.RangoID
+                                  join c in dbERD.Companias on m.CompaniaID equals c.CompaniaID
+                                  
                                    where m.numero_carnet == user
 
                                   select new BeMilitar()
@@ -65,6 +99,8 @@ namespace DataLogic
                                      InstitucionID = i.InstitucionID,
                                      Institucion = i.nombre,
                                      NumCarnet = m.numero_carnet,
+                                     Compania = c.nombre,
+                                     CompaniaID = c.CompaniaID
 
 
 

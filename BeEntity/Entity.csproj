@@ -61,6 +61,7 @@
     <Compile Include="BeNovedadIncautacion.cs" />
     <Compile Include="BeNovedadPerdidaDocumento.cs" />
     <Compile Include="BeNovedadProtesta.cs" />
+    <Compile Include="BeNovedadRecorridos.cs" />
     <Compile Include="BeNovedadRepatriacion.cs" />
     <Compile Include="BePais.cs" />
     <Compile Include="BePerfil.cs" />

@@ -44,5 +44,7 @@ namespace BeEntity
         public string Perfil { get; set; }
         [DisplayName("Carnet")]
         public int NumCarnet { get; set; }
+        public int CompaniaID { get; set; }
+        public string Compania { get; set; }
     }
 }

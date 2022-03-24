@@ -18,6 +18,5 @@ namespace DataLogic
         public string Nombre { get; set; }
         public int EstatusID { get; set; }
         public int AuditoriaID { get; set; }
-        public int CausaHospitalizacionID { get; set; }
     }
 }

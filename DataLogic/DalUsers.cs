@@ -19,9 +19,9 @@ namespace DataLogic
         public static string MachineName { get; }
 
 
-
+        
         /// <summary>
-        /// Get Users
+        /// Get Users Creado
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>

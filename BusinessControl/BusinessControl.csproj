@@ -56,6 +56,7 @@
     <Compile Include="BcNovedadHospitalizacion.cs" />
     <Compile Include="BcNovedadProtesta.cs" />
     <Compile Include="BcNovedadPerdidaDocumento.cs" />
+    <Compile Include="BcNovedadRecorridos.cs" />
     <Compile Include="BcNovedadRepatriacion.cs" />
     <Compile Include="BcPais.cs" />
     <Compile Include="BcProductos.cs" />

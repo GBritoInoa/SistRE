@@ -671,17 +671,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Enfermedades">
-      <EntityTypeMapping TypeName="DB_SistREModel.Enfermedades">
-        <MappingFragment StoreEntitySet="Enfermedades">
-          <ScalarProperty Name="CausaHospitalizacionID" ColumnName="CausaHospitalizacionID" />
-          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
-          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="EnfermedadesID" ColumnName="EnfermedadesID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Hospitales">
       <EntityTypeMapping TypeName="DB_SistREModel.Hospitales">
         <MappingFragment StoreEntitySet="Hospitales">
@@ -689,6 +678,16 @@
           <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enfermedades">
+      <EntityTypeMapping TypeName="DB_SistREModel.Enfermedades">
+        <MappingFragment StoreEntitySet="Enfermedades">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EnfermedadesID" ColumnName="EnfermedadesID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -706,15 +705,32 @@
           <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
           <ScalarProperty Name="SexoID" ColumnName="SexoID" />
           <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
-          <ScalarProperty Name="HoraTermino" ColumnName="HoraTermino" />
-          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
-          <ScalarProperty Name="FechaTermino" ColumnName="FechaTermino" />
-          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
           <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
           <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
           <ScalarProperty Name="NacionalidadID" ColumnName="NacionalidadID" />
           <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
           <ScalarProperty Name="NovedadHospitalizacionID" ColumnName="NovedadHospitalizacionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NovedadRecorridos">
+      <EntityTypeMapping TypeName="DB_SistREModel.NovedadRecorridos">
+        <MappingFragment StoreEntitySet="NovedadRecorridos">
+          <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="SexoID" ColumnName="SexoID" />
+          <ScalarProperty Name="Rango2ID" ColumnName="Rango2ID" />
+          <ScalarProperty Name="Rango1ID" ColumnName="Rango1ID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="NovedadRecorridoID" ColumnName="NovedadRecorridoID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

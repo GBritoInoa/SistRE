@@ -84,9 +84,10 @@ namespace DataLogic
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Accidentes> Accidentes { get; set; }
         public virtual DbSet<Diagnostico> Diagnostico { get; set; }
-        public virtual DbSet<Enfermedades> Enfermedades { get; set; }
         public virtual DbSet<Hospitales> Hospitales { get; set; }
+        public virtual DbSet<Enfermedades> Enfermedades { get; set; }
         public virtual DbSet<NovedadHospitalizacion> NovedadHospitalizacion { get; set; }
+        public virtual DbSet<NovedadRecorridos> NovedadRecorridos { get; set; }
     
         public virtual int usp_CreateTipoNovedad(Nullable<int> tipoNovedadID, string nombre, Nullable<int> estatusID, Nullable<int> auditoriaID, string usuarioCreo, Nullable<System.DateTime> fechaCreo, ObjectParameter codigo_estado, ObjectParameter mensaje_estado)
         {

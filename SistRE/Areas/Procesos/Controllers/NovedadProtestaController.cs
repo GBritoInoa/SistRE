@@ -77,6 +77,8 @@ namespace SistRE.Areas.Procesos.Controllers
 
         }
 
+     
+
         /// <summary>
         /// Get Categoria Protesta
         /// </summary>

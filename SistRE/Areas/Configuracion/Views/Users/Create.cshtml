@@ -41,9 +41,9 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.NumCarnet, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.TextBoxFor(model => model.NumCarnet, htmlAttributes: new {  @class = "form-control", @style = "background-position: center center",
-                            placeholder = "Digite el no. de documento sin guiones", required = "required", maxlength = "8" , onblur = "consultaMiembro(this)"})
+                            placeholder = "Digite el no. de Carnet Militar sin guiones", required = "required", maxlength = "8" , onblur = "consultaMiembro(this)"})
                         @Html.ValidationMessageFor(model => model.NumCarnet)
                     </div>
                 </div>
@@ -51,7 +51,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.NombreCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.TextBoxFor(model => model.NombreCompleto, htmlAttributes: new { @readonly = true, @class = "form-control", @style = "background-position: center center", placeholder = "Nombre Completo" })
                         @Html.ValidationMessageFor(model => model.NombreCompleto)
 
@@ -60,12 +60,41 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Rango, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.Rango, htmlAttributes: new { @readonly = true, @class = "form-control", @style = "background-position: center center", placeholder = "Nombre Completo" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.Rango, htmlAttributes: new { @readonly = true, @class = "form-control", @style = "background-position: center center", placeholder = "Apellidos, Nombre Miembro ERD" })
                         @Html.ValidationMessageFor(model => model.Rango)
 
                     </div>
                 </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Compania, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.Compania, htmlAttributes: new { @readonly = true, @class = "form-control", @style = "background-position: center center", placeholder = "Compañía a la cual pertenece" })
+                        @Html.ValidationMessageFor(model => model.Compania)
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <label>Perfil Usuario</label><label class="bg-label">*</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("PerfilID", null, "---Seleccione Perfil---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PerfilID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EstatusID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("EstatusID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EstatusID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
 
             </div>
         }
@@ -84,6 +113,7 @@
             useAjax('@Url.Action("ValidaCarnet", "Users")', '{carnet:"' + inpt.value + '"}', function (data) {
                 $("#NombreCompleto").val(data.Miembro);
                 $("#Rango").val(data.Rango);
+                $("#Compania").val(data.Compania);
                 $("#Institucion").val(data.Institucion);
             });
     }

@@ -16,7 +16,7 @@ namespace SistRE.Areas.Configuracion.Controllers
         {
             try
             {
-                var users = BcUsers.GetAll().ToList();
+                var users = BcUsers.GetAll().OrderBy(u=> u.NombreCompleto).ToList();
                 return View(users);
             }
             catch (Exception ex)
@@ -28,16 +28,52 @@ namespace SistRE.Areas.Configuracion.Controllers
         }
 
 
+        private void Perfil()
+        {
+
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
+
         /// <summary>
         /// Trae los datos Miembro ERD
         /// </summary>
         public JsonResult ValidaCarnet(int carnet)
         {
+
+            if (carnet.Equals(false))
+            {
+                TempData["error"] = "Debe introducir numero de Carnet !";
+            }
+
+          
+
             try
             {
 
                 var miembro = BcComun.GetMemberERD(carnet);
-                return Json(miembro);
+
+                if(miembro == null)
+                {
+                    TempData["error"] = "No se encontro Miembro ERD con este numero de Carnet !";
+                    
+
+                }
+              
+                    return Json(miembro);
+              
+               
             }
             catch (Exception ex)
             {
@@ -48,82 +84,49 @@ namespace SistRE.Areas.Configuracion.Controllers
         }
 
 
+        /// <summary>
+        /// Get Type Novedad
+        /// </summary>
+        private void GetPerfiles()
+        {
 
-        ///// <summary>
-        ///// Trae los datos Miembro ERD
-        ///// </summary>
-        //public  JsonResult ValidaCarnet(int carnet)
-        //{
-        //    try
-        //    {
+            try
+            {
+                List<BePerfil> Perfiles = BcComun.GetPerfiles().ToList();
+                ViewBag.PerfilID = new SelectList(Perfiles.OrderBy(c => c.Nombre), "PerfilID", "Nombre");
+            }
+            catch (Exception ex)
+            {
 
-        //        string Rango = string.Empty;
-        //        string NombreCompleto = string.Empty;
-        //        ValidaRango(carnet);
-        //        var miembro = BcComun.GetMemberERD(carnet);
-
-        //        return Json(miembro, JsonRequestBehavior.AllowGet);
+                ModelState.AddModelError(ex.Message, "Error al obtener Tipo Novedad");
+                throw new Exception(ex.Message);
+            }
 
 
 
-        //    }
-        //    catch (Exception ex)
-        //    {
+        }
 
-        //        ModelState.AddModelError(ex.Message, "Error");
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
+
 
         /// <summary>
-        /// Trae los datos Miembro ERD
+        /// All Estatus
         /// </summary>
-        //public string ValidaCarnet(int carnet)
-        //{
-        //    try
-        //    {
+        public void GetEstatus()
+        {
 
-        //        string Rango = string.Empty;
-        //        string NombreCompleto = string.Empty;
-        //        ValidaRango(carnet);
-        //        var miembro = BcComun.GetMemberERD(carnet);
-
-        //        return miembro.Miembro;
-
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        ModelState.AddModelError(ex.Message, "Error");
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
+            try
+            {
+                var Estados = BcEstatus.GetAll().ToList();
+                ViewBag.EstatusID = new SelectList(Estados, "EstatusID", "Nombre");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
 
 
-        ///// <summary>
-        ///// Trae los datos Miembro ERD
-        ///// </summary>
-        //public string ValidaRango(int carnet)
-        //{
-        //    try
-        //    {
-        //        var miembro = BcComun.GetMemberERD(carnet);
-
-        //        return miembro.Miembro;
-
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        ModelState.AddModelError(ex.Message, "Error");
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
-
+        }
 
 
         /// <summary>
@@ -135,6 +138,8 @@ namespace SistRE.Areas.Configuracion.Controllers
         {
             try
             {
+                GetEstatus();
+                GetPerfiles();
                 return View();
             }
             catch (Exception ex)
@@ -148,6 +153,8 @@ namespace SistRE.Areas.Configuracion.Controllers
         }
 
 
+   
+
         /// <summary>
         /// Create User
         /// </summary>
@@ -159,7 +166,8 @@ namespace SistRE.Areas.Configuracion.Controllers
         {
             try
             {
-
+                GetEstatus();
+                GetPerfiles();
                 return View(model);
             }
             catch (Exception ex)

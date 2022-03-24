@@ -20,7 +20,7 @@ namespace BeEntity
         public Nullable<int> NumCarnet { get; set; }
         public string Miembro { get; set; }
         [DisplayName("Compañía")]
-        public int Compania { get; set; }
+        public string Compania { get; set; }
 
         [DisplayName("Rango Id")]
         public int RangoID { get; set; }
