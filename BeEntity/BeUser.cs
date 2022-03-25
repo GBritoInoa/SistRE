@@ -34,17 +34,25 @@ namespace BeEntity
         [DisplayName("Cambio Clave")]
         public bool CambioClave { get; set; }
         public int AuditoriaID { get; set; }
-        public int BrigadaID { get; set; }
+        public Nullable<int> BrigadaID { get; set; }
         public string Brigada { get; set; }
-        public int RangoID { get; set; }
+        public Nullable<int> RangoID { get; set; }
         //public string Rango { get; set; }
         [DisplayName("Perfil")]
         public int PerfilID { get; set; }
         [DisplayName("Perfil")]
         public string Perfil { get; set; }
         [DisplayName("Carnet")]
-        public int NumCarnet { get; set; }
+        public string NumCarnet { get; set; }
         public int CompaniaID { get; set; }
         public string Compania { get; set; }
+        [DisplayName("Usuario Creó")]
+        public string UsuarioCreo { get; set; }
+        [DisplayName("Fecha Creó")]
+        public Nullable<System.DateTime> FechaCreo { get; set; }
+        [DisplayName("Usuario Actualizó")]
+        public string UsuarioActualizo { get; set; }
+        [DisplayName("Fecha Actualizo")]
+        public Nullable<System.DateTime> FechaActualizo { get; set; }
     }
 }

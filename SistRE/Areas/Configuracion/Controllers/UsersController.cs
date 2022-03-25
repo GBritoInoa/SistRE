@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using BeEntity;
 using BusinessControl;
+using SistRE.AccesControl;
+using SistRE.Comun;
 
 namespace SistRE.Areas.Configuracion.Controllers
 {
@@ -49,29 +51,24 @@ namespace SistRE.Areas.Configuracion.Controllers
         /// <summary>
         /// Trae los datos Miembro ERD
         /// </summary>
-        public JsonResult ValidaCarnet(int carnet)
+        public JsonResult ValidaCarnet(int? carnet)
         {
 
-            if (carnet.Equals(false))
-            {
-                TempData["error"] = "Debe introducir numero de Carnet !";
-            }
-
-          
-
-            try
+        try
             {
 
                 var miembro = BcComun.GetMemberERD(carnet);
 
-                if(miembro == null)
-                {
-                    TempData["error"] = "No se encontro Miembro ERD con este numero de Carnet !";
-                    
+                //if(miembro == null)
+                //{
+                //    //RedirectToAction("Create");
+                //    //TempData["error"] = "No se encontro Miembro ERD con este numero de Carnet !";
+                //    //RedirectToAction("Create");
 
-                }
-              
-                    return Json(miembro);
+                //}
+
+                              
+                    return Json(miembro??null);
               
                
             }
@@ -81,6 +78,7 @@ namespace SistRE.Areas.Configuracion.Controllers
                 ModelState.AddModelError(ex.Message, "Error");
                 throw new Exception(ex.Message);
             }
+
         }
 
 
@@ -153,8 +151,6 @@ namespace SistRE.Areas.Configuracion.Controllers
         }
 
 
-   
-
         /// <summary>
         /// Create User
         /// </summary>
@@ -164,11 +160,24 @@ namespace SistRE.Areas.Configuracion.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BeUser model)
         {
-            try
+
+
+            if(!ModelState.IsValid)
             {
                 GetEstatus();
                 GetPerfiles();
                 return View(model);
+
+            }
+
+
+            try
+            {
+
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcUsers.Create(model);
+                TempData["success"] = "Tipo Ausencia creada Satisfactoriamente!";
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
@@ -176,8 +185,6 @@ namespace SistRE.Areas.Configuracion.Controllers
                 ModelState.AddModelError(ex.Message, "Error al CREAR Usuario");
                 throw new Exception(ex.Message);
             }
-
-
 
         }
     }

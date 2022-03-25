@@ -77,7 +77,7 @@ namespace DataLogic
         /// Get Mienbro ERD
         /// </summary>
         /// <returns></returns>
-        public BeMilitar GetMemberERD(int user)
+        public BeMilitar GetMemberERD(int? user)
         {
             var data = new List<BeMilitar>();
             try
@@ -94,6 +94,8 @@ namespace DataLogic
                                   select new BeMilitar()
                                   {
                                      Miembro  = m.Apellidos + "," + m.Nombres,
+                                     Apellidos = m.Apellidos,
+                                     Nombres = m.Nombres,                                     
                                      Rango = r.nombre,
                                      RangoID = m.RangoID,
                                      InstitucionID = i.InstitucionID,

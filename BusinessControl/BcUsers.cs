@@ -84,30 +84,30 @@ namespace BusinessControl
         //}
 
         /// <summary>
-        /// Create Tipo Novedad
+        /// Create User
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        //public static bool Create(BeUser item)
-        //{
-        //    try
-        //    {
-        //        return _dalc.Create(item);
+        public static bool Create(BeUser item)
+        {
+            try
+            {
+                return _dalc.Create(item);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
+            }
+            catch (Exception ex)
+            {
 
-        //        throw new Exception(ex.Message);
-        //    }
+                throw new Exception(ex.Message);
+            }
 
-        //}
+        }
 
-        ///// <summary>
-        ///// Edit Tipo Novedad
-        ///// </summary>
-        ///// <param name="item"></param>
-        ///// <returns></returns>
+        /// <summary>
+        /// Edit User
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         //public static bool Edit(BeUser item)
 
         //{

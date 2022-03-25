@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
-   
+
 
 }
 
@@ -31,23 +31,20 @@
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                @*<div class="form-group">
-            @Html.LabelFor(model => model.TipoNovedadID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10" style="visibility:hidden">
-                @Html.DropDownList("TipoNovedadID", null, null, new { @class = "form-control", name = "TipoNovedadID", id = "TipoNovedadID" })
-                @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-                <div class="form-group">
+                            <div class="form-group">
                     @Html.LabelFor(model => model.NumCarnet, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-6">
-                        @Html.TextBoxFor(model => model.NumCarnet, htmlAttributes: new {  @class = "form-control", @style = "background-position: center center",
+                        @Html.TextBoxFor(model => model.NumCarnet, htmlAttributes: new {  @class = "form-control",  @style = "background-position: center center",
                             placeholder = "Digite el no. de Carnet Militar sin guiones", required = "required", maxlength = "8" , onblur = "consultaMiembro(this)"})
                         @Html.ValidationMessageFor(model => model.NumCarnet)
                     </div>
                 </div>
-                <h3> @ViewBag.Rango </h3>
+                @Html.HiddenFor(model => model.RangoID)
+                @Html.HiddenFor(model => model.Apellidos)
+                @Html.HiddenFor(model => model.Nombres)
+                @Html.HiddenFor(model => model.CompaniaID)
+                @Html.HiddenFor(model => model.BrigadaID)
+                @Html.HiddenFor(model => model.InstitucionID)
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.NombreCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -95,6 +92,13 @@
 
 
 
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="CambioClave" id="CambioClave" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        <strong>Cambio Clave</strong>
+                    </label>
+                </div>
+
 
             </div>
         }
@@ -108,13 +112,22 @@
 
 }
 
+
 <script>
-    function consultaMiembro(inpt) {
+
+
+        function consultaMiembro(inpt) {
             useAjax('@Url.Action("ValidaCarnet", "Users")', '{carnet:"' + inpt.value + '"}', function (data) {
                 $("#NombreCompleto").val(data.Miembro);
                 $("#Rango").val(data.Rango);
+                $("#RangoID").val(data.RangoID);
                 $("#Compania").val(data.Compania);
                 $("#Institucion").val(data.Institucion);
+                $("#InstitucionID").val(data.InstitucionID);
+                $("#Apellidos").val(data.Apellidos);
+                $("#Nombres").val(data.Nombres);
+                $("#BrigadaID").val(data.BrigadaID);
+
             });
     }
 

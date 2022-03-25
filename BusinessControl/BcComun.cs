@@ -41,7 +41,7 @@ namespace BusinessControl
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public static  BeMilitar GetMemberERD(int user)
+        public static  BeMilitar GetMemberERD(int? user)
         {
             try
             {
