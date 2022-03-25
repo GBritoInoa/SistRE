@@ -102,7 +102,9 @@ namespace DataLogic
                                      Institucion = i.nombre,
                                      NumCarnet = m.numero_carnet,
                                      Compania = c.nombre,
-                                     CompaniaID = c.CompaniaID
+                                     CompaniaID = c.CompaniaID,
+                                     BrigadaID = c.CompaniaID
+                                    
 
 
 

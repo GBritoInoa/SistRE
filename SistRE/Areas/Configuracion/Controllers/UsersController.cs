@@ -161,8 +161,29 @@ namespace SistRE.Areas.Configuracion.Controllers
         public ActionResult Create(BeUser model)
         {
 
+            //model.CambioClave = true;
+            //model.CompaniaID = 116;
+            //model.EstatusID = 1;
+            //model.Email = "pruebaemail@gmail.com";
+            //model.Password = "prueba";
+            //model.Salt = "prueba";
+            //model.ApellidosNombre = model.Apellidos + " " + model.Nombres;
+            //model.UserId = 10;
+            //model.ID = 11;
+            //model.AuditoriaID = 1;
+            //model.Institucion = "prueba";
+            //model.Rango = "prueba";
+            //model.FechaActualizo = DateTime.Now;
+            //model.UsuarioActualizo = "prueba";
+            //model.UsuarioCreo = "prueba";
+            //model.FechaCreo = DateTime.Now;
+            //model.Brigada = "prueba";
+            //model.Perfil = "prueba";
+            //model.UserName = "prueba";
+            //model.UserLogueado = "prueba";
+                 
 
-            if(!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 GetEstatus();
                 GetPerfiles();
@@ -173,7 +194,8 @@ namespace SistRE.Areas.Configuracion.Controllers
 
             try
             {
-
+                model.Salt = BcCriptografia.ComputeSha256Hash($"{model.NumCarnet}");
+                model.Password = BcCriptografia.ComputeSha256Hash($"{model.NumCarnet}");
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcUsers.Create(model);
                 TempData["success"] = "Tipo Ausencia creada Satisfactoriamente!";

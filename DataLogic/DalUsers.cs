@@ -50,14 +50,15 @@ namespace DataLogic
                                   select new BeUser()
 
                                   {
-                                      UserId = u.UserId,
                                       ID = u.UserId,
+                                      UserId = u.UserId,
                                       Nombres = u.Nombre,                                      
                                       UserName = u.UserName,
                                       NombreCompleto = u.Apellidos + "," + u.Nombre,
                                       Institucion = i.nombre,
                                       InstitucionID = u.InstitucionID,
                                       BrigadaID = u.BrigadaID,
+                                      CompaniaID = b.UnidadID,
                                       Rango = r.nombre,
                                       RangoID = r.RangoID,                                 
                                       Brigada = b.nombre,
@@ -121,6 +122,7 @@ namespace DataLogic
 
                     ////Create User
                     var u = new Users();
+                    u.UserName = item.UserName;
                     u.Nombre = item.Nombres;
                     u.Apellidos = item.Apellidos;
                     u.RangoID = item.RangoID;
@@ -128,6 +130,8 @@ namespace DataLogic
                     u.PerfilID = item.PerfilID;
                     u.CambioClave = item.CambioClave;
                     u.BrigadaID = item.BrigadaID;
+                    u.Password = item.Password;
+                    u.Salt = item.Salt;
                     u.EstatusID = (int)item.EstatusID;
                     u.AuditoriaID = Convert.ToInt32(db.usp_maxCodAuditoria().FirstOrDefault());
                     db.Users.Add(u);
