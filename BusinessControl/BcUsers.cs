@@ -62,26 +62,26 @@ namespace BusinessControl
 
         }
 
-        ///// <summary>
-        ///// Find Tipo Novedad
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public static BeUser Find(int? id)
-        //{
-        //    try
-        //    {
-        //        return _dalc.Find(id);
+        /// <summary>
+        /// Find User
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static BeUser Find(int? id)
+        {
+            try
+            {
+                return _dalc.Find(id);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
+            }
+            catch (Exception ex)
+            {
 
-        //        throw new Exception(ex.Message);
-        //    }
+                throw new Exception(ex.Message);
+            }
 
 
-        //}
+        }
 
         /// <summary>
         /// Create User
@@ -103,27 +103,30 @@ namespace BusinessControl
 
         }
 
+   
+
+
         /// <summary>
         /// Edit User
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        //public static bool Edit(BeUser item)
+        public static bool Edit(BeUser item)
 
-        //{
-        //    try
-        //    {
+        {
+            try
+            {
 
-        //        return _dalc.Edit(item);
-        //    }
-        //    catch (Exception ex)
-        //    {
+                return _dalc.Edit(item);
+            }
+            catch (Exception ex)
+            {
 
-        //        throw new Exception(ex.Message);
-        //    }
+                throw new Exception(ex.Message);
+            }
 
 
-        //}
+        }
 
 
 

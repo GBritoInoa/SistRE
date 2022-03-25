@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -11,6 +12,8 @@ using SistRE.Comun;
 
 namespace SistRE.Areas.Configuracion.Controllers
 {
+
+   
     public class UsersController : Controller
     {
         // GET: Configuracion/Users
@@ -30,22 +33,6 @@ namespace SistRE.Areas.Configuracion.Controllers
         }
 
 
-        private void Perfil()
-        {
-
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
-
-        }
 
 
         /// <summary>
@@ -198,7 +185,7 @@ namespace SistRE.Areas.Configuracion.Controllers
                 model.Password = BcCriptografia.ComputeSha256Hash($"{model.NumCarnet}");
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcUsers.Create(model);
-                TempData["success"] = "Tipo Ausencia creada Satisfactoriamente!";
+                TempData["success"] = "Usuario CREADO Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -209,5 +196,68 @@ namespace SistRE.Areas.Configuracion.Controllers
             }
 
         }
+
+
+        // GET: Mantenimientos/Productos/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            try
+            {
+                var user = BcUsers.Find(id);
+                if (user == null)
+                {
+
+                    return HttpNotFound();
+                }
+
+                GetEstatus();
+           
+                return View(user);
+
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        // POST: Configuration/User/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(BeUser model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+  
+                GetEstatus();
+                return View(model);
+
+            }
+            try
+            {
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcUsers.Edit(model);
+                TempData["success"] = "Producto ACTUALIZADO Satisfactoriamente!!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error al EDITAR Producto");
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+
     }
 }

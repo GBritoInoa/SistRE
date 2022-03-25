@@ -92,6 +92,13 @@ namespace DataLogic
         {
             return this.GetIncluding(u => true);
         }
+
+
+        /// <summary>
+        /// Get UserName
+        /// </summary>
+        /// <param name="UserName"></param>
+        /// <returns></returns>
         public BeUser Get(string UserName)
         {
             return this.GetIncluding(u => u.UserName == UserName).FirstOrDefault();
@@ -209,6 +216,54 @@ namespace DataLogic
             {
                 throw new Exception(ex.Message);
 
+            }
+
+        }
+
+
+        /// <summary>
+        /// Edit Tipo Documento
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool Edit(BeUser item)
+        {
+
+            using (var db = new Context_SistRE())
+            using (var dbContextTransaction = db.Database.BeginTransaction())
+            {
+
+                try
+                {
+                    var a = new Auditoria();
+
+                    a.AuditoriaID = item.AuditoriaID;
+                    a.UsuarioActualizo = item.UserLogueado;
+                    a.FechaActualizo = DateTime.Now;
+                    db.Auditoria.Attach(a);
+                    db.Entry(a).Property(x => x.UsuarioActualizo).IsModified = true;
+                    db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
+                    db.SaveChanges();
+
+                    var tc = new Users();
+
+                    tc.UserId = item.ID;
+                    tc.AuditoriaID = item.AuditoriaID;
+                    tc.EstatusID = (int)item.EstatusID;
+                    tc.PerfilID = item.PerfilID;
+                    db.Users.Attach(tc);
+                    db.Entry(tc).Property(x => x.PerfilID).IsModified = true;
+                    db.Entry(tc).Property(x => x.EstatusID).IsModified = true;
+
+                    db.SaveChanges();
+                    dbContextTransaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
 
         }

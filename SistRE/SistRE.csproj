@@ -200,7 +200,6 @@
     <Compile Include="Areas\Procesos\Controllers\NovedadRecorridosController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadRepatriacionController.cs" />
     <Compile Include="Areas\Procesos\ProcesosAreaRegistration.cs" />
-    <Compile Include="Areas\Reportes\Controllers\ReportsController.cs" />
     <Compile Include="Areas\Reportes\ReportesAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Comun\EstatusRegistro.cs" />
@@ -968,7 +967,6 @@
     <Content Include="Areas\Mantenimientos\Views\TipoMedidas\Create.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\TipoMedidas\Edit.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\TipoMedidas\Details.cshtml" />
-    <Content Include="Areas\Reportes\Views\Reports\Decomisos.cshtml" />
     <Content Include="Areas\Procesos\Views\Shared\_Medidas.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadRepatriacion\Create.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadContrabando\Create.cshtml" />
@@ -1144,6 +1142,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Consultas\Controllers\" />
     <Folder Include="Areas\Consultas\Views\Shared\" />
+    <Folder Include="Areas\Reportes\Controllers\" />
+    <Folder Include="Areas\Reportes\Views\Reports\" />
     <Folder Include="Areas\Reportes\Views\Shared\" />
     <Folder Include="Images\" />
     <Folder Include="obj\Release\TempPE\" />
