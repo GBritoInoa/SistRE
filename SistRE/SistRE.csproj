@@ -998,6 +998,7 @@
     <Content Include="Areas\Procesos\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadHospitalizacion\Create.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadRecorridos\Create.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Users\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

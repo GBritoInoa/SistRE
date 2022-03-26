@@ -13,7 +13,7 @@
         <AssociationConnector Association="dbPersonalERDModel.FK_dbo_Municipios_dbo_Provincias_ProvinciaID" ManuallyRouted="false" />
         <AssociationConnector Association="dbPersonalERDModel.FK_dbo_Provincias_dbo_Regiones_RegionID" ManuallyRouted="false" />
         <EntityTypeShape EntityType="dbPersonalERDModel.Batallones" Width="1.5" PointX="3.75" PointY="3.75" />
-        <EntityTypeShape EntityType="dbPersonalERDModel.Rangos" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="dbPersonalERDModel.Rangos" PointX="8.75" PointY="12" Width="1.5" />
         <EntityTypeShape EntityType="dbPersonalERDModel.Unidades" Width="1.5" PointX="0.875" PointY="6.375" />
         <EntityTypeShape EntityType="dbPersonalERDModel.Companias" Width="1.5" PointX="8.375" PointY="3.75" />
         <EntityTypeShape EntityType="dbPersonalERDModel.Instituciones" Width="1.5" PointX="0.75" PointY="9.375" />

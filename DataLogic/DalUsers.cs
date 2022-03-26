@@ -57,7 +57,7 @@ namespace DataLogic
                                       NombreCompleto = u.Apellidos + "," + u.Nombre,
                                       Institucion = i.nombre,
                                       InstitucionID = u.InstitucionID,
-                                      BrigadaID = u.BrigadaID,
+                                      BrigadaID =  b.UnidadID,
                                       CompaniaID = b.UnidadID,
                                       Rango = r.nombre,
                                       RangoID = r.RangoID,                                 
@@ -177,9 +177,10 @@ namespace DataLogic
                                   join a in db.Auditoria
                                   on u.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus on u.EstatusID equals e.EstatusID
-                                  join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID
-                                  join b in dbERD.Unidades on u.BrigadaID equals b.UnidadID
                                   join r in dbERD.Rangos on u.RangoID equals r.RangoID
+                                  //join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID
+                                  //join b in dbERD.Unidades on u.BrigadaID equals b.UnidadID
+
 
                                   where u.UserId == id
                                   select new BeUser()
@@ -188,6 +189,7 @@ namespace DataLogic
 
                                       NumCarnet = u.UserName,
                                       Nombres = u.Nombre,
+                                      NombreCompleto = u.Apellidos + "," + u.Nombre,
                                       Apellidos = u.Apellidos,
                                       EstatusID = u.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
@@ -195,12 +197,13 @@ namespace DataLogic
                                       UsuarioActualizo = a.UsuarioActualizo,
                                       FechaActualizo = a.FechaActualizo,
                                       AuditoriaID = a.AuditoriaID,
-                                      RangoID = u.RangoID,
+                                      RangoID = r.RangoID,
                                       Rango = r.nombre,
-                                      BrigadaID = b.UnidadID,
-                                      Brigada = b.nombre,
+                                      //Rango = r.nombre,
+                                      //BrigadaID = b.UnidadID,
+                                      //Brigada = b.nombre,
                                       InstitucionID = u.InstitucionID,
-                                      Institucion = i.nombre,
+                                      //Institucion = i.nombre,
                                       
                                       
 

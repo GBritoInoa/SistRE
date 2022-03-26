@@ -50,12 +50,12 @@ namespace BeEntity
 
         public int AuditoriaID { get; set; }
         [Required(ErrorMessage = "{0} no puede estar vacio")]
-        public Nullable<int> BrigadaID { get; set; }
+        public int BrigadaID { get; set; }
 
         public string Brigada { get; set; }
 
         [Required(ErrorMessage = "{0} no puede estar vacio")]
-        public Nullable<int> RangoID { get; set; }
+        public int RangoID { get; set; }
         //public string Rango { get; set; }
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Perfil")]

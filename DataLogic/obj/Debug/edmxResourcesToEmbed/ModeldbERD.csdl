@@ -94,12 +94,12 @@
     <EntitySet Name="Instituciones" EntityType="dbPersonalERDModel.Instituciones" />
     <EntitySet Name="Miembros" EntityType="dbPersonalERDModel.Miembros" />
     <AssociationSet Name="FK_Miembros_Companias" Association="dbPersonalERDModel.FK_Miembros_Companias">
-      <End Role="Companias" EntitySet="Companias" />
-      <End Role="Miembros" EntitySet="Miembros" />
+      <End EntitySet="Companias" Role="Companias" />
+      <End EntitySet="Miembros" Role="Miembros" />
     </AssociationSet>
     <AssociationSet Name="FK_Miembros_Rangos" Association="dbPersonalERDModel.FK_Miembros_Rangos">
-      <End Role="Rangos" EntitySet="Rangos" />
-      <End Role="Miembros" EntitySet="Miembros" />
+      <End EntitySet="Rangos" Role="Rangos" />
+      <End EntitySet="Miembros" Role="Miembros" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Batallones">
@@ -115,18 +115,18 @@
     <Key>
       <PropertyRef Name="RangoID" />
     </Key>
-    <Property Name="RangoID" Type="Int32" Nullable="false" />
-    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="nivelRangoID" Type="Int32" Nullable="false" />
-    <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="codAnterior" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="Sueldo" Type="Double" Nullable="false" />
+    <Property Name="RangoID" Nullable="false" Type="Int32" />
+    <Property Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="nivelRangoID" Nullable="false" Type="Int32" />
+    <Property Name="Imagen" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="codAnterior" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Sueldo" Nullable="false" Type="Double" />
     <Property Name="CategoriaID" Type="Int32" />
-    <Property Name="nombreARD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Abreviatura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Riesgo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-    <Property Name="Cargo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-    <Property Name="Abreviatura2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="nombreARD" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Abreviatura" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Riesgo" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="Cargo" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="Abreviatura2" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
     <NavigationProperty Name="Miembros" Relationship="dbPersonalERDModel.FK_Miembros_Rangos" FromRole="Rangos" ToRole="Miembros" />
   </EntityType>
   <EntityType Name="Unidades">
@@ -256,8 +256,8 @@
     <NavigationProperty Name="Rangos" Relationship="dbPersonalERDModel.FK_Miembros_Rangos" FromRole="Miembros" ToRole="Rangos" />
   </EntityType>
   <Association Name="FK_Miembros_Companias">
-    <End Type="dbPersonalERDModel.Companias" Role="Companias" Multiplicity="1" />
-    <End Type="dbPersonalERDModel.Miembros" Role="Miembros" Multiplicity="*" />
+    <End Type="dbPersonalERDModel.Companias" Multiplicity="1" Role="Companias" />
+    <End Type="dbPersonalERDModel.Miembros" Multiplicity="*" Role="Miembros" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="CompaniaID" />
@@ -268,8 +268,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Miembros_Rangos">
-    <End Type="dbPersonalERDModel.Rangos" Role="Rangos" Multiplicity="1" />
-    <End Type="dbPersonalERDModel.Miembros" Role="Miembros" Multiplicity="*" />
+    <End Type="dbPersonalERDModel.Rangos" Multiplicity="1" Role="Rangos" />
+    <End Type="dbPersonalERDModel.Miembros" Multiplicity="*" Role="Miembros" />
     <ReferentialConstraint>
       <Principal Role="Rangos">
         <PropertyRef Name="RangoID" />
