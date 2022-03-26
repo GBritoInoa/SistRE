@@ -32,3 +32,4 @@ C:\SistRE\BeEntity\bin\Debug\BeEntity.pdb
 C:\SistRE\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 C:\SistRE\BeEntity\obj\Debug\BeEntity.dll
 C:\SistRE\BeEntity\obj\Debug\BeEntity.pdb
+C:\SistRE\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache

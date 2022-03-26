@@ -318,6 +318,24 @@
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="NovedadMuertes">
+    <Key>
+      <PropertyRef Name="NovedadMuerteID" />
+    </Key>
+    <Property Name="NovedadMuerteID" Type="int" Nullable="false" />
+    <Property Name="TipoNovedadID" Type="int" Nullable="false" />
+    <Property Name="ProvinciaID" Type="int" Nullable="false" />
+    <Property Name="FechaNovedad" Type="date" Nullable="false" />
+    <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="RangoID" Type="int" Nullable="false" />
+    <Property Name="SexoID" Type="int" Nullable="false" />
+    <Property Name="Causa" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="TipoMuerteID" Type="int" Nullable="false" />
+    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="CompaniaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <EntityType Name="NovedadPerdidaDocumento">
     <Key>
       <PropertyRef Name="NovedadPerdidaDocumentoID" />
@@ -582,6 +600,15 @@
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="Simbolo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="TipoMuertes">
+    <Key>
+      <PropertyRef Name="TipoMuerteID" />
+    </Key>
+    <Property Name="TipoMuerteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstatusID" Type="int" Nullable="false" />
+    <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="TipoNovedad">
     <Key>
       <PropertyRef Name="TipoNovedadID" />
@@ -656,15 +683,15 @@
     <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="11" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" />
-    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Salt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Salt" Type="nvarchar(max)" />
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="InstitucionID" Type="int" />
-    <Property Name="CambioClave" Type="bit" Nullable="false" />
-    <Property Name="AuditoriaID" Type="int" Nullable="false" />
-    <Property Name="BrigadaID" Type="int" Nullable="false" />
+    <Property Name="CambioClave" Type="bit" />
+    <Property Name="AuditoriaID" Type="int" />
+    <Property Name="BrigadaID" Type="int" />
     <Property Name="PerfilID" Type="int" Nullable="false" />
     <Property Name="RangoID" Type="int" />
   </EntityType>
@@ -1099,6 +1126,7 @@
     <EntitySet Name="NovedadDecomiso" EntityType="Self.NovedadDecomiso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadHospitalizacion" EntityType="Self.NovedadHospitalizacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadIncautacion" EntityType="Self.NovedadIncautacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NovedadMuertes" EntityType="Self.NovedadMuertes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadPerdidaDocumento" EntityType="Self.NovedadPerdidaDocumento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadProtesta" EntityType="Self.NovedadProtesta" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NovedadRecorridos" EntityType="Self.NovedadRecorridos" Schema="dbo" store:Type="Tables" />
@@ -1124,6 +1152,7 @@
     <EntitySet Name="TipoMedidaCombustible" EntityType="Self.TipoMedidaCombustible" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoMedidas" EntityType="Self.TipoMedidas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoMoneda" EntityType="Self.TipoMoneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMuertes" EntityType="Self.TipoMuertes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoNovedad" EntityType="Self.TipoNovedad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoPresentacionMedicamento" EntityType="Self.TipoPresentacionMedicamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" Schema="dbo" store:Type="Tables" />

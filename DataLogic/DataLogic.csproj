@@ -227,6 +227,9 @@
     <Compile Include="NovedadIncautacion.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
+    <Compile Include="NovedadMuertes.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
     <Compile Include="NovedadPerdidaDocumento.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
@@ -316,6 +319,9 @@
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoMoneda.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoMuertes.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoNovedad.cs">

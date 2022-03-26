@@ -23,8 +23,8 @@ namespace DataLogic
         public string Salt { get; set; }
         public int EstatusID { get; set; }
         public Nullable<int> InstitucionID { get; set; }
-        public bool CambioClave { get; set; }
-        public int AuditoriaID { get; set; }
+        public Nullable<bool> CambioClave { get; set; }
+        public Nullable<int> AuditoriaID { get; set; }
         public Nullable<int> BrigadaID { get; set; }
         public int PerfilID { get; set; }
         public Nullable<int> RangoID { get; set; }

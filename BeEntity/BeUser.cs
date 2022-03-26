@@ -19,10 +19,13 @@ namespace BeEntity
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Usuario")]
         public string UserName { get; set; }
+
         public string Email { get; set; }
+
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Nombre")]
         public string Nombres { get; set; }
+
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Apellidos")]
         public string Apellidos { get; set; }
@@ -37,6 +40,7 @@ namespace BeEntity
 
         [DisplayName("Estatus")]
         public int EstatusID { get; set; }
+
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Institución")]
         public Nullable<int> InstitucionID { get; set; }
@@ -49,6 +53,7 @@ namespace BeEntity
         public bool CambioClave { get; set; }
 
         public int AuditoriaID { get; set; }
+
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         public int BrigadaID { get; set; }
 

@@ -630,26 +630,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DB_SistREModel.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
-          <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
-          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
-          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
-          <ScalarProperty Name="CambioClave" ColumnName="CambioClave" />
-          <ScalarProperty Name="InstitucionID" ColumnName="InstitucionID" />
-          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
-          <ScalarProperty Name="Salt" ColumnName="Salt" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Accidentes">
       <EntityTypeMapping TypeName="DB_SistREModel.Accidentes">
         <MappingFragment StoreEntitySet="Accidentes">
@@ -731,6 +711,55 @@
           <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
           <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
           <ScalarProperty Name="NovedadRecorridoID" ColumnName="NovedadRecorridoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NovedadMuertes">
+      <EntityTypeMapping TypeName="DB_SistREModel.NovedadMuertes">
+        <MappingFragment StoreEntitySet="NovedadMuertes">
+          <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+          <ScalarProperty Name="TipoMuerteID" ColumnName="TipoMuerteID" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="SexoID" ColumnName="SexoID" />
+          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="NovedadMuerteID" ColumnName="NovedadMuerteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMuertes">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoMuertes">
+        <MappingFragment StoreEntitySet="TipoMuertes">
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoMuerteID" ColumnName="TipoMuerteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_SistREModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
+          <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
+          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="CambioClave" ColumnName="CambioClave" />
+          <ScalarProperty Name="InstitucionID" ColumnName="InstitucionID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

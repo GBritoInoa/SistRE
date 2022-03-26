@@ -67,7 +67,7 @@ namespace DataLogic
                                       Perfil = p.Nombre,
                                       Salt = u.Salt,
                                       Password = u.Password,
-                                      CambioClave = u.CambioClave,
+                                      CambioClave = (bool)u.CambioClave,
                                       Email = u.Email,
                                       EstatusID = u.EstatusID,
                                       AuditoriaID = a.AuditoriaID,
@@ -126,7 +126,7 @@ namespace DataLogic
                 {
                     ///Create Auditoria
                     var a = new Auditoria();
-                    a.UsuarioCreo = item.UserLogueado;
+                    a.UsuarioCreo = item.UserLogueado.ToString();
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -139,7 +139,7 @@ namespace DataLogic
                     u.Nombre = item.Nombres;
                     u.Apellidos = item.Apellidos;
                     u.RangoID = item.RangoID;
-                    u.InstitucionID = item.InstitucionID;
+                    u.InstitucionID = (int)item.InstitucionID;
                     u.PerfilID = item.PerfilID;
                     u.CambioClave = item.CambioClave;
                     u.BrigadaID = item.BrigadaID;
@@ -195,6 +195,7 @@ namespace DataLogic
                                       ID = u.UserId,
                                       UserId = u.UserId,
                                       Nombres = u.Nombre,
+                                      Apellidos = u.Apellidos,
                                       UserName = u.UserName,
                                       NombreCompleto = u.Apellidos + "," + u.Nombre,
                                       Institucion = i.nombre,
@@ -204,15 +205,15 @@ namespace DataLogic
                                       Rango = r.nombre,
                                       RangoID = r.RangoID,
                                       Brigada = b.nombre,
-                                      Apellidos = u.Apellidos,
+                                  
                                       PerfilID = u.PerfilID,
                                       Perfil = p.Nombre,
                                       Salt = u.Salt,
                                       Password = u.Password,
-                                      CambioClave = u.CambioClave,
+                                      CambioClave = (bool)u.CambioClave,
                                       Email = u.Email,
                                       EstatusID = u.EstatusID,
-                                      AuditoriaID = u.AuditoriaID,
+                                      AuditoriaID = (int)u.AuditoriaID,
                                     
 
 
@@ -230,70 +231,7 @@ namespace DataLogic
         }
 
 
-        ///// <summary>
-        ///// Find User
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public BeUser Find(int? id)
-        //{
-        //    var data = new List<BeUser>();
-
-        //    try
-        //    {
-        //        using (var db = new Context_SistRE())
-        //        using (var dbERD = new ContextDbERD())
-        //        {
-        //            data.AddRange(from u in db.Users
-        //                          join a in db.Auditoria
-        //                          on u.AuditoriaID equals a.AuditoriaID
-        //                          join e in db.Estatus on u.EstatusID equals e.EstatusID
-        //                          join r in dbERD.Rangos on u.RangoID equals r.RangoID
-        //                          //join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID
-        //                          //join b in dbERD.Unidades on u.BrigadaID equals b.UnidadID
-
-
-        //                          where u.UserId == id
-        //                          select new BeUser()
-
-        //                          {
-
-        //                              NumCarnet = u.UserName,
-        //                              Nombres = u.Nombre,
-        //                              NombreCompleto = u.Apellidos + "," + u.Nombre,
-        //                              Apellidos = u.Apellidos,
-        //                              EstatusID = u.EstatusID,
-        //                              UsuarioCreo = a.UsuarioCreo,
-        //                              FechaCreo = a.FechaCreo,
-        //                              UsuarioActualizo = a.UsuarioActualizo,
-        //                              FechaActualizo = a.FechaActualizo,
-        //                              AuditoriaID = a.AuditoriaID,
-        //                              RangoID = r.RangoID,
-        //                              Rango = r.nombre,
-        //                              //Rango = r.nombre,
-        //                              //BrigadaID = b.UnidadID,
-        //                              //Brigada = b.nombre,
-        //                              InstitucionID = u.InstitucionID,
-        //                              //Institucion = i.nombre,
-
-
-
-
-
-        //                          });
-
-        //        };
-        //        return data.FirstOrDefault();
-        //    }
-
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-
-        //    }
-
-        //}
-
+   
 
         /// <summary>
         /// Edit Tipo Documento
@@ -319,15 +257,27 @@ namespace DataLogic
                     db.Entry(a).Property(x => x.FechaActualizo).IsModified = true;
                     db.SaveChanges();
 
-                    var tc = new Users();
+                 
 
-                    tc.UserId = item.ID;
-                    tc.AuditoriaID = item.AuditoriaID;
-                    tc.EstatusID = (int)item.EstatusID;
-                    tc.PerfilID = item.PerfilID;
-                    db.Users.Attach(tc);
-                    db.Entry(tc).Property(x => x.PerfilID).IsModified = true;
-                    db.Entry(tc).Property(x => x.EstatusID).IsModified = true;
+                    ////Create User
+                    var u = new Users();
+                    u.UserId = (int)item.ID;
+                    u.UserName = item.UserLogueado;
+                    //u.Nombre = item.Nombres;
+                    //u.Apellidos = item.Apellidos;
+                    u.RangoID = (int)item.RangoID;
+                    //u.InstitucionID = (int)item.InstitucionID;
+                    u.PerfilID = (int)item.PerfilID;
+                    //u.CambioClave = item.CambioClave;
+                    //u.BrigadaID = (int)item.BrigadaID;
+                    //u.Password = item.Password;
+                    //u.Email = item.Email;
+                    //u.Salt = item.Salt;
+                    u.EstatusID = (int)item.EstatusID;
+                    u.AuditoriaID = (int)item.AuditoriaID;
+                    db.Users.Attach(u);               
+                    db.Entry(u).Property(x => x.EstatusID).IsModified = true;
+                    db.Entry(u).Property(x => x.PerfilID).IsModified = true;
 
                     db.SaveChanges();
                     dbContextTransaction.Commit();
