@@ -36,8 +36,8 @@ namespace DataLogic
               
                 {
                     data.AddRange(from u in db.Users.Where(filter)
-                                      //join a in db.Auditoria on
-                                      //tn.AuditoriaID equals a.AuditoriaID
+                                      join a in db.Auditoria on
+                                      u.AuditoriaID equals a.AuditoriaID
                                       //join e in db.Estatus
                                       //on tn.EstatusID equals e.EstatusID
                                   join p in db.Perfil on u.PerfilID equals p.PerfilID
@@ -69,7 +69,13 @@ namespace DataLogic
                                       Password = u.Password,
                                       CambioClave = u.CambioClave,
                                       Email = u.Email,
-                                      EstatusID = u.EstatusID
+                                      EstatusID = u.EstatusID,
+                                      AuditoriaID = a.AuditoriaID,
+                                      UsuarioCreo = a.UsuarioCreo,
+                                      FechaCreo = a.FechaCreo,
+                                      UsuarioActualizo = a.UsuarioActualizo,
+                                      FechaActualizo = a.FechaActualizo
+                                      
                                       
                                    
                                   });
@@ -157,14 +163,12 @@ namespace DataLogic
 
 
 
-
-
         /// <summary>
         /// Find User
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="filter"></param>
         /// <returns></returns>
-        public BeUser Find(int? id)
+        public BeUser Find (int? id)
         {
             var data = new List<BeUser>();
 
@@ -172,41 +176,44 @@ namespace DataLogic
             {
                 using (var db = new Context_SistRE())
                 using (var dbERD = new ContextDbERD())
+
                 {
                     data.AddRange(from u in db.Users
-                                  join a in db.Auditoria
-                                  on u.AuditoriaID equals a.AuditoriaID
+                                      join a in db.Auditoria on
+                                      u.AuditoriaID equals a.AuditoriaID
+                                      //join e in db.Estatus
+                                      //on tn.EstatusID equals e.EstatusID
+                                  join p in db.Perfil on u.PerfilID equals p.PerfilID
                                   join e in db.Estatus on u.EstatusID equals e.EstatusID
+                                  join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID
+                                  join b in dbERD.Unidades on u.BrigadaID equals b.UnidadID
                                   join r in dbERD.Rangos on u.RangoID equals r.RangoID
-                                  //join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID
-                                  //join b in dbERD.Unidades on u.BrigadaID equals b.UnidadID
-
-
                                   where u.UserId == id
                                   select new BeUser()
 
                                   {
-
-                                      NumCarnet = u.UserName,
+                                      ID = u.UserId,
+                                      UserId = u.UserId,
                                       Nombres = u.Nombre,
+                                      UserName = u.UserName,
                                       NombreCompleto = u.Apellidos + "," + u.Nombre,
-                                      Apellidos = u.Apellidos,
-                                      EstatusID = u.EstatusID,
-                                      UsuarioCreo = a.UsuarioCreo,
-                                      FechaCreo = a.FechaCreo,
-                                      UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo,
-                                      AuditoriaID = a.AuditoriaID,
-                                      RangoID = r.RangoID,
-                                      Rango = r.nombre,
-                                      //Rango = r.nombre,
-                                      //BrigadaID = b.UnidadID,
-                                      //Brigada = b.nombre,
+                                      Institucion = i.nombre,
                                       InstitucionID = u.InstitucionID,
-                                      //Institucion = i.nombre,
-                                      
-                                      
-
+                                      BrigadaID = b.UnidadID,
+                                      CompaniaID = b.UnidadID,
+                                      Rango = r.nombre,
+                                      RangoID = r.RangoID,
+                                      Brigada = b.nombre,
+                                      Apellidos = u.Apellidos,
+                                      PerfilID = u.PerfilID,
+                                      Perfil = p.Nombre,
+                                      Salt = u.Salt,
+                                      Password = u.Password,
+                                      CambioClave = u.CambioClave,
+                                      Email = u.Email,
+                                      EstatusID = u.EstatusID,
+                                      AuditoriaID = u.AuditoriaID,
+                                    
 
 
                                   });
@@ -214,14 +221,78 @@ namespace DataLogic
                 };
                 return data.FirstOrDefault();
             }
-
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
 
+                throw new Exception(ex.Message);
             }
 
         }
+
+
+        ///// <summary>
+        ///// Find User
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public BeUser Find(int? id)
+        //{
+        //    var data = new List<BeUser>();
+
+        //    try
+        //    {
+        //        using (var db = new Context_SistRE())
+        //        using (var dbERD = new ContextDbERD())
+        //        {
+        //            data.AddRange(from u in db.Users
+        //                          join a in db.Auditoria
+        //                          on u.AuditoriaID equals a.AuditoriaID
+        //                          join e in db.Estatus on u.EstatusID equals e.EstatusID
+        //                          join r in dbERD.Rangos on u.RangoID equals r.RangoID
+        //                          //join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID
+        //                          //join b in dbERD.Unidades on u.BrigadaID equals b.UnidadID
+
+
+        //                          where u.UserId == id
+        //                          select new BeUser()
+
+        //                          {
+
+        //                              NumCarnet = u.UserName,
+        //                              Nombres = u.Nombre,
+        //                              NombreCompleto = u.Apellidos + "," + u.Nombre,
+        //                              Apellidos = u.Apellidos,
+        //                              EstatusID = u.EstatusID,
+        //                              UsuarioCreo = a.UsuarioCreo,
+        //                              FechaCreo = a.FechaCreo,
+        //                              UsuarioActualizo = a.UsuarioActualizo,
+        //                              FechaActualizo = a.FechaActualizo,
+        //                              AuditoriaID = a.AuditoriaID,
+        //                              RangoID = r.RangoID,
+        //                              Rango = r.nombre,
+        //                              //Rango = r.nombre,
+        //                              //BrigadaID = b.UnidadID,
+        //                              //Brigada = b.nombre,
+        //                              InstitucionID = u.InstitucionID,
+        //                              //Institucion = i.nombre,
+
+
+
+
+
+        //                          });
+
+        //        };
+        //        return data.FirstOrDefault();
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+
+        //    }
+
+        //}
 
 
         /// <summary>

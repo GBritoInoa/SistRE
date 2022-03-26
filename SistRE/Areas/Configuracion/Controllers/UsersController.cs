@@ -209,7 +209,7 @@ namespace SistRE.Areas.Configuracion.Controllers
             }
             try
             {
-                var user = BcUsers.Find(id);
+                BeUser user = BcUsers.GetAll().Where(a => a.UserId == id).FirstOrDefault();
                 if (user == null)
                 {
 
@@ -217,7 +217,7 @@ namespace SistRE.Areas.Configuracion.Controllers
                 }
 
                 GetEstatus();
-           
+                GetPerfiles();
                 return View(user);
 
             }
@@ -236,9 +236,10 @@ namespace SistRE.Areas.Configuracion.Controllers
         public ActionResult Edit(BeUser model)
         {
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-  
+
+                GetPerfiles();
                 GetEstatus();
                 return View(model);
 
