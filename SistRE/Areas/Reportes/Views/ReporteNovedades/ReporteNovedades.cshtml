@@ -1,0 +1,96 @@
+﻿@model BeEntity.BeReporteNovedades
+@{
+    ViewBag.Title = "Reporte Novedades por Tipo Novedad y Rango de Fecha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-body" id="container" style="width:unset">
+    <div class="panel-heading" style="text-align:center">
+        <br />
+        <h4 class="fas fa-pen-alt"><strong> Reporte Novedades en formato Excel </strong></h4>
+    </div>
+    <hr />
+    <div class="container body-content">
+
+
+
+        @using (Html.BeginForm())
+        {
+            @*<div>
+                @Html.Partial("OptionsBox/Save_Back")
+            </div>
+            <br />
+            <br />*@
+
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TipoNovedadID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TipoNovedadID", null, "---Seleccione Tipo Producto---", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.FechaNovedad, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label>Fecha Desde</label><label class="bg-label">*</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FechaDesde, new { htmlAttributes = new { @class = " ", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.FechaDesde, " ", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.FechaNovedad, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label>Fecha Hasta</label><label class="bg-label">*</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FechaHasta, new { htmlAttributes = new { @class = " ", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.FechaHasta, " ", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+
+                @*<div class="col-xs-12">
+            <div style="width:200px;margin: 0 auto;">
+                <button type="button" class="btn btn-primary not-print" id="ExportarExcel", name="ExportarExcel"><span class="glyphicon glyphicon-search"></span> Descargar Archivo</button>
+                 <button type="button" class="btn btn-primary not-print" onclick="window.print();"><span class="glyphicon glyphicon-print"></span> Imprimir</button>
+              </div>
+        </div>*@
+
+                <div style="float:unset">
+                    @Html.Partial("OptionsBox/Consultar")
+                </div>
+                <br />
+                <br />
+                <br />
+
+            </div>
+
+
+        </div>
+
+
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+    $(function () {
+        $(".datepicker").datepicker();
+
+
+        });
+
+    </script>
+}

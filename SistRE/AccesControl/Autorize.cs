@@ -1,4 +1,5 @@
 ﻿using SistRE.AccesControl;
+using SistRE.Comun;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace SistRE.AccessControl
         private int statusCode = 200;
         private string destinationAction;
         public string codModule { get; set; }
-        public bool AllowAllModules { get; set; }
+        public EnumPerfiles.Perfiles[] Profiles { get; set; }
+        public bool AllowAllProfiles { get; set; }
 
 
         /// <summary>
@@ -23,11 +25,14 @@ namespace SistRE.AccessControl
         /// <returns></returns>
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
+            Profiles = Profiles ?? new EnumPerfiles.Perfiles[] { };
             //Si la sesion esta iniciada pasa si no se redireciona al "Login" para su autenticacion
             if (SessionData.IsOnline())
             {
+                var sesionInfo = SessionData.GetOnlineUserInfo();
+
                 //Si el usuario tiene el id del modulo solicitado se le da acceso
-                if (ModulesControl.CanAccessModule(codModule) || AllowAllModules)
+                if (Profiles.Contains((EnumPerfiles.Perfiles)sesionInfo.idProfile) || AllowAllProfiles)
                     return true;
                 //De lo contrario es un error 403 (no esta autorizado el acceso para el usuario)
                 else
@@ -58,6 +63,7 @@ namespace SistRE.AccessControl
                 {
                     controller = "Home",
                     action = destinationAction,
+                    area = ""
                 }
                 ));
 

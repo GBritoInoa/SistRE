@@ -681,7 +681,7 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="11" />
     <Property Name="Email" Type="varchar" MaxLength="100" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="Apellidos" Type="varchar" MaxLength="50" />
@@ -1097,6 +1097,11 @@
     <Parameter Name="mensaje_estado" Type="varchar(max)" Mode="InOut" />
   </Function>
   <Function Name="usp_maxCodAuditoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_ReporteNovedades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TipoNovedadID" Type="int" Mode="In" />
+    <Parameter Name="FechaDesde" Type="date" Mode="In" />
+    <Parameter Name="FechaHasta" Type="date" Mode="In" />
+  </Function>
   <EntityContainer Name="DB_SistREModelStoreContainer">
     <EntitySet Name="Accidentes" EntityType="Self.Accidentes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />

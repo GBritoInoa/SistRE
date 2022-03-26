@@ -218,6 +218,11 @@
     <EntitySet Name="NovedadMuertes" EntityType="DB_SistREModel.NovedadMuertes" />
     <EntitySet Name="TipoMuertes" EntityType="DB_SistREModel.TipoMuertes" />
     <EntitySet Name="Users" EntityType="DB_SistREModel.Users" />
+    <FunctionImport Name="usp_ReporteNovedades" ReturnType="Collection(DB_SistREModel.usp_ReporteNovedades_Result)">
+      <Parameter Name="TipoNovedadID" Mode="In" Type="Int32" />
+      <Parameter Name="FechaDesde" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaHasta" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Auditoria">
     <Key>
@@ -1332,7 +1337,7 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1346,4 +1351,9 @@
     <Property Name="PerfilID" Type="Int32" Nullable="false" />
     <Property Name="RangoID" Type="Int32" />
   </EntityType>
+  <ComplexType Name="usp_ReporteNovedades_Result">
+    <Property Type="String" Name="C_TipoNovedad" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LugarNovedad" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CantidadNovedad" Nullable="true" />
+  </ComplexType>
 </Schema>

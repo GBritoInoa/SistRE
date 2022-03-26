@@ -763,5 +763,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_ReporteNovedades" FunctionName="DB_SistREModel.Store.usp_ReporteNovedades">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_SistREModel.usp_ReporteNovedades_Result">
+          <ScalarProperty Name="C_TipoNovedad" ColumnName=" TipoNovedad" />
+          <ScalarProperty Name="LugarNovedad" ColumnName="LugarNovedad" />
+          <ScalarProperty Name="CantidadNovedad" ColumnName="CantidadNovedad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

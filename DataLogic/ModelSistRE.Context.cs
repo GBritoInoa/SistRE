@@ -186,5 +186,22 @@ namespace DataLogic
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_decomiso", optionParameter, usuarioCreoParameter, fechaCreoParameter, usuarioActualizoParameter, fechaActualizoParameter, nombreParameter, estatusIDParameter);
         }
+    
+        public virtual ObjectResult<usp_ReporteNovedades_Result> usp_ReporteNovedades(Nullable<int> tipoNovedadID, Nullable<System.DateTime> fechaDesde, Nullable<System.DateTime> fechaHasta)
+        {
+            var tipoNovedadIDParameter = tipoNovedadID.HasValue ?
+                new ObjectParameter("TipoNovedadID", tipoNovedadID) :
+                new ObjectParameter("TipoNovedadID", typeof(int));
+    
+            var fechaDesdeParameter = fechaDesde.HasValue ?
+                new ObjectParameter("FechaDesde", fechaDesde) :
+                new ObjectParameter("FechaDesde", typeof(System.DateTime));
+    
+            var fechaHastaParameter = fechaHasta.HasValue ?
+                new ObjectParameter("FechaHasta", fechaHasta) :
+                new ObjectParameter("FechaHasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ReporteNovedades_Result>("usp_ReporteNovedades", tipoNovedadIDParameter, fechaDesdeParameter, fechaHastaParameter);
+        }
     }
 }

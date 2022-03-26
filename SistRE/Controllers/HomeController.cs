@@ -4,13 +4,14 @@ using System.Web.Mvc;
 using SistRE.Models;
 using SistRE.AccesControl;
 using BusinessControl;
+using SistRE.Comun;
 
 namespace SistRE.Controllers
 {
     public class HomeController : Controller
     {
         public string _IpAddress { get; set; }
-        [Autorizar(AllowAllModules = true)]
+        [Autorizar(AllowAllProfiles = true)]
         public ActionResult Index()
         {
 
@@ -77,7 +78,7 @@ namespace SistRE.Controllers
 
             return View();
         }
-
+        
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

@@ -46,6 +46,7 @@
     <Compile Include="BcCategoriaProtesta.cs" />
     <Compile Include="BcComun.cs" />
     <Compile Include="BcEnfermedades.cs" />
+    <Compile Include="BcReporteNovedades.cs" />
     <Compile Include="BcHospitales.cs" />
     <Compile Include="BcInstitucionProtestante.cs" />
     <Compile Include="BcNacionalidad.cs" />

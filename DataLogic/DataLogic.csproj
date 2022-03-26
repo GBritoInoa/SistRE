@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -113,6 +114,7 @@
     <Compile Include="DalcPais.cs" />
     <Compile Include="DalcProductos.cs" />
     <Compile Include="DalcProtestaConvocatoria.cs" />
+    <Compile Include="DalcReporteNovedades.cs" />
     <Compile Include="DalcTipoApresamiento.cs" />
     <Compile Include="DalcTipoCausaHerida.cs" />
     <Compile Include="DalcTipoCausaMuerte.cs" />
@@ -349,6 +351,9 @@
       <DependentUpon>ModeldbERD.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ReporteNovedades_Result.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -200,7 +200,9 @@
     <Compile Include="Areas\Procesos\Controllers\NovedadRecorridosController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadRepatriacionController.cs" />
     <Compile Include="Areas\Procesos\ProcesosAreaRegistration.cs" />
+    <Compile Include="Areas\Reportes\Controllers\ReporteNovedadesController.cs" />
     <Compile Include="Areas\Reportes\ReportesAreaRegistration.cs" />
+    <Compile Include="Comun\EnumPerfiles.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Comun\EstatusRegistro.cs" />
     <Compile Include="Global.asax.cs">
@@ -1000,6 +1002,9 @@
     <Content Include="Areas\Procesos\Views\NovedadRecorridos\Create.cshtml" />
     <Content Include="Areas\Configuracion\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Configuracion\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Reportes\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Reportes\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Reportes\Views\ReporteNovedades\ReporteNovedades.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1139,14 +1144,13 @@
     <Content Include="Views\Cascading\Create.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\NotAutorized.cshtml" />
+    <Content Include="Views\Shared\OptionsBox\Consultar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Consultas\Controllers\" />
     <Folder Include="Areas\Consultas\Views\Shared\" />
-    <Folder Include="Areas\Reportes\Controllers\" />
     <Folder Include="Areas\Reportes\Views\Reports\" />
-    <Folder Include="Areas\Reportes\Views\Shared\" />
     <Folder Include="Images\" />
     <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
