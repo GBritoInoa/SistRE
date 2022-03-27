@@ -24,12 +24,12 @@ namespace DataLogic
         /// <param name="FechaDesde"></param>
         /// <param name="FechaHasta"></param>
         /// <returns></returns>
-        public List<BeReporteNovedades> GetAll( int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
+        public List<BeResultadoNovedad> GetAll( int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
         {
-            var data = new List<BeReporteNovedades>();
+            var data = new List<BeResultadoNovedad>();
             using (var db = new Context_SistRE())
             {
-                data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, FechaDesde, FechaHasta).Select(rn => new BeReporteNovedades() {
+                data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, FechaDesde, FechaHasta).Select(rn => new BeResultadoNovedad() {
                     CantidadNovedad = rn.CantidadNovedad ?? 0,
                     Provincia = rn.LugarNovedad,
                     Novedad = rn.C_TipoNovedad

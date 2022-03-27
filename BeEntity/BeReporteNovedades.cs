@@ -13,11 +13,11 @@ namespace BeEntity
     /// </summary>
   public  class BeReporteNovedades
     {
-        public int NovedadID { get; set; }
+        //public int NovedadID { get; set; }
         public string Novedad { get; set; }
         [DisplayName("Tipo Novedad")]
         public int TipoNovedadID { get; set; }
-        public int CantidadNovedad { get; set; }
+       public int CantidadNovedad { get; set; }
         public int ProvinciaID { get; set; }
         public string Provincia { get; set; }
         [DisplayName("Fecha Desde")]

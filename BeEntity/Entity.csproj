@@ -70,6 +70,7 @@
     <Compile Include="BeProvincias.cs" />
     <Compile Include="BeRangos.cs" />
     <Compile Include="BeReporteNovedades.cs" />
+    <Compile Include="BeResultadoNovedad.cs" />
     <Compile Include="BeSexo.cs" />
     <Compile Include="BeTipoApresamiento.cs" />
     <Compile Include="BeTipoCausaHerida.cs" />

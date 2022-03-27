@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BeEntity
+{
+   public class BeResultadoNovedad
+    {
+
+        //public int NovedadID { get; set; }
+        public string Novedad { get; set; }
+        [DisplayName("Provincia donde ocurrió la Novedad")]
+        public string Provincia { get; set; }
+        [DisplayName("Tipo Novedad")]
+        public int CantidadNovedad { get; set; }
+
+
+
+
+    }
+}

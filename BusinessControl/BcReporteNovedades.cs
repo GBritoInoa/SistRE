@@ -22,7 +22,7 @@ namespace BusinessControl
         /// Find All Reporte Novedades
         /// </summary>
         /// <returns></returns>
-        public static List<BeReporteNovedades> GetAll(int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
+        public static List<BeResultadoNovedad> GetAll(int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
         {
             try
             {

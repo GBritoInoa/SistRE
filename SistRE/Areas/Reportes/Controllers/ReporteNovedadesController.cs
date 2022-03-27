@@ -24,6 +24,7 @@ namespace SistRE.Areas.Reportes.Controllers
             try
             {
                 var tiponovedad = BcTipoNovedad.GetAll().ToList();
+                tiponovedad.Add(new BeTipoNovedad() { TipoNovedadID = 0, Nombre = "Todas las Novedades" });              
                 ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
 
             }
@@ -80,21 +81,24 @@ namespace SistRE.Areas.Reportes.Controllers
         /// <returns></returns>
         public ActionResult ReporteNovedades(int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
         {
-            List<BeReporteNovedades> ListNovedades = new List<BeReporteNovedades>();
+            List<BeResultadoNovedad> ListNovedades = new List<BeResultadoNovedad>();
             try
             {
-                 ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta).ToList().OrderBy(a => a.Novedad).ToList();
+                ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta).OrderBy(a => a.Novedad).ToList();
             
 
-                var stream = new MemoryStream();
-                var serialicer = new XmlSerializer(typeof(List<BeReporteNovedades>));
 
+                
+
+                var stream = new MemoryStream();
+                var serialicer = new XmlSerializer(typeof(List<BeResultadoNovedad>));
+                
                 ////Lo transformo en un XML y lo guardo en memoria
                 serialicer.Serialize(stream, ListNovedades);
                 stream.Position = 0;
 
                 ////devuelvo el XML de la memoria como un fichero .xls
-                return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheet", "Listado Novedades" + ".xls");
+                return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheet", "Listado" + ListNovedades[0].Novedad+".xls");
             }
             catch (Exception ex)
             {
