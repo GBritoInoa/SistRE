@@ -48,6 +48,7 @@
     <Compile Include="BeCategoriaProtesta.cs" />
     <Compile Include="BeCompania.cs" />
     <Compile Include="BeEnfermedades.cs" />
+    <Compile Include="BeFiltros.cs" />
     <Compile Include="BeHistoricoNovedades.cs" />
     <Compile Include="BeHospitales.cs" />
     <Compile Include="BeInstitucionProtestante.cs" />

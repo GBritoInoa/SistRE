@@ -68,6 +68,7 @@ namespace SistRE.Controllers
         /// <returns></returns>
         public ActionResult NotAutorized()
         {
+            TempData["error"] = "Usted no tiene permisos para acceder a esta opcion!";
             return View();
 
         }
