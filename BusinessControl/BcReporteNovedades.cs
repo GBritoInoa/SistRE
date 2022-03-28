@@ -37,5 +37,25 @@ namespace BusinessControl
 
 
         }
+
+
+        /// <summary>
+        /// Porciento Novedades en curso
+        /// </summary>
+        /// <returns></returns>
+        public static List<BeResultadoNovedad> PorcientoNovedad()
+        {
+            try
+            {
+                return _dalc.PorcientoNovedadesMes_Encurso().ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+
+        }
     }
 }

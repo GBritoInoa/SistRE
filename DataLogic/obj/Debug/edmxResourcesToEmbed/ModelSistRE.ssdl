@@ -1097,6 +1097,7 @@
     <Parameter Name="mensaje_estado" Type="varchar(max)" Mode="InOut" />
   </Function>
   <Function Name="usp_maxCodAuditoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_porcientoNovedades_mesencurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="usp_ReporteNovedades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TipoNovedadID" Type="int" Mode="In" />
     <Parameter Name="FechaDesde" Type="date" Mode="In" />

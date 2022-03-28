@@ -203,5 +203,10 @@ namespace DataLogic
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ReporteNovedades_Result>("usp_ReporteNovedades", tipoNovedadIDParameter, fechaDesdeParameter, fechaHastaParameter);
         }
+    
+        public virtual ObjectResult<usp_porcientoNovedades_mesencurso_Result> usp_porcientoNovedades_mesencurso()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_porcientoNovedades_mesencurso_Result>("usp_porcientoNovedades_mesencurso");
+        }
     }
 }

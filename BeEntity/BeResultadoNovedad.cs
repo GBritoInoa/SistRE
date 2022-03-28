@@ -16,6 +16,9 @@ namespace BeEntity
         public string Provincia { get; set; }
         [DisplayName("Tipo Novedad")]
         public int CantidadNovedad { get; set; }
+        [DisplayName("Porciento Novedad")]
+         public string PorcientoNovedad { get; set; }
+        public string Total { get; set; }
 
 
 

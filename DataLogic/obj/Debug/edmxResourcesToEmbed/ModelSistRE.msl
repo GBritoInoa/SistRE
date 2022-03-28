@@ -772,5 +772,13 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_porcientoNovedades_mesencurso" FunctionName="DB_SistREModel.Store.usp_porcientoNovedades_mesencurso">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_SistREModel.usp_porcientoNovedades_mesencurso_Result">
+          <ScalarProperty Name="TipoNovedad" ColumnName="TipoNovedad" />
+          <ScalarProperty Name="total" ColumnName="total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

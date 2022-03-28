@@ -223,6 +223,7 @@
       <Parameter Name="FechaDesde" Mode="In" Type="DateTime" />
       <Parameter Name="FechaHasta" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="usp_porcientoNovedades_mesencurso" ReturnType="Collection(DB_SistREModel.usp_porcientoNovedades_mesencurso_Result)" />
   </EntityContainer>
   <EntityType Name="Auditoria">
     <Key>
@@ -1355,5 +1356,9 @@
     <Property Type="String" Name="C_TipoNovedad" Nullable="true" MaxLength="150" />
     <Property Type="String" Name="LugarNovedad" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="CantidadNovedad" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_porcientoNovedades_mesencurso_Result">
+    <Property Type="String" Name="TipoNovedad" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="total" Nullable="true" Precision="21" Scale="13" />
   </ComplexType>
 </Schema>

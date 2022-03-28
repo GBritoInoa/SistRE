@@ -39,69 +39,39 @@ namespace DataLogic
 
             return data;
 
-            //try
-            //{
-
-            //    var conexionStr = ConfigurationManager
-            //        .ConnectionStrings["Context_SistRE"].ConnectionString;
-
-            //    List<BeReporteNovedades> listReporte = new List<BeReporteNovedades>();
-
-            //    using (var conexion = new SqlConnection(conexionStr))
-            //    {
-                  
-
-
-            //        conexion.Open();
-            //        var comando = new SqlCommand("usp_ReporteNovedades", conexion);
-            //        comando.CommandType = CommandType.StoredProcedure;
-            //        comando.Parameters.Add(new SqlParameter("@TipoNovedadID", TipoNovedadId));
-            //        comando.Parameters.Add(new SqlParameter("@FechaDesde", FechaDesde));
-            //        comando.Parameters.Add(new SqlParameter("@FechaHasta", FechaHasta));
-            //        var dataReader = comando.ExecuteReader();
-            //        while (dataReader.Read())
-            //        {
-            //            var result = new BeReporteNovedades();
-            //            result.TipoNovedadID = (int)dataReader["TipoNovedad"];
-            //            result.Provincia = (string)dataReader["LugarNovedad"];
-            //            result.CantidadNovedad = (int)dataReader["CantidadNovedad"];
-            //            listReporte.Add(result);
-            //        }
-
-            //        conexion.Close();
-            //    }
-
-            //    return listReporte;
-
-            //    //using (var db = new configura())
-            //    //{
-
-
-            //    //    //data.AddRange(from hn in db.HistoricoNovedades
-            //    //    //              join tn in db.TipoNovedad
-            //    //    //              on hn.TipoNovedadID equals  tn.TipoNovedadID
-                                                                  
-            //    //    //              where  hn.TipoNovedadID == TipoNovedadId && hn.FechaNovedad ==  FechaDesde && hn.FechaNovedad == FechaHasta
-            //    //    //              && tn.EstatusID ==1
-            //    //    //              select new BeReporteNovedades()
-
-            //    //    //              {
-            //    //    //                  NovedadID = hn.NovedadesID,
-            //    //    //                  TipoNovedadID = hn.TipoNovedadID,
-            //    //    //                  Novedad = tn.Nombre,
-
-                                   
-            //    //    //              });
-
-            //    //};
-            //    //return data.ToList();
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    throw new Exception(ex.Message);
-            //}
-
         }
+
+
+        /// <summary>
+        /// Porciento Novedes mes en curso
+        /// </summary>
+        /// <returns></returns>
+        public List<BeResultadoNovedad> PorcientoNovedadesMes_Encurso()
+        {
+            try
+            {
+
+                var data = new List<BeResultadoNovedad>();
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(db.usp_porcientoNovedades_mesencurso().Select(rn => new BeResultadoNovedad()
+                    {
+                        Novedad = rn.TipoNovedad,
+                        PorcientoNovedad = (string)rn.total.ToString(),
+            
+
+                    }));
+                }
+                return data;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
+        }
+        
     }
 }

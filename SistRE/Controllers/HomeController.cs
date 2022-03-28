@@ -5,6 +5,9 @@ using SistRE.Models;
 using SistRE.AccesControl;
 using BusinessControl;
 using SistRE.Comun;
+using System;
+using System.Collections.Generic;
+using BeEntity;
 
 namespace SistRE.Controllers
 {
@@ -12,8 +15,32 @@ namespace SistRE.Controllers
     {
         public string _IpAddress { get; set; }
         [Autorizar(AllowAllProfiles = true)]
+
         public ActionResult Index()
         {
+
+            var TipoNovedadId = 0;
+            var FechaDesde = DateTime.Now;
+            var FechaHasta = DateTime.Now;
+
+            List<BeResultadoNovedad> ListNovedades = new List<BeResultadoNovedad>();
+            List <BeResultadoNovedad> PoncentajeNovedades = new List<BeResultadoNovedad>();
+
+            ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta);
+            PoncentajeNovedades = BcReporteNovedades.PorcientoNovedad();
+            BeResultadoNovedad Protestas = PoncentajeNovedades.Find(a => a.Novedad.Equals("Protesta"));
+            BeResultadoNovedad Repatriaciones = PoncentajeNovedades.Find(a => a.Novedad.Equals("Repatriación"));
+            BeResultadoNovedad Apresamientos = PoncentajeNovedades.Find(a => a.Novedad.Equals("Apresamientos"));
+            BeResultadoNovedad Incautaciones = PoncentajeNovedades.Find(a => a.Novedad.Equals("Protesta"));
+            ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0,4);
+            ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 3);
+            ViewBag.Apresamientos = Apresamientos.PorcientoNovedad.Substring(0, 3);
+            ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 3);
+
+
+
+
+
 
             //TempData["info"] = "Prueeeebaaaaaa";
             //TempData["warn"] = "Hum! Cuidao!";

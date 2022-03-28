@@ -58,6 +58,12 @@
         small {
             font-size: .7em
         }
+
+        .centrado {
+
+            text-align:center;
+
+        }
     </style>
 
 
@@ -83,7 +89,9 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-
+            @*<div class="centrado">
+                <h5 style="color:darkgreen"><strong>Novedades del Mes</strong><sup style="font-size: 5px" %></sup></h5>
+            </div>*@
             <!-- /.content-header -->
             <!-- Main content -->
             <section class="content">
@@ -94,9 +102,9 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>41<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>@ViewBag.Protestas<sup style="font-size: 20px">%</sup></h3>
 
-                                    <p>Apresados</p>
+                                    <p>Protestas</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
@@ -109,9 +117,9 @@
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>@ViewBag.Apresamientos<sup style="font-size: 20px">%</sup></h3>
 
-                                    <p>Decomisos</p>
+                                    <p>Apresamientos</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -124,9 +132,9 @@
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>18<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>@ViewBag.Repatriaciones<sup style="font-size: 20px">%</sup></h3>
 
-                                    <p>Incautaciones</p>
+                                    <p>Repatriaciones</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -139,9 +147,9 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>34<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>@ViewBag.Incautaciones<sup style="font-size: 20px">%</sup></h3>
 
-                                    <p>Indocumentados</p>
+                                    <p>Incautaciones</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
@@ -156,6 +164,35 @@
                 </div>
 
             </section>
+
+
+
+
+            <!-- Contratos procesados -->
+            <div class="col-md-12" style="visibility:hidden">
+                <div class="card card-primary elevation-4">
+                    <div class="card-header" style="background-color:darkgreen">
+                        <h3 class="card-title">Principales Novedades del mes</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <div class="row">
+                                <div class="col-8"><canvas id="MultiBar" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas></div>
+                                <div class="col-4 elevation-2"><canvas id="SingleBar" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.Contratos procesados -->
+                </div>
+            </div>
+
+
+
 
 
             <!--Table and divs that hold the pie charts-->

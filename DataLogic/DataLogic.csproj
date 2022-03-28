@@ -353,6 +353,9 @@
     <Compile Include="Users.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_porcientoNovedades_mesencurso_Result.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ReporteNovedades_Result.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>

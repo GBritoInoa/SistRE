@@ -1102,6 +1102,7 @@
           <Parameter Name="mensaje_estado" Type="varchar(max)" Mode="InOut" />
         </Function>
         <Function Name="usp_maxCodAuditoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_porcientoNovedades_mesencurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ReporteNovedades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TipoNovedadID" Type="int" Mode="In" />
           <Parameter Name="FechaDesde" Type="date" Mode="In" />
@@ -1523,6 +1524,7 @@
             <Parameter Name="FechaDesde" Mode="In" Type="DateTime" />
             <Parameter Name="FechaHasta" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="usp_porcientoNovedades_mesencurso" ReturnType="Collection(DB_SistREModel.usp_porcientoNovedades_mesencurso_Result)" />
           </EntityContainer>
         <EntityType Name="Auditoria">
           <Key>
@@ -2656,6 +2658,10 @@
           <Property Type="String" Name="LugarNovedad" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="CantidadNovedad" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="usp_porcientoNovedades_mesencurso_Result">
+          <Property Type="String" Name="TipoNovedad" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="total" Nullable="true" Precision="21" Scale="13" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3430,6 +3436,14 @@
                 <ScalarProperty Name="C_TipoNovedad" ColumnName=" TipoNovedad" />
                 <ScalarProperty Name="LugarNovedad" ColumnName="LugarNovedad" />
                 <ScalarProperty Name="CantidadNovedad" ColumnName="CantidadNovedad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_porcientoNovedades_mesencurso" FunctionName="DB_SistREModel.Store.usp_porcientoNovedades_mesencurso">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_SistREModel.usp_porcientoNovedades_mesencurso_Result">
+                <ScalarProperty Name="TipoNovedad" ColumnName="TipoNovedad" />
+                <ScalarProperty Name="total" ColumnName="total" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
