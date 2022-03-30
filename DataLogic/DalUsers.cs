@@ -135,7 +135,7 @@ namespace DataLogic
 
                     ////Create User
                     var u = new Users();
-                    u.UserName = item.UserName;
+                    u.UserName = item.NumCarnet;
                     u.Nombre = item.Nombres;
                     u.Apellidos = item.Apellidos;
                     u.RangoID = item.RangoID;

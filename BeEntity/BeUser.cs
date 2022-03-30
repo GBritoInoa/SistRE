@@ -16,17 +16,17 @@ namespace BeEntity
         public int ID { get; set; }
 
         public int UserId { get; set; }
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Usuario")]
         public string UserName { get; set; }
 
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Nombre")]
         public string Nombres { get; set; }
 
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Apellidos")]
         public string Apellidos { get; set; }
 
@@ -41,7 +41,7 @@ namespace BeEntity
         [DisplayName("Estatus")]
         public int EstatusID { get; set; }
 
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Institución")]
         public Nullable<int> InstitucionID { get; set; }
 
@@ -49,20 +49,20 @@ namespace BeEntity
 
 
         [DisplayName("Cambio Clave")]
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         public bool CambioClave { get; set; }
 
         public int AuditoriaID { get; set; }
 
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         public int BrigadaID { get; set; }
 
         public string Brigada { get; set; }
 
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         public int RangoID { get; set; }
         //public string Rango { get; set; }
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         [DisplayName("Perfil")]
         public int PerfilID { get; set; }
 
@@ -72,7 +72,7 @@ namespace BeEntity
         [DisplayName("Carnet")]
         public string NumCarnet { get; set; }
 
-        [Required(ErrorMessage = "{0} no puede estar vacio")]
+        //[Required(ErrorMessage = "{0} no puede estar vacio")]
         public int CompaniaID { get; set; }
 
         public string Compania { get; set; }

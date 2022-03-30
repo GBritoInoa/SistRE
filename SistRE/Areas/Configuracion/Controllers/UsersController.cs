@@ -141,9 +141,9 @@ namespace SistRE.Areas.Configuracion.Controllers
         public ActionResult Create(BeUser model)
         {
 
-                        
+                   
 
-            if(!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 GetEstatus();
                 GetPerfiles();

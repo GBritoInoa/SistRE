@@ -1,4 +1,4 @@
-﻿
+﻿@*@model IEnumerable<BeEntity.BeResultadoNovedad>*@
 <!DOCTYPE html>
 <html style="width:100%">
 <head>
@@ -29,7 +29,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css">
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
-
+    
 
     <style>
         .navbar-success {
@@ -60,12 +60,12 @@
         }
 
         .centrado {
-
-            text-align:center;
-
+            text-align: center;
         }
     </style>
 
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -90,8 +90,8 @@
                 </div><!-- /.container-fluid -->
             </div>
             @*<div class="centrado">
-                <h5 style="color:darkgreen"><strong>Novedades del Mes</strong><sup style="font-size: 5px" %></sup></h5>
-            </div>*@
+                    <h5 style="color:darkgreen"><strong>Novedades del Mes</strong><sup style="font-size: 5px" %></sup></h5>
+                </div>*@
             <!-- /.content-header -->
             <!-- Main content -->
             <section class="content">
@@ -165,35 +165,31 @@
 
             </section>
 
-
+            @*<div id="piechart50" style="width: 900px; height: 500px;"></div>*@
 
 
             <!-- Contratos procesados -->
             <div class="col-md-12" style="visibility:hidden">
                 <div class="card card-primary elevation-4">
                     <div class="card-header" style="background-color:darkgreen">
-                        <h3 class="card-title">Principales Novedades del mes</h3>
+                        @*<h3 class="card-title">Principales Novedades del mes</h3>*@
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="chart">
-                            <div class="row">
-                                <div class="col-8"><canvas id="MultiBar" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas></div>
-                                <div class="col-4 elevation-2"><canvas id="SingleBar" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas></div>
+                    @*<div class="card-body">
+                            <div class="chart">
+                                <div class="row">
+                                    <div class="col-8"><canvas id="MultiBar" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas></div>
+                                    <div class="col-4 elevation-2"><canvas id="SingleBar" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas></div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>*@
                     <!-- /.Contratos procesados -->
                 </div>
             </div>
-
-
-
-
 
             <!--Table and divs that hold the pie charts-->
             <table class="container" style="justify-content:inherit">
@@ -203,22 +199,21 @@
 
                 </tr>
                 <tr>
-
                     <td><div id="piechartc" style="border: 0px solid #ccc"></div></td>
                     <td><div id="piechartcc" style="border: 0px solid #ccc"></div></td>
 
                 </tr>
-                <tr>
-                    <td><div id="piechart1" style="border: 0px solid #ccc"></div></td>
-                    <td><div id="piechartd1" style="border: 0px solid #ccc"></div></td>
+                @*<tr>
+                        <td><div id="piechart1" style="border: 0px solid #ccc"></div></td>
+                        <td><div id="piechartd1" style="border: 0px solid #ccc"></div></td>
 
-                </tr>
-                <tr>
+                    </tr>*@
+                @*<tr>
 
-                    <td><div id="piechartc1" style="border: 0px solid #ccc"></div></td>
-                    <td><div id="piechartcc1" style="border: 0px solid #ccc"></div></td>
+                        <td><div id="piechartc1" style="border: 0px solid #ccc"></div></td>
+                        <td><div id="piechartcc1" style="border: 0px solid #ccc"></div></td>
 
-                </tr>
+                    </tr>*@
             </table>
 
 
@@ -279,17 +274,17 @@
 <script type="text/javascript">
     // Load google charts
     google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawChart1);
 
     // Draw the chart and set the chart values
-    function drawChart() {
+    function drawChart1() {
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Pedernales', 8],
-            ['Barahora', 2],
-            ['Santiago', 4],
-            ['Distrito Nacional', 12],
-            ['Baní', 8]
+            ['Provincia', 'Cantidad'],
+            ['@ViewBag.Provincia',@ViewBag.Protestas],
+            ['Barahora', 51],
+            ['Hato Mayor', 12],
+            ['Distrito Nacional', 26],
+            ['San Juan', 19]
         ]);
 
         // Optional; add a title and set the width and height of the chart
@@ -301,6 +296,57 @@
     }
 </script>
 
+
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart1);
+
+    // Draw the chart and set the chart values
+    function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+            ['Provincia', 'Cantidad'],
+            ['Hato Mayor', 21],
+            @*['@ViewBag.Provincia',@ViewBag.Protestas],*@
+            ['Barahora', 48],
+            ['Hato Mayor', 12],
+            ['Distrito Nacional', 11],
+            ['San Juan', 5]
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'Incautaciones por Provincia', 'width': 500, 'height': 300 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechartd'));
+        chart.draw(data, options);
+    }
+</script>
+
+
+<script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+        // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Provincia', 'Cantidad'],
+            ['azua',10]
+
+         ]);
+
+
+            // Optional; add a title and set the width and height of the chart
+            var options = { 'title': 'Apresados por Provincia', 'width': 500, 'height': 300 };
+
+            // Display the chart inside the <div> element with id="piechart"
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+
+</script>
+
+
 <script type="text/javascript">
     // Load google charts
     google.charts.load('current', { 'packages': ['corechart'] });
@@ -309,7 +355,60 @@
     // Draw the chart and set the chart values
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Apresados por día'],
+            ['Provincia', 'Cantidad'],
+            ['Pedernales', 8],
+            ['Barahora', 2],
+            ['Santiago', 4],
+            ['Distrito Nacional', 12],
+            ['Baní', 8]
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'Heridos por Provincia', 'width': 500, 'height': 300 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.BarChart(document.getElementById('piechartc'));
+        chart.draw(data, options);
+    }
+</script>
+<br />
+
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            //['Provincia', 'Heridos por Provincia'],
+            ['Pedernales', 8],
+            ['Barahora', 2],
+            ['Santiago', 4],
+            ['Distrito Nacional', 12],
+            ['Baní', 8]
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'Heridos por Provincia', 'width': 500, 'height': 300 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.BarChart(document.getElementById('piechartc'));
+        chart.draw(data, options);
+    }
+</script>
+
+
+
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+
             ['Pedernales', 8],
             ['Barahora', 2],
             ['Santiago', 4],
@@ -334,12 +433,12 @@
     // Draw the chart and set the chart values
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Apresados por día'],
-            ['Pedernales', 8],
+            ['Prpvincia', 'Accidentados'],
+            ['Pedernales', 1],
             ['Barahora', 2],
             ['Santiago', 4],
             ['Distrito Nacional', 12],
-            ['Baní', 8]
+            ['Baní', 2]
         ]);
 
         // Optional; add a title and set the width and height of the chart
@@ -354,6 +453,7 @@
 
 <script type="text/javascript">
     // Load google charts
+         
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
@@ -361,11 +461,7 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['Ocoa', 25],
-            ['Barahora', 51],
-            ['Hato Mayor', 12],
-            ['Distrito Nacional', 26],
-            ['San Juan', 19]
+           @ViewBag.Novedades
         ]);
 
         // Optional; add a title and set the width and height of the chart
@@ -413,7 +509,7 @@
     // Draw the chart and set the chart values
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Apresados por día'],
+            ['Provincia', 'Incautaciones por día'],
             ['Pedernales', 8],
             ['Barahora', 2],
             ['Santiago', 4],
@@ -496,15 +592,15 @@
 
         });
 
-        //$(function () {
+                            //$(function () {
 
-        //    $(".datepicker").datepicker({
-        //        dateFormat: "yy/mm/dd",
-        //        changeMonth: true,
-        //        changeYear: true
+                            //    $(".datepicker").datepicker({
+                            //        dateFormat: "yy/mm/dd",
+                            //        changeMonth: true,
+                            //        changeYear: true
 
-        //    });
-        //});
+                            //    });
+                            //});
 
     </script>
 }
