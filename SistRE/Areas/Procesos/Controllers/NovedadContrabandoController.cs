@@ -81,8 +81,8 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
 
-                List<BeTipoIncautacion> TipoIncautacion = BcTipoIncautacion.GetAll().OrderBy(r => r.ID).ToList();
-                ViewBag.TipoIncautacionID = new SelectList(TipoIncautacion.OrderBy(c => c.ID), "ID", "Nombre");
+                List<BeTipoContrabando> TipoIncautacion = BcTipoContrabando.GetAll().OrderBy(r => r.ID).ToList();
+                ViewBag.TipoContrabandoID = new SelectList(TipoIncautacion.OrderBy(c => c.ID), "ID", "Nombre");
                 ViewBag.TipoNovedadID = new SelectList(TipoIncautacion.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
             }
             catch (Exception ex)

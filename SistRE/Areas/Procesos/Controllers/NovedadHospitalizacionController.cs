@@ -96,6 +96,29 @@ namespace SistRE.Areas.Procesos.Controllers
             }
         }
 
+
+
+        /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Hospitalización")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
         /// <summary>
         /// GetProvincias
         /// </summary>
@@ -153,6 +176,7 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 var model = new BeNovedadHospitalizacion();
+                GetTypeNovedad();
                 GetHospitales();
                 GetBrigadas();
                 GetRangos();
@@ -179,6 +203,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
             if (!ModelState.IsValid)
             {
+                GetTypeNovedad();
                 GetHospitales();
                 GetBrigadas();
                 GetRangos();

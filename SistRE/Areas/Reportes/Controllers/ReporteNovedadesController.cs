@@ -88,6 +88,13 @@ namespace SistRE.Areas.Reportes.Controllers
             {
                 ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta).OrderBy(a => a.Novedad).ToList();       
 
+                if(ListNovedades.Count == 0)
+                {
+
+                    TempData["warning"] = "No existen REGISTROS PARA ESTA CONSULTA!";
+                    return View();
+
+                }
 
                 var stream = new MemoryStream();
                 var serialicer = new XmlSerializer(typeof(List<BeResultadoNovedad>));

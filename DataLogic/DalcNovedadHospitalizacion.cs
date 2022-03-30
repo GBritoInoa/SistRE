@@ -63,6 +63,7 @@ namespace DataLogic
                     hn.AuditoriaID = Convert.ToInt32(na.AuditoriaID);
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
+                    hn.ProvinciaID = item.ProvinciaID;
                     hn.TipoID = item.NovedadHospitalizacionID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
