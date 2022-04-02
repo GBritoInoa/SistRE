@@ -382,12 +382,12 @@
     // Draw the chart and set the chart values
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            @Html.Raw(ViewBag.Novedades)
+            ['', 'Protestas'],
+            @Html.Raw(ViewBag.NovedadProtestas)
         ]);
 
         // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Repatriados por Provincia', 'width': 500, 'height': 300 };
+        var options = { 'title': 'Protestas por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
         var chart = new google.visualization.PieChart(document.getElementById('piechartd50'));
@@ -405,7 +405,7 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['', 'Apresamientos'],
-            @Html.Raw(ViewBag.NovedadesApresados)
+            @Html.Raw(ViewBag.NovedadApresamientos)
         ]);
 
         // Optional; add a title and set the width and height of the chart

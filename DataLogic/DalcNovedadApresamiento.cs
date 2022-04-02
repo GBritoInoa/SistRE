@@ -58,7 +58,7 @@ namespace DataLogic
 
                     //////////Create HistoricoNovedades////////
                     var hn = new HistoricoNovedades();
-                    hn.TipoNovedadID = na.TipoNovedadID;
+                    hn.TipoNovedadID = item.TipoNovedadID;
                     hn.AuditoriaID = na.AuditoriaID;
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;

@@ -37,9 +37,7 @@ namespace DataLogic
                 {
                     data.AddRange(from u in db.Users.Where(filter)
                                       join a in db.Auditoria on
-                                      u.AuditoriaID equals a.AuditoriaID
-                                      //join e in db.Estatus
-                                      //on tn.EstatusID equals e.EstatusID
+                                      u.AuditoriaID equals a.AuditoriaID                        
                                   join p in db.Perfil on u.PerfilID equals p.PerfilID
                                   join e in db.Estatus on u.EstatusID equals e.EstatusID
                                   join i in dbERD.Instituciones on u.InstitucionID equals i.InstitucionID

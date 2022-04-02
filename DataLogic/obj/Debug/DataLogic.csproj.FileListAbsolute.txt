@@ -96,3 +96,17 @@ C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompil
 C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
 C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.dll
 C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\DataLogic.dll.config
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\DataLogic.pdb
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\BeEntity.dll
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.dll
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\BeEntity.pdb
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.xml
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.dll
+C:\Users\Ing. Geury Brito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.pdb

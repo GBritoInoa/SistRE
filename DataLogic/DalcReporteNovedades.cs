@@ -32,8 +32,17 @@ namespace DataLogic
 
                 if(TipoNovedadId== 0)
                 {
-                    DateTime fechadesde = new DateTime(2020, 01, 01);
-                    DateTime fechahasta = new DateTime(2022, 03, 31);
+                    //Primero obtenemos el día actual
+                     DateTime date = DateTime.Now;
+
+                    //Asi obtenemos el primer dia del mes actual
+                    DateTime fechadesde = new DateTime(date.Year, date.Month, 1);
+
+                    //Y de la siguiente forma obtenemos el ultimo dia del mes
+                    //agregamos 1 mes al objeto anterior y restamos 1 día.
+                    DateTime fechahasta = fechadesde.AddMonths(1).AddDays(-1);
+                    //DateTime fechadesde = new DateTime(2020, 01, 01);
+                    //DateTime fechahasta = new DateTime(2022, 03, 31);
                     TipoNovedadId = 0;
                     data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, fechadesde, fechahasta).Select(rn => new BeResultadoNovedad()
                     {

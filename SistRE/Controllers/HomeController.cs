@@ -32,49 +32,115 @@ namespace SistRE.Controllers
             List<BeResultadoNovedad> PoncentajeNovedades = new List<BeResultadoNovedad>();
             ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta);
             PoncentajeNovedades = BcReporteNovedades.PorcientoNovedad();
-            BeResultadoNovedad Protestas = PoncentajeNovedades.Find(a => a.Novedad.Equals("Protesta"));
-            BeResultadoNovedad Repatriaciones = PoncentajeNovedades.Find(a => a.Novedad.Equals("Repatriación"));
-            BeResultadoNovedad Apresamientos = PoncentajeNovedades.Find(a => a.Novedad.Equals("Apresamientos"));
-            BeResultadoNovedad Incautaciones = PoncentajeNovedades.Find(a => a.Novedad.Equals("Protesta"));
 
-            ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 2);
-            ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 2);
-            ViewBag.Apresamientos = Apresamientos.PorcientoNovedad.Substring(0, 2);
-            ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 2);
-
-           IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
-            IEnumerable<BeResultadoNovedad> ListApresados = from a in ListNovedades where a.Novedad.Equals("Apresamientos") select a;
-
-
-
-            //////////////////Protestas//////////////////
-            string listados = "";
-            List<string> Novedad = new List<string>();
-           
-            foreach (var item in ListProtestas) {
-                Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
-          
-            }
-            listados += String.Join(",",Novedad);
-            listados += "";
-            ViewBag.Novedades = listados;
-
-            ////////////////////////////////////////////////////////
-
-            //////////////////Apresados//////////////////
-            string listadosApresados = "";
-            List<string> Novedadapresados = new List<string>();
-
-            foreach (var item in ListApresados)
+            if (PoncentajeNovedades.Count > 0)
             {
-                Novedadapresados.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+                BeResultadoNovedad Protestas = PoncentajeNovedades.Find(a => a.Novedad.Contains("Protesta"));
+                BeResultadoNovedad Repatriaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Repatriación"));
+                BeResultadoNovedad Apresamientos = PoncentajeNovedades.Find(a => a.Novedad.Contains("Apresamientos"));
+                BeResultadoNovedad Incautaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Incautaciones"));
 
+                //////////////////Validando si hay Protestas//////////////////
+                if (Protestas != null)
+                    {
+                    ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 3);
+        
+                    IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
+                    string listadoProtrestas = "";
+                    List<string> Novedad = new List<string>(); 
+
+                    foreach (var item in ListProtestas)
+                    {
+                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+                    }
+                    listadoProtrestas += String.Join(",", Novedad);
+                    listadoProtrestas += "";
+                    ViewBag.NovedadProtestas = listadoProtrestas;
+                }
+                else
+                {
+                    ViewBag.Protestas = 0.00;
+
+                }
+
+                //////////////////Validando si hay Apresamientos//////////////////
+                if (Apresamientos != null)
+                {
+                    ViewBag.Apresamientos = Apresamientos.PorcientoNovedad.Substring(0, 3);
+
+                    IEnumerable<BeResultadoNovedad> ListApresamientos = from a in ListNovedades where a.Novedad.Equals("Apresamientos") select a;
+                    string listadoApresamientos = "";
+                    List<string> Novedad = new List<string>();
+
+                    foreach (var item in ListApresamientos)
+                    {
+                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+                    }
+                    listadoApresamientos += String.Join(",", Novedad);
+                    listadoApresamientos += "";
+                    ViewBag.NovedadApresamientos= listadoApresamientos;
+                }
+                else
+                {
+                    ViewBag.Apresamientos = 0.00;
+
+                }
+
+                //////////////////Validando si hay Repatriaciones//////////////////
+                if (Repatriaciones != null)
+                {
+                    ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 3);
+
+                    IEnumerable<BeResultadoNovedad> ListRepatriaciones = from a in ListNovedades where a.Novedad.Equals("Repatriaciones") select a;
+                    string listadoRepatriaciones = "";
+                    List<string> Novedad = new List<string>();
+
+                    foreach (var item in ListRepatriaciones)
+                    {
+                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+                    }
+                    listadoRepatriaciones += String.Join(",", Novedad);
+                    listadoRepatriaciones += "";
+                    ViewBag.NovedadRepatriaciones = listadoRepatriaciones;
+                }
+                else
+                {
+                    ViewBag.Repatriaciones = 0.00;
+
+                }
+
+                //////////////////Validando si hay Incautaciones//////////////////
+                if (Incautaciones != null)
+                {
+                    ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 3);
+
+                    IEnumerable<BeResultadoNovedad> ListIncautaciones = from a in ListNovedades where a.Novedad.Equals("Incautaciones") select a;
+                    string listadoIncautaciones = "";
+                    List<string> Novedad = new List<string>();
+
+                    foreach (var item in ListIncautaciones)
+                    {
+                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+                    }
+                    listadoIncautaciones += String.Join(",", Novedad);
+                    listadoIncautaciones += "";
+                    ViewBag.NovedadIncautaciones = listadoIncautaciones;
+                }
+                else
+                {
+                    ViewBag.Incautaciones = 0.00;
+
+                }
+
+
+   
             }
-            listadosApresados += String.Join(",", Novedadapresados);
-            listadosApresados += "";
-            ViewBag.NovedadesApresados = listadosApresados;
-            ////////////////////////////////////////////////////////
 
+  
             return View();
         }
 
