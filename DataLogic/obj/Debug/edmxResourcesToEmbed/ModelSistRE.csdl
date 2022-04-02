@@ -53,7 +53,6 @@
     <EntitySet Name="Pais" EntityType="DB_SistREModel.Pais" />
     <EntitySet Name="ProtestaConvocatoria" EntityType="DB_SistREModel.ProtestaConvocatoria" />
     <EntitySet Name="Sexo" EntityType="DB_SistREModel.Sexo" />
-    <EntitySet Name="sysdiagrams" EntityType="DB_SistREModel.sysdiagrams" />
     <EntitySet Name="TipoActividad" EntityType="DB_SistREModel.TipoActividad" />
     <EntitySet Name="TipoArma" EntityType="DB_SistREModel.TipoArma" />
     <EntitySet Name="TipoDecomiso" EntityType="DB_SistREModel.TipoDecomiso" />
@@ -509,16 +508,6 @@
     <Property Name="SexoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="EstatusID" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TipoActividad">
     <Key>

@@ -17,23 +17,44 @@ namespace DataLogic
    public class DalcReporteNovedades
     {
 
-        /// <summary>
+           /// <summary>
         /// Listado Novedades
         /// </summary>
         /// <param name="TipoNovedadId"></param>
         /// <param name="FechaDesde"></param>
         /// <param name="FechaHasta"></param>
         /// <returns></returns>
-        public List<BeResultadoNovedad> GetAll( int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
+        public List<BeResultadoNovedad> GetAll(int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
         {
             var data = new List<BeResultadoNovedad>();
             using (var db = new Context_SistRE())
             {
-                data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, FechaDesde, FechaHasta).Select(rn => new BeResultadoNovedad() {
-                    CantidadNovedad = rn.CantidadNovedad ?? 0,
-                    Provincia = rn.LugarNovedad,
-                    Novedad = rn.C_TipoNovedad
-                }));
+
+                if(TipoNovedadId== 0)
+                {
+                    DateTime fechadesde = new DateTime(2020, 01, 01);
+                    DateTime fechahasta = new DateTime(2022, 03, 31);
+                    TipoNovedadId = 0;
+                    data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, fechadesde, fechahasta).Select(rn => new BeResultadoNovedad()
+                    {
+                        CantidadNovedad = rn.CantidadNovedad ?? 0,
+                        Provincia = rn.LugarNovedad,
+                        Novedad = rn.C_TipoNovedad
+                    }));
+
+                }
+
+                else
+                {
+                    data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, FechaDesde, FechaHasta).Select(rn => new BeResultadoNovedad()
+                    {
+                        CantidadNovedad = rn.CantidadNovedad ?? 0,
+                        Provincia = rn.LugarNovedad,
+                        Novedad = rn.C_TipoNovedad
+                    }));
+                }
+
+            
             }
 
 

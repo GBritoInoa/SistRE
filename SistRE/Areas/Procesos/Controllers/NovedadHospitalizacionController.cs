@@ -23,13 +23,34 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 List<BeSexo> Sexo = new List<BeSexo>();
-                Sexo = BcComun.GetSexo().ToList();
+                Sexo = BcComun.GetSexo().ToList().Where(s=> s.SexoID <= 2).ToList();
                 ViewBag.SexoID = new SelectList(Sexo.OrderBy(s => s.SexoID), "SexoID", "Nombre");
             }
             catch (Exception ex)
             {
 
                 ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
+        /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Hospitalización")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
                 throw new Exception(ex.Message);
             }
 
@@ -94,29 +115,6 @@ namespace SistRE.Areas.Procesos.Controllers
                 ModelState.AddModelError(ex.Message, "Error al obtener List Provincias");
                 throw new Exception(ex.Message);
             }
-        }
-
-
-
-        /// <summary>
-        /// Get TypeNovedad
-        /// </summary>
-        public void GetTypeNovedad()
-        {
-
-            try
-            {
-                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Hospitalización")).ToList();
-                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
-
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(ex.Message, "Error");
-                throw new Exception(ex.Message);
-            }
-
-
         }
 
         /// <summary>

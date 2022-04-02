@@ -27,7 +27,6 @@
         <EntityTypeShape EntityType="DB_SistREModel.Pais" Width="1.5" PointX="9.375" PointY="0.5" />
         <EntityTypeShape EntityType="DB_SistREModel.ProtestaConvocatoria" Width="1.5" PointX="9.375" PointY="3.5" />
         <EntityTypeShape EntityType="DB_SistREModel.Sexo" Width="1.5" PointX="9.375" PointY="6.5" />
-        <EntityTypeShape EntityType="DB_SistREModel.sysdiagrams" Width="1.5" PointX="9.375" PointY="9.5" />
         <EntityTypeShape EntityType="DB_SistREModel.TipoActividad" Width="1.5" PointX="11.375" PointY="0.5" />
         <EntityTypeShape EntityType="DB_SistREModel.TipoArma" Width="1.5" PointX="11.375" PointY="3.5" />
         <EntityTypeShape EntityType="DB_SistREModel.TipoDecomiso" Width="1.5" PointX="11.375" PointY="6.5" />

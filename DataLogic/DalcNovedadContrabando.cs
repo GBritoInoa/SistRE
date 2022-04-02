@@ -117,7 +117,7 @@ namespace DataLogic
                     db.Auditoria.Add(a);
                     db.SaveChanges();
 
-                    ///////Create Novedad Contrabando//////////
+                    ///////////Create Novedad Contrabando//////////
                     var ni = new NovedadContrabando();
                     ni.NovedadContrabandoID = item.NovedadContrabandoID;
                     ni.Cantidad = item.Cantidad;                   
@@ -137,7 +137,7 @@ namespace DataLogic
 
                     //////////Create HistoricoNovedades////////
                     var hn = new HistoricoNovedades();
-                    hn.TipoNovedadID = ni.TipoNovedadID;
+                    hn.TipoNovedadID = item.TipoNovedadID;
                     hn.AuditoriaID = ni.AuditoriaID;
                     hn.FechaNovedad = ni.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;

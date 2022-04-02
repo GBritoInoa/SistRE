@@ -30,8 +30,8 @@ namespace DataLogic
                 using (var db = new Context_SistRE())
                 {
                     data.AddRange(from p in db.Pais
-                                  join a in db.Auditoria
-                                  on p.AuditoriaID equals a.AuditoriaID
+                                  //join a in db.Auditoria
+                                  //on p.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus
                                   on p.EstatusID equals e.EstatusID
                                   where p.EstatusID != 3
@@ -41,11 +41,11 @@ namespace DataLogic
                                       PaisID = p.PaisID,
                                       Nombre = p.Nombre,
                                       EstatusID = p.EstatusID,
-                                      AuditoriaID = a.AuditoriaID,
-                                      UsuarioCreo = a.UsuarioCreo,
-                                      FechaCreo = a.FechaCreo,
-                                      UsuarioActualizo = a.UsuarioActualizo,
-                                      FechaActualizo = a.FechaActualizo
+                                      //AuditoriaID = a.AuditoriaID,
+                                      //UsuarioCreo = a.UsuarioCreo,
+                                      //FechaCreo = a.FechaCreo,
+                                      //UsuarioActualizo = a.UsuarioActualizo,
+                                      //FechaActualizo = a.FechaActualizo
                                       
                                
                                   });

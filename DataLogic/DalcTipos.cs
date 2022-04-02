@@ -337,15 +337,14 @@ namespace DataLogic
                                   on d.AuditoriaID equals a.AuditoriaID
                                   join tp in db.TipoProducto 
                                   on d.TipoProductoID equals tp.TipoProductoID
-                                  join p in db.Productos on tp.TipoProductoID equals p.TipoProductoID
+                             
 
                                   select new BeTipoDecomiso()
                                   {
 
                                       ID = d.TipoDecomisoID,
                                       TipoNovedadID = d.TipoNovedadID,
-                                        Nombre = p.Nombre,
-
+                                        Nombre = tp.Nombre,
                                         TipoProductoID = d.TipoProductoID
                                       //Nombre  = d.Nombre,
                                   });

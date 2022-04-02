@@ -281,9 +281,6 @@
     <Compile Include="Sexo.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ModelSistRE.tt</DependentUpon>
-    </Compile>
     <Compile Include="TipoActividad.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
@@ -372,7 +369,6 @@
     </None>
     <EntityDeploy Include="ModelSistRE.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelSistRE.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <EntityDeploy Include="ModeldbERD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

@@ -474,16 +474,6 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EstatusID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TipoActividad">
           <Key>
             <PropertyRef Name="TipoActividadID" />
@@ -1082,15 +1072,6 @@
           <Parameter Name="codigo_estado" Type="int" Mode="InOut" />
           <Parameter Name="mensaje_estado" Type="varchar(max)" Mode="InOut" />
         </Function>
-        <Function Name="usp_decomiso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Option" Type="int" Mode="In" />
-          <Parameter Name="UsuarioCreo" Type="varchar" Mode="In" />
-          <Parameter Name="FechaCreo" Type="datetime" Mode="In" />
-          <Parameter Name="UsuarioActualizo" Type="varchar" Mode="In" />
-          <Parameter Name="FechaActualizo" Type="datetime" Mode="In" />
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-          <Parameter Name="EstatusID" Type="int" Mode="In" />
-        </Function>
         <Function Name="usp_EditTipoNovedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TipoNovedadID" Type="int" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
@@ -1149,7 +1130,6 @@
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProtestaConvocatoria" EntityType="Self.ProtestaConvocatoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoActividad" EntityType="Self.TipoActividad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoApresamiento" EntityType="Self.TipoApresamiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoArma" EntityType="Self.TipoArma" Schema="dbo" store:Type="Tables" />
@@ -1354,7 +1334,6 @@
           <EntitySet Name="Pais" EntityType="DB_SistREModel.Pais" />
           <EntitySet Name="ProtestaConvocatoria" EntityType="DB_SistREModel.ProtestaConvocatoria" />
           <EntitySet Name="Sexo" EntityType="DB_SistREModel.Sexo" />
-          <EntitySet Name="sysdiagrams" EntityType="DB_SistREModel.sysdiagrams" />
           <EntitySet Name="TipoActividad" EntityType="DB_SistREModel.TipoActividad" />
           <EntitySet Name="TipoArma" EntityType="DB_SistREModel.TipoArma" />
           <EntitySet Name="TipoDecomiso" EntityType="DB_SistREModel.TipoDecomiso" />
@@ -1810,16 +1789,6 @@
           <Property Name="SexoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EstatusID" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TipoActividad">
           <Key>
@@ -2671,7 +2640,6 @@
           <FunctionImportMapping FunctionImportName="usp_CreateTipoNovedad" FunctionName="DB_SistREModel.Store.usp_CreateTipoNovedad" />
           <FunctionImportMapping FunctionImportName="usp_EditTipoNovedad" FunctionName="DB_SistREModel.Store.usp_EditTipoNovedad" />
           <FunctionImportMapping FunctionImportName="usp_maxCodAuditoria" FunctionName="DB_SistREModel.Store.usp_maxCodAuditoria" />
-          <FunctionImportMapping FunctionImportName="usp_decomiso" FunctionName="DB_SistREModel.Store.usp_decomiso" />
           <EntitySetMapping Name="Auditoria">
             <EntityTypeMapping TypeName="DB_SistREModel.Auditoria">
               <MappingFragment StoreEntitySet="Auditoria">
@@ -2937,17 +2905,6 @@
                 <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="SexoID" ColumnName="SexoID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DB_SistREModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -29,7 +29,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css">
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
-    
+
 
     <style>
         .navbar-success {
@@ -203,17 +203,13 @@
                     <td><div id="piechartcc" style="border: 0px solid #ccc"></div></td>
 
                 </tr>
-                @*<tr>
-                        <td><div id="piechart1" style="border: 0px solid #ccc"></div></td>
-                        <td><div id="piechartd1" style="border: 0px solid #ccc"></div></td>
 
-                    </tr>*@
-                @*<tr>
+                <tr>
+                    <td><div id="piechartd50" style="border: 0px solid #ccc"></div></td>
+                    <td><div id="piechartd501" style="border: 0px solid #ccc"></div></td>
 
-                        <td><div id="piechartc1" style="border: 0px solid #ccc"></div></td>
-                        <td><div id="piechartcc1" style="border: 0px solid #ccc"></div></td>
+                </tr>
 
-                    </tr>*@
             </table>
 
 
@@ -280,15 +276,16 @@
     function drawChart1() {
         var data = google.visualization.arrayToDataTable([
             ['Provincia', 'Cantidad'],
-            ['@ViewBag.Provincia',@ViewBag.Protestas],
-            ['Barahora', 51],
-            ['Hato Mayor', 12],
-            ['Distrito Nacional', 26],
-            ['San Juan', 19]
+            ['Barahora', 3],
+            ['Santiago', 2],
+            ['El Seibo', 2],
+            ['Hato Mayor', 6],
+            ['Distrito Nacional', 4],
+            ['San Juan', 2]
         ]);
 
         // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Apresados por Provincia', 'width': 500, 'height': 300 };
+        var options = { 'title': 'Miembros ERD Fallecidos por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -325,29 +322,6 @@
 
 
 <script type="text/javascript">
-        // Load google charts
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
-        // Draw the chart and set the chart values
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Provincia', 'Cantidad'],
-            ['azua',10]
-
-         ]);
-
-
-            // Optional; add a title and set the width and height of the chart
-            var options = { 'title': 'Apresados por Provincia', 'width': 500, 'height': 300 };
-
-            // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
-
-</script>
-
-
-<script type="text/javascript">
     // Load google charts
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
@@ -364,7 +338,7 @@
         ]);
 
         // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Heridos por Provincia', 'width': 500, 'height': 300 };
+        var options = { 'title': 'Decomisos por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
         var chart = new google.visualization.BarChart(document.getElementById('piechartc'));
@@ -381,7 +355,7 @@
     // Draw the chart and set the chart values
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            //['Provincia', 'Heridos por Provincia'],
+            ['Task', 'Hours per Day'],
             ['Pedernales', 8],
             ['Barahora', 2],
             ['Santiago', 4],
@@ -390,59 +364,7 @@
         ]);
 
         // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Heridos por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.BarChart(document.getElementById('piechartc'));
-        chart.draw(data, options);
-    }
-</script>
-
-
-
-<script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-
-    // Draw the chart and set the chart values
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-
-            ['Pedernales', 8],
-            ['Barahora', 2],
-            ['Santiago', 4],
-            ['Distrito Nacional', 12],
-            ['Baní', 8]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Heridos por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.BarChart(document.getElementById('piechartc'));
-        chart.draw(data, options);
-    }
-</script>
-
-<script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-
-    // Draw the chart and set the chart values
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Prpvincia', 'Accidentados'],
-            ['Pedernales', 1],
-            ['Barahora', 2],
-            ['Santiago', 4],
-            ['Distrito Nacional', 12],
-            ['Baní', 2]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': ' Miembros del ERD accidentados por Provincia', 'width': 500, 'height': 300 };
+        var options = { 'title': 'Indocumentados por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
         var chart = new google.visualization.BarChart(document.getElementById('piechartcc'));
@@ -453,7 +375,7 @@
 
 <script type="text/javascript">
     // Load google charts
-         
+
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
@@ -461,118 +383,36 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-           @ViewBag.Novedades
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Decomiso de Drogas por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.PieChart(document.getElementById('piechartd'));
-        chart.draw(data, options);
-    }
-</script>
-
-
-@*GRAFICO DUPLICADO*@
-
-<script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-
-    // Draw the chart and set the chart values
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Pedernales', 8],
-            ['Barahora', 2],
-            ['Santiago', 4],
-            ['Distrito Nacional', 12],
-            ['Baní', 8]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Incautaciones por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
-        chart.draw(data, options);
-    }
-</script>
-
-<script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-
-    // Draw the chart and set the chart values
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Provincia', 'Incautaciones por día'],
-            ['Pedernales', 8],
-            ['Barahora', 2],
-            ['Santiago', 4],
-            ['Distrito Nacional', 12],
-            ['Baní', 8]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Incautaciones por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.BarChart(document.getElementById('piechartc1'));
-        chart.draw(data, options);
-    }
-</script>
-
-<script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-
-    // Draw the chart and set the chart values
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Task', 'Apresados por día'],
-            ['Pedernales', 8],
-            ['Barahora', 2],
-            ['Santiago', 4],
-            ['Distrito Nacional', 12],
-            ['Baní', 8]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Apresados por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.BarChart(document.getElementById('piechartcc1'));
-        chart.draw(data, options);
-    }
-</script>
-
-
-<script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-
-    // Draw the chart and set the chart values
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Task', 'Repatriaciones'],
-            ['Ocoa', 25],
-            ['Barahora', 51],
-            ['Hato Mayor', 12],
-            ['Distrito Nacional', 26],
-            ['San Juan', 19]
+            @Html.Raw(ViewBag.Novedades)
         ]);
 
         // Optional; add a title and set the width and height of the chart
         var options = { 'title': 'Repatriados por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.PieChart(document.getElementById('piechartd1'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechartd50'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+    // Load google charts
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['', 'Apresamientos'],
+            @Html.Raw(ViewBag.NovedadesApresados)
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'Apresados por Provincia', 'width': 500, 'height': 300 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechartd501'));
         chart.draw(data, options);
     }
 </script>
@@ -592,15 +432,15 @@
 
         });
 
-                            //$(function () {
+                                //$(function () {
 
-                            //    $(".datepicker").datepicker({
-                            //        dateFormat: "yy/mm/dd",
-                            //        changeMonth: true,
-                            //        changeYear: true
+                                //    $(".datepicker").datepicker({
+                                //        dateFormat: "yy/mm/dd",
+                                //        changeMonth: true,
+                                //        changeYear: true
 
-                            //    });
-                            //});
+                                //    });
+                                //});
 
     </script>
 }

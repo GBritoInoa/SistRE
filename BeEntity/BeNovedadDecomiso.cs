@@ -45,6 +45,11 @@ namespace BeEntity
         [Required]
         [DisplayName("Brigada Responsable")]
         public int BrigadaID { get; set; }
-        
+
+
+        [Required]
+        [DisplayName("Tipo Producto")]
+        public int ProductoID { get; set; }
+
     }
 }

@@ -82,3 +82,17 @@ C:\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cac
 C:\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
 C:\SistRE\BusinessControl\obj\Debug\BusinessControl.dll
 C:\SistRE\BusinessControl\obj\Debug\BusinessControl.pdb
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\BusinessControl.dll
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\BusinessControl.pdb
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\BeEntity.dll
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\DataLogic.dll
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\EntityFramework.dll
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\BeEntity.pdb
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\DataLogic.pdb
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\DataLogic.dll.config
+C:\Users\gbrito\Documents\SistRE\BusinessControl\bin\Debug\EntityFramework.xml
+C:\Users\gbrito\Documents\SistRE\BusinessControl\obj\Debug\BusinessControl.csprojAssemblyReference.cache
+C:\Users\gbrito\Documents\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CoreCompileInputs.cache
+C:\Users\gbrito\Documents\SistRE\BusinessControl\obj\Debug\BusinessControl.csproj.CopyComplete
+C:\Users\gbrito\Documents\SistRE\BusinessControl\obj\Debug\BusinessControl.dll
+C:\Users\gbrito\Documents\SistRE\BusinessControl\obj\Debug\BusinessControl.pdb

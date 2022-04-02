@@ -4,128 +4,128 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="dbPersonalERDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+    <Schema Namespace="dbPersonalERDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Batallones">
           <Key>
             <PropertyRef Name="BatallonID" />
           </Key>
-          <Property Name="BatallonID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="100" Type="nvarchar" />
-          <Property Name="UnidadID" Nullable="false" Type="int" />
-          <Property Name="codAnterior" Nullable="false" MaxLength="10" Type="nvarchar" />
+          <Property Name="BatallonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UnidadID" Type="int" Nullable="false" />
+          <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Companias">
           <Key>
             <PropertyRef Name="CompaniaID" />
           </Key>
-          <Property Name="CompaniaID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="100" Type="nvarchar" />
-          <Property Name="BatallonID" Nullable="false" Type="int" />
-          <Property Name="codAnterior" Nullable="false" MaxLength="10" Type="nvarchar" />
-          <Property Name="Nomina" Nullable="false" Type="int" />
-          <Property Name="TenienteGeneral" Nullable="false" Type="int" />
-          <Property Name="MayorGeneral" Nullable="false" Type="int" />
-          <Property Name="General" Nullable="false" Type="int" />
-          <Property Name="Coronel" Nullable="false" Type="int" />
-          <Property Name="TenienteCoronel" Nullable="false" Type="int" />
-          <Property Name="Mayor" Nullable="false" Type="int" />
-          <Property Name="Capitan" Nullable="false" Type="int" />
-          <Property Name="PrimerTeniente" Nullable="false" Type="int" />
-          <Property Name="SeguntoTeniente" Nullable="false" Type="int" />
-          <Property Name="Cadete4toAño" Nullable="false" Type="int" />
-          <Property Name="Cadete3erAño" Nullable="false" Type="int" />
-          <Property Name="Cadete2doAño" Nullable="false" Type="int" />
-          <Property Name="Cadete1erAño" Nullable="false" Type="int" />
-          <Property Name="AspiranteAcadete" Nullable="false" Type="int" />
-          <Property Name="SargentoMayor" Nullable="false" Type="int" />
-          <Property Name="SargentoAyC" Nullable="false" Type="int" />
-          <Property Name="Sargento" Nullable="false" Type="int" />
-          <Property Name="Cabo" Nullable="false" Type="int" />
-          <Property Name="Raso" Nullable="false" Type="int" />
-          <Property Name="Conscripto" Nullable="false" Type="int" />
-          <Property Name="Asimilado" Nullable="false" Type="int" />
-          <Property Name="Igualado" Nullable="false" Type="int" />
-          <Property Name="Historica" Nullable="false" Type="bit" />
+          <Property Name="CompaniaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BatallonID" Type="int" Nullable="false" />
+          <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nomina" Type="int" Nullable="false" />
+          <Property Name="TenienteGeneral" Type="int" Nullable="false" />
+          <Property Name="MayorGeneral" Type="int" Nullable="false" />
+          <Property Name="General" Type="int" Nullable="false" />
+          <Property Name="Coronel" Type="int" Nullable="false" />
+          <Property Name="TenienteCoronel" Type="int" Nullable="false" />
+          <Property Name="Mayor" Type="int" Nullable="false" />
+          <Property Name="Capitan" Type="int" Nullable="false" />
+          <Property Name="PrimerTeniente" Type="int" Nullable="false" />
+          <Property Name="SeguntoTeniente" Type="int" Nullable="false" />
+          <Property Name="Cadete4toAño" Type="int" Nullable="false" />
+          <Property Name="Cadete3erAño" Type="int" Nullable="false" />
+          <Property Name="Cadete2doAño" Type="int" Nullable="false" />
+          <Property Name="Cadete1erAño" Type="int" Nullable="false" />
+          <Property Name="AspiranteAcadete" Type="int" Nullable="false" />
+          <Property Name="SargentoMayor" Type="int" Nullable="false" />
+          <Property Name="SargentoAyC" Type="int" Nullable="false" />
+          <Property Name="Sargento" Type="int" Nullable="false" />
+          <Property Name="Cabo" Type="int" Nullable="false" />
+          <Property Name="Raso" Type="int" Nullable="false" />
+          <Property Name="Conscripto" Type="int" Nullable="false" />
+          <Property Name="Asimilado" Type="int" Nullable="false" />
+          <Property Name="Igualado" Type="int" Nullable="false" />
+          <Property Name="Historica" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Instituciones">
           <Key>
             <PropertyRef Name="InstitucionID" />
           </Key>
-          <Property Name="InstitucionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="InstitucionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
           <Property Name="direccion" Type="nvarchar(max)" />
           <Property Name="telefono" Type="nvarchar(max)" />
           <Property Name="correo" Type="nvarchar(max)" />
           <Property Name="pagina" Type="nvarchar(max)" />
-          <Property Name="MinisterioID" Nullable="false" Type="int" />
+          <Property Name="MinisterioID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Miembros">
           <Key>
             <PropertyRef Name="Cedula" />
           </Key>
-          <Property Name="Cedula" Nullable="false" MaxLength="13" Type="nvarchar" />
-          <Property Name="Apellidos" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="Nombres" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="fecha_Ingreso_Institucion" Nullable="false" Type="datetime" />
-          <Property Name="fecha_funcion" Nullable="false" Type="datetime" />
-          <Property Name="fecha_ingreso_unidad" Nullable="false" Type="datetime" />
-          <Property Name="fecha_nacimiento" Nullable="false" Type="datetime" />
-          <Property Name="MunicipioID" Nullable="false" Type="int" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_Ingreso_Institucion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_funcion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_ingreso_unidad" Type="datetime" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="MunicipioID" Type="int" Nullable="false" />
           <Property Name="licencia_conducir" Type="nvarchar(max)" />
           <Property Name="telefono" Type="nvarchar(max)" />
-          <Property Name="fecha_ascenso" Nullable="false" Type="datetime" />
-          <Property Name="fecha_calculada" Nullable="false" Type="datetime" />
+          <Property Name="fecha_ascenso" Type="datetime" Nullable="false" />
+          <Property Name="fecha_calculada" Type="datetime" Nullable="false" />
           <Property Name="numero_escalafon" Type="nvarchar(max)" />
-          <Property Name="estatus" Nullable="false" Type="bit" />
-          <Property Name="RangoID" Nullable="false" Type="int" />
-          <Property Name="ProfesionID" Nullable="false" Type="int" />
-          <Property Name="direccion" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="RangoID" Type="int" Nullable="false" />
+          <Property Name="ProfesionID" Type="int" Nullable="false" />
+          <Property Name="direccion" Type="nvarchar(max)" Nullable="false" />
           <Property Name="urbanizacion" Type="nvarchar(max)" />
-          <Property Name="FuncionID" Nullable="false" Type="int" />
-          <Property Name="CompaniaID" Nullable="false" Type="int" />
-          <Property Name="RangoIDing" Nullable="false" Type="int" />
-          <Property Name="ProfesionIDing" Nullable="false" Type="int" />
+          <Property Name="FuncionID" Type="int" Nullable="false" />
+          <Property Name="CompaniaID" Type="int" Nullable="false" />
+          <Property Name="RangoIDing" Type="int" Nullable="false" />
+          <Property Name="ProfesionIDing" Type="int" Nullable="false" />
           <Property Name="recomendadoPor" Type="nvarchar(max)" />
           <Property Name="ocupacionAnterior" Type="nvarchar(max)" />
           <Property Name="Altura" Type="nvarchar(max)" />
           <Property Name="Peso" Type="nvarchar(max)" />
-          <Property Name="fechaCarnet" Nullable="false" Type="datetime" />
+          <Property Name="fechaCarnet" Type="datetime" Nullable="false" />
           <Property Name="numero_carnet" Type="int" />
           <Property Name="RutaFoto" Type="nvarchar(max)" />
-          <Property Name="modificado" Nullable="false" Type="datetime" />
+          <Property Name="modificado" Type="datetime" Nullable="false" />
           <Property Name="usuario" Type="nvarchar(max)" />
           <Property Name="dirIP" Type="nvarchar(max)" />
-          <Property Name="Sexo" Nullable="false" MaxLength="1" Type="nvarchar" />
-          <Property Name="Sueldo" Nullable="false" Precision="18" Scale="2" Type="decimal" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Sueldo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="NoCuenta" Type="nvarchar(max)" />
-          <Property Name="Especialismo" Nullable="false" Precision="18" Scale="2" Type="decimal" />
-          <Property Name="Compensacion" Nullable="false" Precision="18" Scale="2" Type="decimal" />
-          <Property Name="Prima" Nullable="false" Precision="18" Scale="2" Type="decimal" />
-          <Property Name="InstitucionID" Nullable="false" Type="int" />
-          <Property Name="PromocionID" Nullable="false" Type="int" />
-          <Property Name="LugarNacimiento" Nullable="false" Type="int" />
-          <Property Name="Bautismo" Nullable="false" Type="bit" />
-          <Property Name="Confirmacion" Nullable="false" Type="bit" />
-          <Property Name="Comunion" Nullable="false" Type="bit" />
-          <Property Name="Matrimonio" Nullable="false" Type="bit" />
-          <Property Name="TipoLicenciaConducirID" Nullable="false" Type="int" />
-          <Property Name="reintegro" Nullable="false" Type="bit" />
+          <Property Name="Especialismo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Compensacion" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Prima" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="InstitucionID" Type="int" Nullable="false" />
+          <Property Name="PromocionID" Type="int" Nullable="false" />
+          <Property Name="LugarNacimiento" Type="int" Nullable="false" />
+          <Property Name="Bautismo" Type="bit" Nullable="false" />
+          <Property Name="Confirmacion" Type="bit" Nullable="false" />
+          <Property Name="Comunion" Type="bit" Nullable="false" />
+          <Property Name="Matrimonio" Type="bit" Nullable="false" />
+          <Property Name="TipoLicenciaConducirID" Type="int" Nullable="false" />
+          <Property Name="reintegro" Type="bit" Nullable="false" />
           <Property Name="Celular" Type="nvarchar(max)" />
           <Property Name="telefonoTrabajo" Type="nvarchar(max)" />
-          <Property Name="tSangreID" Nullable="false" Type="int" />
-          <Property Name="PielID" Nullable="false" Type="int" />
-          <Property Name="OjosID" Nullable="false" Type="int" />
-          <Property Name="CabelloID" Nullable="false" Type="int" />
-          <Property Name="EstatusID" Nullable="false" Type="int" />
-          <Property Name="EstadoCivilID" Nullable="false" Type="int" />
+          <Property Name="tSangreID" Type="int" Nullable="false" />
+          <Property Name="PielID" Type="int" Nullable="false" />
+          <Property Name="OjosID" Type="int" Nullable="false" />
+          <Property Name="CabelloID" Type="int" Nullable="false" />
+          <Property Name="EstatusID" Type="int" Nullable="false" />
+          <Property Name="EstadoCivilID" Type="int" Nullable="false" />
           <Property Name="Correo" Type="nvarchar(max)" />
           <Property Name="Facebook" Type="nvarchar(max)" />
           <Property Name="tweeter" Type="nvarchar(max)" />
           <Property Name="DireccionAlterna" Type="nvarchar(max)" />
           <Property Name="Alerta" Type="nvarchar(max)" />
-          <Property Name="CompensacionEspecial" Nullable="false" Precision="18" Scale="2" Type="decimal" />
-          <Property Name="Adicion" Nullable="false" Type="int" />
-          <Property Name="fechaAdicion" Nullable="false" Type="datetime" />
+          <Property Name="CompensacionEspecial" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Adicion" Type="int" Nullable="false" />
+          <Property Name="fechaAdicion" Type="datetime" Nullable="false" />
           <Property Name="tarjeta" Type="nvarchar(max)" />
           <Property Name="Reintegros" Type="nvarchar(max)" />
         </EntityType>
@@ -133,73 +133,73 @@
           <Key>
             <PropertyRef Name="MunicipioID" />
           </Key>
-          <Property Name="MunicipioID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" Type="nvarchar(max)" />
-          <Property Name="ProvinciaID" Nullable="false" Type="int" />
-          <Property Name="codAnterior" Nullable="false" MaxLength="10" Type="nvarchar" />
+          <Property Name="MunicipioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProvinciaID" Type="int" Nullable="false" />
+          <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Paises">
           <Key>
             <PropertyRef Name="PaisID" />
           </Key>
-          <Property Name="PaisID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="capital" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="ContinenteID" Nullable="false" Type="int" />
-          <Property Name="codAnterior" MaxLength="10" Type="nvarchar" />
+          <Property Name="PaisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="capital" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContinenteID" Type="int" Nullable="false" />
+          <Property Name="codAnterior" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Provincias">
           <Key>
             <PropertyRef Name="ProvinciaID" />
           </Key>
-          <Property Name="ProvinciaID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="RegionID" Nullable="false" Type="int" />
+          <Property Name="ProvinciaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegionID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Rangos">
           <Key>
             <PropertyRef Name="RangoID" />
           </Key>
-          <Property Name="RangoID" Nullable="false" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="nivelRangoID" Nullable="false" Type="int" />
+          <Property Name="RangoID" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nivelRangoID" Type="int" Nullable="false" />
           <Property Name="Imagen" Type="nvarchar(max)" />
-          <Property Name="codAnterior" Nullable="false" MaxLength="5" Type="nvarchar" />
-          <Property Name="Sueldo" Nullable="false" Type="float" />
+          <Property Name="codAnterior" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Sueldo" Type="float" Nullable="false" />
           <Property Name="CategoriaID" Type="int" />
-          <Property Name="nombreARD" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="nombreARD" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Abreviatura" Type="nvarchar(max)" />
-          <Property Name="Riesgo" Nullable="false" Precision="18" Scale="2" Type="decimal" />
-          <Property Name="Cargo" Nullable="false" Precision="18" Scale="2" Type="decimal" />
+          <Property Name="Riesgo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Cargo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Abreviatura2" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Regiones">
           <Key>
             <PropertyRef Name="RegionID" />
           </Key>
-          <Property Name="RegionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Sectores">
           <Key>
             <PropertyRef Name="SectorID" />
           </Key>
-          <Property Name="SectorID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="100" Type="nvarchar" />
+          <Property Name="SectorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Unidades">
           <Key>
             <PropertyRef Name="UnidadID" />
           </Key>
-          <Property Name="UnidadID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="nombre" Nullable="false" MaxLength="100" Type="nvarchar" />
-          <Property Name="codAnterior" Nullable="false" MaxLength="10" Type="nvarchar" />
+          <Property Name="UnidadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="codAnterior" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_Municipios_dbo_Provincias_ProvinciaID">
-          <End Type="Self.Provincias" Multiplicity="1" Role="Provincias">
+          <End Role="Provincias" Type="Self.Provincias" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="Self.Municipios" Multiplicity="*" Role="Municipios" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Provincias">
               <PropertyRef Name="ProvinciaID" />
@@ -210,10 +210,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Provincias_dbo_Regiones_RegionID">
-          <End Type="Self.Regiones" Multiplicity="1" Role="Regiones">
+          <End Role="Regiones" Type="Self.Regiones" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="Self.Provincias" Multiplicity="*" Role="Provincias" />
+          <End Role="Provincias" Type="Self.Provincias" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Regiones">
               <PropertyRef Name="RegionID" />
@@ -224,8 +224,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Miembros_Companias">
-          <End Type="Self.Companias" Multiplicity="1" Role="Companias" />
-          <End Type="Self.Miembros" Multiplicity="*" Role="Miembros" />
+          <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
+          <End Role="Miembros" Type="Self.Miembros" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Companias">
               <PropertyRef Name="CompaniaID" />
@@ -236,8 +236,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Miembros_Rangos">
-          <End Type="Self.Rangos" Multiplicity="1" Role="Rangos" />
-          <End Type="Self.Miembros" Multiplicity="*" Role="Miembros" />
+          <End Role="Rangos" Type="Self.Rangos" Multiplicity="1" />
+          <End Role="Miembros" Type="Self.Miembros" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rangos">
               <PropertyRef Name="RangoID" />
@@ -260,20 +260,20 @@
           <EntitySet Name="Sectores" EntityType="Self.Sectores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unidades" EntityType="Self.Unidades" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_Municipios_dbo_Provincias_ProvinciaID" Association="Self.FK_dbo_Municipios_dbo_Provincias_ProvinciaID">
-            <End EntitySet="Provincias" Role="Provincias" />
-            <End EntitySet="Municipios" Role="Municipios" />
+            <End Role="Provincias" EntitySet="Provincias" />
+            <End Role="Municipios" EntitySet="Municipios" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Provincias_dbo_Regiones_RegionID" Association="Self.FK_dbo_Provincias_dbo_Regiones_RegionID">
-            <End EntitySet="Regiones" Role="Regiones" />
-            <End EntitySet="Provincias" Role="Provincias" />
+            <End Role="Regiones" EntitySet="Regiones" />
+            <End Role="Provincias" EntitySet="Provincias" />
           </AssociationSet>
           <AssociationSet Name="FK_Miembros_Companias" Association="Self.FK_Miembros_Companias">
-            <End EntitySet="Companias" Role="Companias" />
-            <End EntitySet="Miembros" Role="Miembros" />
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Miembros" EntitySet="Miembros" />
           </AssociationSet>
           <AssociationSet Name="FK_Miembros_Rangos" Association="Self.FK_Miembros_Rangos">
-            <End EntitySet="Rangos" Role="Rangos" />
-            <End EntitySet="Miembros" Role="Miembros" />
+            <End Role="Rangos" EntitySet="Rangos" />
+            <End Role="Miembros" EntitySet="Miembros" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>

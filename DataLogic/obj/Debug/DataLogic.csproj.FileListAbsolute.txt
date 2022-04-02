@@ -82,3 +82,17 @@ C:\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
 C:\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
 C:\SistRE\DataLogic\obj\Debug\DataLogic.dll
 C:\SistRE\DataLogic\obj\Debug\DataLogic.pdb
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\DataLogic.dll.config
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\DataLogic.dll
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\DataLogic.pdb
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\BeEntity.dll
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.dll
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\BeEntity.pdb
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.xml
+C:\Users\gbrito\Documents\SistRE\DataLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csprojAssemblyReference.cache
+C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CoreCompileInputs.cache
+C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.csproj.CopyComplete
+C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.dll
+C:\Users\gbrito\Documents\SistRE\DataLogic\obj\Debug\DataLogic.pdb

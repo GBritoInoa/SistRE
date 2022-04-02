@@ -33,23 +33,53 @@ namespace SistRE.Areas.Procesos.Controllers
         }
 
         /// <summary>
-        /// Get TipoMedidas
+        /// Tipo Medidas
         /// </summary>
-        private void GetTipoMedida()
+        /// <param name="ProductoId"></param>
+        /// <returns></returns>
+        public JsonResult GetTipoMedidas(int ProductoID)
         {
 
             try
             {
-                 List<BeTipoMedida> TipoMedidas = BcTipos.GetTipoMedidas();
-                ViewBag.TipoMedidaID = new SelectList(TipoMedidas.OrderBy(tm => tm.Medida), "TipoMedidaID", "Medida");
+
+                //var p = BcProductos.GetAll().Where(a => a.ID == ProductoID).FirstOrDefault();
+                var tp = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == ProductoID).FirstOrDefault();
+                var TipoMedidaID = BcTipoMedidas.GetAll().Where(x => x.TipoProductoID == ProductoID).ToList();
+                return Json(TipoMedidaID, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al obtener Listado Tipo Medidas");
                 throw new Exception(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// JsonResult Productos
+        /// </summary>
+        /// <param name="TipoProductoID"></param>
+        /// <returns></returns>
+        public JsonResult GetProducts(int TipoProductoID)
+        {
+
+            try
+            {
+
+                var tipoInc = BcTipoDecomiso.GetAll().Where(a => a.ID == TipoProductoID).FirstOrDefault();
+                var tipoproducto = BcTipoProducto.GetAll().Where(y => y.TipoProductoID == tipoInc.TipoProductoID).FirstOrDefault();
+                var productos = BcProductos.GetAll().Where(x => x.TipoProductoID == tipoproducto.TipoProductoID).ToList();
+
+                return Json(productos, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         /// <summary>
         /// Get Tipo Decomiso
@@ -119,10 +149,10 @@ namespace SistRE.Areas.Procesos.Controllers
         {
             try
             {
+            
                 GetBrigadas();
                 GetTipoDecomiso();
                 GetTipoDrogas();
-                GetTipoMedida();
                 GetProvincias();
             }
             catch (Exception ex )
@@ -146,8 +176,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
                 GetTipoDecomiso();
                 GetTipoDrogas();
-                GetTipoMedida();
-                GetProvincias();
+                 GetProvincias();
                 return View(model);
 
             }

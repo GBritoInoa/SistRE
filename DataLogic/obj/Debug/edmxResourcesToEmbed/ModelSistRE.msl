@@ -4,7 +4,6 @@
     <FunctionImportMapping FunctionImportName="usp_CreateTipoNovedad" FunctionName="DB_SistREModel.Store.usp_CreateTipoNovedad" />
     <FunctionImportMapping FunctionImportName="usp_EditTipoNovedad" FunctionName="DB_SistREModel.Store.usp_EditTipoNovedad" />
     <FunctionImportMapping FunctionImportName="usp_maxCodAuditoria" FunctionName="DB_SistREModel.Store.usp_maxCodAuditoria" />
-    <FunctionImportMapping FunctionImportName="usp_decomiso" FunctionName="DB_SistREModel.Store.usp_decomiso" />
     <EntitySetMapping Name="Auditoria">
       <EntityTypeMapping TypeName="DB_SistREModel.Auditoria">
         <MappingFragment StoreEntitySet="Auditoria">
@@ -270,17 +269,6 @@
           <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="SexoID" ColumnName="SexoID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="DB_SistREModel.sysdiagrams">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

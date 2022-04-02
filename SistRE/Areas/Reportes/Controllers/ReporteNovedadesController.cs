@@ -2,6 +2,7 @@
 using BusinessControl;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,7 @@ namespace SistRE.Areas.Reportes.Controllers
 {
     public class ReporteNovedadesController : Controller
     {
-
+        string NombreArchivo;
 
 
         /// <summary>
@@ -37,18 +38,57 @@ namespace SistRE.Areas.Reportes.Controllers
 
         }
 
-        // GET: Reportes/ReporteNovedades
+
         public ActionResult Index()
         {
 
+            var TipoNovedadId = 0;
+            var FechaDesde = DateTime.Now;
+            var FechaHasta = DateTime.Now;
 
-          
+            List<BeResultadoNovedad> ListNovedades = new List<BeResultadoNovedad>();
+            List<BeResultadoNovedad> PoncentajeNovedades = new List<BeResultadoNovedad>();
+            ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta);
+   
+            IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
+            IEnumerable<BeResultadoNovedad> ListApresados = from a in ListNovedades where a.Novedad.Equals("Apresamientos") select a;
+
+
+            //////////////////Protestas//////////////////
+            string listados = "";
+            List<string> Novedad = new List<string>();
+
+            foreach (var item in ListProtestas)
+            {
+                Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+            }
+            listados += String.Join(",", Novedad);
+            listados += "";
+            ViewBag.Novedades = listados;
+
+            ////////////////////////////////////////////////////////
+
+            //////////////////Apresados//////////////////
+            string listadosApresados = "";
+            List<string> Novedadapresados = new List<string>();
+
+            foreach (var item in ListApresados)
+            {
+                Novedadapresados.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+            }
+            listadosApresados += String.Join(",", Novedadapresados);
+            listadosApresados += "";
+            ViewBag.NovedadesApresados = listadosApresados;
+            ////////////////////////////////////////////////////////
 
             return View();
         }
 
 
 
+        [DisplayName("Estadisticas")]
         [HttpGet]
         /// <summary>
         /// Reporte Novedades
@@ -73,6 +113,7 @@ namespace SistRE.Areas.Reportes.Controllers
         }
 
 
+        [DisplayName("Estadisticas")]
         [HttpPost]
         /// <summary>
         /// 
@@ -81,65 +122,93 @@ namespace SistRE.Areas.Reportes.Controllers
         /// <returns></returns>
         public ActionResult ReporteNovedades(int TipoNovedadId, DateTime FechaDesde, DateTime FechaHasta)
         {
-
-            
+            if(TipoNovedadId == 0)
+            {
+                TipoNovedadId = 0;
+            }
             List<BeResultadoNovedad> ListNovedades = new List<BeResultadoNovedad>();
+            ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta).OrderBy(a => a.Novedad).ToList();
             try
             {
-                ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta).OrderBy(a => a.Novedad).ToList();       
 
-                if(ListNovedades.Count == 0)
+                if (ListNovedades.Count == 0)
                 {
-
-                    TempData["warning"] = "No existen REGISTROS PARA ESTA CONSULTA!";
+                    TempData["info"] = "No EXISTEN REGISTROS PARA ESTA CONSULTA";
                     return View();
-
                 }
 
-                var stream = new MemoryStream();
-                var serialicer = new XmlSerializer(typeof(List<BeResultadoNovedad>));
-                
-                ////Lo transformo en un XML y lo guardo en memoria
-                serialicer.Serialize(stream, ListNovedades);
-                stream.Position = 0;
-             
-              
+                else
+                {
 
-                ////devuelvo el XML de la memoria como un fichero .xls
-                return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheet", "Reporte" + ListNovedades[0].Novedad+".xls");
-              
+                    if (TipoNovedadId == 0)
+                    {
+
+                        NombreArchivo = "Todas las Novedades" + " " + "Desde" + " " + FechaDesde.ToShortDateString() + " " + "Hasta" + " " + FechaHasta.ToShortDateString();
+
+                    }
+                    else
+                    {
+                        NombreArchivo = ListNovedades[0].Novedad.ToString() + " " + "Desde" + " " + FechaDesde.ToShortDateString() + " " + "Hasta" + " " + FechaHasta.ToShortDateString();
+
+                    }
+                    var stream = new MemoryStream();
+                    var serialicer = new XmlSerializer(typeof(List<BeResultadoNovedad>));
+
+                    ////Lo transformo en un XML y lo guardo en memoria
+                    serialicer.Serialize(stream, ListNovedades);
+                    stream.Position = 0;
+
+
+                    IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
+                    IEnumerable<BeResultadoNovedad> ListApresados = from a in ListNovedades where a.Novedad.Equals("Apresamientos") select a;
+
+
+                    //////////////////Protestas//////////////////
+                    string listados = "";
+                    List<string> Novedad = new List<string>();
+
+                    foreach (var item in ListProtestas)
+                    {
+                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+                    }
+                    listados += String.Join(",", Novedad);
+                    listados += "";
+                    ViewBag.Novedades = listados;
+
+                    ////////////////////////////////////////////////////////
+
+                    //////////////////Apresados//////////////////
+                    string listadosApresados = "";
+                    List<string> Novedadapresados = new List<string>();
+
+                    foreach (var item in ListApresados)
+                    {
+                        Novedadapresados.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+
+                    }
+                    listadosApresados += String.Join(",", Novedadapresados);
+                    listadosApresados += "";
+                    ViewBag.NovedadesApresados = listadosApresados;
+                    ////////////////////////////////////////////////////////
+                    GetTypeNovedad();
+                    return View();
+                    ////devuelvo el XML de la memoria como un fichero .xls
+                    //return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheet", "Reporte Estiadísticas" +" " +NombreArchivo+".xls");                                 
+                }
             }
+            
 
             catch (Exception ex)
             {
-                ModelState.AddModelError(ex.Message, "Error al crear Novedad Apresamiento");
+                ModelState.AddModelError(ex.Message, "Error al generar Gráficos Estadísticos");
                 throw new Exception(ex.Message);
             }
 
+           
 
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="tiponovedadid"></param>
-        ///// <param name="FechaDesde"></param>
-        ///// <param name="Fechahasta"></param>
-        ///// <returns></returns>
-        //public ActionResult Reporte_Novedades(int TipoNovedadID, DateTime FechaDesde , DateTime Fechahasta)
-        //{
-
-        //    try
-        //    {
-        //        return View();
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-
-
-        //}
+   
     }
 }
