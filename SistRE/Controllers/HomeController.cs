@@ -38,12 +38,12 @@ namespace SistRE.Controllers
                 BeResultadoNovedad Protestas = PoncentajeNovedades.Find(a => a.Novedad.Contains("Protesta"));
                 BeResultadoNovedad Repatriaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Repatriación"));
                 BeResultadoNovedad Apresamientos = PoncentajeNovedades.Find(a => a.Novedad.Contains("Apresamientos"));
-                BeResultadoNovedad Incautaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Incautaciones"));
+                BeResultadoNovedad Incautaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Incautación"));
 
                 //////////////////Validando si hay Protestas//////////////////
                 if (Protestas != null)
                     {
-                    ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 3);
+                    ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 3).Replace(".", "");
         
                     IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
                     string listadoProtrestas = "";
@@ -67,9 +67,9 @@ namespace SistRE.Controllers
                 //////////////////Validando si hay Apresamientos//////////////////
                 if (Apresamientos != null)
                 {
-                    ViewBag.Apresamientos = Apresamientos.PorcientoNovedad.Substring(0, 3);
+                    ViewBag.Apresamientos = Apresamientos.PorcientoNovedad.Substring(0, 3).Replace(".", "");
 
-                    IEnumerable<BeResultadoNovedad> ListApresamientos = from a in ListNovedades where a.Novedad.Equals("Apresamientos") select a;
+                    IEnumerable<BeResultadoNovedad> ListApresamientos = from a in ListNovedades where a.Novedad.Contains("Apresamientos") select a;
                     string listadoApresamientos = "";
                     List<string> Novedad = new List<string>();
 
@@ -91,9 +91,9 @@ namespace SistRE.Controllers
                 //////////////////Validando si hay Repatriaciones//////////////////
                 if (Repatriaciones != null)
                 {
-                    ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 3);
+                    ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 3).Replace(".", "");
 
-                    IEnumerable<BeResultadoNovedad> ListRepatriaciones = from a in ListNovedades where a.Novedad.Equals("Repatriaciones") select a;
+                    IEnumerable<BeResultadoNovedad> ListRepatriaciones = from a in ListNovedades where a.Novedad.Contains("Repatriación") select a;
                     string listadoRepatriaciones = "";
                     List<string> Novedad = new List<string>();
 
@@ -115,9 +115,9 @@ namespace SistRE.Controllers
                 //////////////////Validando si hay Incautaciones//////////////////
                 if (Incautaciones != null)
                 {
-                    ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 3);
+                    ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 3).Replace(".","");
 
-                    IEnumerable<BeResultadoNovedad> ListIncautaciones = from a in ListNovedades where a.Novedad.Equals("Incautaciones") select a;
+                    IEnumerable<BeResultadoNovedad> ListIncautaciones = from a in ListNovedades where a.Novedad.Contains("Incautación") select a;
                     string listadoIncautaciones = "";
                     List<string> Novedad = new List<string>();
 
@@ -138,6 +138,15 @@ namespace SistRE.Controllers
 
 
    
+            }
+            else
+            {
+
+                ViewBag.Protestas = 0.00;
+                ViewBag.Incautaciones = 0.00;
+                ViewBag.Apresamientos = 0.00;
+                ViewBag.Repatriaciones = 0.00;
+
             }
 
   

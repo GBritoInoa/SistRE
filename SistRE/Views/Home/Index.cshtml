@@ -89,9 +89,9 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-            @*<div class="centrado">
-                    <h5 style="color:darkgreen"><strong>Novedades del Mes</strong><sup style="font-size: 5px" %></sup></h5>
-                </div>*@
+            <div class="centrado">
+                <h5 style="color:darkgreen"><strong>Estadísticas del mes en curso</strong><sup style="font-size: 5px" %></sup></h5>
+            </div>
             <!-- /.content-header -->
             <!-- Main content -->
             <section class="content">
@@ -194,19 +194,19 @@
             <!--Table and divs that hold the pie charts-->
             <table class="container" style="justify-content:inherit">
                 <tr>
-                    <td><div id="piechart" style="border: 0px solid #ccc"></div></td>
-                    <td><div id="piechartd" style="border: 0px solid #ccc"></div></td>
+                    <td><div id="pieIncautaciones" style="border: 0px solid #ccc"></div></td>
+                    <td><div id="pieRepatriaciones" style="border: 0px solid #ccc"></div></td>
 
                 </tr>
-                <tr>
-                    <td><div id="piechartc" style="border: 0px solid #ccc"></div></td>
-                    <td><div id="piechartcc" style="border: 0px solid #ccc"></div></td>
+                @*<tr>
+                        <td><div id="piechartc" style="border: 0px solid #ccc"></div></td>
+                        <td><div id="piechartcc" style="border: 0px solid #ccc"></div></td>
 
-                </tr>
+                    </tr>*@
 
                 <tr>
-                    <td><div id="piechartd50" style="border: 0px solid #ccc"></div></td>
-                    <td><div id="piechartd501" style="border: 0px solid #ccc"></div></td>
+                    <td><div id="pieProtestas" style="border: 0px solid #ccc"></div></td>
+                    <td><div id="pieApresamientos" style="border: 0px solid #ccc"></div></td>
 
                 </tr>
 
@@ -267,86 +267,59 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+
+
+
+
+@*Pie Incautaciones*@
 <script type="text/javascript">
     // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart1);
 
-    // Draw the chart and set the chart values
-    function drawChart1() {
-        var data = google.visualization.arrayToDataTable([
-            ['Provincia', 'Cantidad'],
-            ['Barahora', 3],
-            ['Santiago', 2],
-            ['El Seibo', 2],
-            ['Hato Mayor', 6],
-            ['Distrito Nacional', 4],
-            ['San Juan', 2]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Miembros ERD Fallecidos por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-    }
-</script>
-
-
-<script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart1);
-
-    // Draw the chart and set the chart values
-    function drawChart1() {
-        var data = google.visualization.arrayToDataTable([
-            ['Provincia', 'Cantidad'],
-            ['Hato Mayor', 21],
-            @*['@ViewBag.Provincia',@ViewBag.Protestas],*@
-            ['Barahora', 48],
-            ['Hato Mayor', 12],
-            ['Distrito Nacional', 11],
-            ['San Juan', 5]
-        ]);
-
-        // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Incautaciones por Provincia', 'width': 500, 'height': 300 };
-
-        // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.PieChart(document.getElementById('piechartd'));
-        chart.draw(data, options);
-    }
-</script>
-
-
-<script type="text/javascript">
-    // Load google charts
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
     // Draw the chart and set the chart values
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Provincia', 'Cantidad'],
-            ['Pedernales', 8],
-            ['Barahora', 2],
-            ['Santiago', 4],
-            ['Distrito Nacional', 12],
-            ['Baní', 8]
+            ['', 'Incautaciones'],
+            @Html.Raw(ViewBag.NovedadIncautaciones)
         ]);
 
         // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'Decomisos por Provincia', 'width': 500, 'height': 300 };
+        var options = { 'title': 'Incautaciones por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.BarChart(document.getElementById('piechartc'));
+        var chart = new google.visualization.PieChart(document.getElementById('pieIncautaciones'));
         chart.draw(data, options);
     }
 </script>
-<br />
 
+
+@*Pie Apresamientos*@
+<script type="text/javascript">
+    // Load google charts
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['', 'Repatriaciones'],
+            @Html.Raw(ViewBag.NovedadRepatriaciones)
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'Repatriados por Provincia', 'width': 500, 'height': 300 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('pieRepatriaciones'));
+        chart.draw(data, options);
+    }
+</script>
+
+<br />
+@*Barchar*@
 <script type="text/javascript">
     // Load google charts
     google.charts.load('current', { 'packages': ['corechart'] });
@@ -372,7 +345,7 @@
     }
 </script>
 
-
+@*Pie Protestas*@
 <script type="text/javascript">
     // Load google charts
 
@@ -390,11 +363,13 @@
         var options = { 'title': 'Protestas por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.PieChart(document.getElementById('piechartd50'));
+        var chart = new google.visualization.PieChart(document.getElementById('pieProtestas'));
         chart.draw(data, options);
     }
 </script>
 
+
+@*Pie Apresamientos*@
 <script type="text/javascript">
     // Load google charts
 
@@ -412,7 +387,7 @@
         var options = { 'title': 'Apresados por Provincia', 'width': 500, 'height': 300 };
 
         // Display the chart inside the <div> element with id="piechart"
-        var chart = new google.visualization.PieChart(document.getElementById('piechartd501'));
+        var chart = new google.visualization.PieChart(document.getElementById('pieApresamientos'));
         chart.draw(data, options);
     }
 </script>
@@ -432,15 +407,15 @@
 
         });
 
-                                //$(function () {
+                                    //$(function () {
 
-                                //    $(".datepicker").datepicker({
-                                //        dateFormat: "yy/mm/dd",
-                                //        changeMonth: true,
-                                //        changeYear: true
+                                    //    $(".datepicker").datepicker({
+                                    //        dateFormat: "yy/mm/dd",
+                                    //        changeMonth: true,
+                                    //        changeYear: true
 
-                                //    });
-                                //});
+                                    //    });
+                                    //});
 
     </script>
 }

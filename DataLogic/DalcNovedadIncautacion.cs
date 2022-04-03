@@ -138,7 +138,7 @@ namespace DataLogic
                     //////////Create HistoricoNovedades////////
                     var hn = new HistoricoNovedades();
                     hn.TipoNovedadID = item.TipoNovedadID;
-                    hn.AuditoriaID = item.AuditoriaID;
+                    hn.AuditoriaID = ni.AuditoriaID;
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
