@@ -156,23 +156,10 @@ namespace SistRE.Areas.Procesos.Controllers
 
         }
 
-
-        //private void GetEnfermedades()
-        //{
-
-        //    try
-        //    {
-        //        List<BeEnfermedades> Enfermedades = BcComun.GetBeEnfermedades().ToList();
-        //        ViewBag.EnfermedadID = new SelectList(Enfermedades.OrderBy(p => p.Nombre), "EnfermedadID", "Nombre");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ModelState.AddModelError(ex.Message, "Error al obtener List Enfermedades");
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
-
-        // GET: Procesos/NovedadRecorridoss/Create
+/// <summary>
+/// Create Novedad Recorrido
+/// </summary>
+/// <returns></returns>
         public ActionResult Create()
         {
             try
@@ -191,7 +178,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(ex.Message, "Error al crear Novedad Recorridos");
+                ModelState.AddModelError(ex.Message, "Error al CREAR Novedad Recorridos");
                 throw new Exception(ex.Message);
             }
 

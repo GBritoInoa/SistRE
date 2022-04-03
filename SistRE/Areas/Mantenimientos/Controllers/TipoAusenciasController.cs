@@ -135,7 +135,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcAusencias.Create(model);
-                TempData["success"] = "Tipo Ausencia creada Satisfactoriamente!";
+                TempData["success"] = "Tipo Ausencia CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -174,17 +174,18 @@ namespace SistRE.Areas.Mantenimientos.Controllers
 
         // POST: TipoAusencias/Edit/5
         [HttpPost]
-        public ActionResult Edit(BeAusencias item)
+        public ActionResult Edit(BeAusencias model)
         {
-            if(item==null)
+            if(!ModelState.IsValid)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadGateway);
 
             }
             try
             {
-                BcAusencias.Edit(item);
-                TempData["success"] = "Tipo Ausencia actualizada Satisfactoriamente!";
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
+                BcAusencias.Edit(model);
+                TempData["success"] = "Tipo Ausencia ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

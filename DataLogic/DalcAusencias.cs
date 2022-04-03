@@ -28,7 +28,7 @@ namespace DataLogic
                                       au.AuditoriaID equals a.AuditoriaID
                                       join e in db.Estatus
                                       on au.EstatusID equals e.EstatusID
-                                      where au.EstatusID != 3
+                                      where au.EstatusID == 1
                                       select new BeAusencias()
 
                                       {

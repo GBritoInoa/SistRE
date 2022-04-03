@@ -155,7 +155,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoIncautacion.Create(model);
-                TempData["success"] = "Tipo Incautacion creada Satisfactoriamente!";
+                TempData["success"] = "Tipo Incautacion CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch

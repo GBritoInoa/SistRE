@@ -123,7 +123,7 @@ namespace DataLogic
                     ni.Cantidad = item.Cantidad;                   
                     ni.TipoContrabandoID = item.TipoContrabandoID;
                     ni.ProductoID = item.ProductoID;
-                    ni.TipoMedidaID = Convert.ToInt32(item.TipoMedidaID).Equals(0) ? 0 : item.TipoMedidaID;
+                    ni.TipoMedidaID = item.TipoMedidaID;
                     ni.ProvinciaID = item.ProvinciaID;
                     ni.FechaNovedad = item.FechaNovedad;
                     ni.HoraNovedad = item.HoraNovedad;
@@ -142,7 +142,7 @@ namespace DataLogic
                     hn.FechaNovedad = ni.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
-                    hn.TipoID = item.TipoMedidaID;
+                    hn.TipoID =  item.TipoContrabandoID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

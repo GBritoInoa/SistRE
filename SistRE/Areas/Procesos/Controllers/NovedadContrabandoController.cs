@@ -72,27 +72,7 @@ namespace SistRE.Areas.Procesos.Controllers
         }
 
 
-        /// <summary>
-        /// GetTipoIncautacion
-        /// </summary>
-        private void GetTipoIncautacion()
-        {
 
-            try
-            {
-
-                List<BeTipoIncautacion> TipoIncautacion = BcTipoIncautacion.GetAll().OrderBy(r => r.ID).ToList();
-                ViewBag.TipoIncautacionID = new SelectList(TipoIncautacion.OrderBy(c => c.ID), "ID", "Nombre");
-                ViewBag.TipoNovedadID = new SelectList(TipoIncautacion.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
-            }
-            catch (Exception ex)
-            {
-
-                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
-                throw new Exception(ex.Message);
-            }
-
-        }
 
         /// <summary>
         /// Get Tipo Contrabando
@@ -110,7 +90,7 @@ namespace SistRE.Areas.Procesos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error generar Listado Contrabando");
+                ModelState.AddModelError(ex.Message, "Error generar LISTADO TIPO Contrabando");
                 throw new Exception(ex.Message);
             }
          }
@@ -130,7 +110,7 @@ namespace SistRE.Areas.Procesos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al obtener List Provincias");
+                ModelState.AddModelError(ex.Message, "Error al obtener LISTADO BRIGADAS");
                 throw new Exception(ex.Message);
             }
         }
@@ -148,7 +128,7 @@ namespace SistRE.Areas.Procesos.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(ex.Message, "Error al obtener List Provincias");
+                ModelState.AddModelError(ex.Message, "Error al obtener LISTADO Provincias");
                 throw new Exception(ex.Message);
             }
         }
@@ -224,8 +204,10 @@ namespace SistRE.Areas.Procesos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BeNovedadContrabando model)
         {
-         
-           model.EstatusID = (int)EstatusRegistro.Estatus.Activo;
+
+
+            model.EstatusID = (int)EstatusRegistro.Estatus.Activo;
+        
             if(!ModelState.IsValid)
             {
                 GetProductos();

@@ -17,7 +17,6 @@
         </div>
         <br />
 
-
         @using (Html.BeginForm())
         {
 
@@ -30,13 +29,8 @@
             <div class="col-md-10" style="visibility:hidden">
                 @Html.DropDownList("TipoNovedadID", null, null, new { @class = "form-control", name = "TipoNovedadID", id = "TipoNovedadID" })
                 @Html.ValidationMessageFor(model => model.TipoNovedadID, "", new { @class = "text-danger" })
-            </div>
-
-            <div class="form-group">
-                @*@Html.LabelFor(model => model.AusenciaID, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                <label>Tipo Ausencia</label><label class="bg-label">*</label>
-                <div class="col-md-10">
-                    @Html.DropDownList("AusenciaID", null, "---Seleccione Tipo Ausencia---", htmlAttributes: new { @class = "form-control" })
+                <div class="col-md-10" style="visibility:hidden">
+                    @Html.DropDownList("AusenciaID", null, null, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.AusenciaID, "", new { @class = "text-danger" })
                 </div>
             </div>

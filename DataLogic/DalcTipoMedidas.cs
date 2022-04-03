@@ -182,7 +182,9 @@ namespace DataLogic
                     ti.AuditoriaID = item.AuditoriaID;
                     ti.Nombre = item.Nombre;
                     ti.EstatusID = (int)item.EstatusID;
+                    ti.TipoProductoID = item.TipoProductoID;
                     db.TipoMedidas.Attach(ti);
+                    db.Entry(ti).Property(x => x.TipoProductoID).IsModified = true;
                     db.Entry(ti).Property(x => x.Nombre).IsModified = true;
                     db.Entry(ti).Property(x => x.EstatusID).IsModified = true;
 

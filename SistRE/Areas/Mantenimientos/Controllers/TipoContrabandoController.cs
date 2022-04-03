@@ -169,9 +169,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
         // POST: Tipo_Novedad/Create
         public ActionResult Create(BeTipoContrabando model)
         {
-
-
-            if (!ModelState.IsValid)
+            if (model == null)
             {
                 GetTypeNovedad();
                 GetProducto();
@@ -184,7 +182,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoContrabando.Create(model);
-                TempData["success"] = "Tipo Contrabando creado Satisfactoriamente!";
+                TempData["success"] = "Tipo Contrabando CREADO Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }
@@ -256,7 +254,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoContrabando.Edit(model);
-                TempData["success"] = "Tipo Contrabando actualizado Satisfactoriamente!";
+                TempData["success"] = "Tipo Contrabando ACTUALIZADO Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }

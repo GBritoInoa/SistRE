@@ -49,17 +49,18 @@ namespace DataLogic
                     nd.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
                     nd.Causa = item.Causa;
                     nd.EstatusID = (int)EnumEstatus.Estado.Activo;
-                    nd.TipoID = item.TipoDrogaID;
+                    nd.TipoID = item.TipoDecomisoID;
                     db.NovedadDecomiso.Add(nd);
                     db.SaveChanges();
 
-                    //////////Create HistoricoNovedades////////
+                    //////////Create HistoricoNovedades///////////////
                     var hn = new HistoricoNovedades(); 
                     hn.TipoNovedadID = nd.TipoNovedadID;
                     hn.AuditoriaID = nd.AuditoriaID;
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
                     hn.ProvinciaID = Convert.ToInt32(item.ProvinciaID).Equals(0) ? 0 : item.ProvinciaID;
+                    hn.TipoID = item.TipoDecomisoID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

@@ -19,20 +19,21 @@ namespace BeEntity
     
         [Required]
         [DisplayName("Tipo Contrabando")]
-     
+        [Range(0, int.MaxValue, ErrorMessage = "Debe elegir tipo Contrabando")]
         public int TipoContrabandoID { get; set; }
 
         [DisplayName("Tipo Novedad")]
-        public int TipoNovedadID { get; set; }
+        public int TipoNovedadID { get; set; } 
 
-        public int AuditoriaID { get; set; }
+        public int AuditoriaID { get; set; } 
 
         [Required]
         [DisplayName("Cantidad Contrabando")]
+        [Range(0, int.MaxValue, ErrorMessage = "Debe introducir la Cantidad")]
         public decimal Cantidad { get; set; }
 
         [DisplayName("Tipo Medida")]
-        public int TipoMedidaID { get; set; }
+        public int TipoMedidaID { get; set; } = 0;
 
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         public string Causa { get; set; }
@@ -57,6 +58,7 @@ namespace BeEntity
 
         [Required]
         [DisplayName("Provincia")]
+        [Range(0, int.MaxValue, ErrorMessage = "Debe seleccionar Provincia")]
         public int ProvinciaID { get; set; }
 
   
@@ -65,6 +67,7 @@ namespace BeEntity
 
         [Required]
         [DisplayName("Tipo Producto")]
+        [Range(0, int.MaxValue, ErrorMessage = "Debe seleccionar tipo Producto")]
         public int ProductoID { get; set; }
 
        
