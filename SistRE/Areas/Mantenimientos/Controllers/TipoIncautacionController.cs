@@ -7,9 +7,12 @@ using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
 using SistRE.AccesControl;
+using SistRE.AccessControl;
+using SistRE.Comun;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
 {
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador })]
     public class TipoIncautacionController : Controller
     {
         #region Variable u Objetos

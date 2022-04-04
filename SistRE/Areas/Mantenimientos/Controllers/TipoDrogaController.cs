@@ -1,5 +1,7 @@
 ﻿using BeEntity;
 using BusinessControl;
+using SistRE.AccessControl;
+using SistRE.Comun;
 using System;
 using System.Linq;
 using System.Net;
@@ -7,6 +9,7 @@ using System.Web.Mvc;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
 {
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador })]
     public class TipoDrogaController : Controller
     {
         // GET: Tipo_Novedad
@@ -114,7 +117,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
 
                 BcTipoDroga.Create(item);
-                TempData["success"] = "Tipo Droga creada Satisfactoriamente!";
+                TempData["success"] = "Tipo Droga CREADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }
@@ -177,7 +180,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             try
             {
                 BcTipoDroga.Edit(item);
-                TempData["success"] = "Tipo Droga actualiazada Satisfactoriamente!";
+                TempData["success"] = "Tipo Droga ACTUALIZADA Satisfactoriamente!";
                 return RedirectToAction("Index");
 
             }

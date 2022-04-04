@@ -1,6 +1,8 @@
 ﻿using BeEntity;
 using BusinessControl;
 using SistRE.AccesControl;
+using SistRE.AccessControl;
+using SistRE.Comun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ using System.Xml.Serialization;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
 {
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador })]
     public class TipoDocumentoController : Controller
     {
         // GET: Mantenimientos/TipoDocumento
@@ -111,7 +114,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoDocumento.Create(model);
-                TempData["success"] = "Tipo Documento creado Satisfactoriamente!";
+                TempData["success"] = "Tipo Documento CREADO Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -165,7 +168,7 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             {
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
                 BcTipoDocumento.Edit(model);
-                TempData["success"] = "Tipo Documento actualizado Satisfactoriamente!";
+                TempData["success"] = "Tipo Documento ACTUALIZADO Satisfactoriamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

@@ -6,9 +6,12 @@ using System.Web;
 using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
+using SistRE.AccessControl;
+using SistRE.Comun;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
 {
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador })]
     public class TipoPresentacionMedicamentoController : Controller
     {
 

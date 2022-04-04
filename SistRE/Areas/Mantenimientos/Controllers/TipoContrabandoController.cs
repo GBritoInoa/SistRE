@@ -1,6 +1,8 @@
 ﻿using BeEntity;
 using BusinessControl;
 using SistRE.AccesControl;
+using SistRE.AccessControl;
+using SistRE.Comun;
 using System;
 using System.Linq;
 using System.Net;
@@ -8,6 +10,8 @@ using System.Web.Mvc;
 
 namespace SistRE.Areas.Mantenimientos.Controllers
 {
+
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador })]
     public class TipoContrabandoController : Controller
     {
         // GET: Tipo_Novedad
