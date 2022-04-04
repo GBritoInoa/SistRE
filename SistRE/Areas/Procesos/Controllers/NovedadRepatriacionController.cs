@@ -1,6 +1,8 @@
 ﻿using BeEntity;
 using BusinessControl;
 using SistRE.AccesControl;
+using SistRE.AccessControl;
+using SistRE.Comun;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,8 @@ using System.Web.Security;
 
 namespace SistRE.Areas.Procesos.Controllers
 {
-
-
-    //[Authorize(Roles = "Administrador")]
+    
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador, EnumPerfiles.Perfiles.Digitador })]
     public class NovedadRepatriacionController : Controller
     {
 

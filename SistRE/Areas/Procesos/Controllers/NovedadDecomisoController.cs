@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using BeEntity;
 using BusinessControl;
 using SistRE.AccesControl;
+using SistRE.AccessControl;
+using SistRE.Comun;
 
 namespace SistRE.Areas.Procesos.Controllers
 {
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador, EnumPerfiles.Perfiles.Digitador })]
     public class NovedadDecomisoController : Controller
     {
 

@@ -1,6 +1,7 @@
 ﻿using BeEntity;
 using BusinessControl;
 using SistRE.AccesControl;
+using SistRE.AccessControl;
 using SistRE.Comun;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Web.Mvc;
 namespace SistRE.Areas.Procesos.Controllers
 {
 
-    //[Authorize(Roles ="Administrador")]
+    [Autorizar(Profiles = new EnumPerfiles.Perfiles[] { EnumPerfiles.Perfiles.Administrador, EnumPerfiles.Perfiles.Digitador })]
     public class NovedadContrabandoController : Controller
     {
              
