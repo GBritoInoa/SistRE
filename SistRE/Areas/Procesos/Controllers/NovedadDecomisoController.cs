@@ -123,6 +123,29 @@ namespace SistRE.Areas.Procesos.Controllers
         }
 
 
+
+        /// <summary>
+        /// List Productos
+        /// </summary>
+        private void GetProductos()
+        {
+            try
+            {
+                List<BeProductos> productos = BcTipos.GetProductos().ToList();
+                ViewBag.ProductoID = new SelectList(productos.OrderBy(p => p.Nombre), "ID", "Nombre");
+
+
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError(ex.Message, "Error al obtener LISTADO Productos");
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
         /// <summary>
         /// Get Brigadas
         /// </summary>
@@ -149,7 +172,8 @@ namespace SistRE.Areas.Procesos.Controllers
         {
             try
             {
-            
+
+                GetProductos();
                 GetBrigadas();
                 GetTipoDecomiso();
                 GetTipoDrogas();
@@ -173,7 +197,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
             if(!ModelState.IsValid)
             {
-
+                GetProductos();
                 GetTipoDecomiso();
                 GetTipoDrogas();
                  GetProvincias();

@@ -42,8 +42,10 @@ namespace BeEntity
         public int EstatusID { get; set; }
         [DisplayName("Tipo ID")]
         public int TipoID { get; set; }
+
         [Required]
         [DisplayName("Brigada Responsable")]
+        [Range(0, int.MaxValue, ErrorMessage = "Debe seleccionar Brigada")]
         public int BrigadaID { get; set; }
 
 

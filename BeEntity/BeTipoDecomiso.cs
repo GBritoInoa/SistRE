@@ -16,6 +16,8 @@ namespace BeEntity
     {
         public int ID { get; set; }
 
+        public int AuditoriaID { get; set; }
+
         [Required]
         public int TipoNovedadID { get; set; }
 
@@ -42,8 +44,7 @@ namespace BeEntity
         public string UsuarioActualizo { get; set; }
         [DisplayName("Fecha Actualizó")]
         public Nullable<System.DateTime> FechaActualizo { get; set; }
-        [DisplayName("Auditoría")]
-        public int AuditoriaID { get; set; }
+
    
 
      
