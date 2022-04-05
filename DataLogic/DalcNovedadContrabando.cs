@@ -159,49 +159,49 @@ namespace DataLogic
 
         }
 
-        /// <summary>
-        /// Edit Registro Novedad Incautación
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        public bool Edit(BeNovedadContrabando item)
-        {
+        ///// <summary>
+        ///// Edit Registro Novedad Incautación
+        ///// </summary>
+        ///// <param name="item"></param>
+        ///// <returns></returns>
+        //public bool Edit(BeNovedadContrabando item)
+        //{
 
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
-                    var tn = new NovedadContrabando();
+        //    try
+        //    {
+        //        using (var db = new Context_SistRE())
+        //        {
+        //            var tn = new NovedadContrabando();
 
 
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.TipoNovedadID = item.TipoNovedadID;
-                    tn.TipoMedidaID = item.TipoMedidaID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.NovedadContrabando.Attach(tn);
-                    db.Entry(tn).Property(x => x.TipoNovedadID).IsModified = true;
-                    db.Entry(tn).Property(x => x.NovedadContrabandoID).IsModified = true;
-                    db.Entry(tn).Property(x => x.Causa).IsModified = true;
-                    db.Entry(tn).Property(x => x.FechaNovedad).IsModified = true;
-                    db.Entry(tn).Property(x => x.HoraNovedad).IsModified = true;
-                    db.Entry(tn).Property(x => x.Cantidad).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
-                    db.SaveChanges();
-                    return true;
+        //            //tn.UsuarioActualizo = "gbrito";
+        //            //tn.FechaActualizo = DateTime.Now;
+        //            tn.TipoNovedadID = item.TipoNovedadID;
+        //            tn.TipoMedidaID = item.TipoMedidaID;
+        //            tn.EstatusID = (int)item.EstatusID;
+        //            db.NovedadContrabando.Attach(tn);
+        //            db.Entry(tn).Property(x => x.TipoNovedadID).IsModified = true;
+        //            db.Entry(tn).Property(x => x.NovedadContrabandoID).IsModified = true;
+        //            db.Entry(tn).Property(x => x.Causa).IsModified = true;
+        //            db.Entry(tn).Property(x => x.FechaNovedad).IsModified = true;
+        //            db.Entry(tn).Property(x => x.HoraNovedad).IsModified = true;
+        //            db.Entry(tn).Property(x => x.Cantidad).IsModified = true;
+        //            db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
+        //            //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
+        //            //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+        //            db.SaveChanges();
+        //            return true;
 
-                }
+        //        }
 
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
-            }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //        throw new Exception(ex.Message);
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// Elimina Tipo Novedad

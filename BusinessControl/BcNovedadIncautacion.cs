@@ -77,27 +77,27 @@ namespace BusinessControl
 
         }
 
-        /// <summary>
-        /// Edit Registro Novedad Incautación
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        public static bool Edit(BeNovedadIncautacion item)
+        ///// <summary>
+        ///// Edit Registro Novedad Incautación
+        ///// </summary>
+        ///// <param name="item"></param>
+        ///// <returns></returns>
+        //public static bool Edit(BeNovedadIncautacion item)
 
-        {
-            try
-            {
+        //{
+        //    try
+        //    {
 
-                return _dalc.Edit(item);
-            }
-            catch (Exception ex)
-            {
+        //        return _dalc.Edit(item);
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw new Exception(ex.Message);
-            }
+        //        throw new Exception(ex.Message);
+        //    }
 
 
-        }
+        //}
 
     }
 }

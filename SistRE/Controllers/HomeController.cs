@@ -43,7 +43,7 @@ namespace SistRE.Controllers
                 //////////////////Validando si hay Protestas//////////////////
                 if (Protestas != null)
                     {
-                    ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 3).Replace(".", "");
+                    ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 3);
         
                     IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
                     string listadoProtrestas = "";
@@ -67,7 +67,7 @@ namespace SistRE.Controllers
                 //////////////////Validando si hay Apresamientos//////////////////
                 if (Apresamientos != null)
                 {
-                    ViewBag.Apresamientos = Apresamientos.PorcientoNovedad.Substring(0, 3).Replace(".", "");
+                    ViewBag.Apresamientos = Apresamientos.PorcientoNovedad.Substring(0, 3);
 
                     IEnumerable<BeResultadoNovedad> ListApresamientos = from a in ListNovedades where a.Novedad.Contains("Apresamientos") select a;
                     string listadoApresamientos = "";
@@ -91,7 +91,7 @@ namespace SistRE.Controllers
                 //////////////////Validando si hay Repatriaciones//////////////////
                 if (Repatriaciones != null)
                 {
-                    ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 3).Replace(".", "");
+                    ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 3);
 
                     IEnumerable<BeResultadoNovedad> ListRepatriaciones = from a in ListNovedades where a.Novedad.Contains("Repatriación") select a;
                     string listadoRepatriaciones = "";
@@ -115,7 +115,7 @@ namespace SistRE.Controllers
                 //////////////////Validando si hay Incautaciones//////////////////
                 if (Incautaciones != null)
                 {
-                    ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 3).Replace(".","");
+                    ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 3);
 
                     IEnumerable<BeResultadoNovedad> ListIncautaciones = from a in ListNovedades where a.Novedad.Contains("Incautación") select a;
                     string listadoIncautaciones = "";

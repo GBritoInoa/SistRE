@@ -20,6 +20,8 @@ namespace BeEntity
          public string PorcientoNovedad { get; set; }
         public string Total { get; set; }
 
+        public int TipoNoveddID { get; set; }
+
 
 
 

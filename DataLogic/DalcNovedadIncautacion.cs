@@ -159,79 +159,79 @@ namespace DataLogic
 
         }
 
-        /// <summary>
-        /// Edit Registro Novedad Incautación
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        public bool Edit(BeNovedadIncautacion item)
-        {
+        ///// <summary>
+        ///// Edit Registro Novedad Incautación
+        ///// </summary>
+        ///// <param name="item"></param>
+        ///// <returns></returns>
+        //public bool Edit(BeNovedadIncautacion item)
+        //{
 
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
-                    var tn = new NovedadIncautacion();
-
-
-                    //tn.UsuarioActualizo = "gbrito";
-                    //tn.FechaActualizo = DateTime.Now;
-                    tn.TipoNovedadID = item.TipoNovedadID;
-                    tn.TipoMedidaID = item.TipoMedidaID;
-                    tn.EstatusID = (int)item.EstatusID;
-                    db.NovedadIncautacion.Attach(tn);
-                    db.Entry(tn).Property(x => x.TipoNovedadID).IsModified = true;
-                    db.Entry(tn).Property(x => x.TipoIncautacionID).IsModified = true;
-                    db.Entry(tn).Property(x => x.Causa).IsModified = true;
-                    db.Entry(tn).Property(x => x.FechaNovedad).IsModified = true;
-                    db.Entry(tn).Property(x => x.HoraNovedad).IsModified = true;
-                    db.Entry(tn).Property(x => x.Cantidad).IsModified = true;
-                    db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
-                    //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
-                    //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
-                    db.SaveChanges();
-                    return true;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw new Exception(ex.Message);
-            }
-
-        }
-
-        /// <summary>
-        /// Elimina Tipo Novedad
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int? id)
-        {
-            try
-            {
-                using (var db = new Context_SistRE())
-                {
+        //    try
+        //    {
+        //        using (var db = new Context_SistRE())
+        //        {
+        //            var tn = new NovedadIncautacion();
 
 
-                    var tn = db.TipoNovedad.Find(id);
-                    if (tn != null)
+        //            //tn.UsuarioActualizo = "gbrito";
+        //            //tn.FechaActualizo = DateTime.Now;
+        //            tn.TipoNovedadID = item.TipoNovedadID;
+        //            tn.TipoMedidaID = item.TipoMedidaID;
+        //            tn.EstatusID = (int)item.EstatusID;
+        //            db.NovedadIncautacion.Attach(tn);
+        //            db.Entry(tn).Property(x => x.TipoNovedadID).IsModified = true;
+        //            db.Entry(tn).Property(x => x.TipoIncautacionID).IsModified = true;
+        //            db.Entry(tn).Property(x => x.Causa).IsModified = true;
+        //            db.Entry(tn).Property(x => x.FechaNovedad).IsModified = true;
+        //            db.Entry(tn).Property(x => x.HoraNovedad).IsModified = true;
+        //            db.Entry(tn).Property(x => x.Cantidad).IsModified = true;
+        //            db.Entry(tn).Property(x => x.EstatusID).IsModified = true;
+        //            //db.Entry(tn).Property(x => x.UsuarioActualizo).IsModified = true;
+        //            //db.Entry(tn).Property(x => x.FechaActualizo).IsModified = true;
+        //            db.SaveChanges();
+        //            return true;
 
-                        db.TipoNovedad.Remove(tn);
-                    db.SaveChanges();
-                    return true;
+        //        }
 
-                }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //        throw new Exception(ex.Message);
+        //    }
 
-            }
-            catch (Exception ex)
-            {
+        //}
 
-                throw new Exception(ex.Message);
+        ///// <summary>
+        ///// Elimina Tipo Novedad
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public bool Delete(int? id)
+        //{
+        //    try
+        //    {
+        //        using (var db = new Context_SistRE())
+        //        {
 
-            }
-        }
+
+        //            var tn = db.TipoNovedad.Find(id);
+        //            if (tn != null)
+
+        //                db.TipoNovedad.Remove(tn);
+        //            db.SaveChanges();
+        //            return true;
+
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw new Exception(ex.Message);
+
+        //    }
+        //}
     }
 }

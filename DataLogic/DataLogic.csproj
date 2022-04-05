@@ -205,6 +205,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelSistRE.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModelSistRE1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSistRE.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Municipios.cs">
       <DependentUpon>ModeldbERD.tt</DependentUpon>
     </Compile>
@@ -369,6 +374,7 @@
     </None>
     <EntityDeploy Include="ModelSistRE.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelSistRE1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <EntityDeploy Include="ModeldbERD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

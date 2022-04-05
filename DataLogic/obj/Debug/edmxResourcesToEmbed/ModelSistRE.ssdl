@@ -249,7 +249,7 @@
     <Property Name="TipoContrabandoID" Type="int" Nullable="false" />
     <Property Name="TipoNovedadID" Type="int" Nullable="false" />
     <Property Name="Cantidad" Type="numeric" Precision="12" Scale="2" Nullable="false" />
-    <Property Name="TipoMedidaID" Type="int" Nullable="false" />
+    <Property Name="TipoMedidaID" Type="int" />
     <Property Name="ProductoID" Type="int" Nullable="false" />
     <Property Name="FechaNovedad" Type="date" Nullable="false" />
     <Property Name="HoraNovedad" Type="time" Precision="7" Nullable="false" />
