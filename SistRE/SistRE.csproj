@@ -1145,6 +1145,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\NotAutorized.cshtml" />
     <Content Include="Views\Shared\OptionsBox\Consultar.cshtml" />
+    <Content Include="Views\Shared\OptionsBox\Download.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

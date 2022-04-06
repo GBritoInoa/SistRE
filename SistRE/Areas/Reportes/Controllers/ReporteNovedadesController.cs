@@ -39,52 +39,52 @@ namespace SistRE.Areas.Reportes.Controllers
         }
 
 
-        public ActionResult Index()
-        {
+        //public ActionResult Index()
+        //{
 
-            var TipoNovedadId = 0;
-            var FechaDesde = DateTime.Now;
-            var FechaHasta = DateTime.Now;
+        //    var TipoNovedadId = 0;
+        //    var FechaDesde = DateTime.Now;
+        //    var FechaHasta = DateTime.Now;
 
-            List<BeResultadoNovedad> ListNovedades = new List<BeResultadoNovedad>();
-            List<BeResultadoNovedad> PoncentajeNovedades = new List<BeResultadoNovedad>();
-            ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta);
+        //    List<BeResultadoNovedad> ListNovedades = new List<BeResultadoNovedad>();
+        //    List<BeResultadoNovedad> PoncentajeNovedades = new List<BeResultadoNovedad>();
+        //    ListNovedades = BcReporteNovedades.GetAll(TipoNovedadId, FechaDesde, FechaHasta);
    
-            IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
-            IEnumerable<BeResultadoNovedad> ListApresados = from a in ListNovedades where a.Novedad.Equals("Apresamientos") select a;
+        //    IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
+        //    IEnumerable<BeResultadoNovedad> ListApresados = from a in ListNovedades where a.Novedad.Equals("Apresamientos") select a;
 
 
-            //////////////////Protestas//////////////////
-            string listados = "";
-            List<string> Novedad = new List<string>();
+        //    //////////////////Protestas//////////////////
+        //    string listados = "";
+        //    List<string> Novedad = new List<string>();
 
-            foreach (var item in ListProtestas)
-            {
-                Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+        //    foreach (var item in ListProtestas)
+        //    {
+        //        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
 
-            }
-            listados += String.Join(",", Novedad);
-            listados += "";
-            ViewBag.Novedades = listados;
+        //    }
+        //    listados += String.Join(",", Novedad);
+        //    listados += "";
+        //    ViewBag.Novedades = listados;
 
-            ////////////////////////////////////////////////////////
+        //    ////////////////////////////////////////////////////////
 
-            //////////////////Apresados//////////////////
-            string listadosApresados = "";
-            List<string> Novedadapresados = new List<string>();
+        //    //////////////////Apresados//////////////////
+        //    string listadosApresados = "";
+        //    List<string> Novedadapresados = new List<string>();
 
-            foreach (var item in ListApresados)
-            {
-                Novedadapresados.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+        //    foreach (var item in ListApresados)
+        //    {
+        //        Novedadapresados.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
 
-            }
-            listadosApresados += String.Join(",", Novedadapresados);
-            listadosApresados += "";
-            ViewBag.NovedadesApresados = listadosApresados;
-            ////////////////////////////////////////////////////////
+        //    }
+        //    listadosApresados += String.Join(",", Novedadapresados);
+        //    listadosApresados += "";
+        //    ViewBag.NovedadesApresados = listadosApresados;
+        //    ////////////////////////////////////////////////////////
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
 
@@ -134,6 +134,7 @@ namespace SistRE.Areas.Reportes.Controllers
                 if (ListNovedades.Count == 0)
                 {
                     TempData["info"] = "No EXISTEN REGISTROS PARA ESTA CONSULTA";
+                    GetTypeNovedad();
                     return View();
                 }
 
@@ -167,21 +168,20 @@ namespace SistRE.Areas.Reportes.Controllers
                     listados += String.Join(",", Novedad);
                     listados += "";
                     ViewBag.Novedades = listados;
-         
-                    ////////////////////////////////////////////////////////
                     GetTypeNovedad();
-                    return View();
-
-
-                    //var stream = new MemoryStream();
-                    //var serialicer = new XmlSerializer(typeof(List<BeResultadoNovedad>));
+                    var stream = new MemoryStream();
+                    var serialicer = new XmlSerializer(typeof(List<BeResultadoNovedad>));
 
                     //Lo transformo en un XML y lo guardo en memoria
-                    //serialicer.Serialize(stream, ListNovedades);
-                    //stream.Position = 0;
+                    serialicer.Serialize(stream, ListNovedades);
+                    stream.Position = 0;
+0;
                     //devuelvo el XML de la memoria como un fichero.xls
-                    //return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheet", "Reporte Estiadísticas" + " " + NombreArchivo + ".xls");
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheet", "Reporte Estiadísticas" + " " + NombreArchivo + ".xls");
+
+
                 }
+
             }
             
 
@@ -190,10 +190,11 @@ namespace SistRE.Areas.Reportes.Controllers
                 ModelState.AddModelError(ex.Message, "Error al generar Gráficos Estadísticos");
                 throw new Exception(ex.Message);
             }
-
-           
+                     
 
         }
+
+     
 
    
     }
