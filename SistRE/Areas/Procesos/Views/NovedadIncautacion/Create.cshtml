@@ -194,7 +194,7 @@
                     // VACIAMOS EL DropDownList
                     $("#TipoMedidaID").empty();
                     // AÑADIMOS UN NUEVO label CON EL NOMBRE DEL ELEMENTO SELECCIONADO
-                    $("#TipoMedidaID").append("<option value> -- Seleccionar Sub Tipo " + $("#ProductoID option:selected").text() + " --</option>")
+                    $("#TipoMedidaID").append("<option value> -- Seleccionar Tipo Medida " + $("#ProductoID option:selected").text() + " --</option>")
                     // CONSTRUIMOS EL DropDownList A PARTIR DEL RESULTADO Json (data)
                     $.each(data, function (index, row) {
                         $("#TipoMedidaID").append("<option value='" + row.ID + "'>" + row.Nombre + "</option>")
