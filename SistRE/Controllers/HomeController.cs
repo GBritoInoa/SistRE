@@ -35,23 +35,23 @@ namespace SistRE.Controllers
 
             if (PoncentajeNovedades.Count > 0)
             {
-                BeResultadoNovedad Protestas = PoncentajeNovedades.Find(a => a.Novedad.Contains("Protesta"));
-                BeResultadoNovedad Repatriaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Repatriación"));
+                BeResultadoNovedad Protestas = PoncentajeNovedades.Find(a => a.Novedad.Contains("Protestas"));
+                BeResultadoNovedad Repatriaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Repatriaciones"));
                 BeResultadoNovedad Apresamientos = PoncentajeNovedades.Find(a => a.Novedad.Contains("Apresamientos"));
-                BeResultadoNovedad Incautaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Incautación"));
+                BeResultadoNovedad Incautaciones = PoncentajeNovedades.Find(a => a.Novedad.Contains("Incautaciones"));
 
                 //////////////////Validando si hay Protestas//////////////////
                 if (Protestas != null)
                     {
                     ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 3);
         
-                    IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protesta") select p;
+                    IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protestas") select p;
                     string listadoProtrestas = "";
                     List<string> Novedad = new List<string>(); 
 
                     foreach (var item in ListProtestas)
                     {
-                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+                        Novedad.Add($"['{item.Provincia}' , {item.Cantidad}]");
 
                     }
                     listadoProtrestas += String.Join(",", Novedad);
@@ -75,7 +75,7 @@ namespace SistRE.Controllers
 
                     foreach (var item in ListApresamientos)
                     {
-                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+                        Novedad.Add($"['{item.Provincia}' , {item.Cantidad}]");
 
                     }
                     listadoApresamientos += String.Join(",", Novedad);
@@ -93,13 +93,13 @@ namespace SistRE.Controllers
                 {
                     ViewBag.Repatriaciones = Repatriaciones.PorcientoNovedad.Substring(0, 3);
 
-                    IEnumerable<BeResultadoNovedad> ListRepatriaciones = from a in ListNovedades where a.Novedad.Contains("Repatriación") select a;
+                    IEnumerable<BeResultadoNovedad> ListRepatriaciones = from a in ListNovedades where a.Novedad.Contains("Repatriaciones") select a;
                     string listadoRepatriaciones = "";
                     List<string> Novedad = new List<string>();
 
                     foreach (var item in ListRepatriaciones)
                     {
-                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+                        Novedad.Add($"['{item.Provincia}' , {item.Cantidad}]");
 
                     }
                     listadoRepatriaciones += String.Join(",", Novedad);
@@ -117,13 +117,13 @@ namespace SistRE.Controllers
                 {
                     ViewBag.Incautaciones = Incautaciones.PorcientoNovedad.Substring(0, 3);
 
-                    IEnumerable<BeResultadoNovedad> ListIncautaciones = from a in ListNovedades where a.Novedad.Contains("Incautación") select a;
+                    IEnumerable<BeResultadoNovedad> ListIncautaciones = from a in ListNovedades where a.Novedad.Contains("Incautaciones") select a;
                     string listadoIncautaciones = "";
                     List<string> Novedad = new List<string>();
 
                     foreach (var item in ListIncautaciones)
                     {
-                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+                        Novedad.Add($"['{item.Provincia}' , {item.Cantidad}]");
 
                     }
                     listadoIncautaciones += String.Join(",", Novedad);
@@ -198,7 +198,7 @@ namespace SistRE.Controllers
         /// <returns></returns>
         public ActionResult NotAutorized()
         {
-            TempData["error"] = "Usted no tiene permisos para acceder a esta opcion!";
+            TempData["error"] = "Usted no tiene PERMISOS para acceder a esta opcion!";
             return View();
 
         }

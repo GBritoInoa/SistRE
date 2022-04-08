@@ -46,9 +46,9 @@ namespace DataLogic
                     TipoNovedadId = 0;
                     data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, fechadesde, fechahasta).Select(rn => new BeResultadoNovedad()
                     {
-                        CantidadNovedad = rn.CantidadNovedad ?? 0,
+                        Cantidad = rn.CantidadNovedad ?? 0,
                         Provincia = rn.LugarNovedad,
-                        Novedad = rn.C_TipoNovedad
+                        Novedad = rn.C_TipoNovedad + ";"
                     }));
 
                 }
@@ -57,9 +57,9 @@ namespace DataLogic
                 {
                     data.AddRange(db.usp_ReporteNovedades(TipoNovedadId, FechaDesde, FechaHasta).Select(rn => new BeResultadoNovedad()
                     {
-                        CantidadNovedad = rn.CantidadNovedad ?? 0,
+                        Cantidad = rn.CantidadNovedad ?? 0,
                         Provincia = rn.LugarNovedad,
-                        Novedad = rn.C_TipoNovedad
+                        Novedad = rn.C_TipoNovedad + ";"
                     }));
                 }
 

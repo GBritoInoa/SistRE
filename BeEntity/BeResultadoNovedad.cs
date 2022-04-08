@@ -14,14 +14,14 @@ namespace BeEntity
         public string Novedad { get; set; }
         [DisplayName("Provincia donde ocurrió la Novedad")]
         public string Provincia { get; set; }
-        [DisplayName("Tipo Novedad")]
-        public int CantidadNovedad { get; set; }
+
+        [DisplayName("Cantidad")]
+        public int Cantidad { get; set; }
         [DisplayName("Porciento Novedad")]
          public string PorcientoNovedad { get; set; }
         public string Total { get; set; }
 
-        public int TipoNoveddID { get; set; }
-
+      
 
 
 

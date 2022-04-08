@@ -86,7 +86,7 @@ namespace SistRE.Areas.Reportes.Controllers
                     }
                 var stream = new MemoryStream();
                 var serialicer = new XmlSerializer(typeof(List<BeResultadoNovedad>));
-
+                
                 //Lo transformo en un XML y lo guardo en memoria
                 serialicer.Serialize(stream, ListNovedades);
                 stream.Position = 0;
@@ -170,7 +170,7 @@ namespace SistRE.Areas.Reportes.Controllers
 
                     foreach (var item in ListNovedades)
                     {
-                        Novedad.Add($"['{item.Provincia}' , {item.CantidadNovedad}]");
+                        Novedad.Add($"['{item.Provincia}' , {item.Cantidad}]");
 
                     }
                     listados += String.Join(",", Novedad);
