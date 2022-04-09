@@ -46,6 +46,7 @@
     <Compile Include="BcCategoriaProtesta.cs" />
     <Compile Include="BcComun.cs" />
     <Compile Include="BcEnfermedades.cs" />
+    <Compile Include="BcNovedadMuertes.cs" />
     <Compile Include="BcReporteNovedades.cs" />
     <Compile Include="BcHospitales.cs" />
     <Compile Include="BcInstitucionProtestante.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="BcProtestaConvocatoria.cs" />
     <Compile Include="BcTipoApresamiento.cs" />
     <Compile Include="BcTipoCausaMuerte.cs" />
+    <Compile Include="BcTipoMuertes.cs" />
     <Compile Include="BcUsers.cs" />
     <Compile Include="BcTipoContrabando.cs" />
     <Compile Include="BcTipoDecomiso.cs" />

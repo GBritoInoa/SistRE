@@ -33,7 +33,7 @@ namespace BeEntity
         public decimal Cantidad { get; set; }
 
         [DisplayName("Tipo Medida")]
-        public int TipoMedidaID { get; set; } = 0;
+        public int TipoMedidaID { get; set; } 
 
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         public string Causa { get; set; }

@@ -85,7 +85,7 @@ namespace SistRE.Areas.Procesos.Controllers
             {
 
                 List<BeTipoContrabando> TipoContrabando = BcTipoContrabando.GetAll().OrderBy(r => r.ID).ToList();
-                ViewBag.TipoContrabandoID = new SelectList(TipoContrabando.OrderBy(c => c.ID), "ID", "Nombre");
+                ViewBag.TipoContrabandoID = new SelectList(TipoContrabando.OrderBy(c => c.Nombre), "ID", "Nombre");
                 ViewBag.TipoNovedadID = new SelectList(TipoContrabando.OrderBy(c=> c.TipoNovedadID), "TipoNovedadID", "Nombre");
             }
             catch (Exception ex)

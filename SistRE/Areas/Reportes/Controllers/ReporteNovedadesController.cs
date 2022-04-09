@@ -12,6 +12,10 @@ using System.Xml.Serialization;
 
 namespace SistRE.Areas.Reportes.Controllers
 {
+
+    /// <summary>
+    /// Reporte Novedades
+    /// </summary>
     public class ReporteNovedadesController : Controller
     {
         string NombreArchivo;
@@ -35,7 +39,6 @@ namespace SistRE.Areas.Reportes.Controllers
                 ModelState.AddModelError(ex.Message, "Error");
                 throw new Exception(ex.Message);
             }
-
 
         }
 
@@ -96,14 +99,11 @@ namespace SistRE.Areas.Reportes.Controllers
                 return  File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheet", "Reporte Estiadísticas" + " " + NombreArchivo + ".xls");
 
             }
-
                 catch (Exception ex)
                 {
                     ModelState.AddModelError(ex.Message, "Error al generar Gráficos Estadísticos");
                     throw new Exception(ex.Message);
-                }
-
-           
+                }         
 
 
             }
@@ -135,7 +135,7 @@ namespace SistRE.Areas.Reportes.Controllers
 
 
 
-        [DisplayName("Estadisticas")]
+        [Route("Estadísticas")]
         [HttpPost]
         /// <summary>
         /// 

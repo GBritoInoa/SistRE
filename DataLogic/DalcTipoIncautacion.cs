@@ -30,7 +30,7 @@ namespace DataLogic
                                   ti.AuditoriaID equals a.AuditoriaID
                                   join e in db.Estatus
                                   on ti.EstatusID equals e.EstatusID
-                                  where ti.EstatusID != 3
+                                  where ti.EstatusID != 3 
                                   select new BeTipoIncautacion()
 
                                   {

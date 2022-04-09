@@ -175,6 +175,7 @@
     <Compile Include="Areas\Mantenimientos\Controllers\TipoIncautacionController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\TipoMedicamentoController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\TipoMedidasController.cs" />
+    <Compile Include="Areas\Mantenimientos\Controllers\TipoMuertesController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\TipoNovedadController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\TipoPerdidaDocumentoController.cs" />
     <Compile Include="Areas\Mantenimientos\Controllers\TipoPresentacionMedicamentoController.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Areas\Procesos\Controllers\NovedadIncautacionController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Areas\Procesos\Controllers\NovedadMuertesController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadPerdidaDocumentoController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadProtestaController.cs" />
     <Compile Include="Areas\Procesos\Controllers\NovedadRecorridosController.cs" />
@@ -1005,6 +1007,11 @@
     <Content Include="Areas\Reportes\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Reportes\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Reportes\Views\ReporteNovedades\ReporteNovedades.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\TipoMuertes\Create.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\TipoMuertes\Details.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\TipoMuertes\Edit.cshtml" />
+    <Content Include="Areas\Mantenimientos\Views\TipoMuertes\Index.cshtml" />
+    <Content Include="Areas\Procesos\Views\NovedadMuertes\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

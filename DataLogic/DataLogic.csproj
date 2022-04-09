@@ -107,6 +107,7 @@
     <Compile Include="DalcNovedadContrabando.cs" />
     <Compile Include="DalcNovedadHospitalizacion.cs" />
     <Compile Include="DalcNovedadIncautacion.cs" />
+    <Compile Include="DalcNovedadMuertes.cs" />
     <Compile Include="DalcNovedadPerdidaDocumento.cs" />
     <Compile Include="DalcNovedadProtesta.cs" />
     <Compile Include="DalcNovedadRecorridos.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="DalcTipoApresamiento.cs" />
     <Compile Include="DalcTipoCausaHerida.cs" />
     <Compile Include="DalcTipoCausaMuerte.cs" />
+    <Compile Include="DalcTipoMuertes.cs" />
     <Compile Include="DalUsers.cs" />
     <Compile Include="DalcTipoContrabando.cs" />
     <Compile Include="DalcTipoDecomiso.cs" />

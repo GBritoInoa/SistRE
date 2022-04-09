@@ -45,7 +45,7 @@ namespace SistRE.Controllers
                     {
                     ViewBag.Protestas = Protestas.PorcientoNovedad.Substring(0, 3);
         
-                    IEnumerable<BeResultadoNovedad> ListProtestas = from p in ListNovedades where p.Novedad.Equals("Protestas") select p;
+                    IEnumerable<BeResultadoNovedad> ListProtestas = from a in ListNovedades where a.Novedad.Contains("Protestas") select a;
                     string listadoProtrestas = "";
                     List<string> Novedad = new List<string>(); 
 

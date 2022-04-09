@@ -865,5 +865,35 @@ namespace DataLogic
             }
 
         }
+
+
+        /// <summary>
+        /// Get Type Deads
+        /// </summary>
+        /// <returns></returns>
+        public List<BeTipoMuertes> GetTipoMuertes()
+        {
+            List<BeTipoMuertes> data = new List<BeTipoMuertes>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from c in db.TipoMuertes
+                                  select new BeTipoMuertes()
+                                  {
+                                      TipoMuerteID = c.TipoMuerteID,
+                                      Nombre = c.Nombre,
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
     }
 }

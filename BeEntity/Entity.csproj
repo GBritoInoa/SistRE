@@ -60,6 +60,7 @@
     <Compile Include="BeNovedadContrabando.cs" />
     <Compile Include="BeNovedadHospitalizacion.cs" />
     <Compile Include="BeNovedadIncautacion.cs" />
+    <Compile Include="BeNovedadMuertes.cs" />
     <Compile Include="BeNovedadPerdidaDocumento.cs" />
     <Compile Include="BeNovedadProtesta.cs" />
     <Compile Include="BeNovedadRecorridos.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="BeTipoMedidaCombustible.cs" />
     <Compile Include="BeTipoMedidas.cs" />
     <Compile Include="BeTipoMoneda.cs" />
+    <Compile Include="BeTipoMuertes.cs" />
     <Compile Include="BeTipoNovedad.cs" />
     <Compile Include="BeTipoPresetacionMedicamento.cs" />
     <Compile Include="BeTipoProducto.cs" />

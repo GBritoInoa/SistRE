@@ -29,7 +29,7 @@ namespace DataLogic
 
                                       NovedadContrabandoID = ni.NovedadContrabandoID,
                                       TipoNovedadID = ni.TipoNovedadID,
-                                      TipoMedidaID = ni.TipoMedidaID,
+                                      TipoMedidaID = Convert.ToInt32(ni.TipoMedidaID),
                                       Causa = ni.Causa,
                                       FechaNovedad = ni.FechaNovedad,
                                       //HoraNovedad = ni.HoraNovedad,
@@ -72,12 +72,13 @@ namespace DataLogic
 
                                       NovedadContrabandoID = ni.NovedadContrabandoID,
                                       TipoNovedadID = ni.TipoNovedadID,
-                                      TipoMedidaID = ni.TipoMedidaID,
+                                      TipoMedidaID = Convert.ToInt16(ni.TipoMedidaID),
                                       Causa = ni.Causa,
                                       FechaNovedad = ni.FechaNovedad,
                                       HoraNovedad = ni.HoraNovedad,
                                       Cantidad = ni.Cantidad,
                                       EstatusID = ni.EstatusID,
+                                      AuditoriaID = ni.AuditoriaID,
 
                                   });
 

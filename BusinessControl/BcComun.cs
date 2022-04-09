@@ -433,5 +433,18 @@ namespace BusinessControl
                 throw new Exception(ex.Message);
             }
         }
+
+        public static List<BeTipoMuertes> GetTipoMuertes()
+        {
+            try
+            {
+                return _dalc.GetTipoMuertes();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

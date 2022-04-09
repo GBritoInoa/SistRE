@@ -18,7 +18,7 @@ namespace DataLogic
         public int TipoContrabandoID { get; set; }
         public int TipoNovedadID { get; set; }
         public decimal Cantidad { get; set; }
-        public int TipoMedidaID { get; set; }
+        public Nullable<int> TipoMedidaID { get; set; }
         public int ProductoID { get; set; }
         public System.DateTime FechaNovedad { get; set; }
         public System.TimeSpan HoraNovedad { get; set; }
