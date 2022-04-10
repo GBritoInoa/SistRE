@@ -31,7 +31,7 @@ namespace SistRE.Areas.Procesos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
+                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Apresamiento");
                 throw new Exception(ex.Message);
             }
 
@@ -53,7 +53,7 @@ namespace SistRE.Areas.Procesos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
+                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Apresamiento");
                 throw new Exception(ex.Message);
             }
 
@@ -73,7 +73,7 @@ namespace SistRE.Areas.Procesos.Controllers
             catch (Exception ex)
             {
 
-                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
+                ModelState.AddModelError(ex.Message, "Error al Crear Tipo Apresamiento");
                 throw new Exception(ex.Message);
             }
 

@@ -178,26 +178,6 @@ namespace SistRE.Areas.Mantenimientos.Controllers
             }
         }
 
-        // GET: Mantenimientos/TipoMuertes/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //// POST: Mantenimientos/TipoMuertes/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+ 
     }
 }

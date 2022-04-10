@@ -324,6 +324,9 @@
     <Compile Include="TipoMedidas.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>
+    <Compile Include="TipoMiembro.cs">
+      <DependentUpon>ModelSistRE.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoMoneda.cs">
       <DependentUpon>ModelSistRE.tt</DependentUpon>
     </Compile>

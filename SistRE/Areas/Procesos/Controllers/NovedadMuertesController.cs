@@ -22,7 +22,7 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 List<BeSexo> Sexo = new List<BeSexo>();
-                Sexo = BcComun.GetSexo().ToList();
+                Sexo = BcComun.GetSexo().Where(a=> a.SexoID <= 2).ToList();
                 ViewBag.SexoID = new SelectList(Sexo.OrderBy(s => s.SexoID), "SexoID", "Nombre");
             }
             catch (Exception ex)
@@ -53,6 +53,28 @@ namespace SistRE.Areas.Procesos.Controllers
                 ModelState.AddModelError(ex.Message, "Error al Crear Tipo Ausencia");
                 throw new Exception(ex.Message);
             }
+
+        }
+
+
+        /// <summary>
+        /// Get TypeNovedad
+        /// </summary>
+        public void GetTypeNovedad()
+        {
+
+            try
+            {
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Defunciones")).ToList();
+                ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error");
+                throw new Exception(ex.Message);
+            }
+
 
         }
 
@@ -114,6 +136,24 @@ namespace SistRE.Areas.Procesos.Controllers
         }
 
         /// <summary>
+        /// Get Tipo Miembro
+        /// </summary>
+        private void GetTiMiembro()
+        {
+
+            try
+            {
+                List<BeTipoMiembro> TipoMiembro = BcComun.GetTipoMiembro().ToList();
+                ViewBag.TipoMiembroID = new SelectList(TipoMiembro.OrderBy(p => p.Nombre), "TipoMiembroID", "Nombre");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error al obtener List Tipo Miembro");
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// GetNacionalidades
         /// </summary>
         private void GetTipoMuertes()
@@ -133,6 +173,8 @@ namespace SistRE.Areas.Procesos.Controllers
 
 
 
+
+        [Route("Defunciones")]
         /// <summary>
         /// Create Novedad Defunciones
         /// </summary>
@@ -143,6 +185,8 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 var model = new BeNovedadMuertes();
+                GetTypeNovedad();
+                GetTiMiembro();
                 GetBrigadas();
                 GetRangos();
                 GetCompanias();
@@ -174,6 +218,8 @@ namespace SistRE.Areas.Procesos.Controllers
 
             if (!ModelState.IsValid)
             {
+                GetTypeNovedad();
+                GetTiMiembro();
                 GetBrigadas();
                 GetRangos();
                 GetCompanias();
@@ -188,7 +234,7 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
 
-                model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString();
+                model.UserLogueado = SessionData.GetOnlineUserInfo().userName;
                 BcNovedadMuerte.Create(model);
                 TempData["success"] = "Defuncion REGISTRADA Satisfactoriamente!";
                 return RedirectToAction("Create");

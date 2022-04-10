@@ -26,7 +26,7 @@ namespace BeEntity
         public int TipoNovedadID { get; set; }
 
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
-        [DisplayName("Provincia")]
+        [DisplayName("Lugar de la Defunción")]
         [Range(0, int.MaxValue, ErrorMessage = "Debe seleccionar Provincia")]
         public int ProvinciaID { get; set; }
 
@@ -39,6 +39,7 @@ namespace BeEntity
         public System.TimeSpan HoraNovedad { get; set; }
 
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
+        [DisplayName("Observación/Comentario")]
         [MinLength(length: 10)]
         public string Causa { get; set; }
 
@@ -51,9 +52,8 @@ namespace BeEntity
         [DisplayName("Estatus")]
         public Nullable<int> EstatusID { get; set; } = 1;
 
-
         [Required(ErrorMessage = "{0} no puede estar vacio")]
-        [DisplayName("Tipo Defunción")]
+        [DisplayName("Causa de Defunción")]
         public int TipoMuerteID { get; set; }
 
         [DisplayName("Rango")]
@@ -61,6 +61,9 @@ namespace BeEntity
 
         [DisplayName("Compañía")]
         public int CompaniaID { get; set; } = 0;
+
+        [DisplayName("Estatus Miembro")]
+        public int TipoMiembroID { get; set; } = 0;
 
     }
 }

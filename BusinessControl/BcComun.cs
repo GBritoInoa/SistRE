@@ -76,6 +76,23 @@ namespace BusinessControl
 
 
         }
+
+        /// <summary>
+        /// Get Type Miembro
+        /// </summary>
+        /// <returns></returns>
+        public static List<BeTipoMiembro>GetTipoMiembro()
+        {
+            try
+            {
+                return _dalc.GetTypeMiembro().ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
    
 
         /// <summary>

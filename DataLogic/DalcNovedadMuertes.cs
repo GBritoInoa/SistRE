@@ -28,8 +28,7 @@ namespace DataLogic
                     DateTime hora = DateTime.Now;
                     /////////Crea Registro Auditoria//////////
                     var a = new Auditoria();
-                    string _User = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
-                    a.UsuarioCreo = _User.Substring(0, 6);
+                    a.UsuarioCreo = item.UserLogueado.ToString();
                     a.FechaCreo = DateTime.Now;
                     a.NombrePC = Environment.MachineName;
                     a.IpAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(ip => ip.AddressFamily.ToString().ToUpper().Equals("INTERNETWORK")).FirstOrDefault().ToString();
@@ -40,6 +39,7 @@ namespace DataLogic
                     ////Create Novedad Muerte
                     var na = new NovedadMuertes();
                     na.NovedadMuerteID = item.NovedadMuerteID;
+                    na.TipoMiembroID = item.TipoMiembroID;
                     na.TipoNovedadID = item.TipoNovedadID;
                     na.TipoMuerteID = item.TipoMuerteID;
                     na.EstatusID = (int)EnumEstatus.Estado.Activo;
@@ -51,18 +51,18 @@ namespace DataLogic
                     na.RangoID = Convert.ToInt32(item.RangoID).Equals(0) ? 0 : item.RangoID;
                     na.CompaniaID = Convert.ToInt32(item.CompaniaID).Equals(0) ? 0 : item.CompaniaID;
                     na.SexoID = item.SexoID;
-                    na.EstatusID = (int)EnumEstatus.Estado.Activo;
                     na.Causa = item.Causa;
                     db.NovedadMuertes.Add(na);
                     db.SaveChanges();
 
                     //////////Create HistoricoNovedades////////
                     var hn = new HistoricoNovedades();
-                    hn.TipoNovedadID = Convert.ToInt32(na.TipoNovedadID);
+                    hn.TipoNovedadID = item.TipoNovedadID;
+                    hn.ProvinciaID = item.ProvinciaID;
                     hn.AuditoriaID = Convert.ToInt32(na.AuditoriaID);
                     hn.FechaNovedad = item.FechaNovedad;
                     hn.HoraNovedad = item.HoraNovedad;
-                    hn.TipoID = item.NovedadMuerteID;
+                    hn.TipoID = item.TipoMuerteID;
                     db.HistoricoNovedades.Add(hn);
                     db.SaveChanges();
                     dbContextTransaction.Commit();

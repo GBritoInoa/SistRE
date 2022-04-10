@@ -121,7 +121,38 @@ namespace DataLogic
             }
         }
 
-        
+
+        /// <summary>
+        /// Get Type Miembro
+        /// </summary>
+        /// <returns></returns>
+        public List<BeTipoMiembro> GetTypeMiembro()
+        {
+            List<BeTipoMiembro> data = new List<BeTipoMiembro>();
+            try
+            {
+                using (var db = new Context_SistRE())
+                {
+                    data.AddRange(from s in db.TipoMiembro where s.Estatus != 3
+
+                                  select new BeTipoMiembro()
+                                  {
+                                      TipoMiembroID = s.TipoMiembroID,
+                                      Nombre = s.Nombre
+
+                                  });
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+
         /// <summary>
         /// Dalc Provincias
         /// </summary>

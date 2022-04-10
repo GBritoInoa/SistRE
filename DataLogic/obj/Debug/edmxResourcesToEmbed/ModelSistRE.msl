@@ -702,25 +702,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NovedadMuertes">
-      <EntityTypeMapping TypeName="DB_SistREModel.NovedadMuertes">
-        <MappingFragment StoreEntitySet="NovedadMuertes">
-          <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
-          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
-          <ScalarProperty Name="TipoMuerteID" ColumnName="TipoMuerteID" />
-          <ScalarProperty Name="Causa" ColumnName="Causa" />
-          <ScalarProperty Name="SexoID" ColumnName="SexoID" />
-          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
-          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
-          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
-          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
-          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
-          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
-          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
-          <ScalarProperty Name="NovedadMuerteID" ColumnName="NovedadMuerteID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TipoMuertes">
       <EntityTypeMapping TypeName="DB_SistREModel.TipoMuertes">
         <MappingFragment StoreEntitySet="TipoMuertes">
@@ -768,5 +749,34 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="TipoMiembro">
+      <EntityTypeMapping TypeName="DB_SistREModel.TipoMiembro">
+        <MappingFragment StoreEntitySet="TipoMiembro">
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoMiembroID" ColumnName="TipoMiembroID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NovedadMuertes">
+      <EntityTypeMapping TypeName="DB_SistREModel.NovedadMuertes">
+        <MappingFragment StoreEntitySet="NovedadMuertes">
+          <ScalarProperty Name="TipoMiembroID" ColumnName="TipoMiembroID" />
+          <ScalarProperty Name="CompaniaID" ColumnName="CompaniaID" />
+          <ScalarProperty Name="BrigadaID" ColumnName="BrigadaID" />
+          <ScalarProperty Name="TipoMuerteID" ColumnName="TipoMuerteID" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="SexoID" ColumnName="SexoID" />
+          <ScalarProperty Name="RangoID" ColumnName="RangoID" />
+          <ScalarProperty Name="EstatusID" ColumnName="EstatusID" />
+          <ScalarProperty Name="AuditoriaID" ColumnName="AuditoriaID" />
+          <ScalarProperty Name="HoraNovedad" ColumnName="HoraNovedad" />
+          <ScalarProperty Name="FechaNovedad" ColumnName="FechaNovedad" />
+          <ScalarProperty Name="ProvinciaID" ColumnName="ProvinciaID" />
+          <ScalarProperty Name="TipoNovedadID" ColumnName="TipoNovedadID" />
+          <ScalarProperty Name="NovedadMuerteID" ColumnName="NovedadMuerteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

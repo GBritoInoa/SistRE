@@ -27,5 +27,6 @@ namespace DataLogic
         public int TipoMuerteID { get; set; }
         public int BrigadaID { get; set; }
         public int CompaniaID { get; set; }
+        public int TipoMiembroID { get; set; }
     }
 }

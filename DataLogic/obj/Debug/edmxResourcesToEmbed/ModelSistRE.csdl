@@ -214,7 +214,6 @@
     <EntitySet Name="Enfermedades" EntityType="DB_SistREModel.Enfermedades" />
     <EntitySet Name="NovedadHospitalizacion" EntityType="DB_SistREModel.NovedadHospitalizacion" />
     <EntitySet Name="NovedadRecorridos" EntityType="DB_SistREModel.NovedadRecorridos" />
-    <EntitySet Name="NovedadMuertes" EntityType="DB_SistREModel.NovedadMuertes" />
     <EntitySet Name="TipoMuertes" EntityType="DB_SistREModel.TipoMuertes" />
     <EntitySet Name="Users" EntityType="DB_SistREModel.Users" />
     <FunctionImport Name="usp_ReporteNovedades" ReturnType="Collection(DB_SistREModel.usp_ReporteNovedades_Result)">
@@ -223,6 +222,8 @@
       <Parameter Name="FechaHasta" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="usp_porcientoNovedades_mesencurso" ReturnType="Collection(DB_SistREModel.usp_porcientoNovedades_mesencurso_Result)" />
+    <EntitySet Name="TipoMiembro" EntityType="DB_SistREModel.TipoMiembro" />
+    <EntitySet Name="NovedadMuertes" EntityType="DB_SistREModel.NovedadMuertes" />
   </EntityContainer>
   <EntityType Name="Auditoria">
     <Key>
@@ -1295,24 +1296,6 @@
     <Property Name="BrigadaID" Type="Int32" Nullable="false" />
     <Property Name="CompaniaID" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="NovedadMuertes">
-    <Key>
-      <PropertyRef Name="NovedadMuerteID" />
-    </Key>
-    <Property Name="NovedadMuerteID" Type="Int32" Nullable="false" />
-    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
-    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
-    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
-    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
-    <Property Name="EstatusID" Type="Int32" Nullable="false" />
-    <Property Name="RangoID" Type="Int32" Nullable="false" />
-    <Property Name="SexoID" Type="Int32" Nullable="false" />
-    <Property Name="Causa" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Name="TipoMuerteID" Type="Int32" Nullable="false" />
-    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
-    <Property Name="CompaniaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
   <EntityType Name="TipoMuertes">
     <Key>
       <PropertyRef Name="TipoMuerteID" />
@@ -1350,4 +1333,31 @@
     <Property Type="String" Name="TipoNovedad" Nullable="true" MaxLength="150" />
     <Property Type="Decimal" Name="total" Nullable="true" Precision="21" Scale="13" />
   </ComplexType>
+  <EntityType Name="TipoMiembro">
+    <Key>
+      <PropertyRef Name="TipoMiembroID" />
+    </Key>
+    <Property Name="TipoMiembroID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estatus" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NovedadMuertes">
+    <Key>
+      <PropertyRef Name="NovedadMuerteID" />
+    </Key>
+    <Property Name="NovedadMuerteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoNovedadID" Type="Int32" Nullable="false" />
+    <Property Name="ProvinciaID" Type="Int32" Nullable="false" />
+    <Property Name="FechaNovedad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraNovedad" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="AuditoriaID" Type="Int32" Nullable="false" />
+    <Property Name="EstatusID" Type="Int32" Nullable="false" />
+    <Property Name="RangoID" Type="Int32" Nullable="false" />
+    <Property Name="SexoID" Type="Int32" Nullable="false" />
+    <Property Name="Causa" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="TipoMuerteID" Type="Int32" Nullable="false" />
+    <Property Name="BrigadaID" Type="Int32" Nullable="false" />
+    <Property Name="CompaniaID" Type="Int32" Nullable="false" />
+    <Property Name="TipoMiembroID" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

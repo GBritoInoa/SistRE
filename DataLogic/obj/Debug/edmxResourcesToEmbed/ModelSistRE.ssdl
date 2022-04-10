@@ -322,7 +322,7 @@
     <Key>
       <PropertyRef Name="NovedadMuerteID" />
     </Key>
-    <Property Name="NovedadMuerteID" Type="int" Nullable="false" />
+    <Property Name="NovedadMuerteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TipoNovedadID" Type="int" Nullable="false" />
     <Property Name="ProvinciaID" Type="int" Nullable="false" />
     <Property Name="FechaNovedad" Type="date" Nullable="false" />
@@ -334,7 +334,8 @@
     <Property Name="Causa" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="TipoMuerteID" Type="int" Nullable="false" />
     <Property Name="BrigadaID" Type="int" Nullable="false" />
-    <Property Name="CompaniaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompaniaID" Type="int" Nullable="false" />
+    <Property Name="TipoMiembroID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NovedadPerdidaDocumento">
     <Key>
@@ -580,6 +581,14 @@
     <Property Name="TipoProductoID" Type="int" Nullable="false" />
     <Property Name="EstatusID" Type="int" Nullable="false" />
     <Property Name="AuditoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMiembro">
+    <Key>
+      <PropertyRef Name="TipoMiembroID" />
+    </Key>
+    <Property Name="TipoMiembroID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estatus" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TipoMoneda">
     <Key>
@@ -1137,6 +1146,7 @@
     <EntitySet Name="TipoMedicamento" EntityType="Self.TipoMedicamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoMedidaCombustible" EntityType="Self.TipoMedidaCombustible" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoMedidas" EntityType="Self.TipoMedidas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMiembro" EntityType="Self.TipoMiembro" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoMoneda" EntityType="Self.TipoMoneda" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoMuertes" EntityType="Self.TipoMuertes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoNovedad" EntityType="Self.TipoNovedad" Schema="dbo" store:Type="Tables" />

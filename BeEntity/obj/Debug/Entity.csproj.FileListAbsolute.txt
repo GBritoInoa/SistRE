@@ -41,7 +41,6 @@ C:\Users\gbrito\Documents\SistRE\BeEntity\obj\Debug\BeEntity.pdb
 C:\Users\gbrito\Documents\SistRE\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache
 C:\Users\Ing. Geury Brito\Documents\SistRE\BeEntity\bin\Debug\BeEntity.dll
 C:\Users\Ing. Geury Brito\Documents\SistRE\BeEntity\bin\Debug\BeEntity.pdb
-C:\Users\Ing. Geury Brito\Documents\SistRE\BeEntity\obj\Debug\Entity.csprojAssemblyReference.cache
 C:\Users\Ing. Geury Brito\Documents\SistRE\BeEntity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 C:\Users\Ing. Geury Brito\Documents\SistRE\BeEntity\obj\Debug\BeEntity.dll
 C:\Users\Ing. Geury Brito\Documents\SistRE\BeEntity\obj\Debug\BeEntity.pdb
