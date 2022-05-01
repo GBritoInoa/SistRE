@@ -204,6 +204,7 @@
     <Compile Include="Areas\Procesos\ProcesosAreaRegistration.cs" />
     <Compile Include="Areas\Reportes\Controllers\ReporteNovedadesController.cs" />
     <Compile Include="Areas\Reportes\ReportesAreaRegistration.cs" />
+    <Compile Include="Comun\EnumComun.cs" />
     <Compile Include="Comun\EnumPerfiles.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Comun\EstatusRegistro.cs" />

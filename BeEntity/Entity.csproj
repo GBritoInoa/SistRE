@@ -46,6 +46,7 @@
     <Compile Include="BeAusencias.cs" />
     <Compile Include="BeBrigada.cs" />
     <Compile Include="BeCategoriaProtesta.cs" />
+    <Compile Include="BeChangePassword.cs" />
     <Compile Include="BeCompania.cs" />
     <Compile Include="BeEnfermedades.cs" />
     <Compile Include="BeFiltros.cs" />
