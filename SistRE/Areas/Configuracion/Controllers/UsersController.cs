@@ -43,16 +43,19 @@ namespace SistRE.Areas.Configuracion.Controllers
 
                 var miembro = BcComun.GetMemberERD(carnet);
 
-                //if(miembro == null)
-                //{
-                //    //RedirectToAction("Create");
-                //    //TempData["error"] = "No se encontro Miembro ERD con este numero de Carnet !";
-                //    //RedirectToAction("Create");
+                var existe = BcUsers.GetAll().Where(a => a.UserName == carnet.ToString()).FirstOrDefault();
+                if (existe != null)
+                {
+                    TempData["success"] = "Este USUARIO ya EXISTE!";
+                    GetEstatus();
+                    GetPerfiles();                
 
-                //}
 
-                              
-                    return Json(miembro??null);
+                }
+
+
+
+                return Json(miembro??null);
               
                
             }
@@ -141,9 +144,19 @@ namespace SistRE.Areas.Configuracion.Controllers
         public ActionResult Create(BeUser model)
         {
 
-                   
+            var existe = BcUsers.GetAll().Where(a => a.UserName == model.NumCarnet).FirstOrDefault();
+            if(existe != null)
+                {
+                TempData["success"] = "Este USUARIO ya EXISTE!";
+                GetEstatus();
+                GetPerfiles();
+                return View();
 
-            if (ModelState.IsValid)
+            }
+
+
+
+            if (!ModelState.IsValid)
             {
                 GetEstatus();
                 GetPerfiles();
@@ -154,7 +167,7 @@ namespace SistRE.Areas.Configuracion.Controllers
 
             try
             {
-                
+                model.CambioClave = true;
                 model.Salt = BcCriptografia.RandomString(32);
                 model.Password = BcCriptografia.ComputeSha256Hash($"{model.NumCarnet}");
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo

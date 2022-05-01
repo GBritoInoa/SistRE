@@ -117,6 +117,9 @@ namespace DataLogic
         public bool Create(BeUser item)
         {
 
+
+
+
             using (var db = new Context_SistRE())
             using (var dbContextTransaction = db.Database.BeginTransaction())
             {

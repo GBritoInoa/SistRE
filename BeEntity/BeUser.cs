@@ -52,6 +52,7 @@ namespace BeEntity
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
         public bool CambioClave { get; set; }
 
+
         public int AuditoriaID { get; set; }
 
         //[Required(ErrorMessage = "{0} no puede estar vacio")]
