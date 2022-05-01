@@ -154,7 +154,8 @@ namespace SistRE.Areas.Configuracion.Controllers
 
             try
             {
-                model.Salt = BcCriptografia.ComputeSha256Hash($"{model.NumCarnet}");
+                
+                model.Salt = BcCriptografia.RandomString(32);
                 model.Password = BcCriptografia.ComputeSha256Hash($"{model.NumCarnet}");
                 model.UserLogueado = SessionData.GetOnlineUserInfo().userName.ToString(); ///Usuario Loguedo
                 BcUsers.Create(model);

@@ -18,10 +18,10 @@ namespace BusinessControl
             if (user == null) return new BeLoginResult(false, $"El usuario '{credencials.userName}' no existe", null);
 
             //Encriptamos la contraseña digitada por en usuario pegada con la salt previamente guardada
-            string encriptedGivenPassword = BcCriptografia.ComputeSha256Hash($"{credencials.passWord}{user.Salt}");
-            
+            string encriptedGivenPassword = BcCriptografia.ComputeSha256Hash($"{credencials.passWord}")+user.Salt;
+
             //Compramos que el password encriptado guardado a este usuario, coincide con el password digitado que acabamos de encriptar
-            if(encriptedGivenPassword == user.Password) return new BeLoginResult(true, $"Exito al iniciar sesion", user);
+            if (encriptedGivenPassword == user.Password+user.Salt) return new BeLoginResult(true, $"Exito al iniciar sesion", user);
 
             return new BeLoginResult(false, $"Usuario o contraseña no validos", null);
         }
