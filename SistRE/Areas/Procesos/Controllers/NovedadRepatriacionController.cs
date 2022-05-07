@@ -48,7 +48,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
             try
             {
-                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Repatriación")).ToList();
+                var tiponovedad = BcTipoNovedad.GetAll().Where(a => a.Nombre.Equals("Repatriaciones")).ToList();
                 ViewBag.TipoNovedadID = new SelectList(tiponovedad.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
 
             }

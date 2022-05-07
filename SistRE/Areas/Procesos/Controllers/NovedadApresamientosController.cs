@@ -144,13 +144,13 @@ namespace SistRE.Areas.Procesos.Controllers
             {
                 List<BeTipoApresamiento> TipoApresamientos = BcTipoApresamiento.GetAll().ToList();
                 ViewBag.TipoApresamientoID = new SelectList(TipoApresamientos.OrderBy(p => p.Nombre), "ID", "Nombre");
-                ViewBag.TipoNovedadID = new SelectList(TipoApresamientos.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
+                //ViewBag.TipoNovedadID = new SelectList(TipoApresamientos.OrderBy(c => c.TipoNovedadID), "TipoNovedadID", "Nombre");
 
       
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(ex.Message, "Error al obtener Listado Tipo Apresamientos");
+                ModelState.AddModelError(ex.Message, "Error al obtener Listado Tipo Apresamientos.");
                 throw new Exception(ex.Message);
             }
         }
