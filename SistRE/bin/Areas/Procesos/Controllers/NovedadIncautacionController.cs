@@ -22,9 +22,7 @@ namespace SistRE.Areas.Procesos.Controllers
         {
             return View();
         }
-
-
-
+        
 
         /// <summary>
         /// JsonResult Productos
@@ -198,8 +196,29 @@ namespace SistRE.Areas.Procesos.Controllers
                 throw new Exception(ex.Message);
             }
 
-
         }
+
+        /// <summary>
+        /// GetNacionalidades
+        /// </summary>
+        private void GetNacionalidades()
+        {
+
+            try
+            {
+                List<BeNacionalidad> Nacionalidades = BcNacionalidad.GetAll().ToList();
+                ViewBag.NacionalidadID = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "ID", "Nombre");
+                ViewBag.NacionalidadID1 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "ID", "Nombre");
+                ViewBag.NacionalidadID2 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "ID", "Nombre");
+                //return Json(Nacionalidades, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error al obtener List Nacionalidades");
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         /// <summary>
         /// 
@@ -211,8 +230,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
             try
             {
-
-            
+                GetNacionalidades();
                 GetProductos();
                 GetTipoIncautacion();
                 GetBrigadas();
@@ -241,6 +259,7 @@ namespace SistRE.Areas.Procesos.Controllers
            model.EstatusID = (int)EstatusRegistro.Estatus.Activo;
             if(!ModelState.IsValid)
             {
+                GetNacionalidades();
                 GetProductos();
                 GetTipoIncautacion();
                 GetBrigadas();

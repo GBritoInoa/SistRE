@@ -16,10 +16,10 @@ namespace BeEntity
     {
 
         public int NovedadIncautacionID { get; set; }
-    
+
         [Required]
         [DisplayName("Tipo Incautación")]
-     
+
         public int TipoIncautacionID { get; set; }
 
         [DisplayName("Tipo Novedad")]
@@ -59,14 +59,33 @@ namespace BeEntity
         [DisplayName("Provincia")]
         public int ProvinciaID { get; set; }
 
-  
+
         [DisplayName("Tipo Producto ID")]
         public int TipoProductoID { get; set; }
 
         [Required]
         [DisplayName("Tipo Producto")]
         public int ProductoID { get; set; }
-      
+
+
+        [DisplayName("Nacionalidad")]
+        public int NacionalidadID { get; set; }
+
+        [DisplayName("Nacionalidad")]
+        public int NacionalidadID1 { get; set; }
+
+        [DisplayName("Nacionalidad")]
+        public int NacionalidadID2 { get; set; }
+
+        [DisplayName("Cantidad Apresados")]
+        public int CantidadApresados { get; set; }
+
+        [DisplayName("Cantidad Apresados")]
+        public int CantidadApresados1 { get; set; }
+
+        [DisplayName("Cantidad Apresados")]
+        public int CantidadApresados2 { get; set; }
+
 
     }
 }

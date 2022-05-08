@@ -39,8 +39,6 @@
                 </div>
             </div>
 
-
-
             @*onchange = "myFunction()"*@
             @*, onchange = "fillProducts(this)"*@
 
@@ -96,14 +94,117 @@
             </div>
             @*Fin Modal Tipo Medidas**@
 
-            <div class="form-group">
-                                    <label>Cantidad</label><label class="bg-label">*</label>
-                                    <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = " ", @type = "number" }, placeholder = "Ingresar Cantidad" })<br />
-                                    @Html.ValidationMessageFor(model => model.Cantidad, " ", new { @class = "text-danger" })
-                                        
+
+            @*Apresados*@
+            <div class="modal fade" id="ApresadoID" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="align-content:center">
+                            <h4 id="ModalTitle"></h4>
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                            @*<a href="#" class="close" data-dismiss="modal">&time</a>*@
+                        </div>
+
+                        <div class="modal-body">
+                            <form id="form" method="post">
+                                <fieldset id="SubmitForm">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <label>Nacionalidad</label><label class="bg-label"></label>
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
+                                            @Html.DropDownList("NacionalidadID", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", name = "NacionalidadID", id = "NacionalidadID" })
+                                        </div>
                                     </div>
+
+
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group" id="_visible">
+                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.CantidadApresados, new { htmlAttributes = new { @class = "form-control", @type = "number",name= "CantidadApresados",id="CantidadApresados" }, placeholder = "Ingresar Cantidad" })<br />
+                                            @Html.ValidationMessageFor(model => model.CantidadApresados, " ", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </fieldset>
+                    
+                                <fieldset id="SubmitForm">
+
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <label>Nacionalidad</label><label class="bg-label"></label>
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
+                                            @Html.DropDownList("NacionalidadID1", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", name = "NacionalidadID1", id = "NacionalidadID1" })
+                                        </div>
+                                    </div>
+
+
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group" id="_visible">
+                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.CantidadApresados1, new { htmlAttributes = new { @class = "form-control", @type = "number",id="CantidadApresados1" }, placeholder = "Ingresar Cantidad" })<br />
+                                            @Html.ValidationMessageFor(model => model.CantidadApresados1, " ", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset id="SubmitForm">
+
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <label>Nacionalidad</label><label class="bg-label"></label>
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
+                                            @Html.DropDownList("NacionalidadID2", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", name = "NacionalidadID2", id = "NacionalidadID2" })
+                                        </div>
+                                    </div>
+
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group" id="_visible">
+                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.CantidadApresados2, new { htmlAttributes = new { @class = "form-control", @type = "number", id= "CantidadApresados2" }, placeholder = "Ingresar Cantidad" })<br />
+                                            @Html.ValidationMessageFor(model => model.CantidadApresados2, " ", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
             </div>
+            @*Fin Apresados*@
+
+            <div class="form-group">
+                <label>Cantidad Incautada</label><label class="bg-label">*</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = " ", @type = "number" }, placeholder = "Ingresar Cantidad" })<br />
+                    @Html.ValidationMessageFor(model => model.Cantidad, " ", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="defaultCheck1" id="defaultCheck1" name="defaultCheck1" onclick="myFunction2()" })>
+                <label class="form-check-label" for="defaultCheck1">
+                    <strong>Hubo Apresados?</strong>
+                </label>
+            </div>
+            <br />
 
             <div class="form-group">
                 <label>Fecha Novedad</label><label class="bg-label">*</label>
@@ -122,7 +223,7 @@
             </div>
 
             <div class="form-group">
-                <label>Provincia donde ocurrió la Novedad</label><label class="bg-label">*</label>
+                <label>Lugar donde oucurrió la Novedad</label><label class="bg-label">*</label>
                 <div class="col-md-10">
                     @Html.DropDownList("ProvinciaID", null, "---Seleccione Provincia ---", htmlAttributes: new { @class = "form-control" })<br />
                     @Html.ValidationMessageFor(model => model.ProvinciaID, "", new { @class = "text-danger" })
@@ -160,10 +261,10 @@
 
 
 @*<script>
-        function fillProducts(inpt) {
+    function myFunction2(inpt) {
             myFunction();
-            useAjax('@Url.Action("NovedadIncautacion","Productos")', '{idTipoIncautacion:"' + inpt.value + '"}', function (data) {
-                fillDropDown('#ProductoID', data, 'ProductoID', 'Nombre');
+            useAjax('@Url.Action("NovedadIncautacion","GetNacionalidades")', function (data) {
+                fillDropDown('#NacionalidadID', data, 'ID', 'Nombre');
             }, 'POST');
         }
     </script>*@
@@ -171,12 +272,12 @@
 
 @Scripts.Render("~/bundles/jqueryval")
 @section Scripts {
-<script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
             $("#ddlIncautaciones").change(function () {
                 $.get("/NovedadIncautacion/GetProducts", { TipoProductoID: $("#ddlIncautaciones").val() }, function (data) {
                     // VACIAMOS EL DropDownList
-                  
+
                     $("#ProductoID").empty();
                     // AÑADIMOS UN NUEVO label CON EL NOMBRE DEL ELEMENTO SELECCIONADO
                     $("#ProductoID").append("<option value> -- Seleccionar Tipo " + $("#ddlIncautaciones option:selected").text() + " --</option>")
@@ -189,7 +290,7 @@
             });
 
             $("#ProductoID").change(function () {
-              
+
                 $.get("/NovedadIncautacion/GetTipoMedidas", { ProductoID: $("#ProductoID").val() }, function (data) {
                     // VACIAMOS EL DropDownList
                     $("#TipoMedidaID").empty();
@@ -198,21 +299,48 @@
                     // CONSTRUIMOS EL DropDownList A PARTIR DEL RESULTADO Json (data)
                     $.each(data, function (index, row) {
                         $("#TipoMedidaID").append("<option value='" + row.ID + "'>" + row.Nombre + "</option>")
-                    
                     });
                 });
             });
-            
         });
 
         @* Llama Show Modal *@
-    function myFunction1() {
+        function myFunction1() {
 
         $("#ModalTitle").html("Tipo Producto ");
         $("#TipoProducto").modal();
-    
-    };
 
+        };
+
+    function myFunction2() {
+            //var micheckbox = document.getElementById("defaultCheck1");
+            // micheckbox.addEventListener('click', function () {
+            //if(micheckbox.checked) {
+                $("#ModalTitle").html("Apresados ");
+                $("#ApresadoID").modal();
+
+            //}
+            //else {
+
+
+            //}
+
+
+        };
+                
+            @*$(document).ready(function () {
+
+                $.get("@Url.Action("GetNacionalidades", "NovedadIncautacion")", function (data) {
+                    //$("select[name=nacionalidad]").append(
+                    //    $("<option>").attr({ "value": "0" }).text("Todos")
+                           $.each(data, function (index, row) {
+                        $("#NacionalidadID").append("<option value='" + row.ID + "'>" + row.Nombre + "</option>")
+
+                    });
+                });
+            });*@        
+        };                        
+          
     //$('#TipoMedidaID').change(function (e) {
     //    alert($(this).val());
     //});
@@ -223,7 +351,5 @@
     //    alert(valor);
     //};
 
-</script>
-  
- 
+    </script>
 }
