@@ -1013,6 +1013,7 @@
     <Content Include="Areas\Mantenimientos\Views\TipoMuertes\Edit.cshtml" />
     <Content Include="Areas\Mantenimientos\Views\TipoMuertes\Index.cshtml" />
     <Content Include="Areas\Procesos\Views\NovedadMuertes\Create.cshtml" />
+    <Content Include="Areas\Procesos\Views\NovedadIncautacion\_Nacionalidades.cshtml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1154,6 +1155,7 @@
     <Content Include="Views\Home\NotAutorized.cshtml" />
     <Content Include="Views\Shared\OptionsBox\Consultar.cshtml" />
     <Content Include="Views\Shared\OptionsBox\Download.cshtml" />
+    <Content Include="Views\Home\CambioClave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

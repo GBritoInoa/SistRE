@@ -708,7 +708,7 @@ namespace DataLogic
                                   where b.Nombre.Contains("Nombre")
                                   select new BeNacionalidad
                                   {
-                                      ID = b.NacionalidadID,
+                                      NacionalidadID = b.NacionalidadID,
                                       Nombre = b.Nombre
 
                                   });

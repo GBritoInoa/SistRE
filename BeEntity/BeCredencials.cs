@@ -15,5 +15,6 @@ namespace BeEntity
         [Required]
         [DisplayName("Contraseña")]
         public string passWord { get; set; }
+
     }
 }

@@ -22,7 +22,7 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
+         
         <div class="form-horizontal">
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -38,6 +38,8 @@
 
                 </div>
             </div>
+
+
 
             @*onchange = "myFunction()"*@
             @*, onchange = "fillProducts(this)"*@
@@ -70,7 +72,6 @@
 
                                 </fieldset>
 
-
                                 <fieldset id="SubmitForm">
 
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -95,12 +96,14 @@
             @*Fin Modal Tipo Medidas**@
 
 
-            @*Apresados*@
-            <div class="modal fade" id="ApresadoID" role="dialog">
+
+
+            @*Modal Apresados*@
+            <div class="modal fade" id="Apresados" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header" style="align-content:center">
-                            <h4 id="ModalTitle"></h4>
+                            <h4 id="ModalTitleApresados"></h4>
                             <button type="button" class="close" data-dismiss="modal">
                                 &times;
                             </button>
@@ -111,73 +114,30 @@
                             <form id="form" method="post">
                                 <fieldset id="SubmitForm">
 
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="form-group">
-                                        <label>Nacionalidad</label><label class="bg-label"></label>
-                                        <div class="col-md-10">
-                                            @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
-                                            @Html.DropDownList("NacionalidadID", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", name = "NacionalidadID", id = "NacionalidadID" })
-                                        </div>
-                                    </div>
-
-
-
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="form-group" id="_visible">
-                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.CantidadApresados, new { htmlAttributes = new { @class = "form-control", @type = "number",name= "CantidadApresados",id="CantidadApresados" }, placeholder = "Ingresar Cantidad" })<br />
-                                            @Html.ValidationMessageFor(model => model.CantidadApresados, " ", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </fieldset>
-                    
-                                <fieldset id="SubmitForm">
-
 
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        <label>Nacionalidad</label><label class="bg-label"></label>
+                                        <label>Producto a Incautar</label><label class="bg-label">*</label>
                                         <div class="col-md-10">
                                             @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
-                                            @Html.DropDownList("NacionalidadID1", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", name = "NacionalidadID1", id = "NacionalidadID1" })
+                                            @Html.DropDownList("NacionalidadID", null , " -- Seleccionar Tipo --", new { @class = "form-control", id = "NacionalidadID", value = "NacionalidadID", name = "NacionalidadID" })
                                         </div>
                                     </div>
 
+                                </fieldset>
 
+                                @*<fieldset id="SubmitForm">
 
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group" id="_visible">
-                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
+                                        <label>Tipo Medida/Presentación</label><label class="bg-label">*</label>
                                         <div class="col-md-10">
-                                            @Html.EditorFor(model => model.CantidadApresados1, new { htmlAttributes = new { @class = "form-control", @type = "number",id="CantidadApresados1" }, placeholder = "Ingresar Cantidad" })<br />
-                                            @Html.ValidationMessageFor(model => model.CantidadApresados1, " ", new { @class = "text-danger" })
+                                            @Html.ValidationMessageFor(model => model.TipoMedidaID, "", new { @class = "text-danger" })
+                                            @Html.DropDownList("TipoMedidaID", new List<SelectListItem>(), " -- Seleccionar Tipo --", new { @class = "form-control", @id = "TipoMedidaID", @Name = "TipoMedidaID" })
                                         </div>
                                     </div>
-                                </fieldset>
-                                
-                                <fieldset id="SubmitForm">
+                                </fieldset>*@
 
-
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="form-group">
-                                        <label>Nacionalidad</label><label class="bg-label"></label>
-                                        <div class="col-md-10">
-                                            @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
-                                            @Html.DropDownList("NacionalidadID2", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", name = "NacionalidadID2", id = "NacionalidadID2" })
-                                        </div>
-                                    </div>
-
-
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="form-group" id="_visible">
-                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.CantidadApresados2, new { htmlAttributes = new { @class = "form-control", @type = "number", id= "CantidadApresados2" }, placeholder = "Ingresar Cantidad" })<br />
-                                            @Html.ValidationMessageFor(model => model.CantidadApresados2, " ", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </fieldset>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
@@ -187,7 +147,7 @@
                     </div>
                 </div>
             </div>
-            @*Fin Apresados*@
+            @*Fin Modal Apresados**@
 
             <div class="form-group">
                 <label>Cantidad Incautada</label><label class="bg-label">*</label>
@@ -199,7 +159,7 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="defaultCheck1" id="defaultCheck1" name="defaultCheck1" onclick="myFunction2()" })>
+                <input class="form-check-input" type="checkbox" value="defaultCheck1" id="defaultCheck1" name="defaultCheck1" onchange="validaCheckbox()" })>
                 <label class="form-check-label" for="defaultCheck1">
                     <strong>Hubo Apresados?</strong>
                 </label>
@@ -252,13 +212,11 @@
             <br />
             <br />
             <br />
-
         </div>
         }
 
     </div>
 </div>
-
 
 @*<script>
     function myFunction2(inpt) {
@@ -309,47 +267,28 @@
 
         $("#ModalTitle").html("Tipo Producto ");
         $("#TipoProducto").modal();
-
         };
 
-    function myFunction2() {
-            //var micheckbox = document.getElementById("defaultCheck1");
-            // micheckbox.addEventListener('click', function () {
-            //if(micheckbox.checked) {
-                $("#ModalTitle").html("Apresados ");
-                $("#ApresadoID").modal();
+        //Valida checkbox
+        var checkbox = document.getElementById('defaultCheck1');
+        checkbox.addEventListener("change", validaCheckbox, false);
 
-            //}
-            //else {
+        function validaCheckbox() {
+            var checked = checkbox.checked;
+            if (checked) {
+                //alert('checkbox esta seleccionado');
+                $("#ModalTitleApresados").html("Apresados por Nacionalidad ");
+                $("#Apresados").modal("show");
 
+            }
+            else
 
-            //}
+            {
+                $("#Apresados").modal("hide");
 
-
-        };
+            }
                 
-            @*$(document).ready(function () {
-
-                $.get("@Url.Action("GetNacionalidades", "NovedadIncautacion")", function (data) {
-                    //$("select[name=nacionalidad]").append(
-                    //    $("<option>").attr({ "value": "0" }).text("Todos")
-                           $.each(data, function (index, row) {
-                        $("#NacionalidadID").append("<option value='" + row.ID + "'>" + row.Nombre + "</option>")
-
-                    });
-                });
-            });*@        
-        };                        
-          
-    //$('#TipoMedidaID').change(function (e) {
-    //    alert($(this).val());
-    //});
-
-    //function Alertando() {
-    //    var slt = document.getElementById('DdlLista');
-    //    var valor = slt.options[slt.selectedIndex].value;
-    //    alert(valor);
-    //};
+        }
 
     </script>
 }

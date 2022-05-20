@@ -128,8 +128,9 @@ namespace BusinessControl
 
         }
 
-
-
-
+        public static object Get(char v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

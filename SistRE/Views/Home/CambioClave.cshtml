@@ -1,0 +1,173 @@
+﻿
+@model BeEntity.BeChangePassword
+
+
+@{
+                /**/
+
+ViewBag.Title = "Cambio de Contraseña";
+Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login SistRE</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/logoERD.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <img src="~/Images/logoERD.png" style="height: 150px; display: block;
+        margin-left: auto;
+        margin-right: auto" class="img-responsive" alt="Sistema de Registro de Novedades - ERD">
+
+        </div>
+        <h3 class="text-center" ;><small style="font-size: 75%; color:darkgreen"></small></h3>
+        <br />
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading" style="background-color:darkgreen">
+                        <h3 class="panel-title">Cambio Contraseña </h3>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("CambioClave", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "card card-container", role = "form", @id = "logInForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                                        @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control", @required = "required", placeholder = "Número Carnet ", type = "text" })
+                                        <span class="input-group-addon">Password Actual</span>
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.Usuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                        </span>
+                                        @Html.TextBoxFor(m => m.NewPassword, new { @class = "form-control password", @required = "required", placeholder = "Nueva Contraseña", name = "password", type = "password" })
+                                        <span class="input-group-addon" style="cursor:pointer;" onclick="showHidePass(this)" title="Mostrar/ocultar contraseña">
+                                            <span id="eye" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+                                    <br />
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                        </span>
+                                        @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control password", @required = "required", placeholder = "Confirmar Contraseña", name = "password", type = "password" })
+                                        <span class="input-group-addon" style="cursor:pointer;" onclick="showHidePass(this)" title="Mostrar/ocultar contraseña">
+                                            <span id="eye" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+
+
+                                    @Html.ValidationMessageFor(m => m.Usuario, "", new { @class = "text-danger" })
+                                    <div class="alert alert-warning alert-dismissible" id="caps-text" style="display:none;" role="alert">
+                                        <div>
+                                            <strong><span class="fa fa-exclamation-triangle"></span> Bloqueo mayusculas activado!</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="alertsContainer">
+                                    @if (TempData["info"] != null)
+                                    {
+                                        <div class="alert alert-info">
+                                            <span class="glyphicon glyphicon-info-sign"></span> @TempData["info"] <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                    }
+                                    @if (TempData["success"] != null)
+                                    {
+                                        <div class="alert alert-success">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> @TempData["success"] <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                    }
+                                    @if (TempData["alert"] != null)
+                                    {
+                                        <div class="alert alert-warning">
+                                            <span class="glyphicon glyphicon-exclamation-sign"></span> @TempData["alert"] <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                    }
+                                    @if (TempData["error"] != null)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <span class="glyphicon glyphicon-remove-sign"></span> @TempData["error"] <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                    }
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-azul-dom btn-block" id="submitBtn" style="background-color:darkgreen">Cambiar Contraseña<span class="glyphicon glyphicon-log-in"></span></button>
+
+                            </fieldset>
+                        }
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*@if (!Serv_CertCargos.Comun.isProductionApp)
+        {
+            <div id="watermark"><strong>VERSIÓN PARA PRUEBAS DE LA APLICACIÓN</strong></div>
+        }*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        window.onload = () => {
+            //Evitando el resubmit y dando retroalimentacion del estado de la pagina mediante le boton 'submit'
+            var currentForm = document.getElementById("logInForm");
+            if (currentForm != null) {
+                currentForm.onsubmit = function () {
+                    var button = currentForm.querySelector("#submitBtn");
+                    button.disabled = false;
+                    button.title = "Iniciando sesión, favor espere...";
+                    button.innerHTML = "<div class='row'><div class='col-sm-9'> Iniciando Sesión&nbsp;</div><div class='col-sm-3' style='padding:0;'> <div class='loader-btn' style='margin:0;'><div></div></div>";
+                };
+            }
+
+        };
+
+        function showHidePass() {
+            var inpt = document.getElementById("Password");
+            var eye = document.getElementById("eye");
+            if (inpt.type === "password") {
+                inpt.type = "text";
+                eye.className = "glyphicon glyphicon-eye-close";
+            } else {
+                inpt.type = "password";
+                eye.className = "glyphicon glyphicon-eye-open";
+            }
+        }
+
+        // When the user presses any key on the keyboard, run the function
+        document.addEventListener("keyup", function (event) {
+            // Get the warning text
+            var text = document.getElementById("caps-text");
+
+            // If "caps lock" is pressed, display the warning text
+            if (event.getModifierState("CapsLock")) {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none"
+            }
+        });
+
+        sessionStorage.removeItem("menu");
+    </script>
+</body>
+</html>
+

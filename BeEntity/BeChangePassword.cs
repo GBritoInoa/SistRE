@@ -30,6 +30,7 @@ namespace BeEntity
         //[Compare(NewPassword)]
         [StringLength(10, ErrorMessage = "The password must be atleast 6 characters long", MinimumLength = 6)]
         [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]
+
         public string ConfirmPassword { get; set; }
 
 

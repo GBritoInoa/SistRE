@@ -175,17 +175,37 @@ namespace SistRE.Controllers
             DalcMembresia MB = new DalcMembresia();
             var loginResult = MB.Login(model);
 
+           
             if (!loginResult.Success)
             {
                 ModelState.AddModelError("password", loginResult.Message);
                 return View(model);
             }
 
+            var user = loginResult.User;
+            if(user.CambioClave==true)
+            {
+                return RedirectToAction("Index");
+
+
+            }           
+            
+          
+
             SessionData.SetSesion(loginResult.User.UserName, loginResult.User.Perfil.ToString(), loginResult.User.PerfilID, loginResult.User.NombreCompleto, loginResult.User.Rango);
 
             return RedirectToAction("Index");
 
         }
+
+        public ActionResult CambioClave()
+        {
+            return View();
+
+
+        }
+
+
         public ActionResult LogOff()
         {
             SessionData.ClearSession();

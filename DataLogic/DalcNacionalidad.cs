@@ -34,7 +34,7 @@ namespace DataLogic
                                   select new BeNacionalidad()
 
                                   {
-                                      ID = n.NacionalidadID,
+                                      NacionalidadID = n.NacionalidadID,
                                       Nombre = n.Nombre,
                                       //EstatusID = n.EstatusID,
                                       //UsuarioCreo = a.UsuarioCreo,
@@ -77,7 +77,7 @@ namespace DataLogic
 
                                   {
 
-                                      ID = n.NacionalidadID,
+                                      NacionalidadID = n.NacionalidadID,
                                       Nombre = n.Nombre,
                                       EstatusID = n.EstatusID,
                                       UsuarioCreo = a.UsuarioCreo,
@@ -172,7 +172,7 @@ namespace DataLogic
 
                     n.Nombre = item.Nombre;
                     n.AuditoriaID = item.AuditoriaID;
-                    n.NacionalidadID = item.ID;
+                    n.NacionalidadID = item.NacionalidadID;
                     n.EstatusID = (int)item.EstatusID;
                     db.Nacionalidad.Attach(n);
                     db.Entry(n).Property(x => x.Nombre).IsModified = true;

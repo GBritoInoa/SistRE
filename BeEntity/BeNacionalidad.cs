@@ -14,7 +14,7 @@ namespace BeEntity
     /// </summary>
    public class BeNacionalidad: BeUserLogueado
     {
-        public int ID { get; set; }
+        public int NacionalidadID { get; set; }
         [DisplayName("Nacionalidad")]
         [Required(ErrorMessage = "{0} no puede estar vacio")]
         public string Nombre { get; set; }

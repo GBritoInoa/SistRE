@@ -198,6 +198,7 @@ namespace SistRE.Areas.Procesos.Controllers
 
         }
 
+
         /// <summary>
         /// GetNacionalidades
         /// </summary>
@@ -207,9 +208,9 @@ namespace SistRE.Areas.Procesos.Controllers
             try
             {
                 List<BeNacionalidad> Nacionalidades = BcNacionalidad.GetAll().ToList();
-                ViewBag.NacionalidadID = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "ID", "Nombre");
-                ViewBag.NacionalidadID1 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "ID", "Nombre");
-                ViewBag.NacionalidadID2 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "ID", "Nombre");
+                ViewBag.NacionalidadID = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
+                ViewBag.NacionalidadID1 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
+                ViewBag.NacionalidadID2 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
                 //return Json(Nacionalidades, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -280,6 +281,29 @@ namespace SistRE.Areas.Procesos.Controllers
                 ModelState.AddModelError(ex.Message, "Error al REGISTRAR Novedad Incautación");
                 throw new Exception(ex.Message);
             }
+
+        }
+
+
+        public ActionResult _Nacionalidades()
+        {
+
+            try
+            {
+                List<BeNacionalidad> Nacionalidades = BcNacionalidad.GetAll().ToList();
+                ViewBag.NacionalidadID = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
+                ViewBag.NacionalidadID1 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
+                ViewBag.NacionalidadID2 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
+                //return Json(Nacionalidades, JsonRequestBehavior.AllowGet);
+                return PartialView(Nacionalidades);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(ex.Message, "Error al obtener List Nacionalidades");
+                throw new Exception(ex.Message);
+            }
+
+
 
         }
     }
