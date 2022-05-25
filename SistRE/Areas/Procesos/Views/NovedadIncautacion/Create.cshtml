@@ -39,6 +39,11 @@
                 </div>
             </div>
 
+            <div style="visibility:hidden">
+            <input type="text" name="NacionalidadID" id="NacionalidadID" />
+            <input type="text" name="NacionalidadID1" id="NacionalidadID1" />
+            <input type="text" name="NacionalidadID2" id="NacionalidadID2" />
+             </div>
 
 
             @*onchange = "myFunction()"*@
@@ -117,26 +122,40 @@
 
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        <label>Producto a Incautar</label><label class="bg-label">*</label>
+                                        <label>Nacionalidad</label><label class="bg-label">*</label>
                                         <div class="col-md-10">
                                             @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
-                                            @Html.DropDownList("NacionalidadID", null , " -- Seleccionar Tipo --", new { @class = "form-control", id = "NacionalidadID", value = "NacionalidadID", name = "NacionalidadID" })
+                                            @Html.DropDownList("NacionalidadID", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", id = "NacionalidadIDSelect", name = "NacionalidadIDSelect", onchange = "SetTipoNacValue('NacionalidadID', this.value)" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.CantidadApresados, new { htmlAttributes = new { @class = " ", @type = "number" }, placeholder = "Ingresar Cantidad Apresados" })<br />
+                                            @Html.ValidationMessageFor(model => model.CantidadApresados, " ", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Nacionalidad</label><label class="bg-label">*</label>
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(model => model.NacionalidadID, "", new { @class = "text-danger" })
+                                            @Html.DropDownList("NacionalidadID", null, " -- Seleccionar Nacionalidad --", new { @class = "form-control", id = "NacionalidadIDSelect", name = "NacionalidadIDSelect", onchange = "SetTipoNacValue('NacionalidadID1', this.value)" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Cantidad Apresados</label><label class="bg-label">*</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.CantidadApresados1, new { htmlAttributes = new { @class = " ", @type = "number" }, placeholder = "Ingresar Cantidad Apresados" })<br />
+                                            @Html.ValidationMessageFor(model => model.CantidadApresados1, " ", new { @class = "text-danger" })
+
                                         </div>
                                     </div>
 
                                 </fieldset>
-
-                                @*<fieldset id="SubmitForm">
-
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="form-group" id="_visible">
-                                        <label>Tipo Medida/Presentación</label><label class="bg-label">*</label>
-                                        <div class="col-md-10">
-                                            @Html.ValidationMessageFor(model => model.TipoMedidaID, "", new { @class = "text-danger" })
-                                            @Html.DropDownList("TipoMedidaID", new List<SelectListItem>(), " -- Seleccionar Tipo --", new { @class = "form-control", @id = "TipoMedidaID", @Name = "TipoMedidaID" })
-                                        </div>
-                                    </div>
-                                </fieldset>*@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -218,19 +237,12 @@
     </div>
 </div>
 
-@*<script>
-    function myFunction2(inpt) {
-            myFunction();
-            useAjax('@Url.Action("NovedadIncautacion","GetNacionalidades")', function (data) {
-                fillDropDown('#NacionalidadID', data, 'ID', 'Nombre');
-            }, 'POST');
-        }
-    </script>*@
-
-
 @Scripts.Render("~/bundles/jqueryval")
 @section Scripts {
     <script type="text/javascript">
+        function SetTipoNacValue(id, value) {
+            document.getElementById(id).value = value
+        }
         $(document).ready(function () {
             $("#ddlIncautaciones").change(function () {
                 $.get("/NovedadIncautacion/GetProducts", { TipoProductoID: $("#ddlIncautaciones").val() }, function (data) {

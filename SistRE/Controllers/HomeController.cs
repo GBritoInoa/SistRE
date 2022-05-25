@@ -198,8 +198,37 @@ namespace SistRE.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult CambioClave()
         {
+            return View();
+
+
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CambioClave(BeChangePassword model)
+        {
+            if(!ModelState.IsValid)
+            {
+
+                return View(model);
+
+            }
+
+            try
+            {
+             
+                //BcUsers.Find()
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return View();
 
 

@@ -209,8 +209,8 @@ namespace SistRE.Areas.Procesos.Controllers
             {
                 List<BeNacionalidad> Nacionalidades = BcNacionalidad.GetAll().ToList();
                 ViewBag.NacionalidadID = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
-                ViewBag.NacionalidadID1 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
-                ViewBag.NacionalidadID2 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
+                //ViewBag.NacionalidadID1 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
+                //ViewBag.NacionalidadID2 = new SelectList(Nacionalidades.OrderBy(p => p.Nombre), "NacionalidadID", "Nombre");
                 //return Json(Nacionalidades, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
